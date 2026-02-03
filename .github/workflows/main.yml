@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for branch in elias-branch ines-branch florian-branch joel-branch; do
+          for branch in elias-branch joel-branch trystan-branch marie-branch; do
             echo "🔄 Mise à jour de la branche $branch avec main"
             git fetch origin $branch
             git checkout $branch
