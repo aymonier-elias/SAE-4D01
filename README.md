@@ -57,4 +57,4 @@ Le projet est organisé en plusieurs branches afin d’éviter les conflits :
    https://
 
 **Lien vers la maquette :**
-   https://
+   https://www.figma.com/design/5OWFL1hQ9x0ZJEhoVwkdDP/Maquette?t=gKer81P0IpGzank1-1
