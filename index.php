@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Site en construction !</h1>
-</body>
-</html>
+<?php
+
+require "controleur/Routeur.class.php";
+require "includes/default_config.php";
+
+
+$routeur = new Routeur();
+$routeur->routerRequete(); 
