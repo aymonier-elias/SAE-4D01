@@ -15,9 +15,26 @@ abstract class Config
 
     //Menu par défaut 
     public $menu = "
+        <div class = 'menu'>
+            <div class = 'basic'>
+                <a class='lien' href='index.php?action=escapes'>Les missions</a>
+                <a class='lien' href='index.php?action=concept'>Le concept</a>
+                <a class='lien' href='index.php?action=contact'>Contact</a>
+            </div>
+            <div class = 'important'>
+                <a class='lien' href='index.php?action=connexion'>Se connecter</a>
+            </div>
+        </div>
+    ";
+
+
+
+
+
+    //Menu connecté avec un compte utilisateur normal
+    public $menu_connecte = "
     <div class = 'menu'>
         <div class = 'basic'>
-            <a class='lien' href='index.php'>Accueil</a>
             <a class='lien' href='index.php?action=escapes'>Les missions</a>
             <a class='lien' href='index.php?action=concept'>Le concept</a>
             <a class='lien' href='index.php?action=contact'>Contact</a>
@@ -27,7 +44,7 @@ abstract class Config
             <a class='lien' href='index.php?action=panier'>Icone Panier</a>
             <a class='lien' href='index.php?action=favoris'>Icone Coeur</a>
             <a class='lien' href='index.php?action=profil'>Icone Profil</a>
-            <a href='index.php?action=deconnexion'>Se déconnecter</a>
+            <a class='lien' href='index.php?action=deconnexion'>Se déconnecter</a>
         </div>
     </div>
     ";
@@ -36,7 +53,6 @@ abstract class Config
     public $menu_admin ="
     <div class = 'menu'>
         <div class = 'basic'>
-            <a class='lien' href='index.php'>Accueil</a>
             <a class='lien' href='index.php?action=escapes'>Les missions</a>
             <a class='lien' href='index.php?action=concept'>Le concept</a>
             <a class='lien' href='index.php?action=contact'>Contact</a>
@@ -52,7 +68,7 @@ abstract class Config
             <a class='lien' href='index.php?action=panier'>Icone Panier</a>
             <a class='lien' href='index.php?action=favoris'>Icone Coeur</a>
             <a class='lien' href='index.php?action=profil'>Icone Profil</a>
-            <a href='index.php?action=deconnexion'>Se déconnecter</a>
+            <a class='lien' href='index.php?action=deconnexion'>Se déconnecter</a>
         </div>
     </div>
     ";
