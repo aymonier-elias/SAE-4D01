@@ -2,35 +2,71 @@
 
 /* Section - Infiltration */
 .infiltration {
-    color: var(--white);
-    padding: 125px;
-    h3 {
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
+  color: var(--white);
+  padding: 125px;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    text-align: center;
+  }
 }
 .card {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 45px;
-    max-width: 400px;
-    border-radius: 10px;
-    background-color: var(--brand-grey);
+  position: relative;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: var(--brand-grey);
+  img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+    /* border: 3px solid var(--grey); */
+    border-radius: 1000px;
+  }
+  p {
+    text-align: center;
+  }
 }
 .info {
-    width: 80%;
-    div {
-        display: flex;
-        justify-content: space-between;
-        color: var(--secondary);
-    }
+  width: 80%;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  div:first-child {
+    margin-bottom: 20px;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary);
+  }
 }
-.img {
-    background-image: url(../img/fond.png);
-    height: 100px;
-    width: 100px;
-    background-size: cover;
-    border-radius: 1000px;
+
+.difficulte {
+  display: flex;
+  align-items: center;
+  .note img {
+    border: none;
+    height: 30px;
+  }
+}
+
+.card-hover {
+  display: flex;
+  opacity: 0;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: 0.3s ease;
+  inset: 0;
+}
+.card:hover .card-hover {
+  opacity: 1;
+  background-color: var(--brand-red-half);
+  backdrop-filter: blur(5px);
 }

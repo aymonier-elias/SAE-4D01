@@ -14,20 +14,98 @@ $hero = "<div class='hero'>
   <h2>Vos prochaines inflitrations</h2>
   <div class="cards">
     <div class="card">
-      <span class="img"></span>
+
+
+      <div class="card-hover">
+        <a href="" class="cta">Réserver ma mission</a>
+      </div>
+
+      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
 
       <h3>L'Horloge du temps suspendu</h3>
 
       <div class="info">
         <div class="difficulte">
-          <p>Difficulté</p>
-          <div>
-            <!-- Svg a ajouter en JS en fonction de la bdd -->
+          <p>Difficulté :</p>
+          <div class="note">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
           </div>
         </div>
 
         <div class="duree">
-          <p>Durée</p>
+          <p>Durée :</p>
+          <p>90min</p>
+        </div>
+
+      </div>
+
+      <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
+        temps et déjouez le
+        destin avant que Strasbourg ne soit figée à jamais.</p>
+    </div>
+    <div class="card">
+
+
+      <div class="card-hover">
+        <a href="" class="cta">Réserver ma mission</a>
+      </div>
+
+      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
+
+      <h3>L'Horloge du temps suspendu</h3>
+
+      <div class="info">
+        <div class="difficulte">
+          <p>Difficulté :</p>
+          <div class="note">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+          </div>
+        </div>
+
+        <div class="duree">
+          <p>Durée :</p>
+          <p>90min</p>
+        </div>
+
+      </div>
+
+      <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
+        temps et déjouez le
+        destin avant que Strasbourg ne soit figée à jamais.</p>
+    </div>
+    <div class="card">
+
+
+      <div class="card-hover">
+        <a href="" class="cta">Réserver ma mission</a>
+      </div>
+
+      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
+
+      <h3>L'Horloge du temps suspendu</h3>
+
+      <div class="info">
+        <div class="difficulte">
+          <p>Difficulté :</p>
+          <div class="note">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+            <img src="img/svg/diff.svg" alt="Difficulté">
+          </div>
+        </div>
+
+        <div class="duree">
+          <p>Durée :</p>
           <p>90min</p>
         </div>
 
