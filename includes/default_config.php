@@ -18,13 +18,12 @@ $conf->nomSite = Config::NOMSITE;
 //Menu par défaut de la page
 $conf->menu = "
         <div class = 'menu'>
-            <div class = 'basic'>
-                <a class='lien' href='index.php?action=escapes'>Les missions</a>
-                <a class='lien' href='index.php?action=concept'>Le concept</a>
-                <a class='lien' href='index.php?action=contact'>Contact</a>
-            </div>
+                <a href='index.php?action=escapes'>Les missions</a>
+                <a href='index.php?action=concept'>Le concept</a>
+                <a href='index.php?action=contact'>Contact</a>
+                <button>Langue</button>
             <div class = 'important'>
-                <a class='lien' href='index.php?action=connexion'>Se connecter</a>
+                <a href='index.php?action=connexion'>Se connecter</a>
             </div>
         </div>
     ";
