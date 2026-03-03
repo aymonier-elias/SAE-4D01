@@ -33,7 +33,6 @@ class Vue {
       
   *******************************************************/
   public function afficher($data) {
-
     global $conf;
 
     $title = $conf->titreOnglet;

@@ -1,35 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   /* Color */
-  	/* Brand */
+  /* Brand */
   --primary: #82212a;
-  --secondary: oklch(0.6665 0.0944 65.51);
-  --secondary-half: oklch(0.6665 0.0944 65.51 / 50%);
+  --secondary: oklch(0.9133 0.0788 79.02);
+  --secondary-half: oklch(0.9133 0.0788 79.02 / 50%);
   --brand-red: #944640;
   --brand-white: #e2e1ea;
-  --brand-grey: #6e707b;
+  --brand-grey: oklch(0.5472 0.0172 277.61);
+  --brand-grey-half: oklch(0.5472 0.0172 277.61 / 50%);
   --brand-black: #2f2b2c;
-  	/* Black - White */
+  /* Black - White */
   --black: #1f1f1f;
   --black-half: oklch(0.2393 0 129.63 / 50%);
   --grey: #828282;
   --white: oklch(0.9612 0 0);
-  	/* State */
+  /* State */
   --info: #00bcff;
   --succes: #7ccf00;
   --warning: #ffb86a;
   --error: #fb2c36;
 
   /* Fonts */
-  --title: "Cinzel Decorative", serif;
+  --title: "Cinzel", serif;
   --text: "Montserrat", sans-serif;
-}
 
-.place {
-	font-size: 3rem;
+  --height: 100px;
 }
-
 
 * {
   padding: 0;
@@ -37,46 +35,125 @@
   box-sizing: border-box;
 }
 
-h1 {
-	font-family: var(--title);
+body {
+  background-color: var(--brand-black);
 }
 
-p, a, li, ul, button{
-	font-family: var(--text);
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: var(--title);
+  font-size: 4rem;
+}
+
+h2 {
+  font-family: var(--title);
+  font-size: 2rem;
+}
+
+p,
+a,
+li,
+ul,
+button {
+  font-family: var(--text);
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
-	border: none;
-	background: none;
-	cursor: pointer;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.degrader {
+  position: absolute;
+  background-image: linear-gradient(0, var(--brand-black), transparent);
+  height: 200px;
+  left: 0;
+  right: 0;
+}
+
+.cta {
+  border: solid var(--secondary) 2px;
+  padding: 12px 15px;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
 }
 
 /* Header */
-header {
-	position: sticky;
-	top: 10px;
-	margin: 10px;
-	padding: 20px 30px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background: var(--black-half);
-	color: var(--white);
-	border: 2px solid var(--secondary-half);
-	.menu {
-		display: flex;
-		align-items: center;
-		gap: 40px;
-		font-size: 1rem;
-		font-weight: bold;
-		.important {
-			padding: 10px;
-			border: 2px solid var(--secondary-half);
-		}
-	}
+.header {
+  position: relative;
+  background-image: url(../img/fond.png);
+  background-size: cover;
+  height: 100vh;
+  padding: 10px;
+  .degrader {
+    bottom: 0;
+  }
+}
+
+.nav {
+  position: sticky;
+  top: 10px;
+  padding: 20px 30px;
+  max-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--black-half);
+  color: var(--white);
+  border: 2px solid var(--secondary-half);
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    .important {
+      padding: 10px;
+      border: 2px solid var(--secondary-half);
+    }
+    a {
+      transition: 0.3s ease;
+      &:hover {
+        position: relative;
+        color: var(--secondary);
+        &::after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding-top: var(--height);
+  color: var(--white);
 }
