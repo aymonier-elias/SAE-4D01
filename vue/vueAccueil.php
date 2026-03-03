@@ -11,7 +11,10 @@ $hero = "<div class='hero'>
   ?>
 
 <section class="infiltration">
-  <h2>Vos prochaines inflitrations</h2>
+  <div class="title">
+    <h2>Vos prochaines inflitrations</h2>
+    <span class="separator"></span>
+  </div>
   <div class="cards">
     <div class="card">
 
