@@ -16,11 +16,10 @@ $hero = "<div class='hero'>
     <span class="separator"></span>
   </div>
   <div class="cards">
-    <div class="card">
-
+    <a href="#" class="card">
 
       <div class="card-hover">
-        <a href="" class="cta">Réserver ma mission</a>
+        <span class="cta">Réserver ma mission</span>
       </div>
 
       <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
@@ -49,12 +48,10 @@ $hero = "<div class='hero'>
       <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
-    </div>
-    <div class="card">
-
-
+    </a>
+    <a href="#" class="card">
       <div class="card-hover">
-        <a href="" class="cta">Réserver ma mission</a>
+        <span class="cta">Réserver ma mission</span>
       </div>
 
       <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
@@ -83,12 +80,12 @@ $hero = "<div class='hero'>
       <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#" class="card">
 
 
       <div class="card-hover">
-        <a href="" class="cta">Réserver ma mission</a>
+        <span class="cta">Réserver ma mission</span>
       </div>
 
       <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
@@ -117,7 +114,7 @@ $hero = "<div class='hero'>
       <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
-    </div>
+    </a>
   </div>
   <a href="" class="cta">Voir toute les missions</a>
 </section>
@@ -166,6 +163,7 @@ $hero = "<div class='hero'>
       <img src="/img/svg/roueDente.svg" alt="1" height="10px" width="10px">
       <span></span>
     </div>
-    <p>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe comptent</p>
+    <p>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe
+      comptent</p>
   </footer>
 </section>
