@@ -16,6 +16,7 @@
   --black: #1f1f1f;
   --black-half: oklch(0.2393 0 129.63 / 50%);
   --grey: oklch(0.6066 0 0);
+  --grey-half: oklch(0.6066 0 0 / 50%);
   --white: oklch(0.9612 0 0);
   /* State */
   --info: #00bcff;
@@ -71,7 +72,8 @@ p,
 a,
 li,
 ul,
-button {
+button,
+span {
   font-family: var(--text);
   color: var(--white);
 }

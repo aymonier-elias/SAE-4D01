@@ -128,9 +128,29 @@ $hero = "<div class='hero'>
     <span class="separator"></span>
   </div>
 
-  <main>
-    <div>
+  <main class="grid">
+    <div class="card_grid-a">
       <span>1</span>
+      <div>
+        <h3>Choississer votre terrai d'opération</h3>
+        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+          attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
+          porte ouverte sur l'inconnu.</p>
+      </div>
+    </div>
+
+    <div class="card_grid-b">
+      <span>2</span>
+      <div>
+        <h3>Choississer votre terrai d'opération</h3>
+        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+          attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
+          porte ouverte sur l'inconnu.</p>
+      </div>
+    </div>
+
+    <div class="card_grid-c">
+      <span>3</span>
       <div>
         <h3>Choississer votre terrai d'opération</h3>
         <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
@@ -141,8 +161,11 @@ $hero = "<div class='hero'>
   </main>
 
   <footer>
-    <span></span>
-    <img src="" alt="">
-    <span></span>
+    <div class="sep">
+      <span></span>
+      <img src="/img/svg/roueDente.svg" alt="1" height="10px" width="10px">
+      <span></span>
+    </div>
+    <p>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe comptent</p>
   </footer>
 </section>
