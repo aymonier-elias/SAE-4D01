@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     gap: 100px;
-  color: var(--white);
   padding: 125px;
   h3 {
     font-size: 1.25rem;
@@ -34,13 +33,12 @@
         }
     }
 }
+/* Card */
 .cards {
   display: flex;
   width: 100%;
  justify-content: space-between;
 }
-
-/* Card */
 .card {
   position: relative;
   padding: 30px;
@@ -76,7 +74,6 @@
     color: var(--secondary);
   }
 }
-
 .difficulte {
   display: flex;
   align-items: center;
@@ -85,7 +82,6 @@
     height: 30px;
   }
 }
-
 .card-hover {
   display: flex;
   opacity: 0;
@@ -100,4 +96,17 @@
   opacity: 1;
   background-color: var(--brand-red-half);
   backdrop-filter: blur(5px);
+}
+
+/* Section - Expérience */
+.experience {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  padding: 125px;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    text-align: center;
+  }
 }

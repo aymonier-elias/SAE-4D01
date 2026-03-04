@@ -121,3 +121,28 @@ $hero = "<div class='hero'>
   </div>
   <a href="" class="cta">Voir toute les missions</a>
 </section>
+
+<section class="experience">
+  <div class="title">
+    <h2>L'EXPÉRIENCE LOCK OUT</h2>
+    <span class="separator"></span>
+  </div>
+
+  <main>
+    <div>
+      <span>1</span>
+      <div>
+        <h3>Choississer votre terrai d'opération</h3>
+        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+          attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
+          porte ouverte sur l'inconnu.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span></span>
+    <img src="" alt="">
+    <span></span>
+  </footer>
+</section>

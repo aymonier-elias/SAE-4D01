@@ -50,18 +50,21 @@ h1 {
   font-family: var(--title);
   font-size: 4rem;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 h2 {
   font-family: var(--title);
   font-size: 2rem;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 h3 {
   font-family: var(--title);
   font-size: 1.25rem;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 p,
@@ -70,6 +73,7 @@ li,
 ul,
 button {
   font-family: var(--text);
+  color: var(--white);
 }
 
 a {
@@ -92,6 +96,7 @@ button {
 }
 
 .cta {
+  color: var(--white);
   border: solid var(--secondary) 2px;
   padding: 12px 15px;
   width: fit-content;
