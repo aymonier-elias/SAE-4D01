@@ -1,0 +1,92 @@
+{
+  "header": {
+    "missions": {
+      "fr": "Les missions",
+      "en": "The missions"
+    },
+    "concept": {
+      "fr": "Le concept",
+      "en": "The concept"
+    },
+    "contact": {
+      "fr": "Contact",
+      "en": "Contact"
+    }
+  },
+
+  "home": {
+
+    "entete": {
+        "titre": {
+            "fr": "DÉVERROUILLEZ LES SECRETS DE NOS CITÉS",
+            "en": "UNLOCK THE SECRETS OF OUR CITIES"
+        },
+        "description-home": {
+            "fr": "Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et redécouvrez le patrimoine à travers les rouages du temps.",
+            "en": "Every alleyway hides a legend, every wall a secret. Immerse yourself in a unique infiltration experience and rediscover heritage through the workings of time."
+        },
+        "bouton-home": {
+            "fr": "RÉSERVER MA MISSION",
+            "en": "BOOK MY MISSION"
+        }
+    },
+    
+    "infiltration":{
+        "titre": {
+            "fr": "VOS PROCHAINES INFILTRATIONS ",
+            "en": "BOOK MY MISSION"
+        },
+        "btn": {
+            "fr": "VOIR TOUTES LES MISSIONS",
+            "en": "SEE ALL MISSIONS"
+        }
+    },
+
+
+    "experience":{
+        "titre": {
+            "fr": "L'EXPÉRIENCE LOCK OUT",
+            "en": "THE LOCK OUT EXPERIENCE"
+        },
+        "titre-cat-1": {
+            "fr": "CHOISISSEZ VOTRE TERRAIN D'OPÉRATION",
+            "en": "CHOOSE YOUR AREA OF OPERATION"
+        },
+        "desc-cat-1": {
+            "fr": "Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une porte ouverte sur l'inconnu.",
+            "en": "Explore our confidential files and select the plot that will awaken your senses. Whether you are drawn to the workings of a thousand-year-old clock or the secrets of an industrial mansion, each mission is a gateway to the unknown."
+        },
+        "titre-cat-2": {
+            "fr": "FRANCHISSEZ LE SEUIL DU RÉSEAU",
+            "en": "STEP INTO THE NETWORK"
+        },
+        "desc-cat-2": {
+            "fr": "Réunissez vos alliés les plus fidèles au point de rendez-vous. Votre officier de liaison vous remettra votre équipement technique et les dernières instructions critiques. Une fois le chronomètre lancé, vous ne pourrez compter que sur votre ingéniosité pour rester discrets et accomplir votre mission au cœur de la cité.",
+            "en": "Gather your most loyal allies at the meeting point. Your liaison officer will give you your technical equipment and the latest critical instructions. Once the timer starts, you will have to rely on your ingenuity to remain discreet and accomplish your mission in the heart of the city."
+        },
+        "titre-cat-3": {
+            "fr": "DÉVERROUILLEZ L'HISTOIRE",
+            "en": "UNLOCK HISTORY"
+        },
+        "desc-cat-3": {
+            "fr": "Manipulez les mécanismes ancestraux, déchiffrez les messages codés et relancez le cours du temps. Le compte à rebours est lancé : accomplissez votre objectif et extrayez-vous de la zone avant que les ombres du passé ne vous rattrapent définitivement.",
+            "en": "Manipulate ancient mechanisms, decipher coded messages and restart the course of time. The countdown has begun: accomplish your goal and escape the zone before the shadows of the past catch up with you for good."
+        },
+        "info": {
+        "fr": "Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe comptent",
+        "en": "No prior historical knowledge is required. Only your analytical skills and team spirit matter."
+        }
+    },
+    
+    
+    
+    "": {
+        "fr": "",
+        "en": ""
+    },
+    "": {
+        "fr": "",
+        "en": ""
+    }
+  }
+}
