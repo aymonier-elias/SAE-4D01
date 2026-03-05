@@ -77,16 +77,90 @@
         "en": "No prior historical knowledge is required. Only your analytical skills and team spirit matter."
         }
     },
-    
-    
-    
-    "": {
-        "fr": "",
-        "en": ""
+
+
+    "cadeau":{
+        "insitation": {
+            "fr": "PENSEZ À LA CARTE CADEAU LOCK OUT",
+            "en": "CONSIDER THE LOCK OUT GIFT CARD"
+        },
+        "titre": {
+            "fr": "OFFREZ L'AVENTURE EN HÉRITAGE",
+            "en": "GIVE THE GIFT OF ADVENTURE"
+        },
+        "description": {
+            "fr": "Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et vivre une immersion hors du temps.",
+            "en": "Turn your loved ones into accomplices in legend. Give them the key to unlock the secrets of our cities and experience a timeless immersion."
+        },
+        "bouton": {
+            "fr": "OFFRIR UNE MISSION ",
+            "en": "OFFER A MISSION "
+        }   
+    }
+  },
+
+  "footer": {
+
+    "coordonnees": {
+        "titre": {
+            "fr": "COORDONNÉES",
+            "en": "CONTACT DETAILS"
+        },
+        "adresse": {
+            "fr": "55 rue de Pfastatt",
+            "en": "55 Pfastatt Street"
+        }
     },
-    "": {
-        "fr": "",
-        "en": ""
+    
+    "protocoles":{
+        "titre": {
+            "fr": "PROTOCOLES",
+            "en": "PROTOCOLS"
+        },
+        "missions": {
+            "fr": "Les Missions",
+            "en": "The Missions"
+        },
+        "concept": {
+            "fr": "Le Concept",
+            "en": "The Concept"
+        },
+        "faq": {
+            "fr": "FAQ",
+            "en": "FAQ"
+        },
+        "contact": {
+            "fr": "Contact",
+            "en": "Contact"
+        },
+        "recrutement": {
+            "fr": "Recrutement",
+            "en": "Recruitment"
+        }
+    },
+
+    "confidentialite":{
+        "titre": {
+            "fr": "CONFIDENTIALITÉ",
+            "en": "CONFIDENTIALITY"
+        },
+        "mentions": {
+            "fr": "Mentions Légales",
+            "en": "Legal Notice"
+        },
+        "cgv": {
+            "fr": "CGV",
+            "en": "CGV"
+        },
+        "cookies": {
+            "fr": "Cookies",
+            "en": "Cookies"
+        }
+    },
+
+    "copyright":{
+        "fr" : "Propriété de l'Agence Lock Out. Transmission de données cryptée. © 2026",
+        "de" : "Property of Lock Out Agency. Encrypted data transmission. © 2026"
     }
   }
 }
