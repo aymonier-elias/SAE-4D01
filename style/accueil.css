@@ -174,12 +174,58 @@
     span {
       background-color: var(--secondary);
       width: 50px;
-      height: 3px;
+      height: 2px;
       border-radius: 3px;
     }
   }
   p {
     text-align: center;
     color: var(--grey-half);
+  }
+}
+
+/* Section : Offre */
+.offre {
+  margin: 0 250px;
+  padding: 50px;
+  background-image:
+    linear-gradient(
+      0,
+      var(--brand-black) 5%,
+      transparent,
+      var(--brand-black) 95%
+    ),
+    linear-gradient(
+      90deg,
+      var(--brand-black) 5%,
+      transparent,
+      var(--brand-black) 95%
+    ),
+    url(../img/fond_pass-partout.png);
+  background-size: cover;
+
+  img {
+    width: 50%;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+
+  h2 {
+    font-size: 2.25rem;
+    width: 400px;
+    strong {
+      color: var(--primary);
+    }
+  }
+
+  h3 {
+    font-family: var(--text);
+    font-weight: 500;
   }
 }

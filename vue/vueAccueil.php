@@ -160,10 +160,21 @@ $hero = "<div class='hero'>
   <footer>
     <div class="sep">
       <span></span>
-      <img src="/img/svg/roueDente.svg" alt="1" height="10px" width="10px">
+      <img src="img/svg/roueDente.svg" alt="1" height="10px" width="10px">
       <span></span>
     </div>
     <p>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe
       comptent</p>
   </footer>
+</section>
+
+<section class="offre">
+  <div class="text">
+    <h3>Pensez a la carte cadeau lock out</h3>
+    <h2>Offrez l'aventure <strong>en héritage</strong></h2>
+    <p>Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et
+      vivre une immersion hors du temps.</p>
+  </div>
+  <img src="img/card_pass-partout.png" alt="">
+  <a href="#" class="cta">Offrir une mission</a>
 </section>
