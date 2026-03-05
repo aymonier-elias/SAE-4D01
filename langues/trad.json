@@ -162,5 +162,37 @@
         "fr" : "Propriété de l'Agence Lock Out. Transmission de données cryptée. © 2026",
         "de" : "Property of Lock Out Agency. Encrypted data transmission. © 2026"
     }
+  },
+
+
+  "page-mission": {
+
+    "titre": {
+        "fr": "ARCHIVES DES MISSIONS",
+        "en": "MISSION ARCHIVES"
+    },
+    "description": {
+        "fr": "Sélectionnez votre zone d'intervention. Chaque cité cache un mécanisme unique, chaque porte une nouvelle énigme.",
+        "en": "Select your area of operation. Each city hides a unique mechanism, each door a new puzzle."
+    },
+    "filtre":{
+        "villes": {
+            "fr": "Villes",
+            "en": "Cities"
+        },
+        "difficulte": {
+            "fr": "Difficulté",
+            "en": "Difficulty"
+        },
+        "type": {
+            "fr": "type",
+            "en": "type"
+        }
+    },
+    "edition": {
+        "fr": "EDITION SPECIAl",
+        "en": "EDITION SPECIAl"
+    },
+    
   }
 }
