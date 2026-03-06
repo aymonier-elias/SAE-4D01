@@ -17,8 +17,13 @@
     </nav>
 
     <?php
-    if (isset($hero)) {
+    if (!empty($hero)) {
       echo "$hero";
+      echo "<style>
+        header {
+          height: 100vh !important;
+        }
+      </style>";
     }
     ?>
 

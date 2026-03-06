@@ -114,9 +114,7 @@ button {
 /* Header */
 .header {
   position: relative;
-  background-image: url(../img/fond.png);
   background-size: cover;
-  height: 100vh;
   padding: 10px;
   .degrader {
     bottom: 0;
@@ -124,6 +122,7 @@ button {
 }
 
 .nav {
+  z-index: 100;
   position: sticky;
   top: 10px;
   padding: 20px 30px;
@@ -165,11 +164,14 @@ button {
 
 /* Hero */
 .hero {
+  background-image: url(../img/fond.png);
+  background-size: cover;
+  position: absolute;
+  inset: 0;
   display: flex;
   gap: 40px;
   flex-direction: column;
   align-items: center;
-  width: 50%;
   padding-top: var(--height);
   color: var(--white);
 }

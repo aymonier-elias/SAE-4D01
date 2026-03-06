@@ -1,6 +1,6 @@
 <?php
 
-require_once "modele/Reservation.class.php";
+require_once "modele/reservation.class.php";
 require_once "vue/vue.class.php";
 
 class CtlReservation{
