@@ -192,7 +192,57 @@
     "edition": {
         "fr": "EDITION SPECIAl",
         "en": "EDITION SPECIAl"
+    } 
+  },
+
+
+  "page-description": {
+
+    "effectif": {
+        "fr": "EFFECTIFS",
+        "en": "STAFF"
+    },
+    "duree": {
+        "fr": "DURÉE",
+        "en": "DURATION"
+    },
+    "difficulte": {
+        "fr": "DIFFICULTÉ",
+        "en": "DIFFICULTY"
+    },
+    "lieu": {
+        "fr": "LIEU",
+        "en": "PLACE"
+    },
+    "brief": {
+        "fr": "BRIEFING DE LA MISSION",
+        "en": "MISSION BRIEFING"
+    },
+    "btn-reserve": {
+        "fr": "RÉSERVER LA MISSION",
+        "en": "BOOK THE MISSION"
+    },
+    "objectif": {
+        "fr": "OBJECTIF DE LA MISSION",
+        "en": "MISSION OBJECTIVE"
+    },
+
+    "pack":{
+        "choix-pack": {
+            "fr": "Agent, chaque mission nécessite un équipement adapté. Sélectionnez votre type de matériel pour recevoir vos outils de terrain !",
+            "en": "Agent, each mission requires the right equipment. Select your equipment type to receive your field tools!"
+    },
+    "": {
+        "fr": "",
+        "en": ""
+    },
+    "": {
+        "fr": "",
+        "en": ""
     }
+    }
+   
     
   }
+
 }
