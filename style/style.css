@@ -162,6 +162,22 @@ button {
   }
 }
 
+.menu_langue {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 80px;
+  /* left défini par le JS pour s'aligner en x sur le bouton */
+  border: 2px solid var(--secondary-half);
+  transition: .5s ease;
+  padding: 10px;
+}
+
+.menu_langue[aria-hidden="true"] {
+  transform: translateY(-250px);
+}
+
 /* Hero */
 .hero {
   background-image: url(../img/fond.png);

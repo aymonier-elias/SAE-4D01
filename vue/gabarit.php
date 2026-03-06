@@ -14,6 +14,12 @@
         <h1><?= $header ?></h1>
       </a>
       <?= $menu ?>
+
+      <div class="menu_langue" aria-hidden="true">
+        <img src="img/svg/fr.svg" alt="">
+        <!-- <img src="img/svg/de.svg" alt=""> -->
+        <img src="img/svg/uk.svg" alt="">
+      </div>
     </nav>
 
     <?php
@@ -39,6 +45,8 @@
 
     <?= $footer ?>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>
