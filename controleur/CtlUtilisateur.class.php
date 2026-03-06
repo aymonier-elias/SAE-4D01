@@ -13,8 +13,6 @@ class CtlClient{
 
 
 
-
-
     /*******************************************************
 Affichage de la liste des clients dans la vue concernée
   Entrée : 

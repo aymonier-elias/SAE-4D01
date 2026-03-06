@@ -1,7 +1,7 @@
 <?php
-require_once "controleur/CtlArticle.class.php";
-require_once "controleur/CtlClient.class.php";
-require_once "controleur/CtlCommande.class.php";
+require_once "controleur/CtlEscape.class.php";
+require_once "controleur/CtlReservation.class.php";
+require_once "controleur/CtlUtilisateur.class.php";
 require_once "controleur/CtlPage.class.php";
 
 // Classe chargée de la gestion des articles
@@ -9,15 +9,15 @@ require_once "controleur/CtlPage.class.php";
 
 class Routeur {
 
-    private $CtlClient;
-    private $CtlArticle;
-    private $ctlCommande;
+    private $CtlEscape;
+    private $CtlReservation;
+    private $CtlUtilisateur;
     private $CtlPage;
 
     public function __construct() {
-        $this->CtlClient = new CtlClient();
-        $this->CtlArticle = new CtlArticle();
-        $this->ctlCommande = new ctlCommande();
+        $this->CtlEscape = new CtlEscape();
+        $this->CtlReservation = new CtlReservation();
+        $this->CtlUtilisateur = new CtlUtilisateur();
         $this->CtlPage = new CtlPage();
     }
 
@@ -30,34 +30,34 @@ class Routeur {
             switch($_GET["action"]){
 
             case "escapes":
-                $this->CtlClient->clients();
+                $this->CtlEscape->escapes();
                 break;
             
             case "concept":
-                $this->CtlClient->ajoutClient();
+                $this->CtlEscape->escapes();
                 break;
             
             case "contact":
-                $this->CtlClient->enregClient($_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['adresse'], $_POST['ville'], $_POST['email']);
+                $this->CtlEscape->escapes();
                 break;
                 
             case "connexion":
-                $this->CtlArticle->articles();
+                $this->CtlUtilisateur->utilisateurs();
                 break;
 
             case "panier":
-                $this->ctlCommande->commandes();
+                $this->CtlReservation->reservations();
                 break;
 
             case "favoris":
-                $this->ctlCommande->commandes();
+                $this->CtlReservation->reservations();
                 break;
 
             case "profil":
-                $this->ctlCommande->commandes();
+                $this->CtlReservation->reservations();
                 break;
             case "profil":
-                $this->ctlCommande->commandes();
+                $this->CtlReservation->reservations();
                 break;
 
 

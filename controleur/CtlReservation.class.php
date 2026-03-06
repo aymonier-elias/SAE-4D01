@@ -26,11 +26,6 @@ Affichage de la liste des Reservations dans la vue concernée
         $vue->afficher(array("reservations" => $reservations)); 
     }
 
-
-
-
-
-
     /*******************************************************
 Affichage des détails d'une Reservation et du client dans la vue concernée
   Entrée :
