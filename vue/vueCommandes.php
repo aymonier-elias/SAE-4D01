@@ -2,7 +2,7 @@
   $titre = "Liste des commandes";
 ?>
 
-<div class="resultat">
+<div class="content">
   <?php
     if (count($commandes)) {
       require_once "includes/html/tableau.class.php";
@@ -11,7 +11,7 @@
       //Affichage des lignes du tableau
 
       foreach($commandes as $ligne){
-        $lien = '<a class="action" href="index.php?action=commande&idComm='.$ligne["N° Commande"].'">Afficher</a>';
+        $lien = '<a class="link-action" href="index.php?action=commande&idComm='.$ligne["N° Commande"].'">Afficher</a>';
 
         echo Tableau::row(array_merge(["$lien"], $ligne));
       }
@@ -20,6 +20,6 @@
       
     }
     else
-      echo "<div class='reponse'>Aucune commande n'est enregistrée dans la liste</div>";
+      echo "<div class='msg-empty'>Aucune commande n'est enregistrée dans la liste</div>";
   ?>
 </div>

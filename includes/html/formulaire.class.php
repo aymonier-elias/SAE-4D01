@@ -18,16 +18,16 @@ class Formulaire{
 
     public function inputText($name, $label=""){
         return "
-        <label class='form_elt'>
+        <label class='form-group'>
             <span>$label</span>
-            <input type='text' class='texte' name='$name' value='{$this->getValue($name)}'>
+            <input type='text' class='form-input' name='$name' value='{$this->getValue($name)}'>
         </label>";
     }
 
     
     public function submit($name){
         return "
-        <button class='valid' name='$name'>
+        <button class='btn-primary' name='$name'>
             Valider
         </button>";
     }

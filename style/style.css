@@ -3,7 +3,7 @@
 :root {
   /* Color */
   /* Brand */
-  --primary: #82212a;
+  --primary: oklch(0.4077 0.1312 20.3);
   --secondary: oklch(0.9133 0.0788 79.02);
   --secondary-half: oklch(0.9133 0.0788 79.02 / 50%);
   --brand-red: oklch(0.4921 0.1064 26.16);
@@ -11,11 +11,12 @@
   --brand-white: #e2e1ea;
   --brand-grey: oklch(0.5472 0.0172 277.61);
   --brand-grey-half: oklch(0.5472 0.0172 277.61 / 50%);
-  --brand-black: #2f2b2c;
+  --brand-black: oklch(0.2547 0.0128 258.37);
   /* Black - White */
   --black: #1f1f1f;
   --black-half: oklch(0.2393 0 129.63 / 50%);
   --grey: oklch(0.6066 0 0);
+  --grey-half: oklch(0.6066 0 0 / 50%);
   --white: oklch(0.9612 0 0);
   /* State */
   --info: #00bcff;
@@ -71,7 +72,8 @@ p,
 a,
 li,
 ul,
-button {
+button,
+span {
   font-family: var(--text);
   color: var(--white);
 }
@@ -171,3 +173,5 @@ button {
   padding-top: var(--height);
   color: var(--white);
 }
+
+/* Footer */

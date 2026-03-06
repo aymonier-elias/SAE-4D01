@@ -2,9 +2,9 @@
 
 /* Section - Infiltration */
 .infiltration {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
   padding: 125px;
   h3 {
     font-size: 1.25rem;
@@ -13,31 +13,36 @@
   }
 }
 .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .separator {
-        position: relative;
-        width: 110px;
-        height: 4px;
-        background-color: var(--secondary);
-        border-radius: 100%;
-        box-shadow: 0 0 5px 0 var(--secondary);
-        &::after { 
-            content: "";
-            position: absolute;
-            left: -50%;
-            right: -50%;
-            height: 100%;
-            background-image: linear-gradient(90deg, transparent, var(--secondary), transparent);
-        }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .separator {
+    position: relative;
+    width: 110px;
+    height: 4px;
+    background-color: var(--secondary);
+    border-radius: 100%;
+    box-shadow: 0 0 5px 0 var(--secondary);
+    &::after {
+      content: "";
+      position: absolute;
+      left: -50%;
+      right: -50%;
+      height: 100%;
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--secondary),
+        transparent
+      );
     }
+  }
 }
 /* Card */
 .cards {
   display: flex;
   width: 100%;
- justify-content: space-between;
+  justify-content: space-between;
 }
 .card {
   position: relative;
@@ -100,13 +105,127 @@
 
 /* Section - Expérience */
 .experience {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
   padding: 125px;
   h3 {
     font-size: 1.25rem;
     font-weight: bolder;
     text-align: center;
+  }
+}
+.grid {
+  display: grid;
+  gap: 8rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+[class|="card_grid"] {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    h3 {
+      color: var(--secondary);
+    }
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 500;
+    border-radius: 1000px;
+    border: solid 4px var(--secondary);
+    color: var(--secondary);
+
+    height: 90px;
+    min-width: 90px;
+  }
+}
+.card_grid-a {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.card_grid-b {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+.card_grid-c {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.experience footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  .sep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    span {
+      background-color: var(--secondary);
+      width: 50px;
+      height: 2px;
+      border-radius: 3px;
+    }
+  }
+  p {
+    text-align: center;
+    color: var(--grey-half);
+  }
+}
+
+/* Section : Offre */
+.offre {
+  margin: 0 250px;
+  padding: 50px;
+  background-image:
+    linear-gradient(
+      0,
+      var(--brand-black) 5%,
+      transparent,
+      var(--brand-black) 95%
+    ),
+    linear-gradient(
+      90deg,
+      var(--brand-black) 5%,
+      transparent,
+      var(--brand-black) 95%
+    ),
+    url(../img/fond_pass-partout.png);
+  background-size: cover;
+
+  img {
+    width: 50%;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+
+  h2 {
+    font-size: 2.25rem;
+    width: 400px;
+    strong {
+      color: var(--primary);
+    }
+  }
+
+  h3 {
+    font-family: var(--text);
+    font-weight: 500;
   }
 }
