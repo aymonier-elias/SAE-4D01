@@ -27,6 +27,11 @@
     <?= $contenu ?>
   </main>
   <footer>
+    <nav class="footer-nav">
+
+    </nav>
+
+
     <?= $footer ?>
   </footer>
 </body>

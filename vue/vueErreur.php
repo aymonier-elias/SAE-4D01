@@ -1,4 +1,4 @@
 <?php
   $titre = "";
 ?>
-<div class="erreur">Erreur : <?=$message ?></div>';
+<div class="msg-error">Erreur : <?=$message ?></div>

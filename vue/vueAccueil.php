@@ -45,7 +45,7 @@ $hero = "<div class='hero'>
 
       </div>
 
-      <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
+      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
     </a>
@@ -77,7 +77,7 @@ $hero = "<div class='hero'>
 
       </div>
 
-      <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
+      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
     </a>
@@ -111,7 +111,7 @@ $hero = "<div class='hero'>
 
       </div>
 
-      <p class="desciption">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
+      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
         temps et déjouez le
         destin avant que Strasbourg ne soit figée à jamais.</p>
     </a>

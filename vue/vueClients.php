@@ -2,7 +2,7 @@
   $titre = "Liste des clients";
 ?>
 
-<div class="resultat">
+<div class="content">
   <?php
     if (count($clients)) {
       require_once "includes/html/tableau.class.php";
@@ -12,12 +12,12 @@
       echo Tableau::foot();
     }
     else
-      echo "<div class='reponse'>Aucun client n'est enregistré dans la liste</div>";
+      echo "<div class='msg-empty'>Aucun client n'est enregistré dans la liste</div>";
 
   ?>
 </div>
 <p>
-  <a  href="index.php?action=ajoutClient">
-    <button class="valid">Ajouter un client</button>
+  <a href="index.php?action=ajoutClient">
+    <button class="btn-primary">Ajouter un client</button>
   </a>
 </p>

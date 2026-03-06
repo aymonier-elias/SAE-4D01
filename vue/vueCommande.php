@@ -2,12 +2,12 @@
   $titre = "Commande n°$idComm";
 ?>
 
-<div class="resultat">
-  <div class="titreCommande">Client :</div>
+<div class="content">
+  <div class="block-title">Client :</div>
   <div><?= $client["nom"]." ".$client["prenom"] ?></div>
   <div><?= $client["adresse"] ?></div>
   <div><?= $client["ville"] ?></div>
-  <div class="titreCommande">Articles :</div>
+  <div class="block-title">Articles :</div>
   <?php
 
 
@@ -45,6 +45,6 @@
       // echo "<div class='titreCommande'>Total : $total &euro;</div>";
     }
     else
-      echo "<div class='reponse'>La commande ne contient pas d'article</div>";
+      echo "<div class='msg-empty'>La commande ne contient pas d'article</div>";
   ?>
 </div>

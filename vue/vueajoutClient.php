@@ -3,11 +3,11 @@
 ?>
 
 
-<div class="resultat">
+<div class="content">
 
   <?php
   if(!empty($message))
-    echo "<div class = 'erreur'> Erreur : $message </div>";
+    echo "<div class='msg-error'>Erreur : $message</div>";
   ?>
 
   <form method="post" action="index.php?action=enregClient">

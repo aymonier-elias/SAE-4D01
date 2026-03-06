@@ -2,7 +2,7 @@
   $titre = "Liste des articles";
 ?>
 
-<div class="resultat">
+<div class="content">
   <?php
     if (count($articles)) {
       require_once "includes/html/tableau.class.php";
@@ -15,6 +15,6 @@
 
     }
     else
-      echo "<div class='reponse'>Aucun article n'est enregistré dans la liste</div>";
+      echo "<div class='msg-empty'>Aucun article n'est enregistré dans la liste</div>";
   ?>
 </div>
