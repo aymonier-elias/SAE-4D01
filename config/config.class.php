@@ -4,7 +4,7 @@ abstract class Config
 {
     //Définition des paramètres de la BDD
     public static $DB_host = "localhost";
-    public static $DB_name = "Lockout";
+    public static $DB_name = "lockout";
     public static $DB_user = "root";
     public static $DB_pwd = "";
 

@@ -29,25 +29,45 @@ class Routeur {
 
             switch($_GET["action"]){
 
-            case "clients":
+            case "escapes":
                 $this->CtlClient->clients();
                 break;
             
-            case "ajoutClient":
+            case "concept":
                 $this->CtlClient->ajoutClient();
                 break;
             
-            case "enregClient":
+            case "contact":
                 $this->CtlClient->enregClient($_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['adresse'], $_POST['ville'], $_POST['email']);
                 break;
                 
-            case "articles":
+            case "connexion":
                 $this->CtlArticle->articles();
                 break;
 
-            case "commandes":
+            case "panier":
                 $this->ctlCommande->commandes();
                 break;
+
+            case "favoris":
+                $this->ctlCommande->commandes();
+                break;
+
+            case "profil":
+                $this->ctlCommande->commandes();
+                break;
+            case "profil":
+                $this->ctlCommande->commandes();
+                break;
+
+
+
+
+
+
+
+
+
             
             case "commande":
                 if(isset($_GET["idComm"])) {

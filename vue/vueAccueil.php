@@ -1,6 +1,18 @@
 <?php
 $cssLink = '<link href="style/accueil.css" rel="stylesheet">';
-$titre = "Administration du magasin";
+
+if($_SESSION){
+  if($_SESSION['statut'] == 2){
+    $menu =  $conf->menu_admin ; 
+ }
+ else
+    $menu =  $conf->menu_connecte;
+}
+else $menu = $conf->menu ;
+
+
+
+
 $hero = "<div class='hero'>
   <h1>DÉVERROUILLEZ LES SECRETS DE NOS CITÉS</h1>
   <h3>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
