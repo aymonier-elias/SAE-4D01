@@ -21,7 +21,7 @@ $conf->menu = "
                 <a href='index.php?action=escapes'>Les missions</a>
                 <a href='index.php?action=concept'>Le concept</a>
                 <a href='index.php?action=contact'>Contact</a>
-                <button>Langue</button>
+                <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
             <div class = 'important'>
                 <a href='index.php?action=connexion'>Se connecter</a>
             </div>

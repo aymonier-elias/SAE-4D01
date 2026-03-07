@@ -1,0 +1,85 @@
+@import url(style.css);
+
+.titre_page {
+  margin: 100px 0;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connexion_form {
+  align-items: unset;
+  width: 75%;
+  margin: auto;
+}
+
+.form_link {
+  display: flex;
+  justify-content: space-around;
+  a {
+    font-family: var(--title);
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 500;
+    padding: 8px 10%;
+    &.active {
+      background-color: var(--primary);
+      border: 1.5px solid var(--secondary);
+      border-bottom: none;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 130px 320px;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+  .form-input_wrap {
+    display: flex;
+    justify-content: space-betweena;
+    gap: 10px;
+  }
+  [class|="input"] {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    label {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    input {
+      border: 1px solid var(--secondary);
+      background: none;
+      min-height: 40px;
+      color: var(--white);
+      &:focus {
+        outline-style: none;
+        border: 2px solid var(--primary);
+        border-radius: 0;
+        box-shadow: 0 0 10px var(--white);
+      }
+      &:-webkit-autofill {
+        background-color: var(--brand-black) !important;
+        -webkit-box-shadow: 0 0 0px 1000px var(--brand-black) inset;
+        -webkit-text-fill-color: var(--white); /* couleur du texte */
+      }
+    }
+  }
+  .cta {
+    align-self: center;
+  }
+  .input-mdp a{
+    font-style: italic;
+    align-self: flex-end;
+    color: var(--brand-grey);
+  }
+}
