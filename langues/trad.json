@@ -192,7 +192,154 @@
     "edition": {
         "fr": "EDITION SPECIAl",
         "en": "EDITION SPECIAl"
+    } 
+  },
+
+
+  "page-description": {
+
+    "effectif": {
+        "fr": "EFFECTIFS",
+        "en": "STAFF"
+    },
+    "duree": {
+        "fr": "DURÉE",
+        "en": "DURATION"
+    },
+    "difficulte": {
+        "fr": "DIFFICULTÉ",
+        "en": "DIFFICULTY"
+    },
+    "lieu": {
+        "fr": "LIEU",
+        "en": "PLACE"
+    },
+    "brief": {
+        "fr": "BRIEFING DE LA MISSION",
+        "en": "MISSION BRIEFING"
+    },
+    "btn-reserve": {
+        "fr": "RÉSERVER LA MISSION",
+        "en": "BOOK THE MISSION"
+    },
+    "objectif": {
+        "fr": "OBJECTIF DE LA MISSION",
+        "en": "MISSION OBJECTIVE"
+    },
+
+    "pack":{
+        "choix-pack": {
+            "fr": "Agent, chaque mission nécessite un équipement adapté. Sélectionnez votre type de matériel pour recevoir vos outils de terrain !",
+            "en": "Agent, each mission requires the right equipment. Select your equipment type to receive your field tools!"
+        },
+        "telegraphe": {
+            "fr": "PACK TÉLÉGRAPHE",
+            "en": "TELEGRAPH PACK"
+        },
+        "desc-telegraphe":{
+            "fr": "Immersion Digitale : Votre smartphone est votre seul outil de décryptage.",
+            "en": "Digital Immersion: Your smartphone is your only decryption tool."
+        },
+        "archive": {
+            "fr": "PACK ARCHIVE",
+            "en": "ARCHIVE PACK"
+        },
+        "desc-archive": {
+            "fr": "Dossier Terrain : Recevez vos documents par courrier crypté (PDF) à imprimer.",
+            "en": "Field File: Receive your documents by encrypted mail (PDF) for printing."
+        },
+        "officier": {
+            "fr": "PACK ARCHIVE",
+            "en": "ARCHIVE PACK"
+        },
+        "desc-officier": {
+            "fr": "Équipement Royal : Sacoche d'enquêteur et objets physiques fournis sur place.",
+            "en": "Royal Equipment: Investigator's satchel and physical items provided on site."
+        },
+        "indication-prix": {
+            "fr": "Tarif fixe par groupe : un seul pack à ajouter au prix total de votre réservation, quel que soit le nombre de joueurs.",
+            "en": "Fixed price per group: only one package to add to the total price of your booking, regardless of the number of players."
+        }
+    },
+
+   "infos":{
+        "titre": {
+            "fr": "À Lire Impérativement",
+            "en": "Essential Reading"
+        },
+        "titre-preparatif": {
+            "fr": "Préparatifs",
+            "en": "Preparations"
+        },
+        "texte-preparatif":{
+            "fr": "Prévoyez des chaussures de marche. Nous vous confions le matériel d'enquêteur au départ.",
+            "en": "Please bring walking shoes. We will provide you with the investigator's equipment at the start."
+        },
+        "titre-rdv": {
+            "fr": "Rendez-vous",
+            "en": "Appointment"
+        },
+        "texte-rdv": {
+            "fr": "RDV 15 min avant l'heure dite à la DMC. Votre officier de liaison vous y attendra.",
+            "en": "Please arrive 15 minutes before the scheduled time at the DMC. Your liaison officer will be waiting for you there."
+        },
+        "titre-acces": {
+            "fr": "Accessibilité",
+            "en": "Accessibility"
+        },
+        "texte-acces": {
+            "fr": "Mission adaptée aux PMR et aux familles. Les enfants de moins de 10 ans doivent être accompagnés.",
+            "en": "This mission is suitable for people with reduced mobility and families. Children under 10 years old must be accompanied."
+        }
+       
+    }, 
+    "titre-avis": {
+        "fr": "RAPPORTS DE TERRAIN",
+        "en": "FIELD REPORTS"
+    },
+    "btn-ajouter-avis": {
+        "fr": "AJOUTER UN AVIS",
+        "en": "ADD A REVIEW"
     }
     
+  },
+
+  "page-avis":{
+    "titre": {
+        "fr": "RÉDACTION DE L’AVIS",
+        "en": "WRITING THE NOTICE"
+    },
+    "description": {
+        "fr": "Agent, vos observations terrain sont essentielles !",
+        "en": "Agent, your field observations are essential!"
+    },
+    "form":{
+        "nom": {
+            "fr": "NOM DE CODE",
+            "en": "CODE NAME"
+        },
+        "date": {
+            "fr": "DATE D'INTERVENTION",
+            "en": "DATE OF INTERVENTION"
+        },
+        "analyse": {
+            "fr": "ANALYSE TECHNIQUE",
+            "en": "TECHNICAL ANALYSIS"
+        },
+        "note": {
+            "fr": "VOTRE NOTE",
+            "en": "YOUR RATING"
+        },
+        "bouton": {
+            "fr": "GÉNERER VOTRE AVIS",
+            "en": "GENERATE YOUR REVIEW"
+        },
+        "message-succes": {
+            "fr": "TRANSMISSION RÉUSSIE",
+            "en": "SUCCESSFUL TRANSMISSION"
+        }
+    }
+
   }
+
 }
