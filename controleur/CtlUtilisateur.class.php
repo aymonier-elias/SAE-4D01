@@ -20,7 +20,7 @@ class CtlUtilisateur {
         PARTIE AFFICHAGE DES VUES
     *******************************************************/
 
-    /** Affichage de la page de connexion */
+    /** Affichage de la page de connexion */ 
     public function connexion($erreur = "") {
         setcookie('page', '?action=connexion', time() + 3600);
         $vue = new Vue("Connexion");
@@ -40,12 +40,6 @@ class CtlUtilisateur {
             "utilisateur" => $utilisateur,
             "erreur" => $erreur
         ));
-    }
-
-    /** Affichage de l'accueil connecté */
-    public function accueilConnecte() {
-        $vue = new Vue("AccueilConnecte");
-        $vue->afficher(array());
     }
 
     /** Liste des utilisateurs (admin) */
@@ -78,7 +72,7 @@ class CtlUtilisateur {
                 $_SESSION['id_utilisateur'] = $utilisateur['id_utilisateur'];
                 $_SESSION['statut'] = $utilisateur['statut'];
 
-                $this->accueilConnecte();
+                $this->accueil();
             }
         } else {
             $this->connexion('Cette adresse email est déjà utilisée');

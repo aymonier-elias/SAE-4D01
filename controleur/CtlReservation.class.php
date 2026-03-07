@@ -1,15 +1,17 @@
 <?php
 
-require_once "modele/Reservation.class.php";
+require_once "modele/reservation.class.php";
+require_once "modele/utilisateur.class.php";
 require_once "vue/vue.class.php";
 
-class CtlReservation{
+class CtlReservation {
 
     private $reservation;
-
+    private $utilisateur;
 
     public function __construct() {
         $this->reservation = new Reservation();
+        $this->utilisateur = new Utilisateur();
     }
 
 
@@ -21,9 +23,9 @@ Affichage de la liste des Reservations dans la vue concernée
     
 *******************************************************/
     public function reservations() {
-        $Reservations = $this->reservation->getReservations();
-        $vue = new Vue("Reservations"); // Instancie la vue appropriée
-        $vue->afficher(array("reservations" => $reservations)); 
+        $reservations = $this->reservation->getReservations();
+        $vue = new Vue("Reservations");
+        $vue->afficher(array("reservations" => $reservations));
     }
 
     /*******************************************************
@@ -34,24 +36,23 @@ Affichage des détails d'une Reservation et du client dans la vue concernée
   Retour : 
     
 *******************************************************/
-    public function reservation($idComm) {
-
-        $articles = $this->reservation->getArticlesReservation($idComm);
+    public function reservation($id_client, $id_version, $date, $heure) {
+        $articles = $this->reservation->getArticlesReservation($id_client, $id_version, $date, $heure);
         if (!empty($articles)) {
-            $objClient = new Client();
-            $client = $objClient->getClient($this->reservation->getIdClientReservation($idComm));
-            $total = $this->reservation->getTotalReservation($idComm);
-            $vue = new Vue("Reservation"); // Instancie la vue appropriée
-            $vue->afficher(array("escape" => $escape,
-                                "id_Res" => $id_Res,
-                                "total" => $total,
-                                "utilisateur" => $utilisateur
-                                )); 
+            $id_client_res = $this->reservation->getIdClientReservation($id_client, $id_version, $date, $heure);
+            $client = $this->utilisateur->getUtilisateur($id_client_res);
+            $total = $this->reservation->getTotalReservation($id_client, $id_version, $date, $heure);
+            $vue = new Vue("Reservation");
+            $vue->afficher(array(
+                "articles" => $articles,
+                "id_Res" => $id_client . '-' . $id_version . '-' . $date . '-' . $heure,
+                "idComm" => $id_client . '-' . $id_version . '-' . $date . '-' . $heure,
+                "total" => $total,
+                "client" => $client,
+                "utilisateur" => $client
+            ));
+        } else {
+            throw new Exception("Echec de l'affichage de la réservation.");
         }
-        else
-            throw new Exception("Echec de l'affichage de la reservation N°$id_Res");
-        }
-           
-
-
+    }
 }

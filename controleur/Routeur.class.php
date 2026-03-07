@@ -29,34 +29,31 @@ class Routeur {
                         break;
 
                     case "concept":
-                        $this->CtlEscape->escapes();
+                        $this->CtlPage->concept();
                         break;
 
                     case "contact":
-                        $this->CtlEscape->escapes();
+                        $this->CtlPage->contact();
                         break;
 
-                    case "connexion":
+                    case "connexion": // page de connexion
                         $this->CtlUtilisateur->connexion($_GET["erreur"] ?? "");
                         break;
 
-                    case "inscription":
-                        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                            $this->CtlUtilisateur->inscription(
-                                $_POST["prenom"] ?? "",
-                                $_POST["nom"] ?? "",
-                                $_POST["email"] ?? "",
-                                $_POST["mdp"] ?? ""
-                            );
-                        } else {
-                            $vue = new Vue("Inscription");
-                            $vue->afficher(array("erreur" => ""));
-                        }
+                    case "inscription": // envoie des données de l'utilisateur à la base de données
+                        $this->CtlUtilisateur->inscription($_POST["prenom"] ?? "",$_POST["nom"] ?? "",
+                        $_POST["email"] ?? "",$_POST["mdp"] ?? "");
+                        break;
+                    
+                    case "login": // vérifie les données de l'utilisateur dans la base de données
+                        $this->CtlUtilisateur->login($_POST['nom'] ?? "", $_POST['mdp'] ?? "");
                         break;
 
-                    case "login":
-                        $this->CtlUtilisateur->login($_POST["email"] ?? "", $_POST["mdp"] ?? "");
-                        break;
+
+
+
+
+
 
                     case "deconnexion":
                         $this->CtlUtilisateur->quitter();
@@ -103,14 +100,14 @@ class Routeur {
                         break;
 
                     case "commande":
-                        if (isset($_GET["idComm"])) {
-                            $idComm = (int) $_GET["idComm"];
-                            if ($idComm > 0)
-                                $this->CtlReservation->reservation($idComm);
-                            else
-                                throw new Exception("Identifiant de commande invalide");
+                        $id_client = (int) ($_GET["id_client"] ?? 0);
+                        $id_version = (int) ($_GET["id_version"] ?? 0);
+                        $date = $_GET["date"] ?? '';
+                        $heure = $_GET["heure"] ?? '';
+                        if ($id_client > 0 && $id_version > 0 && $date !== '' && $heure !== '') {
+                            $this->CtlReservation->reservation($id_client, $id_version, $date, $heure);
                         } else {
-                            throw new Exception("Aucun identifiant de commande");
+                            throw new Exception("Identifiants de commande invalides (id_client, id_version, date, heure requis)");
                         }
                         break;
 

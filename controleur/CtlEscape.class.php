@@ -4,8 +4,6 @@ require_once "vue/vue.class.php";
 
 
 // Classe chargée de la gestion des escapes
-
-
 class CtlEscape{
 
     private $escape;
@@ -13,7 +11,7 @@ class CtlEscape{
     public function __construct() {
         $this->escape = new Escape();
     }
-
+    
 
     /*******************************************************
 Affichage de la liste des escapes dans la vue concernée
@@ -23,10 +21,9 @@ Affichage de la liste des escapes dans la vue concernée
     
 *******************************************************/
     public function escapes() {
-        $escapes = $this->article->getEscapes();
+        $escapes = $this->escape->getEscapes();
         $vue = new Vue("Escapes"); // Instancie la vue appropriée
         $vue->afficher(array("escapes" => $escapes)); 
     }
-
 
 }

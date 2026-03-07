@@ -1,0 +1,1 @@
+page des escape disponibles avec la possibilité de les filtrer par ville, par tags, par difficultés, par nombre de participants, par prix, par date, par heure, par nom, par description, par longitude, par latitude, par nb_participants_max, par age_minimum, par ville, par tags, par difficultés
