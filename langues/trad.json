@@ -475,6 +475,58 @@
         }
     }
 
+  },
+
+
+  "panier":{
+    "num":{
+        "fr": "ORDRE DE MISSION N°",
+        "en": "MISSION ORDER NO."
+    },
+    "texte":{
+        "fr": "Vérifiez vos paramètres de déploiement avant signature !",
+        "en": "Check your deployment settings before signing!"
+    },
+    "effectif":{
+        "fr": "Effectif : ",
+        "en": "Staff:"
+    },
+    "deploiement":{
+        "fr": "Déploiement le :  ",
+        "en": "Deployment on:"
+    },
+    "equipement":{
+        "fr": "EQUIPEMENT : ",
+        "en": "EQUIPMENT :"
+    },
+    "lieu":{
+        "fr": "LIEU :",
+        "en": "PLACE :"
+    },
+    "bilan":{
+        "fr": "BILAN FINANCIER",
+        "en": "FINANCIAL STATEMENT"
+    },
+    "mobilisation":{
+        "fr": "Mobilisation Agents ................. ",
+        "en": "Mobilization Agents ................."
+    },
+    "logistique":{
+        "fr": "Logistique EQUIPEMENT ................ ",
+        "en": "Logistics EQUIPMENT ................"
+    },
+    "total":{
+        "fr": "TOTAL À RÉGLER",
+        "en": "TOTAL DUE"
+    },
+    "paiement":{
+        "fr": "Modes de paiement disponibles",
+        "en": "Available payment methods"
+    },
+    "valider":{
+        "fr": "VALIDER & PAYER",
+        "en": "VALIDATE and PAY"
+    }
   }
 
 }
