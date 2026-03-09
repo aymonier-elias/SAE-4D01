@@ -340,6 +340,141 @@
         }
     }
 
+  },
+
+  "popup":{
+    "titre":{
+        "fr": "RÉSERVER LA MISSION",
+        "en": "BOOK THE MISSION"
+    },
+
+    "effectif":{
+        "titre":{
+            "fr": "Effectifs",
+            "en": "Staff"
+        },
+        "nb-pers":{
+            "fr": "Combien d'agents seront mobilisés pour cette mission ?",
+            "en": "How many agents will be mobilized for this mission?"
+        },
+        "cout":{
+            "fr": "Coût de l’opération estimé :",
+            "en": "Coût de l’opération estimé :"
+        },
+        "soit": {
+            "fr": "Soit",
+            "en": "Either"
+        },
+        "par-pers":{
+            "fr": "€ par agent",
+            "en": "€ per agent"
+        },
+        "btn-choix-creneau":{
+            "fr": "CHOISIR LE CRÉNEAU ",
+            "en": "CHOOSE THE TIME SLOT"
+        }
+    },
+
+    "deploiement":{
+        "titre":{
+            "fr": "DEPLOIEMENT",
+            "en": "DEPLOYMENT"
+        },
+        "texte":{
+            "fr": "Sélectionnez votre créneau de mission : la ponctualité est la clé du succès.",
+            "en": "Select your mission time slot: punctuality is the key to success."
+        },
+        "heure":{
+            "fr": "HEURES DE DÉPLOIEMENT",
+            "en": "DEPLOYMENT HOURS"
+        },
+        "info": {
+            "fr": "Note : Les éléments grisés sont indisponibles car déjà réservés par d'autres unités ou archivés.",
+            "en": "Note: Items shown in grey are unavailable because they have already been reserved by other units or archived."
+        },
+        "btn-choix-pack":{
+            "fr": "CHOISIR LE PACK",
+            "en": "CHOOSE THE PACK"
+        }
+    },
+
+    "pack":{
+        "titre":{
+            "fr": "PACK",
+            "en": "PACK"
+        },
+        "texte":{
+            "fr": "Agent, sélectionnez votre pack. Le choix de votre équipement déterminera votre mode d'intervention sur le terrain.",
+            "en": "Agent, select your pack. Your choice of equipment will determine your method of intervention in the field."
+        },
+        "telegraphe":{
+            "titre":{
+                "fr":"PACK TÉLÉGRAPHE",
+                "en": "TELEGRAPH PACK"
+            },
+            "pt1":{
+                "fr": "100% Smartphone",
+                "en": "100% Smartphone"
+            },
+            "pt2":{
+                "fr": "Autonomie totale",
+                "en": "Total autonomy"
+            },
+            "pt3":{
+                "fr": "Zéro encombrement, 100% mobile",
+                "en": "Zero bulk, 100% mobile"
+            }       
+        },
+        "archive":{
+            "titre":{
+                "fr":"PACK ARCHIVE",
+                "en": "ARCHIVE PACK"
+            },
+            "pt1":{
+                "fr": "Dossier de mission PDF",
+                "en": "Mission file (PDF)"
+            },
+            "pt2":{
+                "fr": "Documents à imprimer",
+                "en": "Documents to print"
+            },
+            "pt3":{
+                "fr": "Expérience semi-physique",
+                "en": "Semi-physical experiment"
+            }       
+        },
+        "officier":{
+            "titre":{
+                "fr":"PACK OFFICIER",
+                "en": "OFFICER PACK"
+            },
+            "pt1":{
+                "fr": "Sacoche d'enquêteur physique",
+                "en": "Physical investigator's briefcase"
+            },
+            "pt2":{
+                "fr": "Objets et indices réels",
+                "en": "Real objects and clues"
+            },
+            "pt3":{
+                "fr": "Immersion maximale",
+                "en": "Maximum immersion"
+            }       
+        },
+        "info":{
+            "fr": "Note : Le tarif du pack est fixe pour l'ensemble du groupe et s'ajoute au coût des agents.",
+            "en": "Note: The package price is fixed for the entire group and is added to the cost of the agents."
+        },
+        "btn-ajouter":{
+            "fr":"AJOUTER AU PANIER",
+            "en": "ADD TO CART"
+        },
+        "btn-finaliser":{
+            "fr":"FINALISER LA MISSION",
+            "en": "FINISH THE MISSION "
+        }
+    }
+
   }
 
 }
