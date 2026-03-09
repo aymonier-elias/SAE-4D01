@@ -526,6 +526,70 @@
     "valider":{
         "fr": "VALIDER & PAYER",
         "en": "VALIDATE and PAY"
+    },
+
+    "connexion": {
+        "titre":{
+            "fr": "ACCÈS AU RÉSEAU",
+            "en": "NETWORK ACCESS"
+        },
+        "texte":{
+            "fr": "Veuillez présenter vos accréditations pour accéder au terminal de mission.",
+            "en": "Please present your credentials to access the mission terminal."
+        },
+        "connexion":{
+            "connexion":{
+                "fr": "CONNEXION",
+                "en": "LOG IN"
+            },
+            "identifiant":{
+                "fr": "Identifiant",
+                "en": "Identifier"
+            },
+            "mdp":{
+                "fr": "Mot de passe",
+                "en": "Password"
+            },
+            "btn-acceder": {
+                "fr": "ACCÉDER",
+                "en": "ACCESS"
+            }
+        },
+        "inscription":{
+            "inscription":{
+                "fr": "INSCRIPTION",
+                "en": "REGISTER"
+            },
+            "nom":{
+                "fr": "Nom de l’Agent",
+                "en": "Agent's Name"
+            },
+            "prenom": {
+                "fr": "Prénom de l’Agent",
+                "en": "Agent's First Name"
+            },
+            "mail": {
+                "fr": "Email",
+                "en": "E-mail "
+            },
+            "nom-utilisateur": {
+                "fr": "Nom d’Utilisateur",
+                "en": "User name"
+            },
+            "mdp": {
+                "fr": "Mot de Passe",
+                "en": "Password"
+            },
+            "verif-mdp": {
+                "fr": "Vérifiez votre Mot de Passe",
+                "en": "Check your password"
+            },
+            "btn-creer":{
+                "fr": "Créer mon compte",
+                "en": "Create my account"
+            }
+            
+        }
     }
   }
 
