@@ -479,56 +479,57 @@
 
 
   "panier":{
-    "num":{
-        "fr": "ORDRE DE MISSION N°",
-        "en": "MISSION ORDER NO."
-    },
-    "texte":{
-        "fr": "Vérifiez vos paramètres de déploiement avant signature !",
-        "en": "Check your deployment settings before signing!"
-    },
-    "effectif":{
-        "fr": "Effectif : ",
-        "en": "Staff:"
-    },
-    "deploiement":{
-        "fr": "Déploiement le :  ",
-        "en": "Deployment on:"
-    },
-    "equipement":{
-        "fr": "EQUIPEMENT : ",
-        "en": "EQUIPMENT :"
-    },
-    "lieu":{
-        "fr": "LIEU :",
-        "en": "PLACE :"
-    },
-    "bilan":{
-        "fr": "BILAN FINANCIER",
-        "en": "FINANCIAL STATEMENT"
-    },
-    "mobilisation":{
-        "fr": "Mobilisation Agents ................. ",
-        "en": "Mobilization Agents ................."
-    },
-    "logistique":{
-        "fr": "Logistique EQUIPEMENT ................ ",
-        "en": "Logistics EQUIPMENT ................"
-    },
-    "total":{
-        "fr": "TOTAL À RÉGLER",
-        "en": "TOTAL DUE"
-    },
-    "paiement":{
-        "fr": "Modes de paiement disponibles",
-        "en": "Available payment methods"
-    },
-    "valider":{
-        "fr": "VALIDER & PAYER",
-        "en": "VALIDATE and PAY"
+        "num":{
+            "fr": "ORDRE DE MISSION N°",
+            "en": "MISSION ORDER NO."
+        },
+        "texte":{
+            "fr": "Vérifiez vos paramètres de déploiement avant signature !",
+            "en": "Check your deployment settings before signing!"
+        },
+        "effectif":{
+            "fr": "Effectif : ",
+            "en": "Staff:"
+        },
+        "deploiement":{
+            "fr": "Déploiement le :  ",
+            "en": "Deployment on:"
+        },
+        "equipement":{
+            "fr": "EQUIPEMENT : ",
+            "en": "EQUIPMENT :"
+        },
+        "lieu":{
+            "fr": "LIEU :",
+            "en": "PLACE :"
+        },
+        "bilan":{
+            "fr": "BILAN FINANCIER",
+            "en": "FINANCIAL STATEMENT"
+        },
+        "mobilisation":{
+            "fr": "Mobilisation Agents ................. ",
+            "en": "Mobilization Agents ................."
+        },
+        "logistique":{
+            "fr": "Logistique EQUIPEMENT ................ ",
+            "en": "Logistics EQUIPMENT ................"
+        },
+        "total":{
+            "fr": "TOTAL À RÉGLER",
+            "en": "TOTAL DUE"
+        },
+        "paiement":{
+            "fr": "Modes de paiement disponibles",
+            "en": "Available payment methods"
+        },
+        "valider":{
+            "fr": "VALIDER & PAYER",
+            "en": "VALIDATE and PAY"
+        }
     },
 
-    "connexion": {
+    "page-connexion": {
         "titre":{
             "fr": "ACCÈS AU RÉSEAU",
             "en": "NETWORK ACCESS"
@@ -587,10 +588,60 @@
             "btn-creer":{
                 "fr": "Créer mon compte",
                 "en": "Create my account"
-            }
-            
+            }   
+        }
+    },
+
+
+    "page-compte":{
+        "titre":{
+            "fr": "TABLEAU DE BORD DE L’agent",
+            "en": "Agent's Dashboard"
+        },
+        "texte":{
+            "fr": "Réglez vos paramètres de déploiement et revisitez vos exploits passés !",
+            "en": "Adjust your deployment settings and revisit your past achievements!"
+        },
+        "profil":{
+            "fr": "PROFIL DE L'AGENT",
+            "en": "AGENT PROFILE"
+        },
+        "nom":
+        {
+            "fr": "Nom de l’Agent",
+            "en": "Agent's Name"
+        },
+        "prenom": {
+            "fr": "Prénom de l’Agent",
+            "en": "Agent's First Name"
+        },
+        "mail": {
+            "fr": "Email",
+            "en": "E-mail "
+        },
+        "nom-utilisateur": {
+            "fr": "Nom d’Utilisateur",
+            "en": "User name"
+        },
+        "mdp": {
+            "fr": "Mot de Passe",
+            "en": "Password"
+        },
+        "nouv-mdp": {
+            "fr": "Nouveau Mot de Passe",
+            "en": "New Password"
+        },
+        "modif":{
+            "fr": "SCELLER LES MODIFICATIONS",
+            "en": "SEAL THE CHANGES"
+        },
+        "archive":{
+            "fr": "ARCHIVES DES MISSIONS",
+            "en": "MISSION ARCHIVES"
+        },
+        "info-modif": {
+            "fr": "Chaque modification est enregistrée dans les registres centraux de l’Agence Lock Out. Restez vigilant, Agent, les murs ont des oreilles... et des engrenages",
+            "en": "Every change is recorded in the central records of the Lock Out Agency. Stay alert, Agent, the walls have ears... and gears."
         }
     }
-  }
-
 }
