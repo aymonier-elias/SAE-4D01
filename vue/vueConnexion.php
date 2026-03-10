@@ -1,9 +1,9 @@
 <?php
 $cssLink = '<link href="style/connexion.css" rel="stylesheet">';
 if (isset($_SESSION) && !empty($_SESSION)) {
-    $menu = $_SESSION['statut'] == 2 ? $conf->menu_admin : $conf->menu_connecte;
+  $menu = $_SESSION['statut'] == 2 ? $conf->menu_admin : $conf->menu_connecte;
 } else {
-    $menu = $conf->menu;
+  $menu = $conf->menu;
 }
 ?>
 
@@ -14,12 +14,14 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 
 <section class="connexion_form">
   <div class="form_link">
-    <a href="#" class="active">Connexion</a>
-    <a href="index.php?action=inscription" class="">Inscription</a>
+    <button class="connexion" aria-expanded="true">Connexion</button>
+    <button class="inscription" aria-expanded="false">Inscription</button>
   </div>
   <form class="form" method="post" action="index.php?action=login">
     <?php if (!empty($erreur)): ?>
-      <p class="msg-error"><?= $erreur ?></p>
+      <p class="msg-error">
+        <?= $erreur ?>
+      </p>
     <?php endif; ?>
     <div class="input-mail">
       <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>

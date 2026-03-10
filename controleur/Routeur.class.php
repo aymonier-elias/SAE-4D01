@@ -49,12 +49,6 @@ class Routeur {
                         $this->CtlUtilisateur->login($_POST['nom'] ?? "", $_POST['mdp'] ?? "");
                         break;
 
-
-
-
-
-
-
                     case "deconnexion":
                         $this->CtlUtilisateur->quitter();
                         break;

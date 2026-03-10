@@ -17,14 +17,14 @@
 .form_link {
   display: flex;
   justify-content: space-around;
-  a {
+  button {
     font-family: var(--title);
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--white);
     font-weight: 500;
     padding: 8px 10%;
-    &.active {
+    &[aria-expanded = true] {
       background-color: var(--primary);
       border: 1.5px solid var(--secondary);
       border-bottom: none;
