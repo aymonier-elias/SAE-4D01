@@ -39,5 +39,5 @@ if (isset($_SESSION) && !empty($_SESSION)) {
     <button type="submit" class="cta">Accéder</button>
   </form>
 
-
+  <img src="img/montgolfiere.png" alt="" class="deco">
 </section>

@@ -36,6 +36,8 @@
 
 .form {
   display: flex;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 5px 5px 10px #00000050, inset -5px -5px 10px #ffffff30;
   flex-direction: column;
   gap: 35px;
   padding: 130px 320px;
@@ -81,5 +83,27 @@
     font-style: italic;
     align-self: flex-end;
     color: var(--brand-grey);
+  }
+}
+
+
+.deco {
+  position: absolute;
+  right: 100px;
+  top: 400px;
+  height: 400px;
+  z-index: -100;
+  animation: montgolfiere 8s ease-in-out infinite reverse;
+}
+
+@keyframes montgolfiere {
+  0% {
+    transform: translateY(-100px);
+  } 50% {
+    transform: translateY(0px);
+
+  } 100% {
+    transform: translateY(-100px);
+
   }
 }

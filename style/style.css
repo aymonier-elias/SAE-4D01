@@ -18,6 +18,7 @@
   --grey: oklch(0.6066 0 0);
   --grey-half: oklch(0.6066 0 0 / 50%);
   --white: oklch(0.9612 0 0);
+  --white-half: oklch(0.9612 0 0 / 50%);
   /* State */
   --info: #00bcff;
   --succes: #7ccf00;
