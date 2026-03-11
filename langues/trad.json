@@ -11,6 +11,18 @@
     "contact": {
       "fr": "Contact",
       "uk": "Contact"
+    },
+    "gestion-ut": {
+      "fr": "Gestion Utilisateurs",
+      "uk": "User Management"
+    },
+    "gestion-com": {
+      "fr": "Gestion Commandes",
+      "uk": "Order Management"
+    },
+    "gestion-esc": {
+      "fr": "Gestion EscapeGame",
+      "uk": "EscapeGame management"
     }
   },
 
@@ -107,8 +119,8 @@
             "uk": "CONTACT DETAILS"
         },
         "adresse": {
-            "fr": "55 rue de Pfastatt",
-            "uk": "55 Pfastatt Street"
+            "fr": "55 rue de Pfastatt, 68200 MULHOUSE",
+            "uk": "55 Pfastatt Street, 68200 MULHOUSE"
         }
     },
     
@@ -133,9 +145,9 @@
             "fr": "Contact",
             "uk": "Contact"
         },
-        "recrutement": {
-            "fr": "Recrutement",
-            "uk": "Recruitment"
+        "entreprise": {
+            "fr": "Entreprise",
+            "uk": "Business"
         }
     },
 
