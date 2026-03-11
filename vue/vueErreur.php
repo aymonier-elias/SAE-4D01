@@ -1,4 +1,4 @@
 <?php
-  $titre = "";
+$cssLink = '<link href="style/erreur.css" rel="stylesheet">';
 ?>
 <div class="msg-error">Erreur : <?=$message ?></div>

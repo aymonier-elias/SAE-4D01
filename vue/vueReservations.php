@@ -1,4 +1,7 @@
 <?php
+$cssLink = '<link href="style/reservation.css" rel="stylesheet">';
+
+
 $reservations = $reservations ?? array();
 $contexte = $contexte ?? 'reservations';
 
