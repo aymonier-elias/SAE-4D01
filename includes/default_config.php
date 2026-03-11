@@ -21,7 +21,7 @@ $conf->menu = "
                 <a href='index.php?action=escapes'>Les missions</a>
                 <a href='index.php?action=concept'>Le concept</a>
                 <a href='index.php?action=contact'>Contact</a>
-                <button>Langue</button>
+                <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
             <div class = 'important'>
                 <a href='index.php?action=connexion'>Se connecter</a>
             </div>
@@ -36,7 +36,7 @@ $conf->menu_connecte = "
         <a href='index.php?action=escapes'>Les missions</a>
         <a href='index.php?action=concept'>Le concept</a>
         <a href='index.php?action=contact'>Contact</a>
-
+<button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
         <div class = 'important'>
             <a href='index.php?action=panier'>Icone Panier</a>
             <a href='index.php?action=favoris'>Icone Coeur</a>
@@ -47,11 +47,12 @@ $conf->menu_connecte = "
     ";
 
 //Menu admin connecté 
-$conf->menu_admin ="
+$conf->menu_admin = "
         <div class = 'menu'>
             <a href='index.php?action=escapes'>Les missions</a>
             <a href='index.php?action=concept'>Le concept</a>
             <a href='index.php?action=contact'>Contact</a>
+            <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
             <div class = 'admin-links'>
                 <a href='index.php?action=gestion_utilisateurs'>Gestion Utilisateurs</a>
                 <a href='index.php?action=gestion_commandes'>Gestion Commandes</a>

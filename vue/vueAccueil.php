@@ -1,6 +1,14 @@
 <?php
 $cssLink = '<link href="style/accueil.css" rel="stylesheet">';
 
+$hero = "<div class='hero'>
+  <h1>DÉVERROUILLEZ LES SECRETS DE NOS CITÉS</h1>
+  <h3>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
+    redécouvrez le patrimoine à travers les rouages du temps.</h3>
+  <a href='#' class='cta'>Réserver ma mission</a>
+  <span class='degrader'></span>
+</div>";
+
 if(isset($_SESSION['acces'])){
   echo "bonjour " . $_SESSION['acces'];
 }
@@ -9,13 +17,6 @@ else {
 }
 
 ?>
-<div class='hero'>
-  <h1>DÉVERROUILLEZ LES SECRETS DE NOS CITÉS</h1>
-  <h3>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
-    redécouvrez le patrimoine à travers les rouages du temps.</h3>
-  <a href='#' class='cta'>Réserver ma mission</a>
-  <span class='degrader'></span>
-</div>
   
 
 <section class="infiltration">

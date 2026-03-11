@@ -14,8 +14,22 @@
         <img src="img/svg/Logo.svg" alt="">
       </a>
       <?= $menu ?>
+
+      <div class="menu_langue" aria-hidden="true">
+        <img src="img/svg/fr.svg" alt="">
+        <img src="img/svg/uk.svg" alt="">
+      </div>
     </nav>
-    
+    <?php
+    if (!empty($hero)) {
+      echo $hero;
+      echo "<style>
+        header {
+          height: 100vh !important;
+        }
+      </style>";
+    }
+    ?>
   </header>
   <main>
     <?= $contenu ?>
@@ -28,6 +42,8 @@
 
     <?= $footer ?>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>

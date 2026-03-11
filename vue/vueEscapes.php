@@ -1,4 +1,6 @@
 <?php
+$cssLink = '<link href="style/escapes.css" rel="stylesheet">';
+
 $escapes = $escapes ?? array();
 ?>
 <section class="content escapes">
