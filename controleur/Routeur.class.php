@@ -95,6 +95,9 @@ class Routeur {
                     case 'escapes':
                         $this->CtlEscape->escapes();
                         return;
+                    case 'escape':
+                        $this->CtlEscape->escape($_GET['id_escape'] ?? 0);
+                        return;
                     case 'concept':
                         $this->CtlPage->concept();
                         return;
@@ -154,6 +157,9 @@ class Routeur {
             switch ($action) {
                 case 'escapes':
                     $this->CtlEscape->escapes();
+                    return;
+                case 'escape':
+                    $this->CtlEscape->escape($_GET['id_escape'] ?? 0);
                     return;
                 case 'concept':
                     $this->CtlPage->concept();
