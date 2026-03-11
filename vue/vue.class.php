@@ -53,7 +53,7 @@ class Vue {
 
     $contenu = ob_get_clean();
     
-    $footer = "&copy; MMI Mulhouse";
+    $footer = $conf->footer;
   
     require "gabarit.php";
   }

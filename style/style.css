@@ -111,6 +111,19 @@ button {
   }
 }
 
+.doubleBorder {
+  position: relative;
+  border: 2px solid var(--secondary);
+  padding: 20px;
+  &::after {
+    content: "";
+    z-index: -100;
+    position: absolute;
+    inset: 10px;
+    border: 7px solid var(--secondary);
+  }
+}
+
 /* Header */
 .header {
   position: relative;
@@ -170,7 +183,7 @@ button {
   top: 80px;
   /* left défini par le JS pour s'aligner en x sur le bouton */
   border: 2px solid var(--secondary-half);
-  transition: .5s ease;
+  transition: 0.5s ease;
   padding: 10px;
 }
 
@@ -193,3 +206,62 @@ button {
 }
 
 /* Footer */
+.footer-nav {
+  padding: 100px;
+  display: flex;
+  justify-content: space-around;
+  gap: 70px;
+  [class|="nav"] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      margin-bottom: 5px;
+      color: var(--secondary);
+    }
+    a {
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        height: 20px;
+      }
+    }
+  }
+  .logo {
+    align-self: center;
+    img {
+      height: 100px;
+    }
+  }
+}
+
+.footer-separator {
+  height: auto;
+  width: 2px;
+  background-color: var(--secondary);
+}
+
+.reseaux {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    border-radius: 500px;
+    height: 40px;
+    width: 40px;
+  }
+}
+.legal {
+  justify-self: center;
+  font-style: italic;
+  color: var(--grey);
+  margin-top: 40px;
+}

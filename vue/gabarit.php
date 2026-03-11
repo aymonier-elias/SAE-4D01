@@ -34,13 +34,8 @@
   <main>
     <?= $contenu ?>
   </main>
-  <footer>
-    <nav class="footer-nav">
-
-    </nav>
-
-
-    <?= $footer ?>
+  <footer class="footer doubleBorder">
+      <?= $footer ?>
   </footer>
 
   <script src="js/script.js"></script>

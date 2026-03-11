@@ -1,4 +1,6 @@
 <?php
+$cssLink = '<link href="style/utilisateurs.css" rel="stylesheet">';
+
 $utilisateurs = $utilisateurs ?? array();
 $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
 ?>

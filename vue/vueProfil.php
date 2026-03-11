@@ -16,7 +16,7 @@ $id = (int) ($utilisateur['id_utilisateur'] ?? 0);
     <?php endif; ?>
 
     <?php if (!empty($utilisateur)): ?>
-        <form class="form" method="post" action="index.php?action=modifierProfil" class="form-profil">
+        <form class="form doubleBorder" method="post" action="index.php?action=modifierProfil" class="form-profil">
             <div class="form_titre">
                 <h2>Profile de l'agent</h2>
                 <p><?= $utilisateur["prenom"] ?></p>
@@ -49,9 +49,7 @@ $id = (int) ($utilisateur['id_utilisateur'] ?? 0);
             <button type="submit" class="cta">Enregistrer les modifications</button>
         </form>
 
-        <hr>
-
-        <form class="form" method="post" action="index.php?action=supprimerCompte"
+        <form class="form doubleBorder" method="post" action="index.php?action=supprimerCompte"
         onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
         <div class="form_titre">
             <h3>Supprimer mon compte</h3>

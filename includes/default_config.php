@@ -66,3 +66,54 @@ $conf->menu_admin = "
             <a href='index.php?action=deconnexion'><img src='img/svg/deconnexion.svg'></a>
         </div>
     </div>";
+
+// Footer
+$conf->footer = '<nav class="footer-nav">
+      <a href="#" class="logo"><img src="img/svg/Logo.svg" alt=""></a>
+
+      <div class="nav-coordonees">
+        <h3>Coordonées</h3>
+        <a href="#">
+          <img src="img/svg/adresse.svg" alt="">
+          55 rue de Pfastatt, 68200 MULHOUSE
+        </a>
+        <a href="#">
+          <img src="img/svg/tel.svg" alt="">
+          07 69 82 64 71
+        </a>
+        <a href="#">
+          <img src="img/svg/mail.svg" alt="">
+          contact@lockout-escape.com
+        </a>
+      </div>
+
+      <span class="footer-separator"></span>
+
+      <div class="nav-protocoles">
+        <h3>Protocoles</h3>
+        <a href="#">Les missions</a>
+        <a href="#">Le concept</a>
+        <a href="#">FAQ</a>
+        <a href="#">Conatct</a>
+        <a href="#">Entreprise</a>
+      </div>
+
+      <span class="footer-separator"></span>
+
+      <div class="nav-confidentialite">
+        <h3>Protocoles</h3>
+        <a href="#">Mentions Légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Cookies</a>
+      </div>
+    </nav>
+
+    <div class="reseaux">
+      <a href="#"><img src="img/svg/facebook.svg" alt=""></a>
+      <a href="#"><img src="img/svg/instagram.svg" alt=""></a>
+      <a href="#"><img src="img/svg/x.svg" alt=""></a>
+      <a href="#"><img src="img/svg/linkedin.svg" alt=""></a>
+      <a href="#"><img src="img/svg/tiktok.svg" alt=""></a>
+    </div>
+
+    <p class="legal">Propriété de lAgence Lock Out. Transmission de données cryptée. © 2026</p>';
