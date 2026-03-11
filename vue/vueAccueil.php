@@ -128,7 +128,7 @@ else {
   <a href="" class="cta">Voir toute les missions</a>
 </section>
 
-<section class="experience">
+<section class="experience" id="exp">
   <div class="title">
     <h2>L'EXPÉRIENCE LOCK OUT</h2>
     <span class="separator"></span>

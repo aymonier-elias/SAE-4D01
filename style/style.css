@@ -152,7 +152,7 @@ button {
     gap: 40px;
     font-size: 1rem;
     font-weight: bold;
-    .important {
+    .important, .admin-links {
       padding: 10px;
       border: 2px solid var(--secondary-half);
     }

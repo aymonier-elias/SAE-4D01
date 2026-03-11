@@ -19,7 +19,7 @@ $conf->nomSite = Config::NOMSITE;
 $conf->menu = "
         <div class = 'menu'>
                 <a href='index.php?action=escapes'>Les missions</a>
-                <a href='index.php?action=concept'>Le concept</a>
+                <a href='#exp'>Le concept</a>
                 <a href='index.php?action=contact'>Contact</a>
                 <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
             <div class = 'important'>
@@ -34,7 +34,7 @@ $conf->menu = "
 $conf->menu_connecte = "
     <div class = 'menu'>
         <a href='index.php?action=escapes'>Les missions</a>
-        <a href='index.php?action=concept'>Le concept</a>
+        <a href='#exp'>Le concept</a>
         <a href='index.php?action=contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
         <div class = 'important'>
@@ -50,7 +50,7 @@ $conf->menu_connecte = "
 $conf->menu_admin = "
     <div class = 'menu'>
         <a href='index.php?action=escapes'>Les missions</a>
-        <a href='index.php?action=concept'>Le concept</a>
+        <a href='#exp'>Le concept</a>
         <a href='index.php?action=contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
         <div class = 'admin-links'>
