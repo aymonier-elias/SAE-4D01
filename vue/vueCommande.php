@@ -1,5 +1,6 @@
 <?php
-  $titre = "Commande n°$idComm";
+$cssLink = '<link href="style/style.css" rel="stylesheet">';
+$titre = "Commande n°$idComm";
 ?>
 
 <div class="content">

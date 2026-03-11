@@ -8,16 +8,23 @@ class Reservation extends Database {
 
   /*******************************************************
   Retourne la liste des achats (réservations)
-  Tables : acheter, version, escape_game
+  Si $id_client est fourni, filtre par client (pour le panier).
   *******************************************************/
-  public function getReservations() {
+  public function getReservations($id_client = null) {
     $req = 'SELECT a.id_client AS "id_client", a.id_version AS "id_version", a.date AS "Date", a.heure AS "Heure", a.nb_participant AS "Nombre de participants", a.reserver AS "reserver", e.nom AS "Escape", e.id_escape AS "id_escape" ' .
            'FROM acheter a ' .
            'INNER JOIN version v ON a.id_version = v.id_version ' .
-           'INNER JOIN escape_game e ON v.id_escape = e.id_escape ' .
-           'ORDER BY a.date, a.heure;';
-    $reservations = $this->execReq($req);
-    return $reservations;
+           'INNER JOIN escape_game e ON v.id_escape = e.id_escape ';
+    if ($id_client !== null) {
+      $req .= 'WHERE a.id_client = ? ';
+    }
+    $req .= 'ORDER BY a.date, a.heure;';
+    if ($id_client !== null) {
+      $reservations = $this->execReqPrep($req, array($id_client));
+    } else {
+      $reservations = $this->execReq($req);
+    }
+    return is_array($reservations) ? $reservations : array();
   }
 
   /*******************************************************
@@ -68,5 +75,13 @@ class Reservation extends Database {
   /** Alias pour compatibilité : id_reservation n'existe plus, utilise la clé composite */
   public function getIdUtilisateurReservation($id_reservation) {
     return FALSE;
+  }
+
+  /*******************************************************
+  Ajoute une réservation au panier (table acheter, reserver = 0)
+  *******************************************************/
+  public function ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant) {
+    $req = 'INSERT INTO acheter (id_client, id_version, date, heure, nb_participant, reserver) VALUES (?, ?, ?, ?, ?, 0);';
+    $this->execReqPrep($req, array($id_client, $id_version, $date, $heure, (int) $nb_participant));
   }
 }   // Balise PHP non fermée pour éviter de retourner des caractères "parasites" en fin de traitement

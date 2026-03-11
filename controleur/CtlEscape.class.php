@@ -1,5 +1,6 @@
 <?php
 require_once "modele/escape.class.php";
+require_once "modele/favori.class.php";
 require_once "vue/vue.class.php";
 
 
@@ -7,38 +8,41 @@ require_once "vue/vue.class.php";
 class CtlEscape{
 
     private $escape;
+    private $favori;
 
     public function __construct() {
         $this->escape = new Escape();
+        $this->favori = new Favori();
     }
     
 
     /*******************************************************
-Affichage de la liste des escapes dans la vue concernée
-  Entrée : 
-
-  Retour : 
-    
-*******************************************************/
+    Affichage de la liste des escapes
+    *******************************************************/
     public function escapes() {
         $escapes = $this->escape->getEscapes();
-        $vue = new Vue("Escapes"); // Instancie la vue appropriée
-        $vue->afficher(array("escapes" => $escapes)); 
+        $ids_favoris = array();
+        if (isset($_SESSION['id_utilisateur'])) {
+            $ids_favoris = $this->favori->getIdsFavoris((int) $_SESSION['id_utilisateur']);
+        }
+        $vue = new Vue("Escapes");
+        $vue->afficher(array("escapes" => $escapes, "ids_favoris" => $ids_favoris));
     }
 
 
     /*******************************************************
-Affichage de la page d'un escape
-  Entrée : 
-    id_escape [int] : id de l'escape
-  Retour : 
-    
-*******************************************************/
-
+    Affichage de la page d'un escape
+    *******************************************************/
     public function escape($id_escape) {
+        $id_escape = (int) $id_escape;
         $escape = $this->escape->getEscape($id_escape);
-        $vue = new Vue("Escape"); // Instancie la vue appropriée
-        $vue->afficher(array("escape" => $escape));
+        $versions = $this->escape->getVersions($id_escape);
+        $est_favori = false;
+        if (isset($_SESSION['id_utilisateur']) && !empty($escape)) {
+            $est_favori = $this->favori->estFavori((int) $_SESSION['id_utilisateur'], $id_escape);
+        }
+        $vue = new Vue("Escape");
+        $vue->afficher(array("escape" => $escape ?: array(), "versions" => $versions, "est_favori" => $est_favori, "id_escape" => $id_escape));
     }
 
     /*******************************************************

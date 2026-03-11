@@ -1,4 +1,5 @@
 <?php
+$cssLink = '<link href="style/style.css" rel="stylesheet">';
 $articles = $articles ?? array();
 $client = $client ?? array();
 $total = $total ?? 0;

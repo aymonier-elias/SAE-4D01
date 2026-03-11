@@ -109,8 +109,8 @@ CREATE TABLE `escape_game` (
   `id_escape` int(11) NOT NULL,
   `nom` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `longitude` int(20) NOT NULL,
-  `latitude` int(20) NOT NULL,
+  `longitude` decimal(10,7) NOT NULL,
+  `latitude` decimal(10,7) NOT NULL,
   `nb_participants_max` int(5) NOT NULL,
   `age_minimum` int(2) NOT NULL,
   `ville` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -158,6 +158,12 @@ CREATE TABLE `version` (
 --
 
 --
+-- Index pour la table `acheter`
+--
+ALTER TABLE `acheter`
+  ADD PRIMARY KEY (`id_client`, `id_version`, `date`, `heure`);
+
+--
 -- Index pour la table `avis`
 --
 ALTER TABLE `avis`
@@ -180,6 +186,12 @@ ALTER TABLE `client`
 --
 ALTER TABLE `escape_game`
   ADD PRIMARY KEY (`id_escape`);
+
+--
+-- Index pour la table `mettre_favoris_version`
+--
+ALTER TABLE `mettre_favoris_version`
+  ADD PRIMARY KEY (`id_client`, `id_version`);
 
 --
 -- Index pour la table `version`

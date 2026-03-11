@@ -1,5 +1,6 @@
 <?php
-  $titre = "Liste des commandes";
+$cssLink = '<link href="style/style.css" rel="stylesheet">';
+$titre = "Liste des commandes";
 ?>
 
 <div class="content">

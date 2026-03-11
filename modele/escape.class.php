@@ -36,7 +36,16 @@ class Escape extends Database {
   public function getEscape($idEscape) {
     $req = 'SELECT id_escape AS "Code", nom AS "Nom", description AS "Description", longitude AS "Longitude", latitude AS "Latitude", nb_participants_max AS "Nombre de participants maximum", age_minimum AS "Age minimum", ville AS "Ville", tags AS "Tags", difficultés AS "Difficultés" FROM escape_game WHERE id_escape=?;';
     $resultat = $this->execReqPrep($req, array($idEscape));
-    return $resultat[0];
+    return (is_array($resultat) && isset($resultat[0])) ? $resultat[0] : array();
+  }
+
+  /*******************************************************
+  Retourne les versions (durée, prix) disponibles pour un escape
+  *******************************************************/
+  public function getVersions($id_escape) {
+    $req = 'SELECT id_version AS "id_version", durée AS "duree", prix AS "prix" FROM version WHERE id_escape = ? ORDER BY prix;';
+    $resultat = $this->execReqPrep($req, array($id_escape));
+    return is_array($resultat) ? $resultat : array();
   }
 
   /*******************************************************

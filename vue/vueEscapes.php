@@ -11,6 +11,7 @@ $key = function($row, $k) {
     return $row[$kLower] ?? null;
 };
 
+$ids_favoris = isset($ids_favoris) && is_array($ids_favoris) ? $ids_favoris : array();
 $escapesPourCarte = array();
 foreach ($escapes as $e) {
     $lat = $key($e, 'Latitude');
@@ -68,7 +69,9 @@ foreach ($escapes as $e) {
 
         <div class="liste-escapes">
 
-            <?php foreach ($escapes as $e):
+            <?php
+            $retour_escapes = 'index.php?action=escapes';
+            foreach ($escapes as $e):
                 $code = (int)($key($e, 'Code') ?? $key($e, 'code') ?? 0);
                 $nom = $key($e, 'Nom') ?? $key($e, 'nom') ?? '';
                 $ville = $key($e, 'Ville') ?? $key($e, 'ville') ?? '';
@@ -76,15 +79,25 @@ foreach ($escapes as $e) {
                 $nbMax = (int)($key($e, 'Nombre de participants maximum') ?? $key($e, 'nb_participants_max') ?? 0);
                 $ageMin = (int)($key($e, 'Age minimum') ?? $key($e, 'age_minimum') ?? 0);
                 $diff = (int)($key($e, 'Difficultés') ?? $key($e, 'difficultés') ?? 0);
+                $en_favori = in_array($code, $ids_favoris);
             ?>
-                <a href="index.php?action=escape&amp;id_escape=<?= $code ?>" class="card-escape-link">
-                    <article class="card-escape">
-                        <h3><?= htmlspecialchars($nom) ?></h3>
-                        <p class="ville"><?= htmlspecialchars($ville) ?></p>
-                        <p class="description"><?= htmlspecialchars($desc) ?></p>
-                        <p class="infos">Participants max : <?= $nbMax ?> · Âge min : <?= $ageMin ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$diff] ?? $diff) ?></p>
-                    </article>
-                </a>
+                <div class="card-escape-wrapper">
+                    <a href="index.php?action=escape&amp;id_escape=<?= $code ?>" class="card-escape-link">
+                        <article class="card-escape">
+                            <h3><?= htmlspecialchars($nom) ?></h3>
+                            <p class="ville"><?= htmlspecialchars($ville) ?></p>
+                            <p class="description"><?= htmlspecialchars($desc) ?></p>
+                            <p class="infos">Participants max : <?= $nbMax ?> · Âge min : <?= $ageMin ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$diff] ?? $diff) ?></p>
+                        </article>
+                    </a>
+                    <?php if (isset($_SESSION['acces'])): ?>
+                        <?php if ($en_favori): ?>
+                            <a href="index.php?action=retirerFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori btn-favori-actif" title="Retirer des favoris">♥ Retirer des favoris</a>
+                        <?php else: ?>
+                            <a href="index.php?action=ajouterFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori" title="Ajouter aux favoris">♡ Ajouter aux favoris</a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             <?php endforeach; ?>
 
         </div>

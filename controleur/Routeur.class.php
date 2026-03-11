@@ -132,6 +132,15 @@ class Routeur {
                     case 'favoris':
                         $this->CtlReservation->reservations('favoris');
                         return;
+                    case 'ajouterFavori':
+                        $this->CtlReservation->ajouterFavori($_GET['id_escape'] ?? 0);
+                        return;
+                    case 'retirerFavori':
+                        $this->CtlReservation->retirerFavori($_GET['id_escape'] ?? 0);
+                        return;
+                    case 'ajouterPanier':
+                        $this->CtlReservation->ajouterPanier();
+                        return;
                     case 'commande':
                         $id_client = (int) ($_GET['id_client'] ?? 0);
                         $id_version = (int) ($_GET['id_version'] ?? 0);
