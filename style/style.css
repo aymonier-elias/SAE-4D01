@@ -1,195 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-:root {
-  /* Color */
-  /* Brand */
-  --primary: oklch(0.4077 0.1312 20.3);
-  --secondary: oklch(0.9133 0.0788 79.02);
-  --secondary-half: oklch(0.9133 0.0788 79.02 / 50%);
-  --brand-red: oklch(0.4921 0.1064 26.16);
-  --brand-red-half: oklch(0.4921 0.1064 26.16 / 50%);
-  --brand-white: #e2e1ea;
-  --brand-grey: oklch(0.5472 0.0172 277.61);
-  --brand-grey-half: oklch(0.5472 0.0172 277.61 / 50%);
-  --brand-black: oklch(0.2547 0.0128 258.37);
-  /* Black - White */
-  --black: #1f1f1f;
-  --black-half: oklch(0.2393 0 129.63 / 50%);
-  --grey: oklch(0.6066 0 0);
-  --grey-half: oklch(0.6066 0 0 / 50%);
-  --white: oklch(0.9612 0 0);
-  /* State */
-  --info: #00bcff;
-  --succes: #7ccf00;
-  --warning: #ffb86a;
-  --error: #fb2c36;
-
-  /* Fonts */
-  --title: "Cinzel", serif;
-  --text: "Montserrat", sans-serif;
-
-  --height: 100px;
-}
-
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-  background-color: var(--brand-black);
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1 {
-  font-family: var(--title);
-  font-size: 4rem;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-h2 {
-  font-family: var(--title);
-  font-size: 2rem;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-h3 {
-  font-family: var(--title);
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-p,
-a,
-li,
-ul,
-button,
-span {
-  font-family: var(--text);
-  color: var(--white);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.degrader {
-  position: absolute;
-  background-image: linear-gradient(0, var(--brand-black), transparent);
-  height: 200px;
-  left: 0;
-  right: 0;
-}
-
-.cta {
-  color: var(--white);
-  border: solid var(--secondary) 2px;
-  padding: 12px 15px;
-  width: fit-content;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: 0.3s ease;
-  &:hover {
-    background-color: var(--secondary);
-    color: var(--primary);
-  }
-}
-
-/* Header */
 .header {
-  position: relative;
-  background-size: cover;
-  padding: 10px;
-  .degrader {
-    bottom: 0;
-  }
+    background: #111;
+    padding: 15px;
 }
 
 .nav {
-  z-index: 100;
-  position: sticky;
-  top: 10px;
-  padding: 20px 30px;
-  max-height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--black-half);
-  color: var(--white);
-  border: 2px solid var(--secondary-half);
-  .menu {
     display: flex;
     align-items: center;
-    gap: 40px;
-    font-size: 1rem;
-    font-weight: bold;
-    .important {
-      padding: 10px;
-      border: 2px solid var(--secondary-half);
-    }
-    a {
-      transition: 0.3s ease;
-      &:hover {
-        position: relative;
-        color: var(--secondary);
-        &::after {
-          content: "";
-          position: absolute;
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background-color: var(--primary);
-        }
-      }
-    }
-  }
+    justify-content: space-between;
+}
+.important {
+    background-color: #ffc60a;
+    gap: 10px;
 }
 
-.menu_langue {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  top: 80px;
-  /* left défini par le JS pour s'aligner en x sur le bouton */
-  border: 2px solid var(--secondary-half);
-  transition: .5s ease;
-  padding: 10px;
+
+.logo {
+    text-decoration: none;
+    color: white;
 }
 
-.menu_langue[aria-hidden="true"] {
-  transform: translateY(-250px);
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
 }
 
-/* Hero */
-.hero {
-  background-image: url(../img/fond.png);
-  background-size: cover;
-  position: absolute;
-  inset: 0;
-  display: flex;
-  gap: 40px;
-  flex-direction: column;
-  align-items: center;
-  padding-top: var(--height);
-  color: var(--white);
+.nav {
+    display: flex;
+    align-items: center;      /* aligne verticalement */
+    justify-content: space-between; /* logo à gauche, menu à droite */
 }
 
-/* Footer */
+.logo h1 {
+    margin: 0; /* évite le décalage du h1 */
+}
+
+.menu {
+    display: flex;
+    gap: 20px; /* espace entre les liens */
+}
+.nav {
+    flex-wrap: nowrap;
+}
