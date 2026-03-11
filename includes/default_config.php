@@ -36,33 +36,33 @@ $conf->menu_connecte = "
         <a href='index.php?action=escapes'>Les missions</a>
         <a href='index.php?action=concept'>Le concept</a>
         <a href='index.php?action=contact'>Contact</a>
-<button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
+        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
         <div class = 'important'>
-            <a href='index.php?action=panier'>Icone Panier</a>
-            <a href='index.php?action=favoris'>Icone Coeur</a>
-            <a href='index.php?action=profil'>Icone Profil</a>
-            <a href='index.php?action=deconnexion'>Se déconnecter</a>
+            <a href='index.php?action=panier'><img src='img/svg/panier.svg'></a>
+            <a href='index.php?action=favoris'><img src='img/svg/fav.svg'></a>
+            <a href='index.php?action=profil'><img src='img/svg/compt.svg'></a>
+            <a href='index.php?action=deconnexion'><img src='img/svg/deconnexion.svg'></a>
         </div>
     </div>
     ";
 
 //Menu admin connecté 
 $conf->menu_admin = "
-        <div class = 'menu'>
-            <a href='index.php?action=escapes'>Les missions</a>
-            <a href='index.php?action=concept'>Le concept</a>
-            <a href='index.php?action=contact'>Contact</a>
-            <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
-            <div class = 'admin-links'>
-                <a href='index.php?action=gestion_utilisateurs'>Gestion Utilisateurs</a>
-                <a href='index.php?action=gestion_commandes'>Gestion Commandes</a>
-                <a href='index.php?action=gestion_escapegame'>Gestion EscapeGame</a>
-            </div>
+    <div class = 'menu'>
+        <a href='index.php?action=escapes'>Les missions</a>
+        <a href='index.php?action=concept'>Le concept</a>
+        <a href='index.php?action=contact'>Contact</a>
+        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
+        <div class = 'admin-links'>
+            <a href='index.php?action=gestion_utilisateurs'>Gestion Utilisateurs</a>
+            <a href='index.php?action=gestion_commandes'>Gestion Commandes</a>
+            <a href='index.php?action=gestion_escapegame'>Gestion EscapeGame</a>
+        </div>
 
-            <div class = 'important'>
-                <a href='index.php?action=panier'>Icone Panier</a>
-                <a href='index.php?action=favoris'>Icone Coeur</a>
-                <a href='index.php?action=profil'>Icone Profil</a>
-                <a href='index.php?action=deconnexion'>Se déconnecter</a>
-            </div>
-        </div>";
+        <div class = 'important'>
+            <a href='index.php?action=panier'><img src='img/svg/panier.svg'></a>
+            <a href='index.php?action=favoris'><img src='img/svg/fav.svg'></a>
+            <a href='index.php?action=profil'><img src='img/svg/compt.svg'></a>
+            <a href='index.php?action=deconnexion'><img src='img/svg/deconnexion.svg'></a>
+        </div>
+    </div>";
