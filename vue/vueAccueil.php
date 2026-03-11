@@ -1,26 +1,22 @@
 <?php
 $cssLink = '<link href="style/accueil.css" rel="stylesheet">';
 
-if($_SESSION){
-  if($_SESSION['statut'] == 2){
-    $menu =  $conf->menu_admin ; 
- }
- else
-    $menu =  $conf->menu_connecte;
+if(isset($_SESSION['acces'])){
+  echo "bonjour " . $_SESSION['acces'];
 }
-else $menu = $conf->menu ;
+else {
+  echo "bonjour";
+}
 
-
-
-
-$hero = "<div class='hero'>
-  <h1>BIENVENUE, " . htmlspecialchars($_SESSION['acces'] ?? '') . "</h1>
-  <h3>Vous êtes connecté. Réservez une mission ou consultez votre profil.</h3>
-  <a href='index.php?action=escapes' class='cta'>Les missions</a>
-  <a href='index.php?action=profil' class='cta'>Mon profil</a>
-  <span class='degrader'></span>
-</div>";
 ?>
+<div class='hero'>
+  <h1>DÉVERROUILLEZ LES SECRETS DE NOS CITÉS</h1>
+  <h3>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
+    redécouvrez le patrimoine à travers les rouages du temps.</h3>
+  <a href='#' class='cta'>Réserver ma mission</a>
+  <span class='degrader'></span>
+</div>
+  
 
 <section class="infiltration">
   <div class="title">

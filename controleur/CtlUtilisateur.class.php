@@ -72,7 +72,8 @@ class CtlUtilisateur {
                 $_SESSION['id_utilisateur'] = $utilisateur['id_utilisateur'];
                 $_SESSION['statut'] = $utilisateur['statut'];
 
-                $this->accueil();
+                header('Location: index.php');
+                exit;
             }
         } else {
             $this->connexion('Cette adresse email est déjà utilisée');
@@ -90,7 +91,8 @@ class CtlUtilisateur {
                 $_SESSION['id_utilisateur'] = $utilisateur['id_utilisateur'];
                 $_SESSION['statut'] = $utilisateur['statut'];
 
-                $this->accueilConnecte();
+                header('Location: index.php');
+                exit;
             } else {
                 $this->connexion('Le mot de passe est incorrect');
             }

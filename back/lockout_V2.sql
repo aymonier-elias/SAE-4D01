@@ -9,7 +9,7 @@ USE lockout;
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : sam. 07 mars 2026 à 13:52
+-- Généré le : mer. 04 mars 2026 à 10:25
 -- Version du serveur : 5.7.43
 -- Version de PHP : 8.2.8
 
@@ -82,20 +82,13 @@ CREATE TABLE `client` (
   `nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prénom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mdp` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mdp` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `statut` int(5) NOT NULL,
   `adresse` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `code_postal` int(5) NOT NULL,
   `ville` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `téléphone` int(17) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `client`
---
-
-INSERT INTO `client` (`id_client`, `nom`, `prénom`, `mail`, `mdp`, `statut`, `adresse`, `code_postal`, `ville`, `téléphone`) VALUES
-(1, 'R', 'Trystan', 'trystan@gmail.com', '$2y$10$z9/NEjogI2XQkyB76L8nJOwOVoDze7Pq4vVwN.IWsN0Rn/kO9SaeC', 2, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -205,7 +198,7 @@ ALTER TABLE `carte_cadeau`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `escape_game`

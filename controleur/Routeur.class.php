@@ -20,99 +20,132 @@ class Routeur {
     }
 
     public function routerRequete() {
+        $action = isset($_GET['action']) ? $_GET['action'] : null;
+
         try {
-            if (isset($_GET["action"])) {
-                switch ($_GET["action"]) {
+            if (isset($_SESSION['acces'])) {
+                // Utilisateur connecté
+                if ($action === null) {
+                    $this->CtlPage->accueil();
+                    return;
+                }
 
-                    case "escapes":
+                // Admin (statut == 2) : actions réservées à l'admin
+                if (isset($_SESSION['statut']) && $_SESSION['statut'] == 2) {
+                    switch ($action) {
+                        case 'gestion_utilisateurs':
+                        case 'utilisateurs':
+                            $this->CtlUtilisateur->utilisateurs();
+                            return;
+                        case 'supprimerUtilisateur':
+                            $this->CtlUtilisateur->supprimerUtilisateur($_GET['id_utilisateur'] ?? 0);
+                            header('Location: index.php?action=gestion_utilisateurs');
+                            exit;
+                        case 'gestion_commandes':
+                            $this->CtlReservation->reservations('gestion_commandes');
+                            return;
+                        case 'gestion_escapegame':
+                            $this->CtlEscape->escapes();
+                            return;
+                    }
+                }
+
+                // Actions communes à tout utilisateur connecté (et pages publiques)
+                switch ($action) {
+                    case 'escapes':
                         $this->CtlEscape->escapes();
-                        break;
-
-                    case "concept":
+                        return;
+                    case 'concept':
                         $this->CtlPage->concept();
-                        break;
-
-                    case "contact":
+                        return;
+                    case 'contact':
                         $this->CtlPage->contact();
-                        break;
-
-                    case "connexion": // page de connexion
-                        $this->CtlUtilisateur->connexion($_GET["erreur"] ?? "");
-                        break;
-
-                    case "inscription": // envoie des données de l'utilisateur à la base de données
-                        $this->CtlUtilisateur->inscription($_POST["prenom"] ?? "",$_POST["nom"] ?? "",
-                        $_POST["email"] ?? "",$_POST["mdp"] ?? "");
-                        break;
-                    
-                    case "login": // vérifie les données de l'utilisateur dans la base de données
-                        $this->CtlUtilisateur->login($_POST['nom'] ?? "", $_POST['mdp'] ?? "");
-                        break;
-
-                    case "deconnexion":
+                        return;
+                    case 'deconnexion':
                         $this->CtlUtilisateur->quitter();
-                        break;
-
-                    case "profil":
-                        $this->CtlUtilisateur->profil($_GET["erreur"] ?? "");
-                        break;
-
-                    case "modifierProfil":
+                        return;
+                    case 'profil':
+                        $this->CtlUtilisateur->profil($_GET['erreur'] ?? '');
+                        return;
+                    case 'modifierProfil':
                         $this->CtlUtilisateur->modifierProfil(
-                            $_POST["id_utilisateur"] ?? 0,
-                            $_POST["prenom"] ?? "",
-                            $_POST["nom"] ?? "",
-                            $_POST["email"] ?? "",
-                            $_POST["mdp_nouveau"] ?? "",
-                            $_POST["mdp_actuel"] ?? ""
+                            $_POST['id_utilisateur'] ?? 0,
+                            $_POST['prenom'] ?? '',
+                            $_POST['nom'] ?? '',
+                            $_POST['email'] ?? '',
+                            $_POST['mdp_nouveau'] ?? '',
+                            $_POST['mdp_actuel'] ?? ''
                         );
-                        break;
-
-                    case "enregPhotoProfil":
-                        $this->CtlUtilisateur->enregPhotoProfil($_POST["id_utilisateur"] ?? 0);
-                        break;
-
-                    case "supprimerCompte":
-                        $this->CtlUtilisateur->supprimerCompte($_POST["id_utilisateur"] ?? 0);
-                        break;
-
-                    case "gestion_utilisateurs":
-                    case "utilisateurs":
-                        $this->CtlUtilisateur->utilisateurs();
-                        break;
-
-                    case "supprimerUtilisateur":
-                        $this->CtlUtilisateur->supprimerUtilisateur($_GET["id_utilisateur"] ?? 0);
-                        break;
-
-                    case "panier":
-                        $this->CtlReservation->reservations();
-                        break;
-
-                    case "favoris":
-                        $this->CtlReservation->reservations();
-                        break;
-
-                    case "commande":
-                        $id_client = (int) ($_GET["id_client"] ?? 0);
-                        $id_version = (int) ($_GET["id_version"] ?? 0);
-                        $date = $_GET["date"] ?? '';
-                        $heure = $_GET["heure"] ?? '';
+                        return;
+                    case 'enregPhotoProfil':
+                        $this->CtlUtilisateur->enregPhotoProfil($_POST['id_utilisateur'] ?? 0);
+                        return;
+                    case 'supprimerCompte':
+                        $this->CtlUtilisateur->supprimerCompte($_POST['id_utilisateur'] ?? 0);
+                        return;
+                    case 'panier':
+                        $this->CtlReservation->reservations('panier');
+                        return;
+                    case 'favoris':
+                        $this->CtlReservation->reservations('favoris');
+                        return;
+                    case 'commande':
+                        $id_client = (int) ($_GET['id_client'] ?? 0);
+                        $id_version = (int) ($_GET['id_version'] ?? 0);
+                        $date = $_GET['date'] ?? '';
+                        $heure = $_GET['heure'] ?? '';
                         if ($id_client > 0 && $id_version > 0 && $date !== '' && $heure !== '') {
                             $this->CtlReservation->reservation($id_client, $id_version, $date, $heure);
                         } else {
                             throw new Exception("Identifiants de commande invalides (id_client, id_version, date, heure requis)");
                         }
-                        break;
-
-                    default:
-                        throw new Exception("Action non valide");
+                        return;
                 }
-            } else {
-                $this->CtlPage->accueil();
+
+                throw new Exception("La page que vous cherchez est introuvable :(");
             }
+
+            // Non connecté
+            if ($action === null) {
+                $this->CtlPage->accueil();
+                return;
+            }
+
+            switch ($action) {
+                case 'escapes':
+                    $this->CtlEscape->escapes();
+                    return;
+                case 'concept':
+                    $this->CtlPage->concept();
+                    return;
+                case 'contact':
+                    $this->CtlPage->contact();
+                    return;
+                case 'connexion':
+                    $this->CtlUtilisateur->connexion($_GET['erreur'] ?? '');
+                    return;
+                case 'login':
+                    $this->CtlUtilisateur->login($_POST['email'] ?? '', $_POST['mdp'] ?? '');
+                    return;
+                case 'inscription':
+                    $this->CtlUtilisateur->inscription(
+                        $_POST['prenom'] ?? '',
+                        $_POST['nom'] ?? '',
+                        $_POST['email'] ?? '',
+                        $_POST['mdp'] ?? ''
+                    );
+                    return;
+                case 'profil':
+                case 'panier':
+                case 'favoris':
+                    header('Location: index.php?action=connexion');
+                    exit;
+            }
+
+            throw new Exception("La page que vous cherchez est introuvable :(");
         } catch (Exception $e) {
             $this->CtlPage->erreur($e->getMessage());
+            exit;
         }
     }
 }

@@ -19,9 +19,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
   </div>
   <form class="form" method="post" action="index.php?action=login">
     <?php if (!empty($erreur)): ?>
-      <p class="msg-error">
-        <?= $erreur ?>
-      </p>
+      <p class="msg-error"><?= $erreur ?></p>
     <?php endif; ?>
     <div class="input-mail">
       <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>

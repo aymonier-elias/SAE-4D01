@@ -38,7 +38,12 @@ class Vue {
     $title = $conf->titreOnglet;
     $header = $conf->nomSite;
 //    $titre = "";      // Le titre de la page est généré dans le fichierVue
-    $menu = $conf->menu;
+    // Menu selon l'état de connexion (commun à toutes les pages)
+    if (isset($_SESSION['acces'])) {
+        $menu = (isset($_SESSION['statut']) && $_SESSION['statut'] == 2) ? $conf->menu_admin : $conf->menu_connecte;
+    } else {
+        $menu = $conf->menu;
+    }
 
     extract($data);   // Extrait les valeurs du tableau associatif $data dans des variables
 

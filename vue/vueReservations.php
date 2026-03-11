@@ -1,34 +1,51 @@
 <?php
 $reservations = $reservations ?? array();
-$titre = "Liste des réservations / achats";
+$contexte = $contexte ?? 'reservations';
+
+$titres = array(
+    'panier' => 'Mon panier',
+    'favoris' => 'Mes favoris',
+    'gestion_commandes' => 'Gestion des commandes',
+    'reservations' => 'Mes réservations'
+);
+$titreSection = $titres[$contexte] ?? 'Réservations';
 ?>
-<div class="content">
-  <?php if (empty($reservations)): ?>
-    <div class="msg-empty">Aucune réservation enregistrée.</div>
-  <?php else: ?>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Heure</th>
-          <th>Participants</th>
-          <th>Escape</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($reservations as $r): ?>
-          <tr>
-            <td><?= htmlspecialchars($r['Date'] ?? '') ?></td>
-            <td><?= htmlspecialchars($r['Heure'] ?? '') ?></td>
-            <td><?= (int)($r['Nombre de participants'] ?? 0) ?></td>
-            <td><?= htmlspecialchars($r['Escape'] ?? '') ?></td>
-            <td>
-              <a href="index.php?action=commande&amp;id_client=<?= (int)($r['id_client'] ?? 0) ?>&amp;id_version=<?= (int)($r['id_version'] ?? 0) ?>&amp;date=<?= urlencode($r['Date'] ?? '') ?>&amp;heure=<?= urlencode($r['Heure'] ?? '') ?>">Afficher</a>
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-  <?php endif; ?>
-</div>
+<section class="content reservations">
+    <h2><?= htmlspecialchars($titreSection) ?></h2>
+
+    <?php if (empty($reservations)): ?>
+        <p class="msg-empty">Aucune réservation pour le moment.</p>
+    <?php else: ?>
+        <table class="table-reservations">
+            <thead>
+                <tr>
+                    <?php foreach (array_keys($reservations[0]) as $cle): ?>
+                        <th><?= htmlspecialchars($cle) ?></th>
+                    <?php endforeach; ?>
+                        <th>Détail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($reservations as $res): ?>
+                    <tr>
+                        <?php foreach ($res as $valeur): ?>
+                            <td><?= htmlspecialchars($valeur ?? '') ?></td>
+                        <?php endforeach; ?>
+                        <td>
+                            <?php
+                            $id_client = $res['id_client'] ?? '';
+                            $id_version = $res['id_version'] ?? '';
+                            $date = $res['Date'] ?? '';
+                            $heure = $res['Heure'] ?? '';
+                            if ($id_client !== '' && $id_version !== '' && $date !== '' && $heure !== ''):
+                                $url = 'index.php?action=commande&id_client=' . urlencode($id_client) . '&id_version=' . urlencode($id_version) . '&date=' . urlencode($date) . '&heure=' . urlencode($heure);
+                            ?>
+                                <a href="<?= htmlspecialchars($url) ?>">Voir</a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+</section>

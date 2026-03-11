@@ -1,47 +1,21 @@
 <?php
-$cssLink = '<link href="style/escapes.css" rel="stylesheet">';
-$hero = "<div class='hero'>
-    <h1>ARCHIVES DES MISSIONS</h1>
-    <h3>Sélectionnez votre zone d'intervention. Chaque cité cache un mécanisme unique, chaque porte une nouvelle énigme.
-    </h3>
-  <span class='degrader'></span>
-</div>";
-
-if (isset($_SESSION) && !empty($_SESSION)) {
-    $menu = $_SESSION['statut'] == 2 ? $conf->menu_admin : $conf->menu_connecte;
-} else {
-    $menu = $conf->menu;
-}
+$escapes = $escapes ?? array();
 ?>
+<section class="content escapes">
+    <h2>Les missions</h2>
 
-<section class="escapes">
-    <div class="filtre">
-        <button class="cta">Ville ></button>
-        <button class="cta">Difficulté ></button>
-        <button class="cta">Type ></button>
-    </div>
-
-    <div class="missions">
-        <a href="#" class="mission">
-            <div class="img">
-                <img src="img/mission/1.png" alt="">
-                <span></span>
-            </div>
-            <h2>LE BAL MASQUÉ DES INSURGÉS</h2>
-        </a>
-        <a href="#" class="mission">
-            <div class="img">
-                <img src="img/mission/1.png" alt="">
-                <span></span>
-            </div>
-            <h2>LE BAL MASQUÉ DES INSURGÉS</h2>
-        </a>
-        <a href="#" class="mission">
-            <div class="img">
-                <img src="img/mission/1.png" alt="">
-                <span></span>
-            </div>
-            <h2>LE BAL MASQUÉ DES INSURGÉS</h2>
-        </a>
-    </div>
+    <?php if (empty($escapes)): ?>
+        <p class="msg-empty">Aucune mission disponible pour le moment.</p>
+    <?php else: ?>
+        <div class="liste-escapes">
+            <?php foreach ($escapes as $e): ?>
+                <article class="card-escape">
+                    <h3><?= htmlspecialchars($e['Nom'] ?? '') ?></h3>
+                    <p class="ville"><?= htmlspecialchars($e['Ville'] ?? '') ?></p>
+                    <p class="description"><?= htmlspecialchars($e['Description'] ?? '') ?></p>
+                    <p class="infos">Participants max : <?= (int)($e['Nombre de participants maximum'] ?? 0) ?> · Âge min : <?= (int)($e['Age minimum'] ?? 0) ?> ans · <?= htmlspecialchars($e['Difficultés'] ?? '') ?></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </section>

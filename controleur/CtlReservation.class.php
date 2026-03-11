@@ -22,10 +22,10 @@ Affichage de la liste des Reservations dans la vue concernée
   Retour : 
     
 *******************************************************/
-    public function reservations() {
+    public function reservations($contexte = 'reservations') {
         $reservations = $this->reservation->getReservations();
         $vue = new Vue("Reservations");
-        $vue->afficher(array("reservations" => $reservations));
+        $vue->afficher(array("reservations" => $reservations, "contexte" => $contexte));
     }
 
     /*******************************************************
