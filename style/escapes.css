@@ -44,8 +44,26 @@
 }
 
 /* Gestion escape games */
+.gestion-escapes .msg-erreur {
+    color: var(--error) !important;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: oklch(0.55 0.15 25 / 15%);
+    border-radius: 6px;
+    border-left: 4px solid var(--error);
+}
+
 .gestion-escapes .actions-haut {
     margin-bottom: 1.5rem;
+}
+
+.gestion-escapes .card-escape-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
 }
 
 .gestion-escapes .liste-escapes {

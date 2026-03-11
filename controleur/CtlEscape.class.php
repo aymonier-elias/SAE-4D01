@@ -83,7 +83,14 @@ Ajout d'un escape
 *******************************************************/
 
     public function ajouterEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
-        $this->escape->addEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
+        $id_escape = $this->escape->addEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
+        if (isset($_FILES['photoCouverture']) && $_FILES['photoCouverture']['error'] === UPLOAD_ERR_OK) {
+            try {
+                $this->escape->updatePhotoCouverture($id_escape);
+            } catch (Exception $e) {
+                $_SESSION['flash_escape_err'] = $e->getMessage();
+            }
+        }
         header('Location: index.php?action=gestion_escapegame');
         exit;
     }
@@ -106,6 +113,13 @@ Ajout d'un escape
 
     public function modifierEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $this->escape->updateEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
+        if (isset($_FILES['photoCouverture']) && $_FILES['photoCouverture']['error'] === UPLOAD_ERR_OK) {
+            try {
+                $this->escape->updatePhotoCouverture($id_escape);
+            } catch (Exception $e) {
+                $_SESSION['flash_escape_err'] = $e->getMessage();
+            }
+        }
         header('Location: index.php?action=gestion_escapegame');
         exit;
     }

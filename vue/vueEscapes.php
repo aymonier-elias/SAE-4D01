@@ -17,7 +17,7 @@ $escapes = $escapes ?? array();
                     <h3><?= htmlspecialchars($e['Nom'] ?? '') ?></h3>
                     <p class="ville"><?= htmlspecialchars($e['Ville'] ?? '') ?></p>
                     <p class="description"><?= htmlspecialchars($e['Description'] ?? '') ?></p>
-                    <p class="infos">Participants max : <?= (int)($e['Nombre de participants maximum'] ?? 0) ?> · Âge min : <?= (int)($e['Age minimum'] ?? 0) ?> ans · <?= htmlspecialchars($e['Difficultés'] ?? '') ?></p>
+                    <p class="infos">Participants max : <?= (int)($e['Nombre de participants maximum'] ?? 0) ?> · Âge min : <?= (int)($e['Age minimum'] ?? 0) ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[(int)($e['Difficultés'] ?? 0)] ?? $e['Difficultés']) ?></p>
                 </article>
             <?php endforeach; ?>
 

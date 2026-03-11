@@ -45,6 +45,13 @@ abstract class Database {
     }
     return FALSE; // Erreur lors de l'exécution de la requête
   }
+
+  /*******************************************************
+  Retourne l'identifiant de la dernière ligne insérée
+  *******************************************************/
+  protected function lastInsertId() {
+    return $this->connexionBDD()->lastInsertId();
+  }
   
   /*******************************************************
   Connexion à la BDD à partir des paramètres de configuration

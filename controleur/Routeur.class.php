@@ -64,7 +64,7 @@ class Routeur {
                                     (int)($_POST['age_minimum'] ?? 0),
                                     $_POST['ville'] ?? '',
                                     $_POST['tags'] ?? '',
-                                    $_POST['difficultes'] ?? ''
+                                    (int)($_POST['difficultes'] ?? 0)
                                 );
                             }
                             return;
@@ -80,7 +80,7 @@ class Routeur {
                                     (int)($_POST['age_minimum'] ?? 0),
                                     $_POST['ville'] ?? '',
                                     $_POST['tags'] ?? '',
-                                    $_POST['difficultes'] ?? ''
+                                    (int)($_POST['difficultes'] ?? 0)
                                 );
                             }
                             return;
