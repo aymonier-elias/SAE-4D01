@@ -47,6 +47,15 @@ class Routeur {
                         case 'gestion_escapegame':
                             $this->CtlEscape->escapes();
                             return;
+                        case'ajouterEscape':
+                            $this->CtlEscape->ajouterEscape();
+                            return;
+                        case'modifierEscape':
+                            $this->CtlEscape->modifierEscape($_GET['id_escape'] ?? 0);
+                            return;
+                        case'supprimerEscape':
+                            $this->CtlEscape->supprimerEscape($_GET['id_escape'] ?? 0);
+                            return; 
                     }
                 }
 
@@ -143,6 +152,7 @@ class Routeur {
             }
 
             throw new Exception("La page que vous cherchez est introuvable :(");
+            
         } catch (Exception $e) {
             $this->CtlPage->erreur($e->getMessage());
             exit;

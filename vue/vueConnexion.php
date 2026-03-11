@@ -13,23 +13,31 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 </div>
 
 <section class="connexion_form">
+
   <div class="form_link">
     <button class="connexion" aria-expanded="true">Connexion</button>
     <button class="inscription" aria-expanded="false">Inscription</button>
   </div>
+
   <form class="form" method="post" action="index.php?action=login">
+
     <?php if (!empty($erreur)): ?>
       <p class="msg-error"><?= $erreur ?></p>
     <?php endif; ?>
+
+
     <div class="input-mail">
       <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>
       <input type="email" name="email" required>
     </div>
+
     <div class="input-mdp">
       <label><img src="img/svg/clef.svg" alt=""> Mot de passe</label>
       <input type="password" name="mdp" required>
-      <a href="">Mot de passe oublié ?</a>
     </div>
+
     <button type="submit" class="cta">Accéder</button>
   </form>
+
+
 </section>
