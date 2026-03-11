@@ -36,8 +36,6 @@
 
 .form {
   display: flex;
-  backdrop-filter: blur(5px);
-  box-shadow: inset 5px 5px 10px #00000050, inset -5px -5px 10px #ffffff30;
   flex-direction: column;
   gap: 35px;
   padding: 130px 320px;

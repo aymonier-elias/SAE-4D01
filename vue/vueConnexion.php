@@ -19,7 +19,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
     <button class="inscription" aria-expanded="false">Inscription</button>
   </div>
 
-  <form class="form" method="post" action="index.php?action=login">
+  <form class="form glass" method="post" action="index.php?action=login">
 
     <?php if (!empty($erreur)): ?>
       <p class="msg-error"><?= $erreur ?></p>
