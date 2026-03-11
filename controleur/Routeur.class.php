@@ -45,15 +45,46 @@ class Routeur {
                             $this->CtlReservation->reservations('gestion_commandes');
                             return;
                         case 'gestion_escapegame':
-                            $this->CtlEscape->escapes();
+                            $this->CtlEscape->gestionEscapes();
                             return;
-                        case'ajouterEscape':
-                            $this->CtlEscape->ajouterEscape();
+                        case 'formulaire_ajout_escape':
+                            $this->CtlEscape->formulaireAjoutEscape();
                             return;
-                        case'modifierEscape':
-                            $this->CtlEscape->modifierEscape($_GET['id_escape'] ?? 0);
+                        case 'formulaire_modifier_escape':
+                            $this->CtlEscape->formulaireModifierEscape($_GET['id_escape'] ?? 0);
                             return;
-                        case'supprimerEscape':
+                        case 'ajouterEscape':
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                $this->CtlEscape->ajouterEscape(
+                                    $_POST['nom'] ?? '',
+                                    $_POST['description'] ?? '',
+                                    $_POST['longitude'] ?? 0,
+                                    $_POST['latitude'] ?? 0,
+                                    (int)($_POST['nb_participants_max'] ?? 0),
+                                    (int)($_POST['age_minimum'] ?? 0),
+                                    $_POST['ville'] ?? '',
+                                    $_POST['tags'] ?? '',
+                                    $_POST['difficultes'] ?? ''
+                                );
+                            }
+                            return;
+                        case 'modifierEscape':
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                $this->CtlEscape->modifierEscape(
+                                    (int)($_POST['id_escape'] ?? 0),
+                                    $_POST['nom'] ?? '',
+                                    $_POST['description'] ?? '',
+                                    $_POST['longitude'] ?? 0,
+                                    $_POST['latitude'] ?? 0,
+                                    (int)($_POST['nb_participants_max'] ?? 0),
+                                    (int)($_POST['age_minimum'] ?? 0),
+                                    $_POST['ville'] ?? '',
+                                    $_POST['tags'] ?? '',
+                                    $_POST['difficultes'] ?? ''
+                                );
+                            }
+                            return;
+                        case 'supprimerEscape':
                             $this->CtlEscape->supprimerEscape($_GET['id_escape'] ?? 0);
                             return; 
                     }

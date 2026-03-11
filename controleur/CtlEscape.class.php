@@ -41,6 +41,31 @@ Affichage de la page d'un escape
         $vue->afficher(array("escape" => $escape));
     }
 
+    /*******************************************************
+    Affichage de la page de gestion des escapes (admin)
+    *******************************************************/
+    public function gestionEscapes() {
+        $escapes = $this->escape->getEscapes();
+        $vue = new Vue("GestionEscapes");
+        $vue->afficher(array("escapes" => $escapes));
+    }
+
+    /*******************************************************
+    Affiche le formulaire d'ajout d'un escape
+    *******************************************************/
+    public function formulaireAjoutEscape() {
+        $vue = new Vue("FormulaireAjoutEscape");
+        $vue->afficher(array());
+    }
+
+    /*******************************************************
+    Affiche le formulaire de modification d'un escape
+    *******************************************************/
+    public function formulaireModifierEscape($id_escape) {
+        $escape = $this->escape->getEscape($id_escape);
+        $vue = new Vue("FormulaireModifierEscape");
+        $vue->afficher(array("escape" => $escape));
+    }
 
     /*******************************************************
 Ajout d'un escape
@@ -59,7 +84,7 @@ Ajout d'un escape
 
     public function ajouterEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $this->escape->addEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
-        header('Location: index.php?action=escapes');
+        header('Location: index.php?action=gestion_escapegame');
         exit;
     }
 
@@ -81,7 +106,7 @@ Ajout d'un escape
 
     public function modifierEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $this->escape->updateEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
-        header('Location: index.php?action=escapes');
+        header('Location: index.php?action=gestion_escapegame');
         exit;
     }
 
@@ -92,9 +117,9 @@ Ajout d'un escape
   Retour : 
 *******************************************************/
 
-public function supprimerEscape($id_escape) {
-    $this->escape->deleteEscape($id_escape);
-    header('Location: index.php?action=escapes');
-    exit;
-}
+    public function supprimerEscape($id_escape) {
+        $this->escape->deleteEscape($id_escape);
+        header('Location: index.php?action=gestion_escapegame');
+        exit;
+    }
 }

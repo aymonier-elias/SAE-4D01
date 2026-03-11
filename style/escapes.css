@@ -42,3 +42,85 @@
         margin: auto;
     }
 }
+
+/* Gestion escape games */
+.gestion-escapes .actions-haut {
+    margin-bottom: 1.5rem;
+}
+
+.gestion-escapes .liste-escapes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gestion-escapes .card-escape {
+    border: 2px solid var(--secondary, #333);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.gestion-escapes .actions-card {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn-ajouter {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary, #2a2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-modifier {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #1877f2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-supprimer {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #c00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-retour {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--secondary, #333);
+    text-decoration: none;
+}
+
+.formulaire-escape .form-escape {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+}
+
+.formulaire-escape .form-escape label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.formulaire-escape .form-escape input[type="text"],
+.formulaire-escape .form-escape input[type="number"],
+.formulaire-escape .form-escape textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
