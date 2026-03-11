@@ -16,8 +16,8 @@
       <?= $menu ?>
 
       <div class="menu_langue" aria-hidden="true">
-        <img src="img/svg/fr.svg" alt="">
-        <img src="img/svg/uk.svg" alt="">
+        <img src="img/svg/fr.svg" alt="" data-lang="fr">
+        <img src="img/svg/uk.svg" alt="" data-lang="uk">
       </div>
     </nav>
     <?php
@@ -44,6 +44,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="../js/traduction.js"></script>
 </body>
 
 </html>
