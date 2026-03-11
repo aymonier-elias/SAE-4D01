@@ -23,16 +23,34 @@ class Favori extends Database {
   }
 
   /*******************************************************
+  Retourne un id_version pour cet escape (existant ou créé par défaut).
+  Si l'escape n'a aucune version en BDD, on en crée une pour que les favoris fonctionnent.
+  *******************************************************/
+  private function getOrCreateVersionId($id_escape) {
+    $req = 'SELECT id_version FROM version WHERE id_escape = ? LIMIT 1;';
+    $resultat = $this->execReqPrep($req, array($id_escape));
+    if (is_array($resultat) && isset($resultat[0]['id_version'])) {
+      return (int) $resultat[0]['id_version'];
+    }
+    $reqInsert = 'INSERT INTO version (durée, prix, id_escape) VALUES (\'1h\', 0, ?);';
+    $this->execReqPrep($reqInsert, array($id_escape));
+    return (int) $this->lastInsertId();
+  }
+
+  /*******************************************************
   Ajoute un escape aux favoris : on ajoute une version de cet escape
-  (la première trouvée) dans mettre_favoris_version.
+  (existante ou créée par défaut) dans mettre_favoris_version.
   *******************************************************/
   public function ajouter($id_client, $id_escape) {
     if ($this->estFavori($id_client, $id_escape)) {
       return true;
     }
-    $req = 'INSERT INTO mettre_favoris_version (id_client, id_version) '
-         . 'SELECT ?, v.id_version FROM version v WHERE v.id_escape = ? LIMIT 1;';
-    $this->execReqPrep($req, array($id_client, $id_escape));
+    $id_version = $this->getOrCreateVersionId($id_escape);
+    if (!$id_version) {
+      return false;
+    }
+    $req = 'INSERT IGNORE INTO mettre_favoris_version (id_client, id_version) VALUES (?, ?);';
+    $this->execReqPrep($req, array($id_client, $id_version));
     return true;
   }
 

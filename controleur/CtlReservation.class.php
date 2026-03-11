@@ -73,7 +73,7 @@ Affichage des détails d'une Reservation et du client dans la vue concernée
             exit;
         }
         $this->favori->ajouter($id_client, (int) $id_escape);
-        $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=escapes';
+        $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));
         exit;
     }
