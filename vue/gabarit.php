@@ -11,7 +11,7 @@
   <header class="header">
     <nav class="nav">
       <a href="index.php">
-        <h1><?= $header ?></h1>
+        <img src="img/svg/Logo.svg" alt="">
       </a>
       <?= $menu ?>
 
