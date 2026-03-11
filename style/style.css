@@ -206,6 +206,10 @@ button {
 }
 
 /* Footer */
+.footer {
+  margin: 50px 10px 10px 10px;
+}
+
 .footer-nav {
   padding: 100px;
   display: flex;
