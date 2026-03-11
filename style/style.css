@@ -127,7 +127,9 @@ button {
 
 .glass {
   backdrop-filter: blur(5px);
-  box-shadow: inset 5px 5px 10px #00000050, inset -5px -5px 10px #ffffff30;
+  box-shadow:
+    inset 5px 5px 10px #00000050,
+    inset -5px -5px 10px #ffffff30;
 }
 
 /* Header */
@@ -158,7 +160,8 @@ button {
     gap: 40px;
     font-size: 1rem;
     font-weight: bold;
-    .important, .admin-links {
+    .important,
+    .admin-links {
       padding: 10px;
       border: 2px solid var(--secondary-half);
     }
@@ -202,13 +205,36 @@ button {
   background-image: url(../img/fond.png);
   background-size: cover;
   position: absolute;
+  padding: 15% 25%;
   inset: 0;
   display: flex;
   gap: 40px;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  justify-content: end;
   padding-top: var(--height);
   color: var(--white);
+  overflow: hidden;
+  * {
+    z-index: 1;
+  }
+  .fume {
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+    animation: fume 10s infinite ease-in-out alternate;
+    z-index: 0;
+  }
+}
+
+@keyframes fume {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
 /* Footer */
