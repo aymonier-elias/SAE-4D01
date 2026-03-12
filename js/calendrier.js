@@ -75,8 +75,6 @@ genererCalendrier(currentDate);
 
 
 
-
-
 /********* HTML qui va avec **********/
 //<div class="navigation-calendrier">
 //        <div class="mois-prec"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div>
@@ -95,3 +93,5 @@ genererCalendrier(currentDate);
     // </div>
 
     // <div class="grid-container"></div>
+
+

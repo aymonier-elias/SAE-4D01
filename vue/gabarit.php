@@ -9,7 +9,7 @@
 
 <body>
   <header class="header">
-    <nav class="nav">
+    <nav class="nav glass">
       <a href="index.php">
         <img src="img/svg/Logo.svg" alt="">
       </a>

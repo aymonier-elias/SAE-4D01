@@ -83,3 +83,25 @@
     color: var(--brand-grey);
   }
 }
+
+
+.deco {
+  position: absolute;
+  right: 100px;
+  top: 400px;
+  height: 400px;
+  z-index: -100;
+  animation: montgolfiere 8s ease-in-out infinite reverse;
+}
+
+@keyframes montgolfiere {
+  0% {
+    transform: translateY(-100px);
+  } 50% {
+    transform: translateY(0px);
+
+  } 100% {
+    transform: translateY(-100px);
+
+  }
+}

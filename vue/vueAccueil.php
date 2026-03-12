@@ -1,23 +1,29 @@
 <?php
 $cssLink = '<link href="style/accueil.css" rel="stylesheet">';
 
-$hero = "<div class='hero'>
+
+
+if (isset($_SESSION['acces'])) {
+  $hero = "<div class='hero'>
+  <h1 data-i18n='home.entete.titre'>Bonjour " . $_SESSION['acces'] . "</h1>
+  <h3 data-i18n='home.entete.description-home'>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
+    redécouvrez le patrimoine à travers les rouages du temps.</h3>
+  <a href='#' class='cta'data-i18n='home.entete.bouton-home'>Réserver ma mission</a>
+  <img src='img/fume.webp' alt='ll' class='fume'>
+  <span class='degrader'></span>
+</div>";
+} else {
+  $hero = "<div class='hero'>
   <h1 data-i18n='home.entete.titre'>DÉVERROUILLEZ LES SECRETS DE NOS CITÉS</h1>
   <h3 data-i18n='home.entete.description-home'>Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et
     redécouvrez le patrimoine à travers les rouages du temps.</h3>
   <a href='#' class='cta'data-i18n='home.entete.bouton-home'>Réserver ma mission</a>
+  <img src='img/fume.webp' alt='ll' class='fume'>
   <span class='degrader'></span>
 </div>";
-
-if(isset($_SESSION['acces'])){
-  echo "bonjour " . $_SESSION['acces'];
 }
-else {
-  echo "bonjour";
-}
-
 ?>
-  
+
 
 <section class="infiltration">
   <div class="title">
@@ -181,7 +187,8 @@ else {
   <div class="text">
     <h3>Pensez a la carte cadeau lock out</h3>
     <h2>Offrez l'aventure <strong>en héritage</strong></h2>
-    <p>Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et
+    <p>Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités
+      et
       vivre une immersion hors du temps.</p>
   </div>
   <img src="img/card_pass-partout.png" alt="">

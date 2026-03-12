@@ -5,7 +5,10 @@ $utilisateurs = $utilisateurs ?? array();
 $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
 ?>
 <section class="content gestion-utilisateurs">
-    <h2>Gestion des utilisateurs</h2>
+    <div class="titre_page">
+        <h2>Gestion des utilisateurs</h2>
+        <span class="separator"></span>
+    </div>
 
     <?php if (empty($utilisateurs)): ?>
         <p class="msg-empty">Aucun utilisateur.</p>

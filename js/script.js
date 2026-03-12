@@ -1,4 +1,5 @@
 // Gestion menu déroulant langue
+const body = document.querySelector("body");
 const menuLangueBtn = document.querySelector(".btn_langue");
 const menuLangue = document.querySelector(".menu_langue");
 const nav = document.querySelector(".nav");
