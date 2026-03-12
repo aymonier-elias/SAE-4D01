@@ -4,7 +4,12 @@ $cssLink = '<link href="style/profil.css" rel="stylesheet">';
 $utilisateur = $utilisateur ?? array();
 $erreur = $erreur ?? '';
 $id = (int) ($utilisateur['id_utilisateur'] ?? 0);
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Mon compte'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="profil">
     <div class="titre">
         <h2>Tableau de bord</h2>

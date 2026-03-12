@@ -1,4 +1,5 @@
 @import url(style.css);
+@import url(missions.css);
 
 /* Carte Alsace - missions */
 .carte-alsace-wrapper {
@@ -24,82 +25,10 @@
   display: flex;
   gap: 100px;
   margin: 100px 0;
-  button {
-    border-width: 2px;
-    text-transform: none;
-  }
 }
-
-.content.escapes .msg-erreur {
-  padding: 1rem;
-  background: #ffebee;
-  color: #c62828;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-/* Les missions */
-.missions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
-}
-
-.mission {
-  display: flex;
-  align-items: center;
-  height: fit-content;
-  width: 75%;
-  .img {
-    min-width: 50%;
-    max-width: 50%;
-    height: auto;
-    position: relative;
-    img {
-      width: 100%;
-    }
-    span {
-      background-image: linear-gradient(90deg, transparent, var(--brand-black));
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 100px;
-    }
-  }
-  h2 {
-    margin: auto;
-  }
-  .info {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    a {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      align-self: flex-end;
-      margin-top: 50px;
-    }
-    .text {
-      margin-top: 20px;
-      .description {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-        margin-bottom: 20px;
-        text-indent: 20px;
-      }
-    }
-    .links {
-      margin-top: 0;
-      display: flex;
-      gap: 20px;
-    }
-  }
+.filtre button {
+  border-width: 2px;
+  text-transform: none;
 }
 
 /* ----- Favoris & Panier (vue Reservations) ----- */

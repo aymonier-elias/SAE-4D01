@@ -9,7 +9,13 @@ $key = function ($row, $k) {
     if (isset($row[$k])) return $row[$k];
     return $row[strtolower($k)] ?? null;
 };
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Commandes', 'url' => 'index.php?action=gestion_commandes'),
+    array('label' => 'Détail de la commande'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content detail-commande">
     <div class="titre_page">
         <h2>Détail de la commande</h2>

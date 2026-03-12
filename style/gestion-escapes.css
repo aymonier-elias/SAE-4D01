@@ -1,4 +1,5 @@
 @import url(style.css);
+@import url(missions.css);
 
 /* Section et titre */
 .content.gestion-escapes {
@@ -46,74 +47,7 @@
   padding: 40px;
 }
 
-/* Grille des missions (même style que vueEscapes) */
-.gestion-escapes .missions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
-}
-
-.gestion-escapes .mission {
-  display: flex;
-  align-items: center;
-  height: fit-content;
-  width: 75%;
-}
-.gestion-escapes .mission .img {
-  min-width: 50%;
-  max-width: 50%;
-  height: auto;
-  position: relative;
-}
-.gestion-escapes .mission .img img {
-  width: 100%;
-  display: block;
-}
-.gestion-escapes .mission .img span {
-  background-image: linear-gradient(90deg, transparent, var(--brand-black));
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-}
-
-.gestion-escapes .mission h2 {
-  margin: auto;
-  text-align: left;
-}
-
-.gestion-escapes .mission .info {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-}
-.gestion-escapes .mission .info a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  align-self: flex-end;
-  margin-top: 50px;
-}
-.gestion-escapes .mission .info .text {
-  margin-top: 20px;
-}
-.gestion-escapes .mission .info .text .description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  margin-bottom: 20px;
-  text-indent: 20px;
-}
-.gestion-escapes .mission .info .links {
-  margin-top: 0;
-  display: flex;
-  gap: 20px;
-}
-
+/* Surcharges boutons dans les cartes mission */
 .gestion-escapes .mission .cta {
   padding: 10px 20px;
   border: 2px solid var(--secondary);

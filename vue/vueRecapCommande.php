@@ -4,7 +4,13 @@ $panier = $panier ?? array();
 $total = (int)($total ?? 0);
 $client = $client ?? array();
 $titre = "Récapitulatif de la commande";
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Mon panier', 'url' => 'index.php?action=panier'),
+    array('label' => 'Récapitulatif'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content recap-commande">
     <h2><?= htmlspecialchars($titre) ?></h2>
     <?php

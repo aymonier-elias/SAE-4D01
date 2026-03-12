@@ -10,7 +10,12 @@ $key = function ($row, $k) {
     if (isset($row[$k])) return $row[$k];
     return $row[strtolower($k)] ?? null;
 };
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Gestion des escape games'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content gestion-escapes">
     <h2 data-i18n='page-gestion-escape.titre'>Gestion des escape games</h2>
 
