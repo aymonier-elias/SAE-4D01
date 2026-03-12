@@ -19,7 +19,7 @@
   color: var(--secondary);
   .form-input_wrap {
     display: flex;
-    justify-content: space-betweena;
+    justify-content: space-between;
     gap: 10px;
   }
   [class|="input"] {
