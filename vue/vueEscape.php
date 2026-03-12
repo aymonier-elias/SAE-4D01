@@ -1,5 +1,8 @@
 <?php
 $cssLink = '<link href="style/escape.css" rel="stylesheet">';
+if (!class_exists('Escape')) {
+    require_once __DIR__ . '/../modele/escape.class.php';
+}
 $escape = $escape ?? array();
 $versions = $versions ?? array();
 $est_favori = !empty($est_favori);
@@ -9,6 +12,7 @@ $nb_max = (int)($escape['Nombre de participants maximum'] ?? 0);
 $liste_avis = isset($liste_avis) && is_array($liste_avis) ? $liste_avis : array();
 $note_moyenne = $note_moyenne ?? null;
 $avis_utilisateur = $avis_utilisateur ?? null;
+$photoEscape = !empty($escape) ? Escape::getCheminPhotoCouverture($id_escape) : null;
 ?>
 
 <p data-i18n='page-escape.file'>File d'ariane</p>
@@ -42,7 +46,11 @@ $avis_utilisateur = $avis_utilisateur ?? null;
         </header>
 
         <article class="description">
-            <img src="PhotoEscape/<?= $id_escape ?>.png" alt="oui ?&">
+            <?php if ($photoEscape): ?>
+            <img src="<?= htmlspecialchars($photoEscape) ?>" alt="<?= htmlspecialchars($escape['Nom'] ?? '') ?>">
+            <?php else: ?>
+            <img src="img/mission/default.png" alt="<?= htmlspecialchars($escape['Nom'] ?? '') ?>" onerror="this.style.display='none'">
+            <?php endif; ?>
             <div class="text">
                 <h3>Breefings de la mission</h3>
                 <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
@@ -73,19 +81,23 @@ $avis_utilisateur = $avis_utilisateur ?? null;
                     <p class="action-favori" data-i18n='page-escape.add-fav'><a href="index.php?action=ajouterFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>" class="btn-favori">♡ Ajouter aux favoris</a></p>
                 <?php endif; ?>
             <?php endif; ?>
-        </article>
 
         <?php if (isset($_SESSION['acces']) && !empty($versions)) { ?>
             <div class="bloc-panier">
                 <h3 data-i18n='page-escape.reserv'>Réserver / Ajouter au panier</h3>
                 <p class="aide-panier" data-i18n='page-escape.choix'>Choisissez une version, un créneau et le nombre de joueurs.</p>
                 <form method="post" action="index.php?action=ajouterPanier" class="form-panier">
-                    <label>Version (durée · prix)
-                        <select name="id_version" required>
-                            <option value="">— Choisir —</option>
-                            <?php foreach ($versions as $v): ?>
-                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>">
-                                    <?= htmlspecialchars($v['duree'] ?? $v['durée'] ?? '') ?> · <?= (int) ($v['prix'] ?? 0) ?> €
+                    <label>Version (les 3 packs sont identiques pour toutes les missions)
+                        <select name="id_version" id="select-version" required>
+                            <option value="">— Choisir un pack —</option>
+                            <?php foreach ($versions as $v):
+                                $descPack = $v['description'] ?? '';
+                                $nomPack = $v['nom'] ?? '';
+                                $duree = $v['duree'] ?? $v['durée'] ?? '';
+                                $prix = (int)($v['prix'] ?? 0);
+                            ?>
+                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>" data-description="<?= htmlspecialchars($descPack) ?>">
+                                    <?= htmlspecialchars($nomPack) ?> — <?= htmlspecialchars($duree) ?> · <?= $prix ?> €
                                 </option>
                             <?php endforeach; ?>
                         </select>

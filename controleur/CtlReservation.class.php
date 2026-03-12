@@ -82,7 +82,13 @@ class CtlReservation {
             header('Location: index.php?action=connexion');
             exit;
         }
-        $this->favori->ajouter($id_client,  $id_escape);
+        $id_escape = (int) ($id_escape ?? 0);
+        if ($id_escape <= 0) {
+            $_SESSION['flash_favori_erreur'] = 'Mission invalide.';
+            header('Location: index.php?action=escapes');
+            exit;
+        }
+        $this->favori->ajouter($id_client, $id_escape);
         $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));
         exit;
@@ -94,8 +100,9 @@ class CtlReservation {
      */
     public function retirerFavori($id_escape) {
         $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
-        if ($id_client) {
-            $this->favori->retirer($id_client,  $id_escape);
+        $id_escape = (int) ($id_escape ?? 0);
+        if ($id_client && $id_escape > 0) {
+            $this->favori->retirer($id_client, $id_escape);
         }
         $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));

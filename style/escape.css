@@ -35,6 +35,9 @@
     gap: 50px;
     img {
         width: 50%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
         border: 1px solid var(--secondary);
     }
     .text {
@@ -49,3 +52,113 @@
         align-items: center;
     }
 }
+
+/* Calendrier réservation */
+.calendrier-wrapper {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--brand-grey, #f5f5f5);
+    border-radius: 8px;
+}
+.navigation-calendrier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.navigation-calendrier .nomMois {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.navigation-calendrier button {
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: #fff;
+}
+.navigation-calendrier button:hover {
+    background: var(--brand-grey);
+}
+.week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+#calendrier-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+#calendrier-grid .grid-item {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: default;
+    font-size: 0.9rem;
+}
+#calendrier-grid .grid-item.empty {
+    visibility: hidden;
+}
+#calendrier-grid .grid-item.passe {
+    color: #999;
+    cursor: not-allowed;
+}
+#calendrier-grid .grid-item[data-date] {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+#calendrier-grid .grid-item[data-date]:hover {
+    background: #e8f4ea;
+}
+#calendrier-grid .grid-item.libre { border-color: #2e7d32; background: #e8f5e9; }
+#calendrier-grid .grid-item.panier { border-color: #f57c00; background: #fff3e0; }
+#calendrier-grid .grid-item.achete { border-color: #9e9e9e; background: #eee; cursor: not-allowed; }
+#calendrier-grid .grid-item.mixte { border-color: #757575; background: #f5f5f5; }
+.legende-creneaux {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.legende-creneaux .leg { padding: 0 0.25rem; border-radius: 3px; }
+.legende-creneaux .leg.libre { background: #e8f5e9; }
+.legende-creneaux .leg.panier { background: #fff3e0; }
+.legende-creneaux .leg.achete { background: #eee; }
+.creneaux-heures {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.liste-heures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.creneau-heure {
+    padding: 0.5rem 1rem;
+    border: 1px solid #2e7d32;
+    border-radius: 4px;
+    background: #e8f5e9;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.creneau-heure:hover:not(:disabled) { background: #c8e6c9; }
+.creneau-heure.selected { background: #2e7d32; color: #fff; }
+.creneau-heure:disabled { opacity: 0.7; cursor: not-allowed; border-color: #9e9e9e; background: #eee; }
+.form-panier label { display: block; margin-top: 1rem; }
+.form-panier input[type="date"],
+.form-panier input[type="time"],
+.form-panier input[type="number"] { margin-left: 0.5rem; }
+.btn-ajouter-panier { margin-top: 1.5rem; padding: 0.6rem 1.2rem; cursor: pointer; }

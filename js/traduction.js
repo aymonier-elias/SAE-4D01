@@ -4,10 +4,17 @@ const langKey = "lang";
 let lang = localStorage.getItem(langKey) || "fr";
 let translations = {};
 
-// Charger les traductions
+// Base path du site (où se trouve index.php) pour charger langues/trad.json
+const scriptTag = document.currentScript;
+const basePath = scriptTag && scriptTag.src
+  ? scriptTag.src.replace(/\/js\/[^/]*$/, "/")
+  : (document.querySelector("base")?.href || window.location.href.replace(/[#?].*$/, "").replace(/\/[^/]*$/, "/"));
+
 async function loadTranslations() {
   try {
-    const res = await fetch("../langues/trad.json");
+    const url = basePath + "langues/trad.json";
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status + " " + url);
     translations = await res.json();
 
     updateFlag();

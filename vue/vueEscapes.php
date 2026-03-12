@@ -45,7 +45,12 @@ foreach ($escapes as $e) {
 ?>
 <section class="content escapes">
     <h2 data-i18n='page-escapes.mission'>Les missions</h2>
-
+    <?php
+    if (!empty($_SESSION['flash_favori_erreur'])) {
+        echo '<p class="msg-erreur">' . htmlspecialchars($_SESSION['flash_favori_erreur']) . '</p>';
+        unset($_SESSION['flash_favori_erreur']);
+    }
+    ?>
     <?php
     if (!empty($escapesPourCarte)) {
         ?>
