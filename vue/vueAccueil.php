@@ -27,14 +27,14 @@ if (isset($_SESSION['acces'])) {
 
 <section class="infiltration">
   <div class="title">
-    <h2>Vos prochaines inflitrations</h2>
+    <h2 data-i18n='home.infiltration.titre'>Vos prochaines inflitrations</h2>
     <span class="separator"></span>
   </div>
   <div class="cards">
     <a href="#" class="card">
 
       <div class="card-hover">
-        <span class="cta">Réserver ma mission</span>
+        <span class="cta" data-i18n='home.entete.bouton-home'>Réserver ma mission</span>
       </div>
 
       <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
@@ -136,7 +136,7 @@ if (isset($_SESSION['acces'])) {
 
 <section class="experience" id="exp">
   <div class="title">
-    <h2>L'EXPÉRIENCE LOCK OUT</h2>
+    <h2 data-i18n='home.experience.titre'>L'EXPÉRIENCE LOCK OUT</h2>
     <span class="separator"></span>
   </div>
 
@@ -144,8 +144,8 @@ if (isset($_SESSION['acces'])) {
     <div class="card_grid-a">
       <span>1</span>
       <div>
-        <h3>Choississer votre terrai d'opération</h3>
-        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+        <h3 data-i18n='home.experience.titre-cat-1'>Choississer votre terrai d'opération</h3>
+        <p data-i18n='home.experience.desc-cat-1'>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
           attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
           porte ouverte sur l'inconnu.</p>
       </div>
@@ -154,8 +154,8 @@ if (isset($_SESSION['acces'])) {
     <div class="card_grid-b">
       <span>2</span>
       <div>
-        <h3>Choississer votre terrai d'opération</h3>
-        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+        <h3 data-i18n='home.experience.titre-cat-2'>Choississer votre terrai d'opération</h3>
+        <p data-i18n='home.experience.desc-cat-2'>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
           attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
           porte ouverte sur l'inconnu.</p>
       </div>
@@ -164,8 +164,8 @@ if (isset($_SESSION['acces'])) {
     <div class="card_grid-c">
       <span>3</span>
       <div>
-        <h3>Choississer votre terrai d'opération</h3>
-        <p>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
+        <h3 data-i18n='home.experience.titre-cat-3'>Choississer votre terrai d'opération</h3>
+        <p data-i18n='home.experience.desc-cat-3'>Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez
           attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une
           porte ouverte sur l'inconnu.</p>
       </div>
@@ -178,19 +178,18 @@ if (isset($_SESSION['acces'])) {
       <img src="img/svg/roueDente.svg" alt="1" height="10px" width="10px">
       <span></span>
     </div>
-    <p>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe
+    <p data-i18n='home.experience.info'>Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe
       comptent</p>
   </footer>
 </section>
 
 <section class="offre">
   <div class="text">
-    <h3>Pensez a la carte cadeau lock out</h3>
-    <h2>Offrez l'aventure <strong>en héritage</strong></h2>
-    <p>Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités
-      et
+    <h3 data-i18n='home.cadeau.insitation'>Pensez a la carte cadeau lock out</h3>
+    <h2 data-i18n='home.cadeau.titre'>Offrez l'aventure <strong>en héritage</strong></h2>
+    <p data-i18n='home.cadeau.description'>Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et
       vivre une immersion hors du temps.</p>
   </div>
   <img src="img/card_pass-partout.png" alt="">
-  <a href="#" class="cta">Offrir une mission</a>
+  <a href="#" class="cta" data-i18n='home.cadeau.bouton'>Offrir une mission</a>
 </section>
