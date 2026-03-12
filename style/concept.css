@@ -1,0 +1,85 @@
+@import url(style.css);
+
+/* Page concept — même ambiance que le site */
+.content.concept-page {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 1rem 0;
+}
+
+.content.concept-page h2 {
+  margin-bottom: 1rem;
+}
+
+.concept-intro {
+  font-family: var(--text);
+  color: var(--white);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.concept-section {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 2rem;
+}
+
+.concept-section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--secondary);
+}
+
+.concept-section p {
+  font-family: var(--text);
+  color: var(--white);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.concept-section p:last-child {
+  margin-bottom: 0;
+}
+
+.concept-section strong {
+  color: var(--secondary);
+}
+
+/* Grille des 3 types de missions */
+.types-missions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .types-missions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.type-card {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.type-card h4 {
+  font-family: var(--title);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: 0 0 0.25rem 0;
+}
+
+.type-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.type-card strong {
+  color: var(--secondary);
+}

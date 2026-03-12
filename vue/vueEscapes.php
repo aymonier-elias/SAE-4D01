@@ -127,33 +127,9 @@ $fil_ariane = array(
                         <?php endforeach; ?>
                     </select>
                 </label>
+                <button type="button" class="btn-reinit-filtres" id="btn-reinit-filtres">Réinitialiser les filtres</button>
             </div>
         </div>
-        <script>
-            (function() {
-                var filtreVille = document.getElementById('filtre-ville');
-                var filtreDifficulte = document.getElementById('filtre-difficulte');
-                var filtreTag = document.getElementById('filtre-tag');
-                var cards = document.querySelectorAll('.missions .mission');
-                function appliquerFiltres() {
-                    var ville = (filtreVille && filtreVille.value) || '';
-                    var diff = (filtreDifficulte && filtreDifficulte.value) || '';
-                    var tag = (filtreTag && filtreTag.value) || '';
-                    cards.forEach(function(card) {
-                        var cardVille = (card.getAttribute('data-ville') || '').trim();
-                        var cardDiff = (card.getAttribute('data-difficulte') || '').trim();
-                        var cardTags = (card.getAttribute('data-tags') || '').toLowerCase();
-                        var matchVille = !ville || cardVille === ville;
-                        var matchDiff = !diff || cardDiff === diff;
-                        var matchTag = !tag || cardTags.indexOf(tag.toLowerCase()) !== -1;
-                        card.style.display = (matchVille && matchDiff && matchTag) ? '' : 'none';
-                    });
-                }
-                if (filtreVille) filtreVille.addEventListener('change', appliquerFiltres);
-                if (filtreDifficulte) filtreDifficulte.addEventListener('change', appliquerFiltres);
-                if (filtreTag) filtreTag.addEventListener('change', appliquerFiltres);
-            })();
-        </script>
         <?php endif; ?>
 
     <?php if (empty($escapes)): ?>
@@ -210,5 +186,39 @@ $fil_ariane = array(
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php if (!empty($escapes)): ?>
+        <script>
+            (function() {
+                var filtreVille = document.getElementById('filtre-ville');
+                var filtreDifficulte = document.getElementById('filtre-difficulte');
+                var filtreTag = document.getElementById('filtre-tag');
+                var btnReinit = document.getElementById('btn-reinit-filtres');
+                function getCards() { return document.querySelectorAll('.missions .mission'); }
+                function appliquerFiltres() {
+                    var ville = (filtreVille && filtreVille.value) || '';
+                    var diff = (filtreDifficulte && filtreDifficulte.value) || '';
+                    var tag = (filtreTag && filtreTag.value) || '';
+                    getCards().forEach(function(card) {
+                        var cardVille = (card.getAttribute('data-ville') || '').trim();
+                        var cardDiff = (card.getAttribute('data-difficulte') || '').trim();
+                        var cardTags = (card.getAttribute('data-tags') || '').toLowerCase();
+                        var matchVille = !ville || cardVille === ville;
+                        var matchDiff = !diff || cardDiff === diff;
+                        var matchTag = !tag || cardTags.indexOf(tag.toLowerCase()) !== -1;
+                        card.style.display = (matchVille && matchDiff && matchTag) ? '' : 'none';
+                    });
+                }
+                if (filtreVille) filtreVille.addEventListener('change', appliquerFiltres);
+                if (filtreDifficulte) filtreDifficulte.addEventListener('change', appliquerFiltres);
+                if (filtreTag) filtreTag.addEventListener('change', appliquerFiltres);
+                if (btnReinit) btnReinit.addEventListener('click', function() {
+                    if (filtreVille) filtreVille.value = '';
+                    if (filtreDifficulte) filtreDifficulte.value = '';
+                    if (filtreTag) filtreTag.value = '';
+                    appliquerFiltres();
+                });
+            })();
+        </script>
+        <?php endif; ?>
     <?php endif; ?>
 </section>

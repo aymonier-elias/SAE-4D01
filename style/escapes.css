@@ -51,6 +51,22 @@
   align-items: flex-end;
 }
 
+.filtres-missions .btn-reinit-filtres {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--secondary);
+  background: transparent;
+  color: var(--white);
+  font-family: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filtres-missions .btn-reinit-filtres:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
 .filtres-missions label {
   display: flex;
   flex-direction: column;

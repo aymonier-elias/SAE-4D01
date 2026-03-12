@@ -45,6 +45,7 @@ class CtlEscape {
      */
     public function escape($id_escape) {
         $escape = $this->escape->getEscape($id_escape);
+        $this->escape->ensureTroisPacks($id_escape);
         $versions = $this->escape->getVersions($id_escape);
 
         $est_favori = false;
