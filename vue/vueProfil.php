@@ -1,4 +1,5 @@
 <?php
+/** Vue : profil utilisateur (infos, modification, photo, suppression de compte). */
 $cssLink = '<link href="style/profil.css" rel="stylesheet">';
 
 $utilisateur = $utilisateur ?? array();

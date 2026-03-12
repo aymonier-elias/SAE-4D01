@@ -1,4 +1,5 @@
 <?php
+/** Vue : page "Le concept" (présentation du projet Lock Out). */
 $cssLink = '<link href="style/accueil.css" rel="stylesheet"><link href="style/concept.css" rel="stylesheet">';
 $fil_ariane = array(
     array('label' => 'Accueil', 'url' => 'index.php'),

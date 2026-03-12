@@ -1,4 +1,5 @@
 <?php
+/** Vue : détail d'une mission (description, versions/packs, réservation, avis, favoris). */
 $cssLink = '<link href="style/escape.css" rel="stylesheet">';
 if (!class_exists('Escape')) {
     require_once __DIR__ . '/../modele/escape.class.php';

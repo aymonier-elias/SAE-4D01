@@ -1,4 +1,5 @@
 <?php
+/** Vue : page de connexion (formulaire login, lien vers inscription). */
 $cssLink = '<link href="style/connexion.css" rel="stylesheet">';
 if (isset($_SESSION) && !empty($_SESSION)) {
   $menu = $_SESSION['statut'] == 2 ? $conf->menu_admin : $conf->menu_connecte;

@@ -1,4 +1,5 @@
 <?php
+/** Vue : panier, favoris ou gestion des commandes (admin) selon le contexte. */
 $reservations = $reservations ?? array();
 $favoris = $favoris ?? array();
 $contexte = $contexte ?? 'reservations';

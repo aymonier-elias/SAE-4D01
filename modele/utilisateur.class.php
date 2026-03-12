@@ -1,10 +1,10 @@
 <?php
 require_once "modele/database.class.php";
 
-/****************************************************************
-Classe chargée de la gestion des utilisateurs dans la base de données
-****************************************************************/
-
+/**
+ * Modèle utilisateur : table client (connexion, inscription, profil, liste pour admin).
+ * Gère les requêtes CRUD sur les comptes utilisateurs.
+ */
 class Utilisateur extends Database {
 
   /*******************************************************

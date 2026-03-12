@@ -16,6 +16,9 @@ class CtlReservation {
     private $favori;
 
 
+    /**
+     * Instancie les modèles Reservation, Utilisateur et Favori pour gérer panier, commandes et favoris.
+     */
     public function __construct() {
         $this->reservation = new Reservation();
         $this->utilisateur = new Utilisateur();

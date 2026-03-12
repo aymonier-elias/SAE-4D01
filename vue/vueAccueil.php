@@ -1,4 +1,5 @@
 <?php
+/** Vue : page d'accueil (hero, derniers escape games, expérience Lock Out, offre carte cadeau). */
 $cssLink = '<link href="style/accueil.css" rel="stylesheet">';
 
 
