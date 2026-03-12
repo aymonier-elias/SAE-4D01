@@ -54,9 +54,9 @@ $conf->menu_admin = "
         <a href='index.php?action=contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
         <div class = 'admin-links'>
-            <a href='index.php?action=gestion_utilisateurs' data-i18n='header.gestion-ut'>Gestion Utilisateurs</a>
-            <a href='index.php?action=gestion_commandes' data-i18n='header.gestion-com'>Gestion Commandes</a>
-            <a href='index.php?action=gestion_escapegame' data-i18n='header.gestion-esc'>Gestion EscapeGame</a>
+            <a href='index.php?action=gestion_utilisateurs' data-i18n='header.gestion-ut'>Utilisateurs</a>
+            <a href='index.php?action=gestion_commandes' data-i18n='header.gestion-com'>Commandes</a>
+            <a href='index.php?action=gestion_escapegame' data-i18n='header.gestion-esc'>EscapeGame</a>
         </div>
 
         <div class = 'important'>

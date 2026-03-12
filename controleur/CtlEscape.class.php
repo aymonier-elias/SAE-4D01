@@ -33,7 +33,7 @@ class CtlEscape {
         $escapes = $this->escape->getEscapes();
         $ids_favoris = array();
         if (isset($_SESSION['id_utilisateur'])) {
-            $ids_favoris = $this->favori->getIdsFavoris((int) $_SESSION['id_utilisateur']);
+            $ids_favoris = $this->favori->getIdsFavoris($_SESSION['id_utilisateur']);
         }
         $vue = new Vue("Escapes");
         $vue->afficher(array("escapes" => $escapes, "ids_favoris" => $ids_favoris));
@@ -44,15 +44,15 @@ class CtlEscape {
      * Affiche la page d'une mission : infos, versions (packs), calendrier, avis.
      */
     public function escape($id_escape) {
-        $id_escape = (int) $id_escape;
         $escape = $this->escape->getEscape($id_escape);
         $versions = $this->escape->getVersions($id_escape);
 
         $est_favori = false;
         $avis_utilisateur = null;
+
         if (isset($_SESSION['id_utilisateur']) && !empty($escape)) {
-            $est_favori = $this->favori->estFavori((int) $_SESSION['id_utilisateur'], $id_escape);
-            $avis_utilisateur = $this->avis->getAvisUtilisateur($id_escape, (int) $_SESSION['id_utilisateur']);
+            $est_favori = $this->favori->estFavori($_SESSION['id_utilisateur'], $id_escape);
+            $avis_utilisateur = $this->avis->getAvisUtilisateur($id_escape,$_SESSION['id_utilisateur']);
         }
 
         $liste_avis = $this->avis->getAvisByEscape($id_escape);
@@ -61,7 +61,7 @@ class CtlEscape {
         // Créneaux occupés par version (pour le calendrier : rouge = panier, gris = vendu)
         $creneauxParVersion = array();
         foreach ($versions as $v) {
-            $id_version = (int)($v['id_version'] ?? 0);
+            $id_version = ($v['id_version'] ?? 0);
             if ($id_version) {
                 $creneauxParVersion[$id_version] = $this->reservation->getCreneauxOccupesParVersion($id_version);
             }
@@ -111,7 +111,7 @@ class CtlEscape {
 
 
     /**
-     * Enregistre un nouvel escape (POST). Crée aussi les 3 packs par défaut.
+     * Enregistre un nouvel escape et fais aussi les 3 packs par défaut.
      */
     public function ajouterEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $id_escape = $this->escape->addEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
@@ -162,12 +162,12 @@ class CtlEscape {
      * Dépose ou modifie un avis sur une mission (utilisateur connecté).
      */
     public function ajouterAvis($id_escape, $note, $commentaire = '') {
-        $id_escape = (int) $id_escape;
+        $id_escape =  $id_escape;
         if (!isset($_SESSION['id_utilisateur'])) {
             header('Location: index.php?action=connexion');
             exit;
         }
-        $this->avis->enregistrerAvis($id_escape, (int) $_SESSION['id_utilisateur'], $note, $commentaire);
+        $this->avis->enregistrerAvis($id_escape,  $_SESSION['id_utilisateur'], $note, $commentaire);
         header('Location: index.php?action=escape&id_escape=' . $id_escape . '#avis');
         exit;
     }

@@ -27,6 +27,9 @@ $id = (int) ($utilisateur['id_utilisateur'] ?? 0);
                 <p><?= htmlspecialchars($utilisateur["prenom"] ?? '') ?></p>
             </div>
             <?= $formProfil->hidden('id_utilisateur', (string)$id) ?>
+            <dic class="statut"><?php $statutText = ($utilisateur['statut'] == 2) ? 'Administrateur' : 'Utilisateur'; ?></dic>
+                <span class="statut-text"><?= $statutText ?></span>
+            </div>
             <div class="input-prenom"><?= $formProfil->inputText('prenom', 'Prénom de l\'agent', true) ?></div>
             <div class="input-nom"><?= $formProfil->inputText('nom', 'Nom de l\'agent', true) ?></div>
             <div class="input-email"><?= $formProfil->inputEmail('email', 'Email', true) ?></div>

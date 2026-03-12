@@ -28,14 +28,14 @@ class CtlReservation {
      */
     public function reservations($contexte = 'reservations') {
         if ($contexte === 'favoris') {
-            $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+            $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
             $favoris = $id_client ? $this->favori->getEscapesFavoris($id_client) : array();
             $vue = new Vue("Reservations");
             $vue->afficher(array("reservations" => array(), "contexte" => "favoris", "favoris" => $favoris));
             return;
         }
 
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : null;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : null;
         if ($contexte === 'panier' && $id_client) {
             $reservations = $this->reservation->getPanier($id_client);
         } else {
@@ -77,12 +77,12 @@ class CtlReservation {
      * Ajoute un escape aux favoris du client connecté.
      */
     public function ajouterFavori($id_escape) {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
         if (!$id_client) {
             header('Location: index.php?action=connexion');
             exit;
         }
-        $this->favori->ajouter($id_client, (int) $id_escape);
+        $this->favori->ajouter($id_client,  $id_escape);
         $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));
         exit;
@@ -93,9 +93,9 @@ class CtlReservation {
      * Retire un escape des favoris.
      */
     public function retirerFavori($id_escape) {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
         if ($id_client) {
-            $this->favori->retirer($id_client, (int) $id_escape);
+            $this->favori->retirer($id_client,  $id_escape);
         }
         $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));
@@ -107,16 +107,16 @@ class CtlReservation {
      * Ajoute au panier : version + date + heure + nombre de joueurs.
      */
     public function ajouterPanier() {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
         if (!$id_client) {
             header('Location: index.php?action=connexion');
             exit;
         }
 
-        $id_version = (int)($_POST['id_version'] ?? 0);
-        $date = trim((string)($_POST['date'] ?? ''));
-        $heure = trim((string)($_POST['heure'] ?? ''));
-        $nb_participant = (int)($_POST['nb_participant'] ?? 0);
+        $id_version = ($_POST['id_version'] ?? 0);
+        $date = trim(($_POST['date'] ?? ''));
+        $heure = trim(($_POST['heure'] ?? ''));
+        $nb_participant = ($_POST['nb_participant'] ?? 0);
 
         if ($id_version && $date !== '' && $heure !== '' && $nb_participant > 0) {
             $ok = $this->reservation->ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant);
@@ -135,7 +135,7 @@ class CtlReservation {
      */
     public function getCreneauxJson($id_version) {
         header('Content-Type: application/json; charset=utf-8');
-        $creneaux = $this->reservation->getCreneauxOccupesParVersion((int) $id_version);
+        $creneaux = $this->reservation->getCreneauxOccupesParVersion( $id_version);
         echo json_encode($creneaux);
         exit;
     }
@@ -145,7 +145,7 @@ class CtlReservation {
      * Récapitulatif du panier avant paiement (tunnel de vente).
      */
     public function recapCommande() {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
         if (!$id_client) {
             header('Location: index.php?action=connexion');
             exit;
@@ -164,7 +164,7 @@ class CtlReservation {
      * Paiement fictif : passe toutes les lignes du panier en "acheté" (reserver = 1).
      */
     public function confirmerPaiement() {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
         if (!$id_client) {
             header('Location: index.php?action=connexion');
             exit;

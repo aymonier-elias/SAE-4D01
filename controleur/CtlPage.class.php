@@ -19,7 +19,7 @@ class CtlPage {
         $derniers_escapes = array();
 
         foreach ($derniers as $e) {
-            $code = (int)($e['Code'] ?? $e['code'] ?? 0);
+            $code = ($e['Code'] ?? $e['code'] ?? 0);
             $versions = $modeleEscape->getVersions($code);
             $duree_affichage = '—';
             if (!empty($versions)) {
@@ -30,7 +30,7 @@ class CtlPage {
                 'code' => $code,
                 'nom' => $e['Nom'] ?? $e['nom'] ?? '',
                 'description' => $e['Description'] ?? $e['description'] ?? '',
-                'difficultes' => (int)($e['Difficultés'] ?? $e['difficultés'] ?? 0),
+                'difficultes' => ($e['Difficultés'] ?? $e['difficultés'] ?? 0),
                 'photo' => Escape::getCheminPhotoCouverture($code),
                 'duree_affichage' => $duree_affichage
             );

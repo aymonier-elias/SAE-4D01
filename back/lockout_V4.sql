@@ -1,3 +1,9 @@
+CREATE DATABASE IF NOT EXISTS lockout
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE lockout;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
