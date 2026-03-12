@@ -840,5 +840,8 @@
             "fr": "Aucune mission n'est enregistrée dans la liste",
             "uk": "No missions are recorded in the list."
         }
-    }
+    },
+
+
+    "page-ajout-escape":{}
 }
