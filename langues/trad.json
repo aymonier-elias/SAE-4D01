@@ -884,6 +884,26 @@
             "fr": "— Choisir —",
             "uk": "— Choose —"
         }
+    },
+
+
+    "page-gestion-escape":{
+        "titre":{
+            "fr": "Gestion des escape games",
+            "uk": "Escape game management"
+        },
+        "ajout":{
+            "fr": "Ajouter un escape",
+            "uk": "Add an escape game"
+        },
+        "modif":{
+            "fr": "Modifier",
+            "uk": "To modify"
+        },
+        "suppr":{
+            "fr": "Supprimer",
+            "uk": "DELETE"
+        }
     }
 }
 
