@@ -12,7 +12,7 @@ $titre = "Liste des commandes";
       //Affichage des lignes du tableau
 
       foreach($commandes as $ligne){
-        $lien = '<a class="link-action" href="index.php?action=commande&idComm='.$ligne["N° Commande"].'">Afficher</a>';
+        $lien = '<a class="link-action" href="index.php?action=commande&idComm='.$ligne["N° Commande"].'" data-i18n="page-commandes.afficher">Afficher</a>';
 
         echo Tableau::row(array_merge(["$lien"], $ligne));
       }
@@ -21,6 +21,6 @@ $titre = "Liste des commandes";
       
     }
     else
-      echo "<div class='msg-empty'>Aucune commande n'est enregistrée dans la liste</div>";
+      echo "<div class='msg-empty' data-i18n='page-commandes.pas-commande'>Aucune commande n'est enregistrée dans la liste</div>";
   ?>
 </div>

@@ -688,12 +688,88 @@
 
     "page-commande":{
         "article":{
-            "fr": "Articles",
-            "uk": "Items"
+            "fr": "Articles :",
+            "uk": "Items :"
         },
         "pas-article":{
             "fr": "La commande ne contient pas d'article",
             "uk": "The order does not contain any items"
+        }
+    },
+
+    "page-commandes":{
+        "afficher":{
+            "fr": "Afficher",
+            "uk": "Display"
+        },
+        "pas-commande":{
+            "fr": "Aucune commande n'est enregistrée dans la liste",
+            "uk": "No orders are recorded in the list."
+        }
+    },
+
+    "page-concept":{
+        "haut": {
+            "concept":{
+                "fr": "Le concept", 
+                "uk": "The concept"
+            },
+            "p1":{
+                "fr": "Découvrez notre univers d’escape games en extérieur. Chaque mission vous plonge dans une aventure unique au cœur de la ville.", 
+                "uk": "Discover our world of outdoor escape games. Each mission immerses you in a unique adventure in the heart of the city."
+            },
+            "p2":{
+                "fr": "Réservez en ligne, formez votre équipe et vivez l’expérience.", 
+                "uk": "Book online, assemble your team and experience it."
+            }
+        },
+        "milieu":{
+            "propos":{
+                "fr": "A propos", 
+                "uk": "About"
+            },
+            "quoi":{
+                "fr": "C'est quoi, un escape game ?", 
+                "uk": "What is an escape game?"
+            },
+            "p1":{
+                "fr": "Un escape game, ou jeu d’évasion grandeur nature, est une activité immersive et ludique où les participants doivent résoudre des énigmes et accomplir des missions dans un temps limité, généralement 60 minutes. Ce jeu se joue en équipe (généralement de 2 à 6 joueurs) et repose sur la coopération, la réflexion et l’esprit d’observation.", 
+                "uk": "An escape game, or real-life escape room, is an immersive and fun activity where participants must solve puzzles and complete missions within a limited time, usually 60 minutes. This game is played in teams (generally 2 to 6 players) and relies on cooperation, problem-solving, and observation skills."
+            },
+            "p2":{
+                "fr": "Notre particularité ? les escapes games en exterieur !", 
+                "uk": "Our unique feature? Outdoor escape games!"
+            },
+            "p3":{
+                "fr": "Les participants explorent un lieu réel (ville, parc, forêt) et suivent une intrigue avec des indices disséminés sur leur parcours.", 
+                "uk": "Participants explore a real location (city, park, forest) and follow a storyline with clues scattered along their route."
+            },
+            "p4":{
+                "fr": "Ils se déclinent en divers scénarios : aventure, enquête policière, science-fiction, horreur, et bien plus encore.", 
+                "uk": "They come in various scenarios: adventure, police investigation, science fiction, horror, and much more."
+            }
+        },
+        "bas":{
+            "qui":{
+                "fr": "Qui sommes nous ?", 
+                "uk": "Who are we ?"
+            },
+            "p1":{
+                "fr": "chez we-escape, vous pourrez redécouvrir le concept d’escape game.", 
+                "uk": "At we-escape, you can rediscover the concept of escape games."
+            },
+            "p2":{
+                "fr": "Que vous soyez innexperimenté ou un passionnés, vous ne serez pas au bout de vos surprises avec notre concept d’escape game en plein air.", 
+                "uk": "Whether you are inexperienced or a passionate enthusiast, you will be constantly surprised by our outdoor escape game concept."
+            },
+            "p3":{
+                "fr": "En effet, nous proposons des scénarios grandeur nature en ville, en foret ou même en montagne ! Votre équipe devra suivre des indices, résoudre des mystères et relever des défis pour progresser dans l’histoire. Chaque rue devient un élément du jeu, chaque détail peut être la clé qui vous rapproche de la victoire.", 
+                "uk": "Indeed, we offer life-sized scenarios in cities, forests, or even mountains! Your team will have to follow clues, solve mysteries, and overcome challenges to progress through the story. Every street becomes an element of the game; every detail could be the key that brings you closer to victory."
+            },
+            "p4":{
+                "fr": "Que vous soyez amateurs de défis intellectuels ou simplement en quête d’une activité ludique entre amis, notre escape game en extérieur vous plonge dans une aventure immersive où l’observation, la logique et l’esprit d’équipe seront vos meilleurs alliés.", 
+                "uk": "Whether you enjoy intellectual challenges or are simply looking for a fun activity with friends, our outdoor escape game immerses you in an adventure where observation, logic, and teamwork will be your best allies."
+            }
         }
     }
 
