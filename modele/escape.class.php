@@ -26,6 +26,20 @@ class Escape extends Database {
   }
 
   /*******************************************************
+  Retourne les n derniers escapes (les plus récemment ajoutés)
+    Entrée :
+      $limit [int] : nombre d'escapes à retourner (défaut 3)
+    Retour :
+      [array] : Tableau associatif contenant les escapes
+  *******************************************************/
+  public function getDerniersEscapes($limit = 3) {
+    $limit = max(1, (int) $limit);
+    $req = 'SELECT id_escape AS "Code", nom AS "Nom", description AS "Description", longitude AS "Longitude", latitude AS "Latitude", nb_participants_max AS "Nombre de participants maximum", age_minimum AS "Age minimum", ville AS "Ville", tags AS "Tags", difficultés AS "Difficultés" FROM escape_game ORDER BY id_escape DESC LIMIT ' . $limit . ';';
+    $escapes = $this->execReq($req);
+    return is_array($escapes) ? $escapes : array();
+  }
+
+  /*******************************************************
       Retourne la description d'un escape
     Entrée : 
       idEscape [string] : Identifiant de l'escape

@@ -11,6 +11,6 @@ abstract class Config
     //Définition des paramètres du site
     public const TITREONGLET = "Lock Out";
     public const NOMSITE = "Lock Out";
-    public const PHOTOESCAPEDIR = "PhotoEscape";
+    public const PHOTOESCAPEDIR = "img/mission";
 
 }

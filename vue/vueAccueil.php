@@ -30,108 +30,47 @@ if (isset($_SESSION['acces'])) {
     <h2 data-i18n='home.infiltration.titre'>Vos prochaines inflitrations</h2>
     <span class="separator"></span>
   </div>
+  
   <div class="cards">
-    <a href="#" class="card">
-
+    <?php
+    $derniers_escapes = isset($derniers_escapes) && is_array($derniers_escapes) ? $derniers_escapes : array();
+    foreach ($derniers_escapes as $e):
+      $code = (int) ($e['code'] ?? 0);
+      $nom = $e['nom'] ?? '';
+      $description = $e['description'] ?? '';
+      $difficulte = (int) ($e['difficultes'] ?? 0);
+      if ($difficulte < 1) $difficulte = 1;
+      if ($difficulte > 5) $difficulte = 5;
+      $photo = $e['photo'] ?? null;
+      $imgSrc = $photo ? htmlspecialchars($photo) : 'img/card_1.png';
+      $duree = $e['duree_affichage'] ?? '—';
+      $lienEscape = 'index.php?action=escape&amp;id_escape=' . $code;
+    ?>
+    <a href="<?= $lienEscape ?>" class="card">
       <div class="card-hover">
         <span class="cta" data-i18n='home.entete.bouton-home'>Réserver ma mission</span>
       </div>
-
-      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
-
-      <h3>L'Horloge du temps suspendu</h3>
-
+      <img src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($nom) ?>">
+      <h3><?= htmlspecialchars($nom) ?></h3>
       <div class="info">
         <div class="difficulte">
           <p>Difficulté :</p>
           <div class="note">
+            <?php for ($i = 0; $i < $difficulte; $i++): ?>
             <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
+            <?php endfor; ?>
           </div>
         </div>
-
         <div class="duree">
           <p>Durée :</p>
-          <p>90min</p>
+          <p><?= htmlspecialchars($duree) ?></p>
         </div>
-
       </div>
-
-      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
-        temps et déjouez le
-        destin avant que Strasbourg ne soit figée à jamais.</p>
+      <p class="card-desc"><?= htmlspecialchars($description) ?></p>
     </a>
-    <a href="#" class="card">
-      <div class="card-hover">
-        <span class="cta">Réserver ma mission</span>
-      </div>
-
-      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
-
-      <h3>L'Horloge du temps suspendu</h3>
-
-      <div class="info">
-        <div class="difficulte">
-          <p>Difficulté :</p>
-          <div class="note">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-          </div>
-        </div>
-
-        <div class="duree">
-          <p>Durée :</p>
-          <p>90min</p>
-        </div>
-
-      </div>
-
-      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
-        temps et déjouez le
-        destin avant que Strasbourg ne soit figée à jamais.</p>
-    </a>
-    <a href="#" class="card">
-
-
-      <div class="card-hover">
-        <span class="cta">Réserver ma mission</span>
-      </div>
-
-      <img src="img/card_1.png" alt="L'Horloge du temps suspendu">
-
-      <h3>L'Horloge du temps suspendu</h3>
-
-      <div class="info">
-        <div class="difficulte">
-          <p>Difficulté :</p>
-          <div class="note">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <img src="img/svg/diff.svg" alt="Difficulté">
-          </div>
-        </div>
-
-        <div class="duree">
-          <p>Durée :</p>
-          <p>90min</p>
-        </div>
-
-      </div>
-
-      <p class="card-desc">Un mécanisme millénaire s’est arrêté au cœur de la Cathédrale. Manipulez les rouages du
-        temps et déjouez le
-        destin avant que Strasbourg ne soit figée à jamais.</p>
-    </a>
+    <?php endforeach; ?>
   </div>
-  <a href="" class="cta">Voir toute les missions</a>
+  <a href="index.php?action=escapes" class="cta">Voir toute les missions</a>
 </section>
 
 <section class="experience" id="exp">
