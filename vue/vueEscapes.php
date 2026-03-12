@@ -73,9 +73,9 @@ foreach ($escapes as $e) {
                     div.textContent = text;
                     return div.innerHTML;
                 }
-            })();
+            });
         </script>
-    <?php endif; ?>
+        <?php } ?>
 
     <?php if (empty($escapes)): ?>
         <p class="msg-empty" data-i18n='page-escapes.pas-mission'>Aucune mission disponible pour le moment.</p>
@@ -96,7 +96,7 @@ foreach ($escapes as $e) {
                 ?>
                 <div class="mission doubleBorder">
                     <div class="img">
-                        <img src="PhotoEscape/<?= $code ?>.png" alt="">
+                        <img src="img/mission/<?= $code ?>.png" alt="">
                         <span></span>
                     </div>
                     <div class="info">
@@ -131,7 +131,5 @@ foreach ($escapes as $e) {
                 </div>
             <?php endforeach; ?>
         </div>
-        <?php
-    }
-    ?>
+    <?php endif; ?>
 </section>
