@@ -14,12 +14,21 @@ $key = function($row, $k) {
 $ids_favoris = isset($ids_favoris) && is_array($ids_favoris) ? $ids_favoris : array();
 $escapesPourCarte = array();
 foreach ($escapes as $e) {
-    $lat = $key($e, 'Latitude');
-    $lng = $key($e, 'Longitude');
-    if ($lat !== null && $lng !== null && $lat !== '') {
-        $lat = (float) $lat;
-        $lng = (float) $lng;
-        // Ne pas ajouter le point 0,0 (coordonnées non renseignées)
+    $latCol = $key($e, 'Latitude');
+    $lngCol = $key($e, 'Longitude');
+    if ($latCol !== null && $lngCol !== null && $latCol !== '') {
+        $latCol = (float) $latCol;
+        $lngCol = (float) $lngCol;
+        // Leaflet attend [latitude, longitude]. Si les valeurs sont inversées en base
+        // (ex. longitude=48, latitude=7 à cause d'une saisie lat/lng dans le mauvais ordre),
+        // on les corrige : en France latitude ~42-51, longitude ~-5 à 8.
+        if ($latCol >= -10 && $latCol <= 25 && $lngCol >= 35 && $lngCol <= 55) {
+            $lat = $lngCol;
+            $lng = $latCol;
+        } else {
+            $lat = $latCol;
+            $lng = $lngCol;
+        }
         if ($lat != 0 || $lng != 0) {
             $escapesPourCarte[] = array(
                 'lat' => $lat,

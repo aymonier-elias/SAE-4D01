@@ -10,8 +10,8 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
         <label>Nom <input type="text" name="nom" required></label>
         <label>Description <textarea name="description" rows="4"></textarea></label>
         <label>Ville <input type="text" name="ville"></label>
-        <label>Longitude <input type="text" name="longitude" placeholder="ex: 7.34"></label>
-        <label>Latitude <input type="text" name="latitude" placeholder="ex: 47.75"></label>
+        <label>Latitude <input type="text" name="latitude" placeholder="ex: 48.58 (Nord-Sud)"></label>
+        <label>Longitude <input type="text" name="longitude" placeholder="ex: 7.75 (Est-Ouest)"></label>
         <label>Nombre de participants max <input type="number" name="nb_participants_max" min="1" value="6"></label>
         <label>Âge minimum <input type="number" name="age_minimum" min="0" value="12"></label>
         <label>Tags <input type="text" name="tags" placeholder="séparés par des virgules"></label>
