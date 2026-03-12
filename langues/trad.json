@@ -819,7 +819,19 @@
         "connexion-reserver":{
             "fr": "Connectez-vous pour réserver ou ajouter au panier.",
             "uk": "Log in to book or add to cart."
-        }  
+        },
+        "plus":{
+            "fr": "Voir plus",
+            "uk": "See more"
+        },
+        "file":{
+            "fr": "File d'ariane",
+            "uk": "Breadcrumb trail"
+        },
+        "retour-miss":{
+            "fr": "← Retour aux missions",
+            "uk": "← Back to missions"
+        }
     }, 
 
 

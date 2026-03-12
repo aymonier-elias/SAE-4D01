@@ -11,8 +11,8 @@ $note_moyenne = $note_moyenne ?? null;
 $avis_utilisateur = $avis_utilisateur ?? null;
 ?>
 
-<p>File d'ariane</p>
-<a href="index.php?action=escapes" class="btn-retour">← Retour aux missions</a>
+<p data-i18n='page-escape.file'>File d'ariane</p>
+<a href="index.php?action=escapes" class="btn-retour" data-i18n='page-escape.retour-miss'>← Retour aux missions</a>
 
 <section class="escape-detail doubleBorder">
     <?php if (empty($escape)): ?>
