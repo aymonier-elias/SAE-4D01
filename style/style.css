@@ -173,8 +173,12 @@ button {
     font-weight: bold;
     .important,
     .admin-links {
+      display: flex;
       padding: 10px;
       border: 2px solid var(--secondary-half);
+    }
+    .admin-links {
+      gap: 20px;
     }
     a {
       transition: 0.3s ease;
@@ -315,9 +319,10 @@ button {
 
 /* Form */
 .form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 75%;
+  min-width: 75%;
   gap: 35px;
   padding: 130px 320px;
   border: 2px solid var(--secondary);

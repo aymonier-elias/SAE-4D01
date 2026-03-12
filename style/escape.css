@@ -1,0 +1,51 @@
+@import url(style.css);
+
+.escape-detail {
+    margin: 50px 100px;
+    padding: 100px 75px;
+}
+
+.header_escape {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    flex-direction: column;
+    h2 {
+     align-self: center;
+    }
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    [class|="info"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        p {
+            color: var(--secondary);
+        }
+    }
+}
+
+.description {
+    margin-top: 100px;
+    display: flex;
+    gap: 50px;
+    img {
+        width: 50%;
+        border: 1px solid var(--secondary);
+    }
+    .text {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
