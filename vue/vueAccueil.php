@@ -50,7 +50,7 @@ if (isset($_SESSION['acces'])) {
         <div class="card-hover">
           <span class="cta" data-i18n='home.entete.bouton-home'>Réserver ma mission</span>
         </div>
-        <img src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($nom) ?>">
+        <img class="doubleBorder" src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($nom) ?>">
         <h3><?= htmlspecialchars($nom) ?></h3>
         <div class="info">
           <div class="difficulte">

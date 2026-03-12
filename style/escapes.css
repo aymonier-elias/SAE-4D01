@@ -1,84 +1,95 @@
 @import url(style.css);
 
-/* Carte Alsace - missions
+/* Carte Alsace - missions */
 .carte-alsace-wrapper {
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
 }
 
 .carte-alsace-wrapper .carte-titre {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 .carte-alsace {
-    width: 100%;
-    height: 450px;
-    border: 2px solid var(--secondary);
-    border-radius: 8px;
-    background: var(--brand-grey);
+  width: 100%;
+  height: 450px;
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  background: var(--brand-grey);
 }
 
 .filtre {
-    display: flex;
-    gap: 100px;
-    margin: 100px 0;
-    button {
-        border-width: 2px;
-        text-transform: none;
-    }
-} */
+  display: flex;
+  gap: 100px;
+  margin: 100px 0;
+  button {
+    border-width: 2px;
+    text-transform: none;
+  }
+}
 
 /* Les missions */
 .missions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
 }
 
-.mission{
+.mission {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  width: 75%;
+  .img {
+    min-width: 50%;
+    max-width: 50%;
+    height: auto;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    span {
+      background-image: linear-gradient(90deg, transparent, var(--brand-black));
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+    }
+  }
+  h2 {
+    margin: auto;
+  }
+  .info {
+    padding: 30px;
     display: flex;
-    align-items: center;
-    width: 75%;
-    .img {
-        width: 50%;
-        position: relative;
-        img{
-            width: 100%;
-        }
-        span {
-            background-image: linear-gradient(90deg, transparent, var(--brand-black));
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 100px;
-        }
+    flex-direction: column;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      align-self: flex-end;
+      margin-top: 50px;
     }
-    h2 {
-        margin: auto;
+    .text {
+      margin-top: 20px;
+      .description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        margin-bottom: 20px;
+        text-indent: 20px;
+      }
     }
-    .info {
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            align-self: flex-end;
-            margin-top: 50px;
-        }
-        div {
-            margin-top: 20px;
-        }
-        .links {
-            margin-top: 0;
-            display: flex;
-            gap: 20px;
-        }
+    .links {
+      margin-top: 0;
+      display: flex;
+      gap: 20px;
     }
+  }
 }

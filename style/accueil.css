@@ -55,15 +55,21 @@
   border-radius: 10px;
   background-color: var(--brand-grey);
   img {
-    width: 80%;
-    height: 80%;
+    inline-size: 80%;
+    aspect-ratio: 1;
     object-fit: cover;
     border: 2px solid var(--secondary);
     /* border: 3px solid var(--grey); */
     border-radius: 1000px;
   }
   p {
+    display: -webkit-box;
     text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-indent: 20px;
   }
 }
 .info {
