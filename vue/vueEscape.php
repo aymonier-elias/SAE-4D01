@@ -8,7 +8,7 @@ $versions = $versions ?? array();
 $est_favori = !empty($est_favori);
 $id_escape = (int) ($id_escape ?? 0);
 $retour_escape = 'index.php?action=escape&id_escape=' . $id_escape;
-$nb_max = (int)($escape['Nombre de participants maximum'] ?? 0);
+$nb_max = max(1, (int)($escape['Nombre de participants maximum'] ?? 6));
 $liste_avis = isset($liste_avis) && is_array($liste_avis) ? $liste_avis : array();
 $note_moyenne = $note_moyenne ?? null;
 $avis_utilisateur = $avis_utilisateur ?? null;
@@ -28,7 +28,16 @@ $fil_ariane = array(
         <p class="msg-empty" data-i18n='page-escape.introuvable'>Mission introuvable.</p>
     <?php else: ?>
         <header class="header_escape">
-            <h2><?= htmlspecialchars($escape['Nom'] ?? '') ?></h2>
+            <div class="header_escape-titre-row">
+                <h2><?= htmlspecialchars($escape['Nom'] ?? '') ?></h2>
+                <?php if (isset($_SESSION['acces']) && $id_escape): ?>
+                    <?php if ($est_favori): ?>
+                        <a href="index.php?action=retirerFavori&id_escape=<?= (int)$id_escape ?>&retour=<?= urlencode($retour_escape) ?>" class="cta btn-favori btn-favori-header btn-favori-actif" title="Retirer des favoris" aria-label="Retirer des favoris">♥ Favori</a>
+                    <?php else: ?>
+                        <a href="index.php?action=ajouterFavori&id_escape=<?= (int)$id_escape ?>&retour=<?= urlencode($retour_escape) ?>" class="cta btn-favori btn-favori-header" title="Ajouter aux favoris" aria-label="Ajouter aux favoris">♡ Favoris</a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
             <div class="info">
                 <div class="info-lieux">
                     <p>Lieux</p>
@@ -56,43 +65,34 @@ $fil_ariane = array(
                 <h3>Briefings de la mission</h3>
                 <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
                 <div class="links">
-                    <?php if (isset($_SESSION['acces']) && $id_escape): ?>
-                        <?php if ($est_favori): ?>
-                            <p class="action-favori"><a
-                                    href="index.php?action=retirerFavori&id_escape=<?= $id_escape ?>&retour=<?= urlencode($retour_escape) ?>"
-                                    class="cta">♥ Retirer des favoris</a></p>
-                        <?php else: ?>
-                            <p class="action-favori"><a
-                                    href="index.php?action=ajouterFavori&id_escape=<?= $id_escape ?>&retour=<?= urlencode($retour_escape) ?>"
-                                    class="cta">♡ Ajouter aux favoris</a></p>
-                        <?php endif; ?>
-                    <?php endif; ?>
                     <a href="#bloc-panier" class="cta">Réserver</a>
                 </div>
             </div>
             <?php if (!empty($escape['Tags'])): ?>
                 <p class="tags"><?= htmlspecialchars($escape['Tags']) ?></p>
             <?php endif; ?>
-            <?php if (isset($_SESSION['acces']) && $id_escape): ?>
-                <?php if ($est_favori): ?>
-                    <p class="action-favori" data-i18n='page-escape.sup-fav'><a href="index.php?action=retirerFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>" class="btn-favori btn-favori-actif">♥ Retirer des favoris</a></p>
-                <?php else: ?>
-                    <p class="action-favori" data-i18n='page-escape.add-fav'><a href="index.php?action=ajouterFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>" class="btn-favori">♡ Ajouter aux favoris</a></p>
-                <?php endif; ?>
-            <?php endif; ?>
         </article>
 
-        <?php if (isset($_SESSION['acces']) && !empty($versions)) { ?>
+        <?php
+        $libelles_version = array('Pas cher', 'Moyen', 'Cher');
+        if (isset($_SESSION['acces']) && !empty($versions)) { ?>
             <div class="bloc-panier" id="bloc-panier">
                 <h3 data-i18n='page-escape.reserv'>Réserver / Ajouter au panier</h3>
-                <p class="aide-panier" data-i18n='page-escape.choix'>Choisissez une version, un créneau et le nombre de joueurs.</p>
+                <p class="aide-panier">Choisissez une version et une date.</p>
                 <form method="post" action="index.php?action=ajouterPanier" class="form-panier">
-                    <label>Version (durée · prix)
-                        <select name="id_version" required>
+                    <input type="hidden" name="heure" value="10:00">
+                    <input type="hidden" name="nb_participant" value="1">
+                    <label>Version
+                        <select name="id_version" id="select-version" required>
                             <option value="">— Choisir —</option>
-                            <?php foreach ($versions as $v): ?>
-                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>">
-                                    <?= htmlspecialchars($v['duree'] ?? $v['durée'] ?? '') ?> · <?= (int) ($v['prix'] ?? 0) ?> €
+                            <?php foreach ($versions as $i => $v):
+                                $libelle = $libelles_version[$i] ?? ('Version ' . ($i + 1));
+                                $desc = $v['description'] ?? '';
+                                $duree = $v['duree'] ?? $v['durée'] ?? '';
+                                $prix = (int) ($v['prix'] ?? 0);
+                                ?>
+                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>"<?= $desc !== '' ? ' data-description="' . htmlspecialchars($desc) . '"' : '' ?>>
+                                    <?= htmlspecialchars($libelle) ?> — <?= htmlspecialchars($duree) ?> · <?= $prix ?> €
                                 </option>
                             <?php endforeach; ?>
                         </select>
@@ -114,13 +114,8 @@ $fil_ariane = array(
                             <span class="leg achete">Vendu</span>
                         </p>
                     </div>
-                    <div class="creneaux-heures" id="creneaux-heures" style="display:none;">
-                        <label>Choisir l'heure</label>
-                        <div class="liste-heures" id="liste-heures"></div>
-                    </div>
-                    <label>Date <input type="date" name="date" id="input-date" min="<?= date('Y-m-d') ?>" required></label>
-                    <label data-i18n='page-escape.heure'>Heure <input type="time" name="heure" id="input-heure" required></label>
-                    <label data-i18n='page-escape.nb-joueur'>Nombre de joueurs <input type="number" name="nb_participant" min="1" max="<?= max(1, $nb_max) ?>" value="2" required></label>
+                    <label class="label-date-choisie">Date choisie&nbsp;: <span id="date-choisie-affichage">—</span></label>
+                    <input type="hidden" name="date" id="input-date" required>
                     <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au panier</button>
                 </form>
             </div>

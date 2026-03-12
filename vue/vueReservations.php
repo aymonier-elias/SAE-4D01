@@ -57,7 +57,7 @@ $key = function ($row, $k) {
                 $diff = (int)($key($e, 'Difficultés') ?? 0);
                 ?>
                 <div class="card-escape-wrapper">
-                    <a href="index.php?action=escape&amp;id_escape=<?= $code ?>" class="card-escape-link">
+                    <a href="index.php?action=escape&id_escape=<?= $code ?>" class="card-escape-link">
                         <article class="card-escape">
                             <h3><?= htmlspecialchars($nom) ?></h3>
                             <p class="ville"><?= htmlspecialchars($ville) ?></p>
@@ -65,7 +65,7 @@ $key = function ($row, $k) {
                             <p class="infos">Participants max : <?= $nbMax ?> · Âge min : <?= $ageMin ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$diff] ?? $diff) ?></p>
                         </article>
                     </a>
-                    <a href="index.php?action=retirerFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode('index.php?action=favoris') ?>" class="btn-retirer-favori">Retirer des favoris</a>
+                    <a href="index.php?action=retirerFavori&id_escape=<?= $code ?>&retour=<?= urlencode('index.php?action=favoris') ?>" class="btn-retirer-favori">Retirer des favoris</a>
                 </div>
                 <?php
             }

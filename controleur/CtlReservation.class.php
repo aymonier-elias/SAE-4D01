@@ -112,6 +112,7 @@ class CtlReservation {
 
     /**
      * Ajoute au panier : version + date + heure + nombre de joueurs.
+     * Ne traite que les requêtes POST (évite double soumission / GET).
      */
     public function ajouterPanier() {
         $id_client = isset($_SESSION['id_utilisateur']) ?  $_SESSION['id_utilisateur'] : 0;
@@ -120,16 +121,26 @@ class CtlReservation {
             exit;
         }
 
-        $id_version = ($_POST['id_version'] ?? 0);
-        $date = trim(($_POST['date'] ?? ''));
-        $heure = trim(($_POST['heure'] ?? ''));
-        $nb_participant = ($_POST['nb_participant'] ?? 0);
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: index.php?action=panier');
+            exit;
+        }
 
-        if ($id_version && $date !== '' && $heure !== '' && $nb_participant > 0) {
+        $id_version = (int) ($_POST['id_version'] ?? 0);
+        $date = trim((string) ($_POST['date'] ?? ''));
+        $heure = trim((string) ($_POST['heure'] ?? ''));
+        $nb_participant = (int) ($_POST['nb_participant'] ?? 0);
+
+        if ($id_version > 0 && $date !== '' && $heure !== '' && $nb_participant > 0) {
+            if (strlen($heure) > 5) {
+                $heure = substr($heure, 0, 5);
+            }
             $ok = $this->reservation->ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant);
             if (!$ok) {
                 $_SESSION['flash_panier_erreur'] = 'Ce créneau n\'est plus disponible (réservé ou déjà dans un panier).';
             }
+        } else {
+            $_SESSION['flash_panier_erreur'] = 'Veuillez choisir une version et une date.';
         }
 
         header('Location: index.php?action=panier');

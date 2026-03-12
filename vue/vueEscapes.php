@@ -83,7 +83,7 @@ $fil_ariane = array(
                     div.textContent = text;
                     return div.innerHTML;
                 }
-            });
+            })();
         </script>
         <?php } ?>
 

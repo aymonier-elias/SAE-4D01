@@ -97,7 +97,7 @@ class CtlUtilisateur {
                 $this->connexion('Le mot de passe est incorrect');
             }
         } else {
-            $this->connexion('<b>Identifiant introuvable</b>');
+            $this->connexion('Identifiant introuvable');
         }
     }
 

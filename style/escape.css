@@ -10,9 +10,19 @@
     gap: 50px;
     width: 100%;
     flex-direction: column;
-    h2 {
-     align-self: center;
-    }
+}
+.header_escape-titre-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.header_escape-titre-row h2 {
+    margin: 0;
+}
+.btn-favori-header {
+    flex-shrink: 0;
 }
 
 .info {
@@ -53,12 +63,13 @@
     }
 }
 
-/* Calendrier réservation */
+/* Calendrier réservation — ambiance site (sombre, bordures secondary) */
 .calendrier-wrapper {
     margin: 1.5rem 0;
-    padding: 1rem;
-    background: var(--brand-grey, #f5f5f5);
-    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--brand-black);
+    border: 1px solid var(--secondary);
+    border-radius: 0;
 }
 .navigation-calendrier {
     display: flex;
@@ -67,98 +78,328 @@
     margin-bottom: 1rem;
 }
 .navigation-calendrier .nomMois {
+    font-family: var(--title);
     font-weight: bold;
     font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--white);
 }
 .navigation-calendrier button {
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    border: 1px solid var(--secondary);
-    border-radius: 4px;
-    background: #fff;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--text);
+    transition: 0.3s ease;
 }
 .navigation-calendrier button:hover {
-    background: var(--brand-grey);
+    background: var(--secondary);
+    color: var(--primary);
 }
 .week-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    margin-bottom: 4px;
+    gap: 4px;
+    margin-bottom: 8px;
     font-size: 0.75rem;
     font-weight: bold;
+    font-family: var(--text);
     color: var(--secondary);
+    text-align: center;
+}
+.grid-container {
+    min-height: 200px;
 }
 #calendrier-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
+    gap: 6px;
+    min-height: 200px;
 }
 #calendrier-grid .grid-item {
     aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    border: 1px solid var(--secondary-half);
     cursor: default;
+    font-family: var(--text);
     font-size: 0.9rem;
+    color: var(--white);
 }
 #calendrier-grid .grid-item.empty {
     visibility: hidden;
 }
 #calendrier-grid .grid-item.passe {
-    color: #999;
+    color: var(--grey);
     cursor: not-allowed;
+    opacity: 0.6;
 }
 #calendrier-grid .grid-item[data-date] {
     cursor: pointer;
-    border: 1px solid #ddd;
-    background: #fff;
+    background: transparent;
+    transition: 0.2s ease;
 }
 #calendrier-grid .grid-item[data-date]:hover {
-    background: #e8f4ea;
+    background: var(--secondary-half);
+    color: var(--primary);
 }
-#calendrier-grid .grid-item.libre { border-color: #2e7d32; background: #e8f5e9; }
-#calendrier-grid .grid-item.panier { border-color: #f57c00; background: #fff3e0; }
-#calendrier-grid .grid-item.achete { border-color: #9e9e9e; background: #eee; cursor: not-allowed; }
-#calendrier-grid .grid-item.mixte { border-color: #757575; background: #f5f5f5; }
+#calendrier-grid .grid-item.libre {
+    border-color: var(--succes);
+    color: var(--succes);
+}
+#calendrier-grid .grid-item.libre:hover {
+    background: oklch(0.5 0.15 145 / 25%);
+}
+#calendrier-grid .grid-item.panier {
+    border-color: var(--warning);
+    color: var(--warning);
+    cursor: not-allowed;
+}
+#calendrier-grid .grid-item.achete {
+    border-color: var(--grey);
+    color: var(--grey);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+#calendrier-grid .grid-item.mixte {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
 .legende-creneaux {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
     font-size: 0.85rem;
+    font-family: var(--text);
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    color: var(--secondary);
 }
-.legende-creneaux .leg { padding: 0 0.25rem; border-radius: 3px; }
-.legende-creneaux .leg.libre { background: #e8f5e9; }
-.legende-creneaux .leg.panier { background: #fff3e0; }
-.legende-creneaux .leg.achete { background: #eee; }
-.creneaux-heures {
+.legende-creneaux .leg {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid currentColor;
+}
+.legende-creneaux .leg.libre { color: var(--succes); }
+.legende-creneaux .leg.panier { color: var(--warning); }
+.legende-creneaux .leg.achete { color: var(--grey); }
+.label-date-choisie {
     margin-top: 1rem;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    color: var(--white);
 }
-.liste-heures {
+#date-choisie-affichage {
+    font-weight: bold;
+    color: var(--secondary);
+}
+/* Bloc panier / réservation — ambiance site */
+.bloc-panier {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--brand-black);
+    border: 2px solid var(--secondary);
+}
+.bloc-panier h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+.aide-panier {
+    margin-bottom: 1.25rem;
+    color: var(--secondary);
+    font-size: 0.95rem;
+    font-family: var(--text);
+}
+.form-panier label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-family: var(--text);
+    color: var(--white);
+}
+.form-panier label:has(select) {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.form-panier select {
+    margin-left: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0;
+    background: var(--brand-black);
+    color: var(--white);
+    min-width: 14rem;
+    font-family: var(--text);
+    box-sizing: border-box;
+}
+.form-panier select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+.form-panier select option {
+    color: var(--black);
+}
+.description-pack {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    font-style: italic;
+    font-family: var(--text);
+}
+.btn-ajouter-panier {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--secondary);
+    font-family: var(--text);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+.btn-ajouter-panier:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+/* Bloc avis — ambiance site */
+.bloc-avis {
+    margin-top: 2.5rem;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--secondary);
+}
+.bloc-avis h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+.note-moyenne {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: var(--text);
+    color: var(--white);
+}
+.form-avis {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: var(--brand-black);
+    border: 1px solid var(--secondary);
+}
+.form-avis h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-family: var(--title);
+    color: var(--white);
+}
+.form-avis label {
+    display: block;
+    margin-top: 0.75rem;
+    font-family: var(--text);
+    color: var(--white);
+}
+.form-avis select,
+.form-avis textarea {
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0;
+    background: var(--brand-black);
+    color: var(--white);
+    width: 100%;
+    max-width: 400px;
+    font-family: var(--text);
+}
+.form-avis select:focus,
+.form-avis textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+.form-avis textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+.form-avis select option {
+    color: var(--black);
+}
+.btn-ajouter-avis {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--secondary);
+    font-family: var(--text);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.btn-ajouter-avis:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+.liste-avis {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.avis-item {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--brand-black);
+    border: 1px solid var(--secondary);
+}
+.avis-header {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
 }
-.creneau-heure {
+.avis-auteur {
+    font-weight: 600;
+    font-family: var(--text);
+    color: var(--white);
+}
+.avis-note {
+    color: var(--warning);
+    letter-spacing: 0.05em;
+}
+.avis-date {
+    font-size: 0.85rem;
+    font-family: var(--text);
+    color: var(--secondary);
+}
+.avis-commentaire {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: var(--text);
+    color: var(--brand-white);
+}
+.msg-empty-avis,
+.msg-avis {
+    font-family: var(--text);
+    color: var(--secondary);
+    font-style: italic;
+}
+
+/* Boutons favoris */
+.btn-favori {
+    text-decoration: none;
     padding: 0.5rem 1rem;
-    border: 1px solid #2e7d32;
-    border-radius: 4px;
-    background: #e8f5e9;
-    cursor: pointer;
-    font-size: 0.9rem;
+    border: 2px solid var(--secondary);
+    font-family: var(--text);
+    font-weight: bold;
+    transition: 0.3s ease;
 }
-.creneau-heure:hover:not(:disabled) { background: #c8e6c9; }
-.creneau-heure.selected { background: #2e7d32; color: #fff; }
-.creneau-heure:disabled { opacity: 0.7; cursor: not-allowed; border-color: #9e9e9e; background: #eee; }
-.form-panier label { display: block; margin-top: 1rem; }
-.form-panier input[type="date"],
-.form-panier input[type="time"],
-.form-panier input[type="number"] { margin-left: 0.5rem; }
-.btn-ajouter-panier { margin-top: 1.5rem; padding: 0.6rem 1.2rem; cursor: pointer; }
+.btn-favori-actif {
+    background: var(--brand-red-half);
+    border-color: var(--brand-red);
+    color: var(--brand-red);
+}
+.btn-favori:not(.btn-favori-actif):hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
