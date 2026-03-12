@@ -21,7 +21,6 @@ $fil_ariane = array(
 );
 ?>
 <?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
-<a href="index.php?action=escapes" class="btn-retour" data-i18n='page-escape.retour-miss'>← Retour aux missions</a>
 
 <section class="escape-detail doubleBorder">
     <?php if (empty($escape)): ?>

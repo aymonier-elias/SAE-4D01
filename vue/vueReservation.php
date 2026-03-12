@@ -21,7 +21,6 @@ $fil_ariane = array(
         <h2>Détail de la commande</h2>
         <span class="separator"></span>
     </div>
-    <p><a href="index.php?action=gestion_commandes" class="btn-retour">← Retour aux commandes</a></p>
 
     <div class="bloc-client">
         <h3>Client</h3>
