@@ -12,6 +12,9 @@ class CtlUtilisateur {
 
     private $utilisateur;
 
+    /**
+     * Instancie le modèle Utilisateur pour l'authentification et la gestion du profil.
+     */
     public function __construct() {
         $this->utilisateur = new Utilisateur();
     }

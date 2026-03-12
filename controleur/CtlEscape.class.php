@@ -18,6 +18,9 @@ class CtlEscape {
     private $reservation;
 
 
+    /**
+     * Instancie les modèles Escape, Favori, Avis et Reservation pour les missions et avis.
+     */
     public function __construct() {
         $this->escape = new Escape();
         $this->favori = new Favori();

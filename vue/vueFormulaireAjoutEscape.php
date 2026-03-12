@@ -1,4 +1,5 @@
 <?php
+/** Vue : formulaire d'ajout d'un nouvel escape game (admin). */
 $cssLink = '<link href="style/escapes.css" rel="stylesheet">';
 $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (entier BDD)
 $fil_ariane = array(

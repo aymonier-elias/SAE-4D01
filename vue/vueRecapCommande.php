@@ -1,4 +1,5 @@
 <?php
+/** Vue : récapitulatif du panier avant paiement (tunnel de commande). */
 $cssLink = '<link href="style/style.css" rel="stylesheet"><link href="style/escapes.css" rel="stylesheet">';
 $panier = $panier ?? array();
 $total = (int)($total ?? 0);

@@ -64,6 +64,10 @@ class Reservation extends Database {
     }
 
 
+    /**
+     * Retourne l'identifiant du client pour une réservation (clé de la commande).
+     * Ici la commande est identifiée par (id_client, id_version, date, heure).
+     */
     public function getIdClientReservation($id_client, $id_version, $date, $heure) {
         return $id_client;
     }

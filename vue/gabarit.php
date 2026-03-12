@@ -1,3 +1,9 @@
+<?php
+/**
+ * Gabarit HTML commun à toutes les pages.
+ * Utilise les variables définies par Vue::afficher() : $title, $menu, $contenu, $footer, $cssLink, $hero (optionnel).
+ */
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

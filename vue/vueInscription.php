@@ -1,4 +1,5 @@
 <?php
+/** Vue : formulaire d'inscription (prénom, nom, email, mot de passe). */
 $cssLink = '<link href="style/connexion.css" rel="stylesheet">';
 $menu = $conf->menu;
 $erreur = $erreur ?? '';

@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Configuration par défaut chargée au démarrage (index.php).
+ * Construit l'objet $conf : paramètres BDD, titre, menus (visiteur / connecté / admin), footer.
+ */
 require_once "config/config.class.php";
 
 

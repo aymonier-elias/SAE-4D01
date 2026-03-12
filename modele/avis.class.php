@@ -1,10 +1,9 @@
 <?php
 require_once "modele/database.class.php";
 
-/****************************************************************
-Classe chargée des avis (notation + commentaire) sur les escape games.
-Table : avis_escape (id_avis, id_escape, id_client, note, commentaire, date_avis)
-****************************************************************/
+/**
+ * Modèle avis : table avis_escape (note 1-5, commentaire, un avis par utilisateur par escape).
+ */
 class Avis extends Database {
 
   /*******************************************************

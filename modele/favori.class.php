@@ -1,10 +1,10 @@
 <?php
 require_once "modele/database.class.php";
 
-/****************************************************************
-Classe chargée de la gestion des favoris (table mettre_favoris_version).
-Un escape est "en favori" si au moins une de ses versions est en favori.
-****************************************************************/
+/**
+ * Modèle favoris : table mettre_favoris_version (liaison client <-> version d'un escape).
+ * Un escape est "en favori" si au moins une de ses versions est en favori.
+ */
 class Favori extends Database {
 
   /*******************************************************

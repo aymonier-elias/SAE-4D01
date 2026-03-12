@@ -1,4 +1,5 @@
 <?php
+/** Vue : page Contact (coordonnées, formulaire). */
 $cssLink = '<link href="style/contact.css" rel="stylesheet">';
 if (isset($_SESSION) && !empty($_SESSION)) {
     $menu = $_SESSION['statut'] == 2 ? $conf->menu_admin : $conf->menu_connecte;

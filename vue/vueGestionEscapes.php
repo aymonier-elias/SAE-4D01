@@ -1,4 +1,5 @@
 <?php
+/** Vue : gestion des escape games (admin) – liste, ajout, modification, suppression. */
 $cssLink = '<link href="style/gestion-escapes.css" rel="stylesheet">';
 $escapes = $escapes ?? array();
 $flashErr = $_SESSION['flash_escape_err'] ?? '';

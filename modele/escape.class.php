@@ -2,9 +2,10 @@
 require_once "modele/database.class.php";
 require_once "config/config.class.php";
 
-/****************************************************************
-Classe chargée de la gestion des escapes dans la base de données
-****************************************************************/
+/**
+ * Modèle escape game : tables escape_game et version (missions, packs, photos, difficulté).
+ * Gère la liste des missions, le détail, l'ajout/modification/suppression et les photos de couverture.
+ */
 class Escape extends Database {
 
   /** Affichage difficulté : 1 à 5 étoiles (entier en BDD) */

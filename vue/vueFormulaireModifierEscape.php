@@ -1,4 +1,5 @@
 <?php
+/** Vue : formulaire de modification d'un escape game existant (admin). */
 $cssLink = '<link href="style/escapes.css" rel="stylesheet">';
 $escape = $escape ?? array();
 $code = (int)($escape['Code'] ?? 0);

@@ -1,4 +1,5 @@
 <?php
+/** Vue : détail d'une commande / réservation (articles, client, total). */
 $cssLink = '<link href="style/detail-commande.css" rel="stylesheet">';
 $articles = $articles ?? array();
 $client = $client ?? array();

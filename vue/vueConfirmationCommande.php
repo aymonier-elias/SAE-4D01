@@ -1,4 +1,5 @@
 <?php
+/** Vue : page de confirmation après paiement (message de remerciement). */
 $cssLink = '<link href="style/style.css" rel="stylesheet"><link href="style/escapes.css" rel="stylesheet">';
 $message = $message ?? 'Votre commande a bien été enregistrée.';
 $titre = "Confirmation";
