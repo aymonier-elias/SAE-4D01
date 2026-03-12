@@ -7,8 +7,8 @@ $escape = $escape ?? array();
 $versions = $versions ?? array();
 $est_favori = !empty($est_favori);
 $id_escape = (int) ($id_escape ?? 0);
-$retour_escape = 'index.php?action=escape&id_escape=' . $id_escape;
-$nb_max = max(1, (int)($escape['Nombre de participants maximum'] ?? 6));
+$retour_escape = 'index.php?action=escape&id_escape='. $id_escape;
+$nb_max = max(1, (int) ($escape['Nombre de participants maximum'] ?? 6));
 $liste_avis = isset($liste_avis) && is_array($liste_avis) ? $liste_avis : array();
 $note_moyenne = $note_moyenne ?? null;
 $avis_utilisateur = $avis_utilisateur ?? null;
@@ -30,13 +30,6 @@ $fil_ariane = array(
         <header class="header_escape">
             <div class="header_escape-titre-row">
                 <h2><?= htmlspecialchars($escape['Nom'] ?? '') ?></h2>
-                <?php if (isset($_SESSION['acces']) && $id_escape): ?>
-                    <?php if ($est_favori): ?>
-                        <a href="index.php?action=retirerFavori&id_escape=<?= (int)$id_escape ?>&retour=<?= urlencode($retour_escape) ?>" class="cta btn-favori btn-favori-header btn-favori-actif" title="Retirer des favoris" aria-label="Retirer des favoris">♥ Favori</a>
-                    <?php else: ?>
-                        <a href="index.php?action=ajouterFavori&id_escape=<?= (int)$id_escape ?>&retour=<?= urlencode($retour_escape) ?>" class="cta btn-favori btn-favori-header" title="Ajouter aux favoris" aria-label="Ajouter aux favoris">♡ Favoris</a>
-                    <?php endif; ?>
-                <?php endif; ?>
             </div>
             <div class="info">
                 <div class="info-lieux">
@@ -65,6 +58,21 @@ $fil_ariane = array(
                 <h3>Briefings de la mission</h3>
                 <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
                 <div class="links">
+                    <?php if (isset($_SESSION['acces'])): ?>
+                        <?php if ($est_favori): ?>
+                            <a href="index.php?action=retirerFavori&id_escape=<?= $id_escape ?>&retour=<?= $retour_escape ?>"
+                                class="cta">
+                                <img src="img/svg/fav.svg" alt="">
+                                Retirer des favoris
+                            </a>
+                        <?php else: ?>
+                            <a href="index.php?action=ajouterFavori&id_escape=<?= $id_escape ?>&retour=<?= $retour_escape ?>"
+                                class="cta">
+                                <img src="img/svg/unfav.svg" alt="">
+                                Ajouter aux favoris
+                            </a>
+                        <?php endif; ?>
+                    <?php endif; ?>
                     <a href="#bloc-panier" class="cta">Réserver</a>
                 </div>
             </div>
@@ -91,7 +99,7 @@ $fil_ariane = array(
                                 $duree = $v['duree'] ?? $v['durée'] ?? '';
                                 $prix = (int) ($v['prix'] ?? 0);
                                 ?>
-                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>"<?= $desc !== '' ? ' data-description="' . htmlspecialchars($desc) . '"' : '' ?>>
+                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>" <?= $desc !== '' ? ' data-description="' . htmlspecialchars($desc) . '"' : '' ?>>
                                     <?= htmlspecialchars($libelle) ?> — <?= htmlspecialchars($duree) ?> · <?= $prix ?> €
                                 </option>
                             <?php endforeach; ?>
@@ -105,7 +113,13 @@ $fil_ariane = array(
                             <button type="button" class="mois-suiv" aria-label="Mois suivant"><span>→</span></button>
                         </div>
                         <div class="week-days">
-                            <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div>
+                            <div>L</div>
+                            <div>M</div>
+                            <div>M</div>
+                            <div>J</div>
+                            <div>V</div>
+                            <div>S</div>
+                            <div>D</div>
                         </div>
                         <div class="grid-container" id="calendrier-grid"></div>
                         <p class="legende-creneaux">
@@ -116,22 +130,23 @@ $fil_ariane = array(
                     </div>
                     <label class="label-date-choisie">Date choisie&nbsp;: <span id="date-choisie-affichage">—</span></label>
                     <input type="hidden" name="date" id="input-date" required>
-                    <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au panier</button>
+                    <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au
+                        panier</button>
                 </form>
             </div>
             <script>
-            window.creneauxParVersion = <?= json_encode($creneauxParVersion) ?>;
-            (function() {
-                var sel = document.getElementById('select-version');
-                var descEl = document.getElementById('description-pack');
-                if (!sel || !descEl) return;
-                function updateDesc() {
-                    var opt = sel.options[sel.selectedIndex];
-                    descEl.textContent = opt && opt.dataset.description ? opt.dataset.description : '';
-                }
-                sel.addEventListener('change', updateDesc);
-                updateDesc();
-            })();
+                window.creneauxParVersion = <?= json_encode($creneauxParVersion) ?>;
+                (function () {
+                    var sel = document.getElementById('select-version');
+                    var descEl = document.getElementById('description-pack');
+                    if (!sel || !descEl) return;
+                    function updateDesc() {
+                        var opt = sel.options[sel.selectedIndex];
+                        descEl.textContent = opt && opt.dataset.description ? opt.dataset.description : '';
+                    }
+                    sel.addEventListener('change', updateDesc);
+                    updateDesc();
+                })();
             </script>
             <script src="js/calendrier.js"></script>
             <?php
@@ -156,16 +171,18 @@ $fil_ariane = array(
                             <select name="note" required>
                                 <?php
                                 for ($i = 1; $i <= 5; $i++) {
-                                    $sel = ($avis_utilisateur && (int)($avis_utilisateur['note'] ?? 0) === $i) ? ' selected' : '';
+                                    $sel = ($avis_utilisateur && (int) ($avis_utilisateur['note'] ?? 0) === $i) ? ' selected' : '';
                                     echo '<option value="' . $i . '"' . $sel . '>' . $i . ' ' . ($i === 1 ? 'étoile' : 'étoiles') . '</option>';
                                 }
                                 ?>
                             </select>
                         </label>
                         <label>Commentaire (optionnel)
-                            <textarea name="commentaire" rows="3" placeholder="Votre avis..."><?= $avis_utilisateur ? htmlspecialchars($avis_utilisateur['commentaire'] ?? '') : '' ?></textarea>
+                            <textarea name="commentaire" rows="3"
+                                placeholder="Votre avis..."><?= $avis_utilisateur ? htmlspecialchars($avis_utilisateur['commentaire'] ?? '') : '' ?></textarea>
                         </label>
-                        <button type="submit" class="btn-ajouter-avis"><?= $avis_utilisateur ? 'Modifier l\'avis' : 'Publier l\'avis' ?></button>
+                        <button type="submit"
+                            class="btn-ajouter-avis"><?= $avis_utilisateur ? 'Modifier l\'avis' : 'Publier l\'avis' ?></button>
                     </form>
                 </div>
                 <?php
@@ -187,7 +204,7 @@ $fil_ariane = array(
                     if ($auteur === '') {
                         $auteur = 'Anonyme';
                     }
-                    $note = (int)($a['note'] ?? 0);
+                    $note = (int) ($a['note'] ?? 0);
                     $commentaire = $a['commentaire'] ?? '';
                     $date_avis = $a['date_avis'] ?? '';
                     echo '<li class="avis-item">';
@@ -209,6 +226,6 @@ $fil_ariane = array(
             }
             ?>
         </div>
-        <?php endif; ?>
+    <?php endif; ?>
 </section>
 <?php $titre = htmlspecialchars($escape['Nom'] ?? 'Mission'); ?>
