@@ -903,6 +903,30 @@
         "suppr":{
             "fr": "Supprimer",
             "uk": "DELETE"
+        },
+        "pas-enreg":{
+            "fr": "Aucun escape game enregistré.",
+            "uk": "No escape games registered."
+        }
+    },
+
+
+    "page-gestion-utilisateur":{
+        "titre":{
+            "fr": "Gestion des utilisateurs",
+            "uk": "User Management"
+        },
+        "pas-utilisateur":{
+            "fr": "Aucun utilisateur.",
+            "uk": "No users."
+        },
+        "vous":{
+            "fr": "Vous",
+            "uk": "You"
+        },
+        "suppr":{
+            "fr": "Supprimer",
+            "uk": "DELETE"
         }
     }
 }

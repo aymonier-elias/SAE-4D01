@@ -17,7 +17,7 @@ if ($flashErr) { unset($_SESSION['flash_escape_err']); }
     </p>
     <?php
     if (empty($escapes)) {
-        echo '<p class="msg-empty">Aucun escape game enregistré.</p>';
+        echo '<p class="msg-empty" data-i18n="page-gestion-escape.pas-enreg">Aucun escape game enregistré.</p>';
     } else {
         echo '<div class="liste-escapes">';
         foreach ($escapes as $e) {

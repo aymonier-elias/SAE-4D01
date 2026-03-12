@@ -5,12 +5,12 @@ $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
 ?>
 <section class="content gestion-utilisateurs">
     <div class="titre_page">
-        <h2>Gestion des utilisateurs</h2>
+        <h2 data-i18n="page-gestion-utilisateur.titre">Gestion des utilisateurs</h2>
         <span class="separator"></span>
     </div>
     <?php
     if (empty($utilisateurs)) {
-        echo '<p class="msg-empty">Aucun utilisateur.</p>';
+        echo '<p class="msg-empty" data-i18n="page-gestion-utilisateur.pas-utilisateur">Aucun utilisateur.</p>';
     } else {
         require_once __DIR__ . '/../includes/html/tableau.class.php';
         $entetes = array_keys($utilisateurs[0]);
@@ -26,9 +26,9 @@ $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
             if ($estAdmin) {
                 $id = $u['N° Utilisateur'] ?? '';
                 if ($id !== '' && $id != ($_SESSION['id_utilisateur'] ?? 0)) {
-                    $row[] = '<a href="index.php?action=supprimerUtilisateur&amp;id_utilisateur=' . (int)$id . '" class="btn-supprimer" onclick="return confirm(\'Supprimer cet utilisateur ?\');">Supprimer</a>';
+                    $row[] = '<a href="index.php?action=supprimerUtilisateur&amp;id_utilisateur=' . (int)$id . '" class="btn-supprimer" onclick="return confirm(\'Supprimer cet utilisateur ?\');" data-i18n="page-gestion-utilisateur.suppr">Supprimer</a>';
                 } else {
-                    $row[] = '<span class="vous">Vous</span>';
+                    $row[] = '<span class="vous" data-i18n="page-gestion-utilisateur.vous">Vous</span>';
                 }
             }
             $lignes[] = $row;
