@@ -1,9 +1,15 @@
 <?php
+/**
+ * Routeur principal : envoie vers la bonne action selon ?action= et l'état de connexion.
+ * Utilisé par index.php.
+ */
+
 require_once "controleur/CtlEscape.class.php";
 require_once "controleur/CtlReservation.class.php";
 require_once "controleur/CtlUtilisateur.class.php";
 require_once "controleur/CtlPage.class.php";
 require_once "vue/vue.class.php";
+
 
 class Routeur {
 
@@ -12,6 +18,10 @@ class Routeur {
     private $CtlUtilisateur;
     private $CtlPage;
 
+
+    /**
+     * Instancie tous les contrôleurs.
+     */
     public function __construct() {
         $this->CtlEscape = new CtlEscape();
         $this->CtlReservation = new CtlReservation();
@@ -19,18 +29,23 @@ class Routeur {
         $this->CtlPage = new CtlPage();
     }
 
+
+    /**
+     * Analyse l'action demandée et appelle le bon contrôleur.
+     * Gère : utilisateur connecté ou non, admin ou non.
+     */
     public function routerRequete() {
         $action = isset($_GET['action']) ? $_GET['action'] : null;
 
         try {
+            // ========== Utilisateur connecté ==========
             if (isset($_SESSION['acces'])) {
-                // Utilisateur connecté
                 if ($action === null) {
                     $this->CtlPage->accueil();
                     return;
                 }
 
-                // Admin (statut == 2) : actions réservées à l'admin
+                // ----- Actions réservées à l'admin (statut == 2) -----
                 if (isset($_SESSION['statut']) && $_SESSION['statut'] == 2) {
                     switch ($action) {
                         case 'gestion_utilisateurs':
@@ -86,11 +101,11 @@ class Routeur {
                             return;
                         case 'supprimerEscape':
                             $this->CtlEscape->supprimerEscape($_GET['id_escape'] ?? 0);
-                            return; 
+                            return;
                     }
                 }
 
-                // Actions communes à tout utilisateur connecté (et pages publiques)
+                // ----- Actions pour tout utilisateur connecté -----
                 switch ($action) {
                     case 'escapes':
                         $this->CtlEscape->escapes();
@@ -141,6 +156,17 @@ class Routeur {
                     case 'ajouterPanier':
                         $this->CtlReservation->ajouterPanier();
                         return;
+                    case 'recap_commande':
+                        $this->CtlReservation->recapCommande();
+                        return;
+                    case 'confirmer_paiement':
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                            $this->CtlReservation->confirmerPaiement();
+                        }
+                        return;
+                    case 'confirmation_commande':
+                        $this->CtlReservation->confirmationCommande();
+                        return;
                     case 'ajouterAvis':
                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $this->CtlEscape->ajouterAvis(
@@ -151,8 +177,8 @@ class Routeur {
                         }
                         return;
                     case 'commande':
-                        $id_client = (int) ($_GET['id_client'] ?? 0);
-                        $id_version = (int) ($_GET['id_version'] ?? 0);
+                        $id_client = (int)($_GET['id_client'] ?? 0);
+                        $id_version = (int)($_GET['id_version'] ?? 0);
                         $date = $_GET['date'] ?? '';
                         $heure = $_GET['heure'] ?? '';
                         if ($id_client > 0 && $id_version > 0 && $date !== '' && $heure !== '') {
@@ -161,12 +187,15 @@ class Routeur {
                             throw new Exception("Identifiants de commande invalides (id_client, id_version, date, heure requis)");
                         }
                         return;
+                    case 'getCreneaux':
+                        $this->CtlReservation->getCreneauxJson($_GET['id_version'] ?? 0);
+                        return;
                 }
 
                 throw new Exception("La page que vous cherchez est introuvable :(");
             }
 
-            // Non connecté
+            // ========== Utilisateur non connecté ==========
             if ($action === null) {
                 $this->CtlPage->accueil();
                 return;
@@ -207,7 +236,7 @@ class Routeur {
             }
 
             throw new Exception("La page que vous cherchez est introuvable :(");
-            
+
         } catch (Exception $e) {
             $this->CtlPage->erreur($e->getMessage());
             exit;

@@ -13,13 +13,12 @@ class Tableau{
     }
 
 
-    public static function head($data=[]){
-        
-        if($data){
-             return '<table><thead>'. self::row($data, 'th').'</thead>';
+    public static function head($data = [], $tableClass = '') {
+        $attr = $tableClass !== '' ? ' class="' . htmlspecialchars($tableClass) . '"' : '';
+        if ($data) {
+            return '<table' . $attr . '><thead>' . self::row($data, 'th') . '</thead>';
         }
-        else
-            return '<table>';
+        return '<table' . $attr . '>';
     }
 
 

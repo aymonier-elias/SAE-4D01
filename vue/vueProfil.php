@@ -11,57 +11,47 @@ $id = (int) ($utilisateur['id_utilisateur'] ?? 0);
         <p>Réglez vos paramètres de déploiement et revisitez vos exploits passés !</p>
     </div>
 
-    <?php if (!empty($erreur)): ?>
-        <p class="msg-error"><?= $erreur ?></p>
-    <?php endif; ?>
-
-    <?php if (!empty($utilisateur)): ?>
-        <form class="form doubleBorder" method="post" action="index.php?action=modifierProfil" class="form-profil">
+    <?php
+    if (!empty($erreur)) {
+        echo '<p class="msg-error">' . htmlspecialchars($erreur) . '</p>';
+    }
+    if (!empty($utilisateur)) {
+        ?>
+        <?php
+        require_once __DIR__ . '/../includes/html/formulaire.class.php';
+        $formProfil = new Formulaire(array_merge($utilisateur, array('email' => $utilisateur['mail'] ?? '')));
+        ?>
+        <form class="form doubleBorder form-profil" method="post" action="index.php?action=modifierProfil">
             <div class="form_titre">
                 <h2>Profile de l'agent</h2>
-                <p><?= $utilisateur["prenom"] ?></p>
+                <p><?= htmlspecialchars($utilisateur["prenom"] ?? '') ?></p>
             </div>
-            <input type="hidden" name="id_utilisateur" value="<?= $id ?>">
-
-            <div class="input-prenom">
-                <label>Prénom de l'agent</label>
-                <input type="text" name="prenom" value="<?= htmlspecialchars($utilisateur['prenom'] ?? '') ?>" required>
-            </div>
-            <div class="input-nom">
-                <label>Nom de l'agent</label>
-                <input type="text" name="nom" value="<?= htmlspecialchars($utilisateur['nom'] ?? '') ?>" required>
-            </div>
-            <div class="input-email">
-                <label>Email</label>
-                <input type="email" name="email" value="<?= htmlspecialchars($utilisateur['mail'] ?? '') ?>" required>
-            </div>
-
+            <?= $formProfil->hidden('id_utilisateur', (string)$id) ?>
+            <div class="input-prenom"><?= $formProfil->inputText('prenom', 'Prénom de l\'agent', true) ?></div>
+            <div class="input-nom"><?= $formProfil->inputText('nom', 'Nom de l\'agent', true) ?></div>
+            <div class="input-email"><?= $formProfil->inputEmail('email', 'Email', true) ?></div>
             <div class="input-mdp">
                 <legend>Changer le mot de passe (optionnel)</legend>
                 <div>
-                    <label>Mot de passe actuel <input type="password" name="mdp_actuel"
-                            autocomplete="current-password"></label>
-                    <label>Nouveau mot de passe <input type="password" name="mdp_nouveau"
-                            autocomplete="new-password"></label>
+                    <?= $formProfil->inputPassword('mdp_actuel', 'Mot de passe actuel') ?>
+                    <?= $formProfil->inputPassword('mdp_nouveau', 'Nouveau mot de passe') ?>
                 </div>
             </div>
-
-            <button type="submit" class="cta">Enregistrer les modifications</button>
+            <?= $formProfil->submit('modifier', 'Enregistrer les modifications', 'cta') ?>
         </form>
 
-        <form class="form doubleBorder" method="post" action="index.php?action=supprimerCompte"
-        onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
-        <div class="form_titre">
-            <h3>Supprimer mon compte</h3>
-        </div>
-            <input type="hidden" name="id_utilisateur" value="<?= $id ?>">
-            <div class="input-sup">
-                <label>Mot de passe </label>
-                <input type="password" name="mdp" required>
+        <form class="form doubleBorder" method="post" action="index.php?action=supprimerCompte" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
+            <div class="form_titre">
+                <h3>Supprimer mon compte</h3>
             </div>
-            <button type="submit" class="btn-danger cta">Supprimer mon compte</button>
+            <?php $formSuppr = new Formulaire(array()); ?>
+            <?= $formSuppr->hidden('id_utilisateur', (string)$id) ?>
+            <div class="input-sup"><?= $formSuppr->inputPassword('mdp', 'Mot de passe', true) ?></div>
+            <?= $formSuppr->submit('supprimer', 'Supprimer mon compte', 'btn-danger cta') ?>
         </form>
-    <?php else: ?>
-        <p class="msg-empty">Utilisateur introuvable.</p>
-    <?php endif; ?>
+        <?php
+    } else {
+        echo '<p class="msg-empty">Utilisateur introuvable.</p>';
+    }
+    ?>
 </section>

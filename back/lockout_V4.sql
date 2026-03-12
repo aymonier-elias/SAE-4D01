@@ -157,6 +157,8 @@ INSERT INTO `mettre_favoris_version` (`id_client`, `id_version`) VALUES
 
 CREATE TABLE `version` (
   `id_version` int(11) NOT NULL,
+  `nom` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `durée` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prix` int(10) NOT NULL,
   `id_escape` int(11) NOT NULL
@@ -164,10 +166,13 @@ CREATE TABLE `version` (
 
 --
 -- Déchargement des données de la table `version`
+-- 3 packs par escape : Télégraphe (10€), Archive (15€), Immersion (25€)
 --
 
-INSERT INTO `version` (`id_version`, `durée`, `prix`, `id_escape`) VALUES
-(1, '1h', 0, 1);
+INSERT INTO `version` (`id_version`, `nom`, `description`, `durée`, `prix`, `id_escape`) VALUES
+(1, 'Pack Télégraphe', 'Immersion Digitale : Votre smartphone est votre seul outil de décryptage.', '1h', 10, 1),
+(2, 'Pack Archive', 'Vous imprimez vous-même vos documents pour une expérience personnalisée.', '1h', 15, 1),
+(3, 'Pack Immersion', 'Mis en place par l''équipe avec de vrais objets pour une immersion totale.', '1h', 25, 1);
 
 --
 -- Index pour les tables déchargées

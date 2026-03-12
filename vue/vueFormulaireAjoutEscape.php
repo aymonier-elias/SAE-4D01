@@ -18,9 +18,11 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
         <label>Difficulté
             <select name="difficultes" required>
                 <option value="">— Choisir —</option>
-                <?php foreach ($optionsDifficulte as $v => $libelle): ?>
-                    <option value="<?= (int) $v ?>"><?= htmlspecialchars($libelle) ?></option>
-                <?php endforeach; ?>
+                <?php
+                foreach ($optionsDifficulte as $v => $libelle) {
+                    echo '<option value="' . (int)$v . '">' . htmlspecialchars($libelle) . '</option>';
+                }
+                ?>
             </select>
         </label>
         <label>Photo de couverture <input type="file" name="photoCouverture" accept="image/jpeg,image/png,image/gif,image/webp,image/bmp"></label>

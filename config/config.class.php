@@ -12,5 +12,4 @@ abstract class Config
     public const TITREONGLET = "Lock Out";
     public const NOMSITE = "Lock Out";
     public const PHOTOESCAPEDIR = "img/mission";
-
 }

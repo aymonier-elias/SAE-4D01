@@ -17,21 +17,16 @@ $erreur = $erreur ?? '';
   </div>
   <div class="form">
     <form method="post" action="index.php?action=connexion">
-      <?php if (!empty($erreur)): ?>
-        <p class="msg-error">
-          <?= $erreur ?>
-        </p>
-      <?php endif; ?>
-      <div class="input-mail">
-        <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="input-mdp">
-        <label><img src="img/svg/clef.svg" alt=""> Mot de passe</label>
-        <input type="password" name="mdp" required>
-        <a href="">Mot de passe oublié ?</a>
-      </div>
-      <button type="submit" class="cta">Accéder</button>
+      <?php
+      if (!empty($erreur)) {
+          echo '<p class="msg-error">' . htmlspecialchars($erreur) . '</p>';
+      }
+      require_once __DIR__ . '/../includes/html/formulaire.class.php';
+      $form = new Formulaire($_POST ?? array());
+      ?>
+      <div class="input-mail"><?= $form->inputEmail('email', 'Identifiant', true) ?></div>
+      <div class="input-mdp"><?= $form->inputPassword('mdp', 'Mot de passe', true) ?><a href="">Mot de passe oublié ?</a></div>
+      <?= $form->submit('login', 'Accéder', 'cta') ?>
     </form>
   </div>
 </section>

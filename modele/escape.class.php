@@ -57,7 +57,7 @@ class Escape extends Database {
   Retourne les versions (durée, prix) disponibles pour un escape
   *******************************************************/
   public function getVersions($id_escape) {
-    $req = 'SELECT id_version AS "id_version", durée AS "duree", prix AS "prix" FROM version WHERE id_escape = ? ORDER BY prix;';
+    $req = 'SELECT id_version AS "id_version", nom AS "nom", description AS "description", durée AS "duree", prix AS "prix" FROM version WHERE id_escape = ? ORDER BY prix;';
     $resultat = $this->execReqPrep($req, array($id_escape));
     return is_array($resultat) ? $resultat : array();
   }
@@ -70,7 +70,24 @@ class Escape extends Database {
     $difficultés = (int) $difficultés;
     $req = 'INSERT INTO escape_game (nom, description, longitude, latitude, nb_participants_max, age_minimum, ville, tags, difficultés) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
     $this->execReqPrep($req, array($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés));
-    return $this->lastInsertId();
+    $id_escape = $this->lastInsertId();
+    $this->creerVersionsParDefaut($id_escape);
+    return $id_escape;
+  }
+
+  /*******************************************************
+  Crée les 3 packs par défaut pour un escape (Télégraphe, Archive, Immersion)
+  *******************************************************/
+  public function creerVersionsParDefaut($id_escape) {
+    $packs = array(
+      array('Pack Télégraphe', 'Immersion Digitale : Votre smartphone est votre seul outil de décryptage.', '1h', 10),
+      array('Pack Archive', 'Vous imprimez vous-même vos documents pour une expérience personnalisée.', '1h', 15),
+      array('Pack Immersion', 'Mis en place par l\'équipe avec de vrais objets pour une immersion totale.', '1h', 25)
+    );
+    $req = 'INSERT INTO version (nom, description, durée, prix, id_escape) VALUES (?, ?, ?, ?, ?);';
+    foreach ($packs as $p) {
+      $this->execReqPrep($req, array($p[0], $p[1], $p[2], $p[3], $id_escape));
+    }
   }
 
   /*******************************************************

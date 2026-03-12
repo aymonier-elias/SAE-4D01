@@ -21,9 +21,12 @@ $difficulteActuelle = (int)($escape['Difficultés'] ?? 0);
         <label>Tags <input type="text" name="tags" value="<?= htmlspecialchars($escape['Tags'] ?? '') ?>" placeholder="séparés par des virgules"></label>
         <label>Difficulté
             <select name="difficultes" required>
-                <?php foreach ($optionsDifficulte as $v => $libelle): ?>
-                    <option value="<?= (int) $v ?>"<?= ($difficulteActuelle === (int)$v) ? ' selected' : '' ?>><?= htmlspecialchars($libelle) ?></option>
-                <?php endforeach; ?>
+                <?php
+                foreach ($optionsDifficulte as $v => $libelle) {
+                    $sel = ($difficulteActuelle === (int)$v) ? ' selected' : '';
+                    echo '<option value="' . (int)$v . '"' . $sel . '>' . htmlspecialchars($libelle) . '</option>';
+                }
+                ?>
             </select>
         </label>
         <label>Photo de couverture (laisser vide pour conserver l’actuelle) <input type="file" name="photoCouverture" accept="image/jpeg,image/png,image/gif,image/webp,image/bmp"></label>

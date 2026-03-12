@@ -1,15 +1,20 @@
 <?php
+/**
+ * Contrôleur des réservations : panier, commandes, favoris.
+ */
 
 require_once "modele/reservation.class.php";
 require_once "modele/utilisateur.class.php";
 require_once "modele/favori.class.php";
 require_once "vue/vue.class.php";
 
+
 class CtlReservation {
 
     private $reservation;
     private $utilisateur;
     private $favori;
+
 
     public function __construct() {
         $this->reservation = new Reservation();
@@ -18,9 +23,9 @@ class CtlReservation {
     }
 
 
-    /*******************************************************
-Affichage de la liste des Reservations ou des Favoris (escapes)
-*******************************************************/
+    /**
+     * Affiche la liste selon le contexte : panier, favoris, ou gestion des commandes (admin).
+     */
     public function reservations($contexte = 'reservations') {
         if ($contexte === 'favoris') {
             $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
@@ -29,43 +34,48 @@ Affichage de la liste des Reservations ou des Favoris (escapes)
             $vue->afficher(array("reservations" => array(), "contexte" => "favoris", "favoris" => $favoris));
             return;
         }
+
         $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : null;
-        $reservations = $this->reservation->getReservations($id_client);
+        if ($contexte === 'panier' && $id_client) {
+            $reservations = $this->reservation->getPanier($id_client);
+        } else {
+            $reservations = $this->reservation->getReservations($id_client);
+        }
+
         $vue = new Vue("Reservations");
         $vue->afficher(array("reservations" => $reservations, "contexte" => $contexte, "favoris" => array()));
     }
 
-    /*******************************************************
-Affichage des détails d'une Reservation et du client dans la vue concernée
-  Entrée :
-    idComm [int] : n° de la Reservation
 
-  Retour : 
-    
-*******************************************************/
+    /**
+     * Affiche le détail d'une commande / réservation (client + articles + total).
+     */
     public function reservation($id_client, $id_version, $date, $heure) {
         $articles = $this->reservation->getArticlesReservation($id_client, $id_version, $date, $heure);
-        if (!empty($articles)) {
-            $id_client_res = $this->reservation->getIdClientReservation($id_client, $id_version, $date, $heure);
-            $client = $this->utilisateur->getUtilisateur($id_client_res);
-            $total = $this->reservation->getTotalReservation($id_client, $id_version, $date, $heure);
-            $vue = new Vue("Reservation");
-            $vue->afficher(array(
-                "articles" => $articles,
-                "id_Res" => $id_client . '-' . $id_version . '-' . $date . '-' . $heure,
-                "idComm" => $id_client . '-' . $id_version . '-' . $date . '-' . $heure,
-                "total" => $total,
-                "client" => $client,
-                "utilisateur" => $client
-            ));
-        } else {
+
+        if (empty($articles)) {
             throw new Exception("Echec de l'affichage de la réservation.");
         }
+
+        $client = $this->utilisateur->getUtilisateur($this->reservation->getIdClientReservation($id_client, $id_version, $date, $heure));
+        $total = $this->reservation->getTotalReservation($id_client, $id_version, $date, $heure);
+        $id_Res = $id_client . '-' . $id_version . '-' . $date . '-' . $heure;
+
+        $vue = new Vue("Reservation");
+        $vue->afficher(array(
+            "articles" => $articles,
+            "id_Res" => $id_Res,
+            "idComm" => $id_Res,
+            "total" => $total,
+            "client" => $client,
+            "utilisateur" => $client
+        ));
     }
 
-    /*******************************************************
-    Ajoute un escape aux favoris du client connecté
-    *******************************************************/
+
+    /**
+     * Ajoute un escape aux favoris du client connecté.
+     */
     public function ajouterFavori($id_escape) {
         $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
         if (!$id_client) {
@@ -78,29 +88,10 @@ Affichage des détails d'une Reservation et du client dans la vue concernée
         exit;
     }
 
-    /*******************************************************
-    Ajoute au panier : version + créneau + nombre de joueurs
-    *******************************************************/
-    public function ajouterPanier() {
-        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
-        if (!$id_client) {
-            header('Location: index.php?action=connexion');
-            exit;
-        }
-        $id_version = (int) ($_POST['id_version'] ?? 0);
-        $date = trim((string) ($_POST['date'] ?? ''));
-        $heure = trim((string) ($_POST['heure'] ?? ''));
-        $nb_participant = (int) ($_POST['nb_participant'] ?? 0);
-        if ($id_version && $date !== '' && $heure !== '' && $nb_participant > 0) {
-            $this->reservation->ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant);
-        }
-        header('Location: index.php?action=panier');
-        exit;
-    }
 
-    /*******************************************************
-    Retire un escape des favoris du client connecté
-    *******************************************************/
+    /**
+     * Retire un escape des favoris.
+     */
     public function retirerFavori($id_escape) {
         $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
         if ($id_client) {
@@ -109,5 +100,89 @@ Affichage des détails d'une Reservation et du client dans la vue concernée
         $retour = isset($_GET['retour']) ? $_GET['retour'] : 'index.php?action=favoris';
         header('Location: ' . htmlspecialchars($retour, ENT_QUOTES, 'UTF-8'));
         exit;
+    }
+
+
+    /**
+     * Ajoute au panier : version + date + heure + nombre de joueurs.
+     */
+    public function ajouterPanier() {
+        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        if (!$id_client) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+
+        $id_version = (int)($_POST['id_version'] ?? 0);
+        $date = trim((string)($_POST['date'] ?? ''));
+        $heure = trim((string)($_POST['heure'] ?? ''));
+        $nb_participant = (int)($_POST['nb_participant'] ?? 0);
+
+        if ($id_version && $date !== '' && $heure !== '' && $nb_participant > 0) {
+            $ok = $this->reservation->ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant);
+            if (!$ok) {
+                $_SESSION['flash_panier_erreur'] = 'Ce créneau n\'est plus disponible (réservé ou déjà dans un panier).';
+            }
+        }
+
+        header('Location: index.php?action=panier');
+        exit;
+    }
+
+
+    /**
+     * Retourne les créneaux occupés en JSON (pour le calendrier sur la page escape).
+     */
+    public function getCreneauxJson($id_version) {
+        header('Content-Type: application/json; charset=utf-8');
+        $creneaux = $this->reservation->getCreneauxOccupesParVersion((int) $id_version);
+        echo json_encode($creneaux);
+        exit;
+    }
+
+
+    /**
+     * Récapitulatif du panier avant paiement (tunnel de vente).
+     */
+    public function recapCommande() {
+        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        if (!$id_client) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+
+        $panier = $this->reservation->getPanier($id_client);
+        $total = $this->reservation->getTotalPanier($id_client);
+        $client = $this->utilisateur->getUtilisateur($id_client);
+
+        $vue = new Vue("RecapCommande");
+        $vue->afficher(array("panier" => $panier, "total" => $total, "client" => $client ?: array()));
+    }
+
+
+    /**
+     * Paiement fictif : passe toutes les lignes du panier en "acheté" (reserver = 1).
+     */
+    public function confirmerPaiement() {
+        $id_client = isset($_SESSION['id_utilisateur']) ? (int) $_SESSION['id_utilisateur'] : 0;
+        if (!$id_client) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $nb = $this->reservation->confirmerAchatPanier($id_client);
+        $_SESSION['flash_confirmation'] = $nb > 0 ? "Votre commande a bien été enregistrée. Merci !" : "Aucun article à confirmer.";
+        header('Location: index.php?action=confirmation_commande');
+        exit;
+    }
+
+
+    /**
+     * Page de confirmation après paiement.
+     */
+    public function confirmationCommande() {
+        $message = isset($_SESSION['flash_confirmation']) ? $_SESSION['flash_confirmation'] : 'Commande enregistrée.';
+        unset($_SESSION['flash_confirmation']);
+        $vue = new Vue("ConfirmationCommande");
+        $vue->afficher(array("message" => $message));
     }
 }

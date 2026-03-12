@@ -34,41 +34,45 @@ if (isset($_SESSION['acces'])) {
   <div class="cards">
     <?php
     $derniers_escapes = isset($derniers_escapes) && is_array($derniers_escapes) ? $derniers_escapes : array();
-    foreach ($derniers_escapes as $e):
-      $code = (int) ($e['code'] ?? 0);
+    foreach ($derniers_escapes as $e) {
+      $code = (int)($e['code'] ?? 0);
       $nom = $e['nom'] ?? '';
       $description = $e['description'] ?? '';
-      $difficulte = (int) ($e['difficultes'] ?? 0);
-      if ($difficulte < 1) $difficulte = 1;
-      if ($difficulte > 5) $difficulte = 5;
+      $difficulte = (int)($e['difficultes'] ?? 0);
+      if ($difficulte < 1) { $difficulte = 1; }
+      if ($difficulte > 5) { $difficulte = 5; }
       $photo = $e['photo'] ?? null;
       $imgSrc = $photo ? htmlspecialchars($photo) : 'img/card_1.png';
       $duree = $e['duree_affichage'] ?? '—';
       $lienEscape = 'index.php?action=escape&amp;id_escape=' . $code;
-    ?>
-    <a href="<?= $lienEscape ?>" class="card">
-      <div class="card-hover">
-        <span class="cta" data-i18n='home.entete.bouton-home'>Réserver ma mission</span>
-      </div>
-      <img src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($nom) ?>">
-      <h3><?= htmlspecialchars($nom) ?></h3>
-      <div class="info">
-        <div class="difficulte">
-          <p>Difficulté :</p>
-          <div class="note">
-            <?php for ($i = 0; $i < $difficulte; $i++): ?>
-            <img src="img/svg/diff.svg" alt="Difficulté">
-            <?php endfor; ?>
+      ?>
+      <a href="<?= $lienEscape ?>" class="card">
+        <div class="card-hover">
+          <span class="cta" data-i18n='home.entete.bouton-home'>Réserver ma mission</span>
+        </div>
+        <img src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($nom) ?>">
+        <h3><?= htmlspecialchars($nom) ?></h3>
+        <div class="info">
+          <div class="difficulte">
+            <p>Difficulté :</p>
+            <div class="note">
+              <?php
+              for ($i = 0; $i < $difficulte; $i++) {
+                echo '<img src="img/svg/diff.svg" alt="Difficulté">';
+              }
+              ?>
+            </div>
+          </div>
+          <div class="duree">
+            <p>Durée :</p>
+            <p><?= htmlspecialchars($duree) ?></p>
           </div>
         </div>
-        <div class="duree">
-          <p>Durée :</p>
-          <p><?= htmlspecialchars($duree) ?></p>
-        </div>
-      </div>
-      <p class="card-desc"><?= htmlspecialchars($description) ?></p>
-    </a>
-    <?php endforeach; ?>
+        <p class="card-desc"><?= htmlspecialchars($description) ?></p>
+      </a>
+      <?php
+    }
+    ?>
   </div>
   <a href="index.php?action=escapes" class="cta">Voir toute les missions</a>
 </section>

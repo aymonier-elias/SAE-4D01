@@ -12,27 +12,19 @@ if (isset($_SESSION) && !empty($_SESSION)) {
         <h2>Nous contacter</h2>
     </div>
     <form class="form" method="post" action="index.php?action=contact">
-        <?php if (!empty($erreur)): ?>
-            <p class="msg-error"><?= $erreur ?></p>
-        <?php endif; ?>
+        <?php
+        if (!empty($erreur)) {
+            echo '<p class="msg-error">' . htmlspecialchars($erreur) . '</p>';
+        }
+        require_once __DIR__ . '/../includes/html/formulaire.class.php';
+        $form = new Formulaire($_POST ?? array());
+        ?>
         <div class="form-input_wrap">
-            <div class="input-nom">
-                <label for="nom">Nom</label>
-                <input type="text" name="nom" required>
-            </div>
-            <div class="input-prenom">
-                <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" required>
-            </div>
+            <div class="input-nom"><?= $form->inputText('nom', 'Nom', true) ?></div>
+            <div class="input-prenom"><?= $form->inputText('prenom', 'Prénom', true) ?></div>
         </div>
-        <div class="input-mail">
-            <label for="mail">Mail</label>
-            <input type="text" name="mail" required>
-        </div>
-        <div class="input-message">
-            <label for="message">Message</label>
-            <textarea name="message" required></textarea>
-        </div>
-    <button type="submit" class="cta">Envoyer</button>
+        <div class="input-mail"><?= $form->inputEmail('mail', 'Mail', true) ?></div>
+        <div class="input-message"><?= $form->textarea('message', 'Message', true) ?></div>
+        <?= $form->submit('contact', 'Envoyer', 'cta') ?>
     </form>
 </section>

@@ -45,7 +45,9 @@ foreach ($escapes as $e) {
 <section class="content escapes">
     <h2>Les missions</h2>
 
-    <?php if (!empty($escapesPourCarte)): ?>
+    <?php
+    if (!empty($escapesPourCarte)) {
+        ?>
         <div class="carte-alsace-wrapper">
             <h3 class="carte-titre">Carte de l'Alsace</h3>
             <div id="carte-alsace-escapes" class="carte-alsace"></div>
@@ -71,17 +73,16 @@ foreach ($escapes as $e) {
             }
         })();
         </script>
-    <?php endif; ?>
-
-    <?php if (empty($escapes)): ?>
-        <p class="msg-empty">Aucune mission disponible pour le moment.</p>
-    <?php else: ?>
-
+        <?php
+    }
+    if (empty($escapes)) {
+        echo '<p class="msg-empty">Aucune mission disponible pour le moment.</p>';
+    } else {
+        $retour_escapes = 'index.php?action=escapes';
+        ?>
         <div class="liste-escapes">
-
             <?php
-            $retour_escapes = 'index.php?action=escapes';
-            foreach ($escapes as $e):
+            foreach ($escapes as $e) {
                 $code = (int)($key($e, 'Code') ?? $key($e, 'code') ?? 0);
                 $nom = $key($e, 'Nom') ?? $key($e, 'nom') ?? '';
                 $ville = $key($e, 'Ville') ?? $key($e, 'ville') ?? '';
@@ -90,30 +91,39 @@ foreach ($escapes as $e) {
                 $ageMin = (int)($key($e, 'Age minimum') ?? $key($e, 'age_minimum') ?? 0);
                 $diff = (int)($key($e, 'Difficultés') ?? $key($e, 'difficultés') ?? 0);
                 $en_favori = in_array($code, $ids_favoris);
-            ?>
+                $photoMission = Escape::getCheminPhotoCouverture($code);
+                ?>
                 <div class="card-escape-wrapper">
                     <a href="index.php?action=escape&amp;id_escape=<?= $code ?>" class="card-escape-link">
                         <article class="card-escape">
-                            <?php $photoMission = Escape::getCheminPhotoCouverture($code); ?>
-                            <?php if ($photoMission): ?><img src="<?= htmlspecialchars($photoMission) ?>" alt="<?= htmlspecialchars($nom) ?>" class="card-escape-img"><?php endif; ?>
+                            <?php
+                            if ($photoMission) {
+                                echo '<img src="' . htmlspecialchars($photoMission) . '" alt="' . htmlspecialchars($nom) . '" class="card-escape-img">';
+                            }
+                            ?>
                             <h3><?= htmlspecialchars($nom) ?></h3>
                             <p class="ville"><?= htmlspecialchars($ville) ?></p>
                             <p class="description"><?= htmlspecialchars($desc) ?></p>
                             <p class="infos">Participants max : <?= $nbMax ?> · Âge min : <?= $ageMin ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$diff] ?? $diff) ?></p>
                         </article>
                     </a>
-                    <?php if (isset($_SESSION['acces'])): ?>
-                        <?php if ($en_favori): ?>
-                            <a href="index.php?action=retirerFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori btn-favori-actif" title="Retirer des favoris">♥ Retirer des favoris</a>
-                        <?php else: ?>
-                            <a href="index.php?action=ajouterFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori" title="Ajouter aux favoris">♡ Ajouter aux favoris</a>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                    <?php
+                    if (isset($_SESSION['acces'])) {
+                        if ($en_favori) {
+                            echo '<a href="index.php?action=retirerFavori&amp;id_escape=' . $code . '&amp;retour=' . urlencode($retour_escapes) . '" class="btn-favori btn-favori-actif" title="Retirer des favoris">♥ Retirer des favoris</a>';
+                        } else {
+                            echo '<a href="index.php?action=ajouterFavori&amp;id_escape=' . $code . '&amp;retour=' . urlencode($retour_escapes) . '" class="btn-favori" title="Ajouter aux favoris">♡ Ajouter aux favoris</a>';
+                        }
+                    }
+                    ?>
                 </div>
-            <?php endforeach; ?>
-
+                <?php
+            }
+            ?>
         </div>
-    <?php endif; ?>
+        <?php
+    }
+    ?>
 </section>
 
 <?php
@@ -123,16 +133,17 @@ foreach ($escapes as $e) {
 <div class="content">
   <?php
     if (count($escapes)) {
-      require_once "includes/html/tableau.class.php";
-
-      $tableau = new Tableau();
-
-      echo $tableau->head(array_keys($escapes[0]));
-      echo $tableau->body($escapes);
-      echo $tableau->foot();
-
+        require_once __DIR__ . '/../includes/html/tableau.class.php';
+        $entetes = array_keys($escapes[0]);
+        $lignes = array();
+        foreach ($escapes as $ligne) {
+            $lignes[] = array_map(function ($v) { return htmlspecialchars($v ?? ''); }, $ligne);
+        }
+        echo Tableau::head($entetes);
+        echo Tableau::body($lignes);
+        echo Tableau::foot();
+    } else {
+        echo "<div class='msg-empty'>Aucune mission n'est enregistrée dans la liste</div>";
     }
-    else
-      echo "<div class='msg-empty'>Aucune mission n'est enregistrée dans la liste</div>";
   ?>
 </div>

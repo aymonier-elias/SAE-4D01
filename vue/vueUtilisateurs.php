@@ -1,6 +1,5 @@
 <?php
 $cssLink = '<link href="style/utilisateurs.css" rel="stylesheet">';
-
 $utilisateurs = $utilisateurs ?? array();
 $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
 ?>
@@ -9,42 +8,34 @@ $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
         <h2>Gestion des utilisateurs</h2>
         <span class="separator"></span>
     </div>
-
-    <?php if (empty($utilisateurs)): ?>
-        <p class="msg-empty">Aucun utilisateur.</p>
-    <?php else: ?>
-        <table class="table-utilisateurs">
-            <thead>
-                <tr>
-                    <?php foreach (array_keys($utilisateurs[0]) as $cle): ?>
-                        <th><?= htmlspecialchars($cle) ?></th>
-                    <?php endforeach; ?>
-                    <?php if ($estAdmin): ?>
-                        <th>Actions</th>
-                    <?php endif; ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($utilisateurs as $u): ?>
-                    <tr>
-                        <?php foreach ($u as $cle => $valeur): ?>
-                            <td><?= htmlspecialchars($valeur ?? '') ?></td>
-                        <?php endforeach; ?>
-                        <?php if ($estAdmin): ?>
-                            <td>
-                                <?php
-                                $id = $u['N° Utilisateur'] ?? '';
-                                if ($id !== '' && $id != ($_SESSION['id_utilisateur'] ?? 0)):
-                                ?>
-                                    <a href="index.php?action=supprimerUtilisateur&amp;id_utilisateur=<?= (int)$id ?>" class="btn-supprimer" onclick="return confirm('Supprimer cet utilisateur ?');">Supprimer</a>
-                                <?php else: ?>
-                                    <span class="vous">Vous</span>
-                                <?php endif; ?>
-                            </td>
-                        <?php endif; ?>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php endif; ?>
+    <?php
+    if (empty($utilisateurs)) {
+        echo '<p class="msg-empty">Aucun utilisateur.</p>';
+    } else {
+        require_once __DIR__ . '/../includes/html/tableau.class.php';
+        $entetes = array_keys($utilisateurs[0]);
+        if ($estAdmin) {
+            $entetes[] = 'Actions';
+        }
+        $lignes = array();
+        foreach ($utilisateurs as $u) {
+            $row = array();
+            foreach ($u as $valeur) {
+                $row[] = htmlspecialchars($valeur ?? '');
+            }
+            if ($estAdmin) {
+                $id = $u['N° Utilisateur'] ?? '';
+                if ($id !== '' && $id != ($_SESSION['id_utilisateur'] ?? 0)) {
+                    $row[] = '<a href="index.php?action=supprimerUtilisateur&amp;id_utilisateur=' . (int)$id . '" class="btn-supprimer" onclick="return confirm(\'Supprimer cet utilisateur ?\');">Supprimer</a>';
+                } else {
+                    $row[] = '<span class="vous">Vous</span>';
+                }
+            }
+            $lignes[] = $row;
+        }
+        echo Tableau::head($entetes, 'table-utilisateurs');
+        echo Tableau::body($lignes);
+        echo Tableau::foot();
+    }
+    ?>
 </section>

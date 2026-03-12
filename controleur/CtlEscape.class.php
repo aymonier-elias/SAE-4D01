@@ -1,27 +1,34 @@
 <?php
+/**
+ * Contrôleur des escapes (missions) : liste, détail, gestion admin, avis.
+ */
+
 require_once "modele/escape.class.php";
 require_once "modele/favori.class.php";
 require_once "modele/avis.class.php";
+require_once "modele/reservation.class.php";
 require_once "vue/vue.class.php";
 
 
-// Classe chargée de la gestion des escapes
-class CtlEscape{
+class CtlEscape {
 
     private $escape;
     private $favori;
     private $avis;
+    private $reservation;
+
 
     public function __construct() {
         $this->escape = new Escape();
         $this->favori = new Favori();
         $this->avis = new Avis();
+        $this->reservation = new Reservation();
     }
-    
 
-    /*******************************************************
-    Affichage de la liste des escapes
-    *******************************************************/
+
+    /**
+     * Affiche la liste de toutes les missions (escapes).
+     */
     public function escapes() {
         $escapes = $this->escape->getEscapes();
         $ids_favoris = array();
@@ -33,21 +40,33 @@ class CtlEscape{
     }
 
 
-    /*******************************************************
-    Affichage de la page d'un escape
-    *******************************************************/
+    /**
+     * Affiche la page d'une mission : infos, versions (packs), calendrier, avis.
+     */
     public function escape($id_escape) {
         $id_escape = (int) $id_escape;
         $escape = $this->escape->getEscape($id_escape);
         $versions = $this->escape->getVersions($id_escape);
+
         $est_favori = false;
         $avis_utilisateur = null;
         if (isset($_SESSION['id_utilisateur']) && !empty($escape)) {
             $est_favori = $this->favori->estFavori((int) $_SESSION['id_utilisateur'], $id_escape);
             $avis_utilisateur = $this->avis->getAvisUtilisateur($id_escape, (int) $_SESSION['id_utilisateur']);
         }
+
         $liste_avis = $this->avis->getAvisByEscape($id_escape);
         $note_moyenne = $this->avis->getNoteMoyenne($id_escape);
+
+        // Créneaux occupés par version (pour le calendrier : rouge = panier, gris = vendu)
+        $creneauxParVersion = array();
+        foreach ($versions as $v) {
+            $id_version = (int)($v['id_version'] ?? 0);
+            if ($id_version) {
+                $creneauxParVersion[$id_version] = $this->reservation->getCreneauxOccupesParVersion($id_version);
+            }
+        }
+
         $vue = new Vue("Escape");
         $vue->afficher(array(
             "escape" => $escape ?: array(),
@@ -56,53 +75,47 @@ class CtlEscape{
             "id_escape" => $id_escape,
             "liste_avis" => $liste_avis,
             "note_moyenne" => $note_moyenne,
-            "avis_utilisateur" => $avis_utilisateur
+            "avis_utilisateur" => $avis_utilisateur,
+            "creneauxParVersion" => $creneauxParVersion
         ));
     }
 
-    /*******************************************************
-    Affichage de la page de gestion des escapes (admin)
-    *******************************************************/
+
+    /**
+     * Page admin : liste des escapes pour modification / suppression.
+     */
     public function gestionEscapes() {
         $escapes = $this->escape->getEscapes();
         $vue = new Vue("GestionEscapes");
         $vue->afficher(array("escapes" => $escapes));
     }
 
-    /*******************************************************
-    Affiche le formulaire d'ajout d'un escape
-    *******************************************************/
+
+    /**
+     * Formulaire d'ajout d'un nouvel escape (admin).
+     */
     public function formulaireAjoutEscape() {
         $vue = new Vue("FormulaireAjoutEscape");
         $vue->afficher(array());
     }
 
-    /*******************************************************
-    Affiche le formulaire de modification d'un escape
-    *******************************************************/
+
+    /**
+     * Formulaire de modification d'un escape (admin).
+     */
     public function formulaireModifierEscape($id_escape) {
         $escape = $this->escape->getEscape($id_escape);
         $vue = new Vue("FormulaireModifierEscape");
         $vue->afficher(array("escape" => $escape));
     }
 
-    /*******************************************************
-Ajout d'un escape
-  Entrée : 
-    nom [string] : nom de l'escape
-    description [string] : description de l'escape
-    longitude [float] : longitude de l'escape
-    latitude [float] : latitude de l'escape
-    nb_participants_max [int] : nombre de participants maximum
-    age_minimum [int] : age minimum
-    ville [string] : ville de l'escape
-    tags [string] : tags de l'escape
-    difficultés [string] : difficultés de l'escape
-  Retour : 
-*******************************************************/
 
+    /**
+     * Enregistre un nouvel escape (POST). Crée aussi les 3 packs par défaut.
+     */
     public function ajouterEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $id_escape = $this->escape->addEscape($nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
+
         if (isset($_FILES['photoCouverture']) && $_FILES['photoCouverture']['error'] === UPLOAD_ERR_OK) {
             try {
                 $this->escape->updatePhotoCouverture($id_escape);
@@ -110,28 +123,18 @@ Ajout d'un escape
                 $_SESSION['flash_escape_err'] = $e->getMessage();
             }
         }
+
         header('Location: index.php?action=gestion_escapegame');
         exit;
     }
 
-    /*******************************************************    
-    Modification d'un escape
-  Entrée : 
-    id_escape [int] : id de l'escape
-    nom [string] : nom de l'escape
-    description [string] : description de l'escape
-    longitude [float] : longitude de l'escape
-    latitude [float] : latitude de l'escape
-    nb_participants_max [int] : nombre de participants maximum
-    age_minimum [int] : age minimum
-    ville [string] : ville de l'escape
-    tags [string] : tags de l'escape
-    difficultés [string] : difficultés de l'escape
-  Retour : 
-*******************************************************/
 
+    /**
+     * Met à jour un escape existant (POST).
+     */
     public function modifierEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés) {
         $this->escape->updateEscape($id_escape, $nom, $description, $longitude, $latitude, $nb_participants_max, $age_minimum, $ville, $tags, $difficultés);
+
         if (isset($_FILES['photoCouverture']) && $_FILES['photoCouverture']['error'] === UPLOAD_ERR_OK) {
             try {
                 $this->escape->updatePhotoCouverture($id_escape);
@@ -139,26 +142,25 @@ Ajout d'un escape
                 $_SESSION['flash_escape_err'] = $e->getMessage();
             }
         }
+
         header('Location: index.php?action=gestion_escapegame');
         exit;
     }
 
-        /*******************************************************
-    Suppression d'un escape
-  Entrée : 
-    id_escape [int] : id de l'escape
-  Retour : 
-*******************************************************/
 
+    /**
+     * Supprime un escape (admin).
+     */
     public function supprimerEscape($id_escape) {
         $this->escape->deleteEscape($id_escape);
         header('Location: index.php?action=gestion_escapegame');
         exit;
     }
 
-    /*******************************************************
-    Déposer ou modifier un avis sur un escape (utilisateur connecté)
-    *******************************************************/
+
+    /**
+     * Dépose ou modifie un avis sur une mission (utilisateur connecté).
+     */
     public function ajouterAvis($id_escape, $note, $commentaire = '') {
         $id_escape = (int) $id_escape;
         if (!isset($_SESSION['id_utilisateur'])) {

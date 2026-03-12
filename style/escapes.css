@@ -309,6 +309,13 @@
     gap: 0.25rem;
 }
 
+.form-panier .description-pack {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
 .form-panier select,
 .form-panier input {
     padding: 0.5rem;
@@ -334,6 +341,248 @@
 .msg-panier {
     margin-top: 1rem;
     font-size: 0.95rem;
+}
+
+/* Calendrier réservation (vue escape) */
+.bloc-panier.calendrier-reservation {
+    max-width: 520px;
+}
+
+.calendrier-wrapper {
+    margin: 1rem 0;
+}
+
+.navigation-calendrier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.navigation-calendrier .mois-prec,
+.navigation-calendrier .mois-suiv {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.navigation-calendrier .nomMois {
+    font-weight: bold;
+}
+
+.week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.calendrier-wrapper .grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.calendrier-wrapper .grid-item {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.calendrier-wrapper .grid-item.empty {
+    visibility: hidden;
+}
+
+.calendrier-wrapper .grid-item.past .date {
+    background: #ddd;
+    color: #999;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+.calendrier-wrapper .grid-item.past {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.calendrier-wrapper .grid-item.clickable {
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.calendrier-wrapper .grid-item.clickable:hover {
+    background: oklch(0.9 0.02 250);
+}
+
+.calendrier-wrapper .grid-item.selected .date {
+    background: var(--secondary);
+    color: var(--brand-black);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* Jours du calendrier : dispo (vert), dans un panier (rouge), vendu (gris) */
+.calendrier-wrapper .grid-item.jour-libre .date {
+    background: #0d7a0d;
+    color: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.calendrier-wrapper .grid-item.jour-panier .date {
+    background: #c00;
+    color: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.calendrier-wrapper .grid-item.jour-achete .date {
+    background: #555;
+    color: #ccc;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.calendrier-wrapper .grid-item.jour-libre.clickable:hover .date { background: #0a9e0a; }
+.calendrier-wrapper .grid-item.jour-panier.clickable:hover .date { background: #e00; }
+
+.legende-creneaux {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legende-creneaux .leg {
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    border: 2px solid transparent;
+}
+
+.legende-creneaux .leg.libre {
+    background: #0d7a0d;
+    color: #fff;
+    border-color: #065006;
+}
+
+.legende-creneaux .leg.panier {
+    background: #c00;
+    color: #fff;
+    border-color: #800;
+}
+
+.legende-creneaux .leg.achete {
+    background: #555;
+    color: #ddd;
+    border-color: #333;
+}
+
+.creneaux-heures { margin: 1rem 0; }
+.creneaux-heures label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.liste-heures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.creneau-heure {
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    border: 2px solid;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.creneau-heure.libre {
+    background: #0d7a0d;
+    color: #fff;
+    border-color: #065006;
+}
+
+.creneau-heure.libre:hover,
+.creneau-heure.libre.selected {
+    background: #0a9e0a;
+    border-color: #0d7a0d;
+    color: #fff;
+}
+
+.creneau-heure.panier {
+    background: #c00;
+    color: #fff;
+    border-color: #800;
+}
+
+.creneau-heure.panier:hover:not(:disabled),
+.creneau-heure.panier.selected {
+    background: #e00;
+    border-color: #c00;
+    color: #fff;
+}
+
+.creneau-heure.achete {
+    background: #555;
+    color: #bbb;
+    border-color: #333;
+    cursor: not-allowed;
+}
+
+/* Recap & confirmation commande */
+.recap-commande .block-recap-client,
+.confirmation-commande .msg-confirmation {
+    margin-bottom: 1.5rem;
+}
+
+.recap-commande .table-recap,
+.table-gestion-commandes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.recap-commande .table-recap th,
+.recap-commande .table-recap td,
+.table-gestion-commandes th,
+.table-gestion-commandes td {
+    padding: 0.5rem;
+    border: 1px solid var(--secondary);
+}
+
+.recap-commande .btn-payer,
+.btn-principal {
+    padding: 0.6rem 1.2rem;
+    background: var(--secondary);
+    color: var(--brand-black);
+    border: 2px solid var(--secondary);
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.recap-commande .aide-paiement {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+}
+
+.reservations .msg-erreur {
+    color: var(--error, #c00);
+    margin-bottom: 1rem;
 }
 
 /* Liste favoris (onglet favoris) */
