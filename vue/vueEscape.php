@@ -1,70 +1,86 @@
 <?php
-$cssLink = '<link href="style/escapes.css" rel="stylesheet">';
+$cssLink = '<link href="style/escape.css" rel="stylesheet">';
 $escape = $escape ?? array();
 $versions = $versions ?? array();
 $est_favori = !empty($est_favori);
-$id_escape = (int)($id_escape ?? 0);
+$id_escape = (int) ($id_escape ?? 0);
 $retour_escape = 'index.php?action=escape&id_escape=' . $id_escape;
 $nb_max = (int)($escape['Nombre de participants maximum'] ?? 0);
 $liste_avis = isset($liste_avis) && is_array($liste_avis) ? $liste_avis : array();
 $note_moyenne = $note_moyenne ?? null;
 $avis_utilisateur = $avis_utilisateur ?? null;
 ?>
-<section class="content escape-detail">
-    <a href="index.php?action=escapes" class="btn-retour">← Retour aux missions</a>
-    <?php
-    if (empty($escape)) {
-        echo '<p class="msg-empty">Mission introuvable.</p>';
-    } else {
-        $photoEscape = Escape::getCheminPhotoCouverture($id_escape);
-        ?>
-        <article class="card-escape card-escape-detail">
-            <?php
-            if ($photoEscape) {
-                echo '<img src="' . htmlspecialchars($photoEscape) . '" alt="' . htmlspecialchars($escape['Nom'] ?? '') . '" class="escape-detail-img">';
-            }
-            ?>
+
+<p>File d'ariane</p>
+<a href="index.php?action=escapes" class="btn-retour">← Retour aux missions</a>
+
+<section class="escape-detail doubleBorder">
+    <?php if (empty($escape)): ?>
+        <p class="msg-empty">Mission introuvable.</p>
+    <?php else: ?>
+        <header class="header_escape">
             <h2><?= htmlspecialchars($escape['Nom'] ?? '') ?></h2>
-            <p class="ville"><?= htmlspecialchars($escape['Ville'] ?? '') ?></p>
-            <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
-            <p class="infos">Participants max : <?= $nb_max ?> · Âge min : <?= (int)($escape['Age minimum'] ?? 0) ?> ans · Difficulté : <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[(int)($escape['Difficultés'] ?? 0)] ?? $escape['Difficultés']) ?></p>
-            <?php
-            if (!empty($escape['Tags'])) {
-                echo '<p class="tags">' . htmlspecialchars($escape['Tags']) . '</p>';
-            }
-            if (isset($_SESSION['acces']) && $id_escape) {
-                if ($est_favori) {
-                    echo '<p class="action-favori"><a href="index.php?action=retirerFavori&amp;id_escape=' . $id_escape . '&amp;retour=' . urlencode($retour_escape) . '" class="btn-favori btn-favori-actif">♥ Retirer des favoris</a></p>';
-                } else {
-                    echo '<p class="action-favori"><a href="index.php?action=ajouterFavori&amp;id_escape=' . $id_escape . '&amp;retour=' . urlencode($retour_escape) . '" class="btn-favori">♡ Ajouter aux favoris</a></p>';
-                }
-            }
-            ?>
+            <div class="info">
+                <div class="info-lieux">
+                    <p>Lieux</p>
+                    <p class="ville"><?= htmlspecialchars($escape['Ville'] ?? '') ?></p>
+                </div>
+                <div class="info-diff">
+                    <p>Difficulté</p>
+                    <p><?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[(int) ($escape['Difficultés'] ?? 0)] ?? $escape['Difficultés']) ?>
+                    </p>
+                </div>
+                <div class="info-lieux">
+                    <p>Effectifs maximum</p>
+                    <p class="ville"><?= $nb_max ?></p>
+                </div>
+                <div class="info-lieux">
+                    <p>Age minimum</p>
+                    <p class="ville"><?= (int) ($escape['Age minimum'] ?? 0) ?> ans</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="description">
+            <img src="PhotoEscape/<?= $id_escape ?>.png" alt="oui ?&">
+            <div class="text">
+                <h3>Breefings de la mission</h3>
+                <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
+                <div class="links">
+                    <?php if (isset($_SESSION['acces']) && $id_escape): ?>
+                        <?php if ($est_favori): ?>
+                            <p class="action-favori"><a
+                                    href="index.php?action=retirerFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>"
+                                    class="cta">♥ Retirer des favoris</a></p>
+                        <?php else: ?>
+                            <p class="action-favori"><a
+                                    href="index.php?action=ajouterFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>"
+                                    class=" cta">♡ Ajouter aux favoris</a></p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <a class="cta">Réserver</a>
+                </div>
+            </div>
         </article>
-        <?php
-        if (isset($_SESSION['acces']) && !empty($versions)) {
-            $creneauxParVersion = $creneauxParVersion ?? array();
-            ?>
-            <div class="bloc-panier calendrier-reservation">
+
+            <?php if (!empty($escape['Tags'])): ?>
+                <p class="tags"><?= htmlspecialchars($escape['Tags']) ?></p>
+            <?php endif; ?>
+
+        <?php if (isset($_SESSION['acces']) && !empty($versions)): ?>
+            <div class="bloc-panier">
                 <h3>Réserver / Ajouter au panier</h3>
-                <p class="aide-panier">Choisissez une version, puis une date (les jours verts ont des créneaux libres, rouges = dans un panier, gris = vendus). Ensuite choisissez l'heure ci‑dessous.</p>
-                <form method="post" action="index.php?action=ajouterPanier" class="form-panier" id="form-panier">
-                    <label>Pack / Version
-                        <select name="id_version" id="select-version" required>
-                            <option value="">— Choisir un pack —</option>
-                            <?php
-                            foreach ($versions as $v) {
-                                $nomPack = $v['nom'] ?? '';
-                                $duree = $v['duree'] ?? $v['durée'] ?? '1h';
-                                $prix = (int)($v['prix'] ?? 0);
-                                $desc = $v['description'] ?? '';
-                                ?>
-                                <option value="<?= (int)($v['id_version'] ?? 0) ?>" data-description="<?= htmlspecialchars($desc, ENT_QUOTES, 'UTF-8') ?>">
-                                    <?= htmlspecialchars($nomPack) ?> — <?= htmlspecialchars($duree) ?> · <?= $prix ?> €
+                <p class="aide-panier">Choisissez une version, un créneau et le nombre de joueurs.</p>
+                <form class="form glass" method="post" action="index.php?action=ajouterPanier">
+                    <div class="input-version">
+                        <label for="id_version">Version (durée · prix)</label>
+                        <select name="id_version" id="id_version" required>
+                            <option value="">— Choisir —</option>
+                            <?php foreach ($versions as $v): ?>
+                                <option value="<?= (int) ($v['id_version'] ?? 0) ?>">
+                                    <?= htmlspecialchars($v['duree'] ?? $v['durée'] ?? '') ?> · <?= (int) ($v['prix'] ?? 0) ?> €
                                 </option>
-                                <?php
-                            }
-                            ?>
+                            <?php endforeach; ?>
                         </select>
                         <span class="description-pack" id="description-pack" aria-live="polite"></span>
                     </label>
@@ -188,6 +204,4 @@ $avis_utilisateur = $avis_utilisateur ?? null;
     }
     ?>
 </section>
-<?php
-$titre = htmlspecialchars($escape['Nom'] ?? 'Mission');
-?>
+<?php $titre = htmlspecialchars($escape['Nom'] ?? 'Mission'); ?>

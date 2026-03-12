@@ -49,7 +49,7 @@ btnForm.forEach((btn) => {
 btnForm.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (btnForm[0].getAttribute("aria-expanded") === "true") {
-      form.innerHTML = `<form method="post" action="index.php?action=connexion">
+      form.innerHTML = `<form class="form glass" method="post" action="index.php?action=connexion">
       <?php if (!empty($erreur)): ?>
         <p class="msg-error"><?= $erreur ?></p>
         <?php endif; ?>
@@ -60,12 +60,11 @@ btnForm.forEach((btn) => {
       <div class="input-mdp">
         <label><img src="img/svg/clef.svg" alt=""> Mot de passe</label>
         <input type="password" name="mdp" required>
-        <a href="">Mot de passe oublié ?</a>
         </div>
       <button type="submit" class="cta">Accéder</button>
       </form>`;
     } else if (btnForm[1].getAttribute("aria-expanded") === "true") {
-      form.innerHTML = `<form method="post" action="index.php?action=inscription">
+      form.innerHTML = `<form class="form glass" method="post" action="index.php?action=inscription">
       <?php if (!empty($erreur)): ?>
         <p class="msg-error"><?= $erreur ?></p>
       <?php endif; ?>
