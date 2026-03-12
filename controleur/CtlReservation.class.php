@@ -140,7 +140,7 @@ class CtlReservation {
                 $_SESSION['flash_panier_erreur'] = 'Ce créneau n\'est plus disponible (réservé ou déjà dans un panier).';
             }
         } else {
-            $_SESSION['flash_panier_erreur'] = 'Veuillez choisir une version et une date.';
+            $_SESSION['flash_panier_erreur'] = 'Veuillez choisir une version, une date, une heure et le nombre de participants.';
         }
 
         header('Location: index.php?action=panier');

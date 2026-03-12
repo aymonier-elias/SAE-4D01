@@ -191,6 +191,65 @@
     font-weight: bold;
     color: var(--secondary);
 }
+/* Créneaux horaires — ambiance site */
+.creneaux-heures {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--brand-black);
+    border: 1px solid var(--secondary);
+}
+.creneaux-heures label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--text);
+    color: var(--white);
+}
+.liste-heures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.creneau-heure {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--white);
+    font-family: var(--text);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+.creneau-heure:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--primary);
+}
+.creneau-heure.selected {
+    background: var(--secondary);
+    color: var(--primary);
+}
+.creneau-heure:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--grey);
+    color: var(--grey);
+}
+.form-panier label[for="input-nb-participant"] {
+    margin-top: 1rem;
+}
+.form-panier input[type="number"] {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--secondary);
+    background: var(--brand-black);
+    color: var(--white);
+    width: 4rem;
+    min-width: 4rem;
+    font-family: var(--text);
+}
+.form-panier input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+}
 /* Bloc panier / réservation — ambiance site */
 .bloc-panier {
     margin-top: 2rem;

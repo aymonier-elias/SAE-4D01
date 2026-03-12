@@ -7,7 +7,10 @@
     var titleEl = document.querySelector(".nomMois");
     var selectVersion = document.getElementById("select-version");
     var inputDate = document.getElementById("input-date");
+    var inputHeure = document.getElementById("input-heure");
     var dateChoisieAffichage = document.getElementById("date-choisie-affichage");
+    var blocHeures = document.getElementById("creneaux-heures");
+    var listeHeures = document.getElementById("liste-heures");
 
     if (!container || !titleEl) return;
 
@@ -83,11 +86,42 @@
         return parts[2] + "/" + parts[1] + "/" + parts[0];
     }
 
+    function afficherHeuresPourDate(dateStr) {
+        if (!inputDate) return;
+        inputDate.value = dateStr;
+        if (dateChoisieAffichage) dateChoisieAffichage.textContent = formatDateAffichage(dateStr);
+        if (inputHeure) inputHeure.value = "";
+        if (!listeHeures) return;
+        listeHeures.innerHTML = "";
+        var creneaux = getCreneauxPourVersion();
+        var heuresPourDate = (creneaux[dateStr] && typeof creneaux[dateStr] === "object") ? creneaux[dateStr] : {};
+        var heuresPossibles = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
+        heuresPossibles.forEach(function (h) {
+            var statut = heuresPourDate[h] || "libre";
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "creneau-heure " + statut;
+            btn.textContent = h;
+            btn.setAttribute("data-heure", h);
+            if (statut !== "libre") {
+                btn.disabled = true;
+                btn.title = statut === "achete" ? "Vendu" : "Dans un panier";
+            } else {
+                btn.addEventListener("click", function () {
+                    if (inputHeure) inputHeure.value = h;
+                    document.querySelectorAll(".creneau-heure").forEach(function (b) { b.classList.remove("selected"); });
+                    btn.classList.add("selected");
+                });
+            }
+            listeHeures.appendChild(btn);
+        });
+        if (blocHeures) blocHeures.style.display = "block";
+    }
+
     function onDayClick(dateStr) {
         var todayStr = formatDateYMD(new Date());
         if (dateStr < todayStr) return;
-        if (inputDate) inputDate.value = dateStr;
-        if (dateChoisieAffichage) dateChoisieAffichage.textContent = formatDateAffichage(dateStr);
+        afficherHeuresPourDate(dateStr);
     }
 
     container.addEventListener("click", function (e) {
