@@ -1,5 +1,6 @@
 <?php
 $cssLink = '<link href="style/escapes.css" rel="stylesheet"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">';
+require_once "modele/escape.class.php";
 
 // S'assurer que $escapes est un tableau (MySQL peut renvoyer des clés en minuscules)
 $escapes = is_array($escapes ?? null) ? $escapes : array();
@@ -93,6 +94,8 @@ foreach ($escapes as $e) {
                 <div class="card-escape-wrapper">
                     <a href="index.php?action=escape&amp;id_escape=<?= $code ?>" class="card-escape-link">
                         <article class="card-escape">
+                            <?php $photoMission = Escape::getCheminPhotoCouverture($code); ?>
+                            <?php if ($photoMission): ?><img src="<?= htmlspecialchars($photoMission) ?>" alt="<?= htmlspecialchars($nom) ?>" class="card-escape-img"><?php endif; ?>
                             <h3><?= htmlspecialchars($nom) ?></h3>
                             <p class="ville"><?= htmlspecialchars($ville) ?></p>
                             <p class="description"><?= htmlspecialchars($desc) ?></p>

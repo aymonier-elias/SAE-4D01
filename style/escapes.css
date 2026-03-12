@@ -118,6 +118,15 @@
     flex: 1;
 }
 
+.escapes .card-escape .card-escape-img {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
 /* Boutons favoris */
 .btn-favori {
     display: inline-block;
@@ -148,6 +157,125 @@
 
 .escape-detail .action-favori {
     margin-top: 1rem;
+}
+
+.escape-detail .escape-detail-img {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Bloc avis (notation + commentaires) */
+.bloc-avis {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--secondary);
+}
+
+.bloc-avis h3 {
+    margin-bottom: 0.5rem;
+}
+
+.note-moyenne {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.form-avis {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+}
+
+.form-avis h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.form-avis form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+}
+
+.form-avis label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.form-avis select,
+.form-avis textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+}
+
+.btn-ajouter-avis {
+    padding: 0.5rem 1rem;
+    background: var(--secondary);
+    color: var(--brand-black);
+    border: 2px solid var(--secondary);
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-ajouter-avis:hover {
+    background: transparent;
+    color: var(--secondary);
+}
+
+.msg-avis,
+.msg-empty-avis {
+    color: var(--text-muted, #666);
+    margin-bottom: 1rem;
+}
+
+.liste-avis {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.avis-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary);
+}
+
+.avis-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.avis-auteur {
+    font-weight: bold;
+}
+
+.avis-note {
+    color: #e6b800;
+}
+
+.avis-date {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.avis-commentaire {
+    margin: 0;
+    white-space: pre-wrap;
 }
 
 /* Bloc réserver / panier (vue escape) */

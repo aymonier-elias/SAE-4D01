@@ -1,6 +1,7 @@
 <?php
 require_once "modele/escape.class.php";
 require_once "modele/favori.class.php";
+require_once "modele/avis.class.php";
 require_once "vue/vue.class.php";
 
 
@@ -9,10 +10,12 @@ class CtlEscape{
 
     private $escape;
     private $favori;
+    private $avis;
 
     public function __construct() {
         $this->escape = new Escape();
         $this->favori = new Favori();
+        $this->avis = new Avis();
     }
     
 
@@ -38,11 +41,23 @@ class CtlEscape{
         $escape = $this->escape->getEscape($id_escape);
         $versions = $this->escape->getVersions($id_escape);
         $est_favori = false;
+        $avis_utilisateur = null;
         if (isset($_SESSION['id_utilisateur']) && !empty($escape)) {
             $est_favori = $this->favori->estFavori((int) $_SESSION['id_utilisateur'], $id_escape);
+            $avis_utilisateur = $this->avis->getAvisUtilisateur($id_escape, (int) $_SESSION['id_utilisateur']);
         }
+        $liste_avis = $this->avis->getAvisByEscape($id_escape);
+        $note_moyenne = $this->avis->getNoteMoyenne($id_escape);
         $vue = new Vue("Escape");
-        $vue->afficher(array("escape" => $escape ?: array(), "versions" => $versions, "est_favori" => $est_favori, "id_escape" => $id_escape));
+        $vue->afficher(array(
+            "escape" => $escape ?: array(),
+            "versions" => $versions,
+            "est_favori" => $est_favori,
+            "id_escape" => $id_escape,
+            "liste_avis" => $liste_avis,
+            "note_moyenne" => $note_moyenne,
+            "avis_utilisateur" => $avis_utilisateur
+        ));
     }
 
     /*******************************************************
@@ -138,6 +153,20 @@ Ajout d'un escape
     public function supprimerEscape($id_escape) {
         $this->escape->deleteEscape($id_escape);
         header('Location: index.php?action=gestion_escapegame');
+        exit;
+    }
+
+    /*******************************************************
+    Déposer ou modifier un avis sur un escape (utilisateur connecté)
+    *******************************************************/
+    public function ajouterAvis($id_escape, $note, $commentaire = '') {
+        $id_escape = (int) $id_escape;
+        if (!isset($_SESSION['id_utilisateur'])) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $this->avis->enregistrerAvis($id_escape, (int) $_SESSION['id_utilisateur'], $note, $commentaire);
+        header('Location: index.php?action=escape&id_escape=' . $id_escape . '#avis');
         exit;
     }
 }

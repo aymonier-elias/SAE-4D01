@@ -141,6 +141,15 @@ class Routeur {
                     case 'ajouterPanier':
                         $this->CtlReservation->ajouterPanier();
                         return;
+                    case 'ajouterAvis':
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                            $this->CtlEscape->ajouterAvis(
+                                $_POST['id_escape'] ?? 0,
+                                (int)($_POST['note'] ?? 0),
+                                $_POST['commentaire'] ?? ''
+                            );
+                        }
+                        return;
                     case 'commande':
                         $id_client = (int) ($_GET['id_client'] ?? 0);
                         $id_version = (int) ($_GET['id_version'] ?? 0);
