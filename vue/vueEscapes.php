@@ -42,7 +42,12 @@ foreach ($escapes as $e) {
         }
     }
 }
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Les missions'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content escapes">
     <h2 data-i18n='page-escapes.mission'>Les missions</h2>
 

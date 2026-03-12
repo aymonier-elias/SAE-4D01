@@ -2,7 +2,12 @@
 $cssLink = '<link href="style/utilisateurs.css" rel="stylesheet">';
 $utilisateurs = $utilisateurs ?? array();
 $estAdmin = isset($_SESSION['statut']) && $_SESSION['statut'] == 2;
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Gestion des utilisateurs'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content gestion-utilisateurs">
     <div class="titre_page">
         <h2 data-i18n="page-gestion-utilisateur.titre">Gestion des utilisateurs</h2>

@@ -4,7 +4,13 @@ $escape = $escape ?? array();
 $code = (int)($escape['Code'] ?? 0);
 $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (entier BDD)
 $difficulteActuelle = (int)($escape['Difficultés'] ?? 0);
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Gestion des escape games', 'url' => 'index.php?action=gestion_escapegame'),
+    array('label' => 'Modifier : ' . htmlspecialchars($escape['Nom'] ?? 'escape game')),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content formulaire-escape">
     <div class="titre_page">
         <h2>Modifier l'escape game</h2>

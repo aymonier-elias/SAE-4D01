@@ -16,6 +16,10 @@ $titres = array(
 );
 $titreSection = $titres[$contexte] ?? 'Réservations';
 $isGestionCommandes = ($contexte === 'gestion_commandes');
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => $titreSection),
+);
 $key = function ($row, $k) {
     if (isset($row[$k])) {
         return $row[$k];
@@ -32,6 +36,7 @@ $key = function ($row, $k) {
     <?php else: ?>
     <h2><?= htmlspecialchars($titreSection) ?></h2>
     <?php endif; ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
     <?php
     if ($contexte === 'favoris') {
         if (empty($favoris)) {

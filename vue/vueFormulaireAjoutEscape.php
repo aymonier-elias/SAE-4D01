@@ -1,7 +1,13 @@
 <?php
 $cssLink = '<link href="style/escapes.css" rel="stylesheet">';
 $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (entier BDD)
+$fil_ariane = array(
+    array('label' => 'Accueil', 'url' => 'index.php'),
+    array('label' => 'Gestion des escape games', 'url' => 'index.php?action=gestion_escapegame'),
+    array('label' => 'Ajouter un escape game'),
+);
 ?>
+<?php require_once __DIR__ . '/../includes/html/fil_ariane.php'; ?>
 <section class="content formulaire-escape">
     <div class="titre_page">
         <h2 data-i18n='page-ajout-escape.titre'>Ajouter un escape game</h2>
