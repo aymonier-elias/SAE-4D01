@@ -90,6 +90,35 @@ class Escape extends Database {
     }
   }
 
+
+  /*******************************************************
+  Garantit que l'escape a bien 3 packs (Pas cher, Moyen, Cher).
+  Ajoute les packs manquants si besoin (ex. escape créé à la main ou ancienne BDD).
+  *******************************************************/
+  public function ensureTroisPacks($id_escape) {
+    $versions = $this->getVersions($id_escape);
+    if (count($versions) >= 3) {
+      return;
+    }
+    $prixExistants = array();
+    foreach ($versions as $v) {
+      $prixExistants[(int) ($v['prix'] ?? 0)] = true;
+    }
+    $packs = array(
+      array('Pack Télégraphe', 'Immersion Digitale : Votre smartphone est votre seul outil de décryptage.', '1h', 10),
+      array('Pack Archive', 'Vous imprimez vous-même vos documents pour une expérience personnalisée.', '1h', 15),
+      array('Pack Immersion', 'Mis en place par l\'équipe avec de vrais objets pour une immersion totale.', '1h', 25)
+    );
+    $req = 'INSERT INTO version (nom, description, durée, prix, id_escape) VALUES (?, ?, ?, ?, ?);';
+    foreach ($packs as $p) {
+      $prix = (int) $p[3];
+      if (empty($prixExistants[$prix])) {
+        $this->execReqPrep($req, array($p[0], $p[1], $p[2], $p[3], $id_escape));
+        $prixExistants[$prix] = true;
+      }
+    }
+  }
+
   /*******************************************************
   Met à jour la photo de couverture d'un escape
   Entrée : id_escape [int] identifiant de l'escape

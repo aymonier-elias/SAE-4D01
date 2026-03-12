@@ -111,6 +111,29 @@ class CtlReservation {
 
 
     /**
+     * Retire une ligne du panier (id_version, date, heure en GET). Redirige vers le panier.
+     */
+    public function retirerPanier() {
+        $id_client = isset($_SESSION['id_utilisateur']) ? $_SESSION['id_utilisateur'] : 0;
+        if (!$id_client) {
+            header('Location: index.php?action=connexion');
+            exit;
+        }
+        $id_version = (int) ($_GET['id_version'] ?? 0);
+        $date = trim((string) ($_GET['date'] ?? ''));
+        $heure = trim((string) ($_GET['heure'] ?? ''));
+        if ($id_version > 0 && $date !== '' && $heure !== '') {
+            if (strlen($heure) > 5) {
+                $heure = substr($heure, 0, 5);
+            }
+            $this->reservation->retirerDuPanier($id_client, $id_version, $date, $heure);
+        }
+        header('Location: index.php?action=panier');
+        exit;
+    }
+
+
+    /**
      * Ajoute au panier : version + date + heure + nombre de joueurs.
      * Ne traite que les requêtes POST (évite double soumission / GET).
      */
@@ -140,7 +163,7 @@ class CtlReservation {
                 $_SESSION['flash_panier_erreur'] = 'Ce créneau n\'est plus disponible (réservé ou déjà dans un panier).';
             }
         } else {
-            $_SESSION['flash_panier_erreur'] = 'Veuillez choisir une version et une date.';
+            $_SESSION['flash_panier_erreur'] = 'Veuillez choisir une version, une date, une heure et le nombre de participants.';
         }
 
         header('Location: index.php?action=panier');

@@ -14,6 +14,18 @@ $key = function ($row, $k) {
 };
 
 $ids_favoris = isset($ids_favoris) && is_array($ids_favoris) ? $ids_favoris : array();
+$villes = array();
+$tags_uniches = array();
+foreach ($escapes as $e) {
+    $v = trim($key($e, 'Ville') ?? $key($e, 'ville') ?? '');
+    if ($v !== '' && !in_array($v, $villes)) $villes[] = $v;
+    $tagsStr = $key($e, 'Tags') ?? $key($e, 'tags') ?? '';
+    foreach (array_map('trim', explode(',', $tagsStr)) as $t) {
+        if ($t !== '' && !in_array($t, $tags_uniches)) $tags_uniches[] = $t;
+    }
+}
+sort($villes);
+sort($tags_uniches);
 $escapesPourCarte = array();
 foreach ($escapes as $e) {
     $latCol = $key($e, 'Latitude');
@@ -87,6 +99,39 @@ $fil_ariane = array(
         </script>
         <?php } ?>
 
+        <?php if (!empty($escapes)): ?>
+        <div class="filtres-missions doubleBorder">
+            <h3 class="filtres-titre">Filtrer les missions</h3>
+            <div class="filtres-row">
+                <label for="filtre-ville">Ville
+                    <select id="filtre-ville" class="filtre-select" aria-label="Filtrer par ville">
+                        <option value="">Toutes les villes</option>
+                        <?php foreach ($villes as $v): ?>
+                            <option value="<?= htmlspecialchars($v) ?>"><?= htmlspecialchars($v) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <label for="filtre-difficulte">Difficulté
+                    <select id="filtre-difficulte" class="filtre-select" aria-label="Filtrer par difficulté">
+                        <option value="">Toutes</option>
+                        <?php for ($d = 1; $d <= 5; $d++): ?>
+                            <option value="<?= $d ?>"><?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$d] ?? $d) ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </label>
+                <label for="filtre-tag">Tag
+                    <select id="filtre-tag" class="filtre-select" aria-label="Filtrer par tag">
+                        <option value="">Tous les tags</option>
+                        <?php foreach ($tags_uniches as $t): ?>
+                            <option value="<?= htmlspecialchars($t) ?>"><?= htmlspecialchars($t) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <button type="button" class="btn-reinit-filtres" id="btn-reinit-filtres">Réinitialiser les filtres</button>
+            </div>
+        </div>
+        <?php endif; ?>
+
     <?php if (empty($escapes)): ?>
         <p class="msg-empty" data-i18n='page-escapes.pas-mission'>Aucune mission disponible pour le moment.</p>
     <?php else: ?>
@@ -104,7 +149,7 @@ $fil_ariane = array(
                 $diff = (int) ($key($e, 'Difficultés') ?? $key($e, 'difficultés') ?? 0);
                 $en_favori = in_array($code, $ids_favoris);
                 ?>
-                <div class="mission doubleBorder">
+                <div class="mission doubleBorder" data-ville="<?= htmlspecialchars($ville) ?>" data-difficulte="<?= (int)$diff ?>" data-tags="<?= htmlspecialchars($key($e, 'Tags') ?? $key($e, 'tags') ?? '') ?>">
                     <div class="img">
                         <img src="img/mission/<?= $code ?>.png" alt="">
                         <span></span>
@@ -141,5 +186,39 @@ $fil_ariane = array(
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php if (!empty($escapes)): ?>
+        <script>
+            (function() {
+                var filtreVille = document.getElementById('filtre-ville');
+                var filtreDifficulte = document.getElementById('filtre-difficulte');
+                var filtreTag = document.getElementById('filtre-tag');
+                var btnReinit = document.getElementById('btn-reinit-filtres');
+                function getCards() { return document.querySelectorAll('.missions .mission'); }
+                function appliquerFiltres() {
+                    var ville = (filtreVille && filtreVille.value) || '';
+                    var diff = (filtreDifficulte && filtreDifficulte.value) || '';
+                    var tag = (filtreTag && filtreTag.value) || '';
+                    getCards().forEach(function(card) {
+                        var cardVille = (card.getAttribute('data-ville') || '').trim();
+                        var cardDiff = (card.getAttribute('data-difficulte') || '').trim();
+                        var cardTags = (card.getAttribute('data-tags') || '').toLowerCase();
+                        var matchVille = !ville || cardVille === ville;
+                        var matchDiff = !diff || cardDiff === diff;
+                        var matchTag = !tag || cardTags.indexOf(tag.toLowerCase()) !== -1;
+                        card.style.display = (matchVille && matchDiff && matchTag) ? '' : 'none';
+                    });
+                }
+                if (filtreVille) filtreVille.addEventListener('change', appliquerFiltres);
+                if (filtreDifficulte) filtreDifficulte.addEventListener('change', appliquerFiltres);
+                if (filtreTag) filtreTag.addEventListener('change', appliquerFiltres);
+                if (btnReinit) btnReinit.addEventListener('click', function() {
+                    if (filtreVille) filtreVille.value = '';
+                    if (filtreDifficulte) filtreDifficulte.value = '';
+                    if (filtreTag) filtreTag.value = '';
+                    appliquerFiltres();
+                });
+            })();
+        </script>
+        <?php endif; ?>
     <?php endif; ?>
 </section>

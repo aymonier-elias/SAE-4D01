@@ -85,10 +85,8 @@ $fil_ariane = array(
         if (isset($_SESSION['acces']) && !empty($versions)) { ?>
             <div class="bloc-panier" id="bloc-panier">
                 <h3 data-i18n='page-escape.reserv'>Réserver / Ajouter au panier</h3>
-                <p class="aide-panier">Choisissez une version et une date.</p>
+                <p class="aide-panier">Choisissez une version, une date, une heure et le nombre de participants.</p>
                 <form method="post" action="index.php?action=ajouterPanier" class="form-panier">
-                    <input type="hidden" name="heure" value="10:00">
-                    <input type="hidden" name="nb_participant" value="1">
                     <label>Version
                         <select name="id_version" id="select-version" required>
                             <option value="">— Choisir —</option>
@@ -127,10 +125,15 @@ $fil_ariane = array(
                             <span class="leg achete">Vendu</span>
                         </p>
                     </div>
+                    <div class="creneaux-heures" id="creneaux-heures" style="display:none;">
+                        <label>Choisir l'heure</label>
+                        <div class="liste-heures" id="liste-heures"></div>
+                    </div>
                     <label class="label-date-choisie">Date choisie&nbsp;: <span id="date-choisie-affichage">—</span></label>
                     <input type="hidden" name="date" id="input-date" required>
-                    <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au
-                        panier</button>
+                    <input type="hidden" name="heure" id="input-heure" required>
+                    <label for="input-nb-participant">Nombre de participants <input type="number" name="nb_participant" id="input-nb-participant" min="1" max="<?= $nb_max ?>" value="<?= min(2, $nb_max) ?>" required></label>
+                    <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au panier</button>
                 </form>
             </div>
             <script>

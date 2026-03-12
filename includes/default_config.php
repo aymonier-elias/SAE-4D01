@@ -19,7 +19,7 @@ $conf->nomSite = Config::NOMSITE;
 $conf->menu = "
         <div class = 'menu'>
                 <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
-                <a href='#exp' data-i18n='header.concept'>Le concept</a>
+                <a href='index.php?action=concept' data-i18n='header.concept'>Le concept</a>
                 <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
                 <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
             <div class = 'important'>
@@ -34,7 +34,7 @@ $conf->menu = "
 $conf->menu_connecte = "
     <div class = 'menu'>
         <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
-        <a href='#exp' data-i18n='header.concept'>Le concept</a>
+        <a href='index.php?action=concept' data-i18n='header.concept'>Le concept</a>
         <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
         <div class = 'important'>
@@ -50,7 +50,7 @@ $conf->menu_connecte = "
 $conf->menu_admin = "
     <div class = 'menu'>
         <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
-        <a href='index.php#exp' data-i18n='header.concept'>Le concept</a>
+        <a href='index.php?action=concept' data-i18n='header.concept'>Le concept</a>
         <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
         <div class = 'admin-links'>
@@ -92,7 +92,7 @@ $conf->footer = '<nav class="footer-nav">
       <div class="nav-protocoles">
         <h3 data-i18n="footer.protocoles.titre">Protocoles</h3>
         <a href="#" data-i18n="footer.protocoles.missions">Les missions</a>
-        <a href="#" data-i18n="footer.protocoles.concept">Le concept</a>
+        <a href="index.php?action=concept" data-i18n="footer.protocoles.concept">Le concept</a>
         <a href="#" data-i18n="footer.protocoles.faq">FAQ</a>
         <a href="#" data-i18n="footer.protocoles.contact">Conatct</a>
         <a href="#" data-i18n="footer.protocoles.entreprise">Entreprise</a>

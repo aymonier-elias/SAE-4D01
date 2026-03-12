@@ -52,6 +52,23 @@ $fil_ariane = array(
         ?>
         <p class="aide-paiement">Paiement fictif : en cliquant sur « Payer », votre commande sera enregistrée.</p>
         <form method="post" action="index.php?action=confirmer_paiement" class="form-paiement">
+            <div class="block-carte">
+                <h3>Carte bancaire</h3>
+                <div class="champs-carte">
+                    <label for="carte-numero">Numéro de carte
+                        <input type="text" id="carte-numero" name="carte_numero" placeholder="1234 5678 9012 3456" maxlength="19" pattern="[0-9\s]*" inputmode="numeric" autocomplete="cc-number">
+                    </label>
+                    <label for="carte-expiration">Date d'expiration (MM/AA)
+                        <input type="text" id="carte-expiration" name="carte_expiration" placeholder="MM/AA" maxlength="5" pattern="[0-9/]*" inputmode="numeric" autocomplete="cc-exp">
+                    </label>
+                    <label for="carte-cvv">CVV
+                        <input type="text" id="carte-cvv" name="carte_cvv" placeholder="123" maxlength="4" pattern="[0-9]*" inputmode="numeric" autocomplete="cc-csc">
+                    </label>
+                    <label for="carte-titulaire">Titulaire de la carte
+                        <input type="text" id="carte-titulaire" name="carte_titulaire" placeholder="Nom sur la carte" autocomplete="cc-name">
+                    </label>
+                </div>
+            </div>
             <button type="submit" class="btn-payer">Payer (fictif)</button>
         </form>
         <p><a href="index.php?action=panier" class="btn-retour">← Retour au panier</a></p>

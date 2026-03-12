@@ -80,7 +80,7 @@ $key = function ($row, $k) {
         }
         require_once __DIR__ . '/../includes/html/tableau.class.php';
         $totalPanier = 0;
-        $entetes = array('Escape', 'Pack', 'Date', 'Heure', 'Participants', 'Prix unitaire', 'Sous-total', 'Détail');
+        $entetes = array('Escape', 'Pack', 'Date', 'Heure', 'Participants', 'Prix unitaire', 'Sous-total', 'Détail', 'Retirer');
         $lignes = array();
         foreach ($reservations as $res) {
             $sousTotal = (int)($res['total_ligne'] ?? 0);
@@ -93,6 +93,10 @@ $key = function ($row, $k) {
                 ? 'index.php?action=commande&id_client=' . urlencode($id_client) . '&id_version=' . urlencode($id_version) . '&date=' . urlencode($date) . '&heure=' . urlencode($heure)
                 : '';
             $lien = $urlCommande !== '' ? '<a href="' . htmlspecialchars($urlCommande) . '" class="link-action">Voir</a>' : '';
+            $urlRetirer = ($id_version !== '' && $date !== '' && $heure !== '')
+                ? 'index.php?action=retirerPanier&id_version=' . urlencode($id_version) . '&date=' . urlencode($date) . '&heure=' . urlencode($heure)
+                : '';
+            $lienRetirer = $urlRetirer !== '' ? '<a href="' . htmlspecialchars($urlRetirer) . '" class="link-action link-retirer-panier">Retirer du panier</a>' : '';
             $lignes[] = array(
                 htmlspecialchars($res['Escape'] ?? ''),
                 htmlspecialchars($res['Pack'] ?? ''),
@@ -101,12 +105,13 @@ $key = function ($row, $k) {
                 htmlspecialchars($res['Nombre de participants'] ?? ''),
                 (int)($res['prix'] ?? 0) . ' €',
                 $sousTotal . ' €',
-                $lien
+                $lien,
+                $lienRetirer
             );
         }
         echo Tableau::head($entetes, 'table-reservations table-panier');
         echo Tableau::body($lignes);
-        echo '<tfoot><tr><td colspan="6"><strong>Total panier</strong></td><td><strong>' . $totalPanier . ' €</strong></td><td></td></tr></tfoot></table>';
+        echo '<tfoot><tr><td colspan="6"><strong>Total panier</strong></td><td><strong>' . $totalPanier . ' €</strong></td><td></td><td></td></tr></tfoot></table>';
         ?>
         <p><a href="index.php?action=recap_commande" class="btn-principal">Passer commande</a></p>
         <?php
