@@ -125,7 +125,7 @@ foreach ($escapes as $e) {
                                     </a>
                                 <?php endif; ?>
                             <?php endif; ?>
-                            <a href="index.php?action=escape&id_escape=<?= $code ?>" class="cta">Voir plus</a>
+                            <a href="index.php?action=escape&id_escape=<?= $code ?>" class="cta" data-i18n='page-escape.plus'>Voir plus</a>
                         </div>
                     </div>
                 </div>

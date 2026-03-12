@@ -7,7 +7,7 @@ let translations = {};
 // Charger les traductions
 async function loadTranslations() {
   try {
-    const res = await fetch("langues/trad.json");
+    const res = await fetch("../langues/trad.json");
     translations = await res.json();
 
     updateFlag();

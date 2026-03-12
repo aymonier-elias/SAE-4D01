@@ -4,8 +4,8 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
 ?>
 <section class="content formulaire-escape">
     <div class="titre_page">
-        <h2>Ajouter un escape game</h2>
-        <a href="index.php?action=gestion_escapegame" class="btn btn-retour">← Retour à la gestion</a>
+        <h2 data-i18n='page-ajout-escape.titre'>Ajouter un escape game</h2>
+        <a href="index.php?action=gestion_escapegame" class="btn btn-retour" data-i18n='page-ajout-escape.retour-gestion'>← Retour à la gestion</a>
     </div>
     <form class="form glass" method="post" action="index.php?action=ajouterEscape" enctype="multipart/form-data">
         <?php if (!empty($erreur)): ?>
@@ -13,11 +13,11 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
         <?php endif; ?>
         <div class="form-input_wrap">
             <div class="input-nom">
-                <label for="nom">Nom</label>
+                <label for="nom" data-i18n='page-ajout-escape.nom'>Nom</label>
                 <input type="text" name="nom" id="nom" required>
             </div>
             <div class="input-photo">
-                <label for="photoCouverture">Photo de couverture</label>
+                <label for="photoCouverture" data-i18n='page-ajout-escape.photo'>Photo de couverture</label>
                 <input type="file" name="photoCouverture" id="photoCouverture"
                     accept="image/jpeg,image/png,image/gif,image/webp,image/bmp">
             </div>
@@ -28,7 +28,7 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
         </div>
         <div class="form-input_wrap">
             <div class="input-ville">
-                <label for="ville">Ville</label>
+                <label for="ville" data-i18n='page-ajout-escape.ville'>Ville</label>
                 <input type="text" name="ville" id="ville">
             </div>
             <div class="form-input_wrap">
@@ -44,11 +44,11 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
         </div>
         <div class="form-input_wrap">
             <div class="input-nb-participants">
-                <label for="nb_participants_max">Nombre de participants max</label>
+                <label for="nb_participants_max" data-i18n='page-ajout-escape.nb-participants'>Nombre de participants max</label>
                 <input type="number" name="nb_participants_max" id="nb_participants_max" min="1" value="6">
             </div>
             <div class="input-age-minimum">
-                <label for="age_minimum">Âge minimum</label>
+                <label for="age_minimum" data-i18n='page-ajout-escape.age'>Âge minimum</label>
                 <input type="number" name="age_minimum" id="age_minimum" min="0" value="12">
             </div>
         </div>
@@ -58,16 +58,16 @@ $optionsDifficulte = Escape::$LIBELLES_DIFFICULTE_FORM; // 1 à 5 étoiles (enti
                 <input type="text" name="tags" id="tags" placeholder="séparés par des virgules">
             </div>
             <div class="input-difficulte">
-                <label for="difficultes">Difficulté</label>
+                <label for="difficultes" data-i18n='page-ajout-escape.diff'>Difficulté</label>
                 <select name="difficultes" id="difficultes" required>
-                    <option value="">— Choisir —</option>
+                    <option value="" data-i18n='page-ajout-escape.choisir'>— Choisir —</option>
                     <?php foreach ($optionsDifficulte as $v => $libelle): ?>
                         <option class="glass" value="<?= (int) $v ?>"><?= htmlspecialchars($libelle) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
         </div>
-        <button type="submit" class="cta">Enregistrer</button>
+        <button type="submit" class="cta" data-i18n='page-ajout-escape.enreg'>Enregistrer</button>
     </form>
 </section>
 <?php $titre = "Ajouter un escape game"; ?>
