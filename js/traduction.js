@@ -1,54 +1,63 @@
 // traduction.js
-let lang = localStorage.getItem("lang") || "fr"; // récupère la langue sauvegardée ou fr par défaut
+
+const langKey = "lang";
+let lang = localStorage.getItem(langKey) || "fr";
 let translations = {};
 
-// Charger le JSON des traductions
-fetch("../langues/trad.json")
-  .then(res => res.json())
-  .then(data => {
-    translations = data;
-    updateFlag();    // Met le bon drapeau au chargement
-    translatePage(); // Traduit la page au chargement
-  });
-
-// Fonction pour récupérer une valeur depuis le JSON
-function getValue(path) {
+// Charger les traductions
+async function loadTranslations() {
   try {
-    const obj = path.split(".").reduce((o, key) => o[key], translations);
-    return obj ? obj[lang] : null;
-  } catch {
-    return null;
+    const res = await fetch("../langues/trad.json");
+    translations = await res.json();
+
+    updateFlag();
+    translatePage();
+  } catch (err) {
+    console.error("Erreur chargement traductions :", err);
   }
 }
 
-// Traduire la page
+// Récupérer une valeur dans le JSON
+function getValue(path) {
+  const obj = path.split(".").reduce((o, k) => o?.[k], translations);
+  return obj?.[lang] ?? null;
+}
+
+// Traduire les éléments de la page
 function translatePage() {
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    const val = getValue(key);
+    const val = getValue(el.dataset.i18n);
     if (val) {
       el.textContent = val;
     } else {
-      console.warn("clé manquante :", key);
+      console.warn("Clé manquante :", el.dataset.i18n);
     }
   });
 }
 
-// Mettre le bon drapeau selon la langue
+// Mettre à jour le drapeau
 function updateFlag() {
-  const btnImg = document.querySelector(".btn_langue img");
-  if (!btnImg) return;
-  // Chemins des drapeaux
-  btnImg.src = lang === "uk" ? "img/svg/uk.svg" : "img/svg/fr.svg";
+  const img = document.querySelector(".btn_langue img");
+  if (!img) return;
+
+  img.src = `img/svg/${lang}.svg`;
 }
 
-// Changement de langue au clic sur un drapeau
+// Changer la langue
+function changeLang(newLang) {
+  lang = newLang;
+  localStorage.setItem(langKey, lang);
+
+  updateFlag();
+  translatePage();
+}
+
+// Listener sur les drapeaux
 document.querySelectorAll(".menu_langue img").forEach(flag => {
   flag.addEventListener("click", () => {
-    lang = flag.dataset.lang; // 'fr' ou 'uk' selon le JSON
-    localStorage.setItem("lang", lang); // sauvegarde la langue
-    updateFlag();    // met à jour le drapeau
-    translatePage(); // retraduit la page
-    console.log("Langue choisie :", lang);
+    changeLang(flag.dataset.lang);
   });
 });
+
+// Initialisation
+loadTranslations();

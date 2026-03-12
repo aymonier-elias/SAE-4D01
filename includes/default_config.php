@@ -23,7 +23,7 @@ $conf->menu = "
                 <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
                 <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
             <div class = 'important'>
-                <a href='index.php?action=connexion'>Se connecter</a>
+                <a href='index.php?action=connexion' data-i18n='header.connecter'>Se connecter</a>
             </div>
         </div>
     ";

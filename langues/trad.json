@@ -23,6 +23,14 @@
     "gestion-esc": {
       "fr": "Gestion EscapeGame",
       "uk": "EscapeGame management"
+    },
+    "connecter": {
+        "fr": "Se connecter",
+        "uk": "Log In"
+    },
+    "deco": {
+        "fr": "Déconnecter",
+        "uk": "Log In"
     }
   },
 
