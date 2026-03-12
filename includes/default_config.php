@@ -49,9 +49,9 @@ $conf->menu_connecte = "
 //Menu admin connecté 
 $conf->menu_admin = "
     <div class = 'menu'>
-        <a href='index.php?action=escapes'>Les missions</a>
-        <a href='index.php#exp'>Le concept</a>
-        <a href='index.php?action=contact'>Contact</a>
+        <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
+        <a href='index.php#exp' data-i18n='header.concept'>Le concept</a>
+        <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
         <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
         <div class = 'admin-links'>
             <a href='index.php?action=gestion_utilisateurs' data-i18n='header.gestion-ut'>Utilisateurs</a>

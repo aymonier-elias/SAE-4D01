@@ -843,5 +843,47 @@
     },
 
 
-    "page-ajout-escape":{}
+    "page-ajout-escape":{
+        "titre":{
+            "fr": "Ajouter un escape game",
+            "uk": "Add an escape game"
+        },
+        "retour-gestion":{
+            "fr": "← Retour à la gestion",
+            "uk": "← Back to management"
+        },
+        "nom":{
+            "fr": "NOM",
+            "uk": "NAME"
+        },
+        "photo":{
+            "fr": "Photo de couverture",
+            "uk": "Cover photo"
+        },
+        "ville":{
+            "fr": "Ville",
+            "uk": "City"
+        },
+        "nb-participants":{
+            "fr": "Nombre de participants max",
+            "uk": "Maximum number of participants"
+        },
+        "age":{
+            "fr": "Âge minimum",
+            "uk": "Minimum age"
+        },
+        "diff":{
+            "fr": "Difficulté",
+            "uk": "Difficulty"
+        },
+        "enreg":{
+            "fr": "Enregistrer",
+            "uk": "Save"
+        },
+        "choisir":{
+            "fr": "— Choisir —",
+            "uk": "— Choose —"
+        }
+    }
 }
+
