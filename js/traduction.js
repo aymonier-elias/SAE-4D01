@@ -7,7 +7,7 @@ let translations = {};
 // Charger les traductions
 async function loadTranslations() {
   try {
-    const res = await fetch("../langues/trad.json");
+    const res = await fetch("langues/trad.json");
     translations = await res.json();
 
     updateFlag();
@@ -54,8 +54,15 @@ function changeLang(newLang) {
 
 // Listener sur les drapeaux
 document.querySelectorAll(".menu_langue img").forEach(flag => {
-  flag.addEventListener("click", () => {
+  flag.addEventListener("click", (e) => {
+    e.stopPropagation();
     changeLang(flag.dataset.lang);
+    const menu = document.querySelector(".menu_langue");
+    const btn = document.querySelector(".btn_langue");
+    if (menu && btn) {
+      menu.setAttribute("aria-hidden", "true");
+      btn.setAttribute("aria-expanded", "false");
+    }
   });
 });
 

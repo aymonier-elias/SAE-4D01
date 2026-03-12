@@ -21,7 +21,7 @@ $conf->menu = "
                 <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
                 <a href='#exp' data-i18n='header.concept'>Le concept</a>
                 <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
-                <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
+                <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
             <div class = 'important'>
                 <a href='index.php?action=connexion' data-i18n='header.connecter'>Se connecter</a>
             </div>
@@ -36,7 +36,7 @@ $conf->menu_connecte = "
         <a href='index.php?action=escapes' data-i18n='header.missions'>Les missions</a>
         <a href='#exp' data-i18n='header.concept'>Le concept</a>
         <a href='index.php?action=contact' data-i18n='header.contact'>Contact</a>
-        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
+        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
         <div class = 'important'>
             <a href='index.php?action=panier'><img src='img/svg/panier.svg'></a>
             <a href='index.php?action=favoris'><img src='img/svg/fav.svg'></a>
@@ -52,7 +52,7 @@ $conf->menu_admin = "
         <a href='index.php?action=escapes'>Les missions</a>
         <a href='index.php#exp'>Le concept</a>
         <a href='index.php?action=contact'>Contact</a>
-        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expended='false'></button>
+        <button class='btn_langue'><img src='img/svg/fr.svg' aria-expanded='false'></button>
         <div class = 'admin-links'>
             <a href='index.php?action=gestion_utilisateurs' data-i18n='header.gestion-ut'>Utilisateurs</a>
             <a href='index.php?action=gestion_commandes' data-i18n='header.gestion-com'>Commandes</a>

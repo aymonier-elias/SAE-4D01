@@ -39,7 +39,7 @@
   </footer>
 
   <script src="js/script.js"></script>
-  <script src="../js/traduction.js"></script>
+  <script src="js/traduction.js"></script>
 </body>
 
 </html>

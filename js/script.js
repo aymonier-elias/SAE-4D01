@@ -13,22 +13,33 @@ function givePosition(btn, menu) {
   menu.style.left = btnRect.left - navRect.left - 10 - 1.5 + "px";
 }
 
-givePosition(menuLangueBtn, menuLangue);
-window.addEventListener("resize", () =>
-  givePosition(menuLangueBtn, menuLangue),
-);
-
-// Aparission du menu
-menuLangueBtn.addEventListener("click", () => {
+if (menuLangueBtn && menuLangue) {
   givePosition(menuLangueBtn, menuLangue);
-  toggle(menuLangueBtn, menuLangue);
-});
+  window.addEventListener("resize", () =>
+    givePosition(menuLangueBtn, menuLangue),
+  );
+
+  // Apparition du menu (aria-hidden="false" = visible)
+  menuLangueBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    givePosition(menuLangueBtn, menuLangue);
+    toggle(menuLangueBtn, menuLangue);
+  });
+
+  // Fermer le menu en cliquant à l'extérieur
+  document.addEventListener("click", (e) => {
+    if (menuLangue.contains(e.target) || menuLangueBtn.contains(e.target)) return;
+    if (menuLangue.getAttribute("aria-hidden") === "false") {
+      menuLangue.setAttribute("aria-hidden", "true");
+      menuLangueBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+}
 
 function toggle(btn, menu) {
-  const isOpen = btn.ariaExpanded === "true";
-  const isClosed = !isOpen;
-  menu.ariaHidden = isOpen;
-  btn.ariaExpanded = isClosed;
+  const isOpen = btn.getAttribute("aria-expanded") === "true";
+  menu.setAttribute("aria-hidden", isOpen ? "true" : "false");
+  btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
 }
 
 // Gestion  page connection / insription

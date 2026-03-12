@@ -211,6 +211,10 @@ button {
   padding: 10px;
 }
 
+.menu_langue img {
+  cursor: pointer;
+}
+
 .menu_langue[aria-hidden="true"] {
   transform: translateY(-250px);
 }
