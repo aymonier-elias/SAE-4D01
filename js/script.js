@@ -45,6 +45,7 @@ function toggle(btn, menu) {
 // Gestion  page connection / insription
 const btnForm = document.querySelectorAll(".form_link > button");
 const form = document.querySelector(".connexion_form > .form");
+const formSection = document.querySelector(".connexion_form");
 
 btnForm.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -59,11 +60,13 @@ btnForm.forEach((btn) => {
 
 btnForm.forEach((btn) => {
   btn.addEventListener("click", () => {
+    const msgError = formSection ? formSection.querySelector(".msg-error") : null;
+    if (msgError) {
+      msgError.remove();
+    }
     if (btnForm[0].getAttribute("aria-expanded") === "true") {
-      form.innerHTML = `<form class="form glass" method="post" action="index.php?action=connexion">
-      <?php if (!empty($erreur)): ?>
-        <p class="msg-error"><?= $erreur ?></p>
-        <?php endif; ?>
+      form.setAttribute("action", "index.php?action=login");
+      form.innerHTML = `
       <div class="input-mail">
       <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>
       <input type="email" name="email" required>
@@ -72,13 +75,10 @@ btnForm.forEach((btn) => {
         <label><img src="img/svg/clef.svg" alt=""> Mot de passe</label>
         <input type="password" name="mdp" required>
         </div>
-      <button type="submit" class="cta">Accéder</button>
-      </form>`;
+      <button type="submit" class="cta">Accéder</button>`;
     } else if (btnForm[1].getAttribute("aria-expanded") === "true") {
-      form.innerHTML = `<form class="form glass" method="post" action="index.php?action=inscription">
-      <?php if (!empty($erreur)): ?>
-        <p class="msg-error"><?= $erreur ?></p>
-      <?php endif; ?>
+      form.setAttribute("action", "index.php?action=inscription");
+      form.innerHTML = `
       <div class="form-input_wrap">
         <div class="input-prenom">
         <label><img src="img/svg/identification.svg" alt=""> Prénom</label>
@@ -100,11 +100,10 @@ btnForm.forEach((btn) => {
           </div>
           <div class="input-mdp">
           <label><img src="img/svg/clef.svg" alt="">Confirmation de Mot de passe</label>
-          <input type="password" name="mdp" required>
+          <input type="password" name="mdp_confirmation" required>
           </div>
           </div>
-          <button type="submit" class="cta">S'inscrire</button>
-          </form>`;
+          <button type="submit" class="cta">S'inscrire</button>`;
     }
   });
 });

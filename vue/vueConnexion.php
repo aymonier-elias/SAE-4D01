@@ -21,10 +21,9 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 
   <form class="form glass" method="post" action="index.php?action=login">
 
-    <?php if (!empty($erreur)): ?>
-      <p class="msg-error"><?= $erreur ?></p>
+    <?php if (!empty(trim((string)($erreur ?? '')))): ?>
+      <p class="msg-error"><?= htmlspecialchars($erreur) ?></p>
     <?php endif; ?>
-
 
     <div class="input-mail">
       <label><img src="img/svg/identification.svg" alt=""> Identifiant </label>
