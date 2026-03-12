@@ -8,15 +8,15 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 ?>
 
 <div class="titre_page">
-  <h2>Accès au réseau</h2>
-  <p>Veuillez présenter vos accréditations pour accéder au terminal de mission.</p>
+  <h2 data-i18n='page-connexion.titre'>Accès au réseau</h2>
+  <p data-i18n='page-connexion.texte'>Veuillez présenter vos accréditations pour accéder au terminal de mission.</p>
 </div>
 
 <section class="connexion_form">
 
   <div class="form_link">
-    <button class="connexion" aria-expanded="true">Connexion</button>
-    <button class="inscription" aria-expanded="false">Inscription</button>
+    <button class="connexion" aria-expanded="true" data-i18n='page-connexion.connexion.connexion'>Connexion</button>
+    <button class="inscription" aria-expanded="false" data-i18n='page-connexion.inscription.inscription'>Inscription</button>
   </div>
 
   <form class="form glass" method="post" action="index.php?action=login">
@@ -36,7 +36,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
       <input type="password" name="mdp" required>
     </div>
 
-    <button type="submit" class="cta">Accéder</button>
+    <button type="submit" class="cta" data-i18n='page-connexion.connexion.btn-acceder'>Accéder</button>
   </form>
 
   <img src="img/montgolfiere.png" alt="" class="deco">

@@ -44,13 +44,13 @@ foreach ($escapes as $e) {
 }
 ?>
 <section class="content escapes">
-    <h2>Les missions</h2>
+    <h2 data-i18n='page-escapes.mission'>Les missions</h2>
 
     <?php
     if (!empty($escapesPourCarte)) {
         ?>
         <div class="carte-alsace-wrapper">
-            <h3 class="carte-titre">Carte de l'Alsace</h3>
+            <h3 class="carte-titre" data-i18n='page-escapes.carte'>Carte de l'Alsace</h3>
             <div id="carte-alsace-escapes" class="carte-alsace"></div>
         </div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -78,7 +78,7 @@ foreach ($escapes as $e) {
     <?php endif; ?>
 
     <?php if (empty($escapes)): ?>
-        <p class="msg-empty">Aucune mission disponible pour le moment.</p>
+        <p class="msg-empty" data-i18n='page-escapes.pas-mission'>Aucune mission disponible pour le moment.</p>
     <?php else: ?>
         <div class="missions">
 

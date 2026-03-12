@@ -9,7 +9,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 
 <section class="contact_form">
     <div class="titre_page">
-        <h2>Nous contacter</h2>
+        <h2 data-i18n='page-contact.titre'>Nous contacter</h2>
     </div>
     <form class="form" method="post" action="index.php?action=contact">
         <?php
@@ -20,11 +20,23 @@ if (isset($_SESSION) && !empty($_SESSION)) {
         $form = new Formulaire($_POST ?? array());
         ?>
         <div class="form-input_wrap">
-            <div class="input-nom"><?= $form->inputText('nom', 'Nom', true) ?></div>
-            <div class="input-prenom"><?= $form->inputText('prenom', 'Prénom', true) ?></div>
+            <div class="input-nom">
+                <label for="nom" data-i18n='page-contact.nom'>Nom</label>
+                <input type="text" name="nom" required>
+            </div>
+            <div class="input-prenom">
+                <label for="prenom" data-i18n='page-contact.prenom'>Prénom</label>
+                <input type="text" name="prenom" required>
+            </div>
         </div>
-        <div class="input-mail"><?= $form->inputEmail('mail', 'Mail', true) ?></div>
-        <div class="input-message"><?= $form->textarea('message', 'Message', true) ?></div>
-        <?= $form->submit('contact', 'Envoyer', 'cta') ?>
+        <div class="input-mail">
+            <label for="mail">Mail</label>
+            <input type="text" name="mail" required>
+        </div>
+        <div class="input-message">
+            <label for="message">Message</label>
+            <textarea name="message" required></textarea>
+        </div>
+    <button type="submit" class="cta" data-i18n='page-contact.envoyer'>Envoyer</button>
     </form>
 </section>

@@ -16,7 +16,7 @@ $avis_utilisateur = $avis_utilisateur ?? null;
 
 <section class="escape-detail doubleBorder">
     <?php if (empty($escape)): ?>
-        <p class="msg-empty">Mission introuvable.</p>
+        <p class="msg-empty" data-i18n='page-escape.introuvable'>Mission introuvable.</p>
     <?php else: ?>
         <header class="header_escape">
             <h2><?= htmlspecialchars($escape['Nom'] ?? '') ?></h2>
@@ -66,15 +66,22 @@ $avis_utilisateur = $avis_utilisateur ?? null;
             <?php if (!empty($escape['Tags'])): ?>
                 <p class="tags"><?= htmlspecialchars($escape['Tags']) ?></p>
             <?php endif; ?>
+            <?php if (isset($_SESSION['acces']) && $id_escape): ?>
+                <?php if ($est_favori): ?>
+                    <p class="action-favori" data-i18n='page-escape.sup-fav'><a href="index.php?action=retirerFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>" class="btn-favori btn-favori-actif">♥ Retirer des favoris</a></p>
+                <?php else: ?>
+                    <p class="action-favori" data-i18n='page-escape.add-fav'><a href="index.php?action=ajouterFavori&amp;id_escape=<?= $id_escape ?>&amp;retour=<?= urlencode($retour_escape) ?>" class="btn-favori">♡ Ajouter aux favoris</a></p>
+                <?php endif; ?>
+            <?php endif; ?>
+        </article>
 
         <?php if (isset($_SESSION['acces']) && !empty($versions)): ?>
             <div class="bloc-panier">
-                <h3>Réserver / Ajouter au panier</h3>
-                <p class="aide-panier">Choisissez une version, un créneau et le nombre de joueurs.</p>
-                <form class="form glass" method="post" action="index.php?action=ajouterPanier">
-                    <div class="input-version">
-                        <label for="id_version">Version (durée · prix)</label>
-                        <select name="id_version" id="id_version" required>
+                <h3 data-i18n='page-escape.reserv'>Réserver / Ajouter au panier</h3>
+                <p class="aide-panier" data-i18n='page-escape.choix'>Choisissez une version, un créneau et le nombre de joueurs.</p>
+                <form method="post" action="index.php?action=ajouterPanier" class="form-panier">
+                    <label>Version (durée · prix)
+                        <select name="id_version" required>
                             <option value="">— Choisir —</option>
                             <?php foreach ($versions as $v): ?>
                                 <option value="<?= (int) ($v['id_version'] ?? 0) ?>">
@@ -105,9 +112,9 @@ $avis_utilisateur = $avis_utilisateur ?? null;
                         <div class="liste-heures" id="liste-heures"></div>
                     </div>
                     <label>Date <input type="date" name="date" id="input-date" min="<?= date('Y-m-d') ?>" required></label>
-                    <label>Heure <input type="time" name="heure" id="input-heure" required></label>
-                    <label>Nombre de joueurs <input type="number" name="nb_participant" min="1" max="<?= max(1, $nb_max) ?>" value="2" required></label>
-                    <button type="submit" class="btn-ajouter-panier">Ajouter au panier</button>
+                    <label data-i18n='page-escape.heure'>Heure <input type="time" name="heure" id="input-heure" required></label>
+                    <label data-i18n='page-escape.nb-joueur'>Nombre de joueurs <input type="number" name="nb_participant" min="1" max="<?= max(1, $nb_max) ?>" value="2" required></label>
+                    <button type="submit" class="btn-ajouter-panier" data-i18n='page-escape.add-panier'>Ajouter au panier</button>
                 </form>
             </div>
             <script>
@@ -127,7 +134,7 @@ $avis_utilisateur = $avis_utilisateur ?? null;
             <script src="js/calendrier.js"></script>
             <?php
         } elseif (!isset($_SESSION['acces'])) {
-            echo '<p class="msg-panier">Connectez-vous pour réserver ou ajouter au panier.</p>';
+            echo '<p class="msg-panier" data-i18n='page-escape.connexion-reserver'>Connectez-vous pour réserver ou ajouter au panier.</p>';
         }
 
         ?>
