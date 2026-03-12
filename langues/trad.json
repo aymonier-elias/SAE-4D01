@@ -819,8 +819,26 @@
         "connexion-reserver":{
             "fr": "Connectez-vous pour réserver ou ajouter au panier.",
             "uk": "Log in to book or add to cart."
-        }
-        
-    }
+        }  
+    }, 
 
+
+    "page-escapes":{
+        "mission":{
+            "fr": "Les missions",
+            "uk": "The missions"
+        },
+        "carte":{
+            "fr": "Carte de l'Alsace",
+            "uk": "Map of Alsace"
+        },
+        "pas-mission":{
+            "fr": "Aucune mission disponible pour le moment.",
+            "uk": "No missions available at the moment."
+        },
+        "pas-enreg": {
+            "fr": "Aucune mission n'est enregistrée dans la liste",
+            "uk": "No missions are recorded in the list."
+        }
+    }
 }

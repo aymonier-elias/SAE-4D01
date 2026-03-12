@@ -33,11 +33,11 @@ foreach ($escapes as $e) {
 }
 ?>
 <section class="content escapes">
-    <h2>Les missions</h2>
+    <h2 data-i18n='page-escapes.mission'>Les missions</h2>
 
     <?php if (!empty($escapesPourCarte)): ?>
         <div class="carte-alsace-wrapper">
-            <h3 class="carte-titre">Carte de l'Alsace</h3>
+            <h3 class="carte-titre" data-i18n='page-escapes.carte'>Carte de l'Alsace</h3>
             <div id="carte-alsace-escapes" class="carte-alsace"></div>
         </div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -64,7 +64,7 @@ foreach ($escapes as $e) {
     <?php endif; ?>
 
     <?php if (empty($escapes)): ?>
-        <p class="msg-empty">Aucune mission disponible pour le moment.</p>
+        <p class="msg-empty" data-i18n='page-escapes.pas-mission'>Aucune mission disponible pour le moment.</p>
     <?php else: ?>
 
         <div class="liste-escapes">
@@ -92,9 +92,9 @@ foreach ($escapes as $e) {
                     </a>
                     <?php if (isset($_SESSION['acces'])): ?>
                         <?php if ($en_favori): ?>
-                            <a href="index.php?action=retirerFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori btn-favori-actif" title="Retirer des favoris">♥ Retirer des favoris</a>
+                            <a href="index.php?action=retirerFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori btn-favori-actif" title="Retirer des favoris" data-i18n='page-escape.sup-fav'>♥ Retirer des favoris</a>
                         <?php else: ?>
-                            <a href="index.php?action=ajouterFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori" title="Ajouter aux favoris">♡ Ajouter aux favoris</a>
+                            <a href="index.php?action=ajouterFavori&amp;id_escape=<?= $code ?>&amp;retour=<?= urlencode($retour_escapes) ?>" class="btn-favori" title="Ajouter aux favoris" data-i18n='page-escape.add-fav'>♡ Ajouter aux favoris</a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
@@ -121,6 +121,6 @@ foreach ($escapes as $e) {
 
     }
     else
-      echo "<div class='msg-empty'>Aucune mission n'est enregistrée dans la liste</div>";
+      echo "<div class='msg-empty' data-i18n='page-escapes.pas-enreg'>Aucune mission n'est enregistrée dans la liste</div>";
   ?>
 </div>
