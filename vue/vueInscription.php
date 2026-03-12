@@ -6,14 +6,14 @@ $erreur = $erreur ?? '';
 
 
 <div class="titre_page">
-  <h2>Accès au réseau</h2>
-  <p>Veuillez présenter vos accréditations pour accéder au terminal de mission.</p>
+  <h2 data-i18n='page-connexion.titre'>Accès au réseau</h2>
+  <p data-i18n='page-connexion.texte'>Veuillez présenter vos accréditations pour accéder au terminal de mission.</p>
 </div>
 
 <section class="inscription_form">
   <div class="form_link">
-    <a href="index.php?action=connexion" class="">Connexion</a>
-    <a href="#" class="active">Inscription</a>
+    <a href="index.php?action=connexion" class="" data-i18n='page-connexion.connexion.connexion'>Connexion</a>
+    <a href="#" class="active"data-i18n='page-connexion.inscription.inscription'>Inscription</a>
   </div>
   <div class="form">
     <form method="post" action="index.php?action=connexion">
@@ -31,7 +31,7 @@ $erreur = $erreur ?? '';
         <input type="password" name="mdp" required>
         <a href="">Mot de passe oublié ?</a>
       </div>
-      <button type="submit" class="cta">Accéder</button>
+      <button type="submit" class="cta" data-i18n='page-connexion.connexion.btn-acceder'>Accéder</button>
     </form>
   </div>
 </section>

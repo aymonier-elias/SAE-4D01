@@ -771,6 +771,12 @@
                 "uk": "Whether you enjoy intellectual challenges or are simply looking for a fun activity with friends, our outdoor escape game immerses you in an adventure where observation, logic, and teamwork will be your best allies."
             }
         }
+    },
+
+
+    "page-erreur": {
+        "fr": "Erreur :",
+        "uk": "Error :"
     }
 
 }
