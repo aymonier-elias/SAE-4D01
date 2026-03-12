@@ -663,5 +663,38 @@
             "fr": "Chaque modification est enregistrée dans les registres centraux de l’Agence Lock Out. Restez vigilant, Agent, les murs ont des oreilles... et des engrenages",
             "uk": "Every change is recorded in the central records of the Lock Out Agency. Stay alert, Agent, the walls have ears... and gears."
         }
+    },
+
+
+    "page-contact":{
+        "titre":{
+            "fr": "Nous contacter",
+            "uk": "Contact us"
+        },
+        "nom":{
+            "fr": "Nom",
+            "uk": "Name"
+        },
+        "prenom":{
+            "fr": "Prénom",
+            "uk": "First name"
+        },
+        "envoyer": {
+            "fr": "Envoyer",
+            "uk": "Send"
+        }
+    },
+
+
+    "page-commande":{
+        "article":{
+            "fr": "Articles",
+            "uk": "Items"
+        },
+        "pas-article":{
+            "fr": "La commande ne contient pas d'article",
+            "uk": "The order does not contain any items"
+        }
     }
+
 }

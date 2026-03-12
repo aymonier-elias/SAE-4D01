@@ -9,7 +9,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
 
 <section class="contact_form">
     <div class="titre_page">
-        <h2>Nous contacter</h2>
+        <h2 data-i18n='page-contact.titre'>Nous contacter</h2>
     </div>
     <form class="form" method="post" action="index.php?action=contact">
         <?php if (!empty($erreur)): ?>
@@ -17,11 +17,11 @@ if (isset($_SESSION) && !empty($_SESSION)) {
         <?php endif; ?>
         <div class="form-input_wrap">
             <div class="input-nom">
-                <label for="nom">Nom</label>
+                <label for="nom" data-i18n='page-contact.nom'>Nom</label>
                 <input type="text" name="nom" required>
             </div>
             <div class="input-prenom">
-                <label for="prenom">Prénom</label>
+                <label for="prenom" data-i18n='page-contact.prenom'>Prénom</label>
                 <input type="text" name="prenom" required>
             </div>
         </div>
@@ -33,6 +33,6 @@ if (isset($_SESSION) && !empty($_SESSION)) {
             <label for="message">Message</label>
             <textarea name="message" required></textarea>
         </div>
-    <button type="submit" class="cta">Envoyer</button>
+    <button type="submit" class="cta" data-i18n='page-contact.envoyer'>Envoyer</button>
     </form>
 </section>
