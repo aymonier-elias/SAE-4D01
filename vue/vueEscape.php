@@ -75,7 +75,7 @@ $avis_utilisateur = $avis_utilisateur ?? null;
             <?php endif; ?>
         </article>
 
-        <?php if (isset($_SESSION['acces']) && !empty($versions)): ?>
+        <?php if (isset($_SESSION['acces']) && !empty($versions)) { ?>
             <div class="bloc-panier">
                 <h3 data-i18n='page-escape.reserv'>Réserver / Ajouter au panier</h3>
                 <p class="aide-panier" data-i18n='page-escape.choix'>Choisissez une version, un créneau et le nombre de joueurs.</p>
@@ -134,7 +134,7 @@ $avis_utilisateur = $avis_utilisateur ?? null;
             <script src="js/calendrier.js"></script>
             <?php
         } elseif (!isset($_SESSION['acces'])) {
-            echo '<p class="msg-panier" data-i18n='page-escape.connexion-reserver'>Connectez-vous pour réserver ou ajouter au panier.</p>';
+            echo '<p class="msg-panier" data-i18n="page-escape.connexion-reserver">Connectez-vous pour réserver ou ajouter au panier.</p>';
         }
 
         ?>
@@ -207,8 +207,6 @@ $avis_utilisateur = $avis_utilisateur ?? null;
             }
             ?>
         </div>
-        <?php
-    }
-    ?>
+        <?php endif; ?>
 </section>
 <?php $titre = htmlspecialchars($escape['Nom'] ?? 'Mission'); ?>
