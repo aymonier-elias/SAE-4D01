@@ -464,3 +464,58 @@
     background: var(--secondary);
     color: var(--primary);
 }
+
+@media (max-width: 992px) {
+  .escape-detail {
+    margin: 20px 16px;
+    padding: 30px 20px;
+  }
+  .header_escape {
+    gap: 24px;
+  }
+  .description {
+    margin-top: 40px;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .description img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .description .text {
+    width: 100%;
+  }
+  .info {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .bloc-panier,
+  .form-avis,
+  .form-panier select {
+    min-width: 100%;
+  }
+  .recap-commande .champs-carte {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .escape-detail {
+    margin: 10px;
+    padding: 20px 12px;
+  }
+  .navigation-calendrier {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .creneaux-heures .liste-heures {
+    gap: 6px;
+  }
+  .creneau-heure {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  .avis-item {
+    padding: 0.75rem 1rem;
+  }
+}

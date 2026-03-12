@@ -54,3 +54,33 @@
 
   }
 }
+
+@media (max-width: 992px) {
+  .connexion_form {
+    width: 90%;
+  }
+  .form_link button {
+    font-size: 1.25rem;
+    padding: 8px 5%;
+  }
+  .titre_page {
+    margin: 50px 0;
+  }
+  .deco {
+    right: 20px;
+    height: 200px;
+    top: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form_link {
+    flex-direction: column;
+  }
+  .form_link button {
+    width: 100%;
+  }
+  .deco {
+    display: none;
+  }
+}

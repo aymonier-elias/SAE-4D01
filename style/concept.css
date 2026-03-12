@@ -83,3 +83,21 @@
 .type-card strong {
   color: var(--secondary);
 }
+
+@media (max-width: 992px) {
+  .content.concept-page {
+    padding: 1rem 16px;
+  }
+  .concept-section {
+    padding: 1.25rem 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-section h3 {
+    font-size: 1.1rem;
+  }
+  .type-card {
+    padding: 1rem;
+  }
+}

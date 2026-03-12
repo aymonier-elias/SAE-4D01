@@ -71,3 +71,21 @@
   background-color: var(--brand-red);
   color: var(--white);
 }
+
+@media (max-width: 992px) {
+  .content.gestion-escapes {
+    padding: 40px 20px;
+  }
+  .gestion-escapes h2 {
+    font-size: 1.5rem;
+  }
+  .gestion-escapes .actions-haut {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content.gestion-escapes {
+    padding: 24px 12px;
+  }
+}

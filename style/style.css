@@ -449,3 +449,6 @@ select option {
     min-height: 200px;
   }
 }
+
+/* Import responsive (version téléphone) */
+@import url("responsive.css");

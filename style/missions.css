@@ -63,3 +63,36 @@
   display: flex;
   gap: 20px;
 }
+
+@media (max-width: 992px) {
+  .missions {
+    gap: 50px;
+  }
+  .mission {
+    flex-direction: column;
+    width: 90%;
+    max-width: 500px;
+  }
+  .mission .img {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .mission .img span {
+    width: 60px;
+  }
+  .mission .info {
+    padding: 20px;
+  }
+  .mission .info a {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission {
+    width: 95%;
+  }
+  .mission .info {
+    padding: 16px;
+  }
+}

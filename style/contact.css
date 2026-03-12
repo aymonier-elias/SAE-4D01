@@ -11,3 +11,18 @@
   width: 75%;
   margin: auto;
 }
+
+@media (max-width: 992px) {
+  .contact_form {
+    width: 90%;
+  }
+  .titre_page {
+    margin: 50px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact_form {
+    width: 95%;
+  }
+}

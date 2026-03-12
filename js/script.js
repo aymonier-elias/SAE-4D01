@@ -1,3 +1,75 @@
+// Gestion menu burger (téléphone) — exécuté quand le DOM est prêt
+document.addEventListener("DOMContentLoaded", function () {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+
+  // Trouver le bloc menu : div (pas .menu_langue) qui contient les liens
+  var menuNav = nav.querySelector(".menu");
+  if (!menuNav) {
+    menuNav = Array.from(nav.children).find(function (el) {
+      return el.tagName === "DIV" && !el.classList.contains("menu_langue") && el.querySelector("a");
+    });
+  }
+  if (!menuNav) return;
+
+  menuNav.setAttribute("data-menu-drawer", "");
+  menuNav.setAttribute("aria-hidden", "true");
+
+  var btnBurger = document.createElement("button");
+  btnBurger.setAttribute("type", "button");
+  btnBurger.setAttribute("class", "btn-burger");
+  btnBurger.setAttribute("aria-expanded", "false");
+  btnBurger.setAttribute("aria-label", "Ouvrir le menu");
+  btnBurger.setAttribute("aria-controls", "nav-drawer");
+  btnBurger.innerHTML = "<span></span><span></span><span></span>";
+  menuNav.id = "nav-drawer";
+  nav.insertBefore(btnBurger, menuNav);
+
+  function openMenu() {
+    menuNav.setAttribute("aria-hidden", "false");
+    menuNav.setAttribute("data-open", "true");
+    nav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+    btnBurger.setAttribute("aria-expanded", "true");
+    btnBurger.setAttribute("aria-label", "Fermer le menu");
+  }
+
+  function closeMenu() {
+    menuNav.setAttribute("aria-hidden", "true");
+    menuNav.removeAttribute("data-open");
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    btnBurger.setAttribute("aria-expanded", "false");
+    btnBurger.setAttribute("aria-label", "Ouvrir le menu");
+  }
+
+  function toggleMenu() {
+    var open = menuNav.getAttribute("data-open") === "true";
+    if (open) closeMenu(); else openMenu();
+  }
+
+  btnBurger.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  menuNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", function (e) {
+    if (menuNav.getAttribute("data-open") === "true" && !nav.contains(e.target)) {
+      closeMenu();
+    }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && menuNav.getAttribute("data-open") === "true") {
+      closeMenu();
+    }
+  });
+});
+
 // Gestion menu déroulant langue
 const body = document.querySelector("body");
 const menuLangueBtn = document.querySelector(".btn_langue");

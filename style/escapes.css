@@ -469,3 +469,45 @@
 .recap-commande .msg-empty a:hover {
   color: var(--white);
 }
+
+@media (max-width: 992px) {
+  .filtre {
+    flex-direction: column;
+    gap: 24px;
+    margin: 40px 20px;
+  }
+  .carte-alsace {
+    height: 350px;
+  }
+  .carte-alsace-wrapper,
+  .filtres-missions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .filtres-row {
+    flex-direction: column;
+  }
+  .liste-escapes.liste-favoris {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  .content.reservations .table-reservations.table-panier,
+  .recap-commande .table-recap {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recap-commande .block-recap-client,
+  .recap-commande .block-carte {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carte-alsace {
+    height: 280px;
+  }
+  .content.reservations h2 {
+    font-size: 1.35rem;
+  }
+}
