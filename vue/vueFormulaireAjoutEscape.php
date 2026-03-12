@@ -11,7 +11,7 @@ $fil_ariane = array(
 <section class="content formulaire-escape">
     <div class="titre_page">
         <h2 data-i18n='page-ajout-escape.titre'>Ajouter un escape game</h2>
-        <a href="index.php?action=gestion_escapegame" class="btn btn-retour" data-i18n='page-ajout-escape.retour-gestion'>← Retour à la gestion</a>
+        <span class="separator"></span>
     </div>
     <form class="form glass" method="post" action="index.php?action=ajouterEscape" enctype="multipart/form-data">
         <?php if (!empty($erreur)): ?>

@@ -14,7 +14,6 @@ $fil_ariane = array(
 <section class="content formulaire-escape">
     <div class="titre_page">
         <h2>Modifier l'escape game</h2>
-        <a href="index.php?action=gestion_escapegame" class="btn btn-retour">← Retour à la gestion</a>
     </div>
     <form class="form glass" method="post" action="index.php?action=modifierEscape" enctype="multipart/form-data">
         <input type="hidden" name="id_escape" value="<?= $code ?>">
