@@ -297,6 +297,7 @@
     border-color: var(--primary);
 }
 .form-panier select option {
+    background: var(--white);
     color: var(--black);
 }
 .description-pack {
@@ -381,6 +382,7 @@
     resize: vertical;
 }
 .form-avis select option {
+    background: var(--white);
     color: var(--black);
 }
 .btn-ajouter-avis {

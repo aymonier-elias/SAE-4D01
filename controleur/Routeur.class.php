@@ -156,6 +156,9 @@ class Routeur {
                     case 'ajouterPanier':
                         $this->CtlReservation->ajouterPanier();
                         return;
+                    case 'retirerPanier':
+                        $this->CtlReservation->retirerPanier();
+                        return;
                     case 'recap_commande':
                         $this->CtlReservation->recapCommande();
                         return;

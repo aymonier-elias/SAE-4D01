@@ -90,6 +90,17 @@ button {
   cursor: pointer;
 }
 
+/* Menus déroulants : toujours lisibles (fond sombre, texte clair) */
+select {
+  background-color: var(--brand-black);
+  color: var(--white);
+  font-family: var(--text);
+}
+select option {
+  background: var(--white);
+  color: var(--black);
+}
+
 /* Messages d'erreur en rouge */
 .msg-error,
 .msg-erreur {
@@ -400,7 +411,7 @@ button {
     select {
       border-style: none;
       border-bottom: 1px solid var(--secondary);
-      background: none;
+      background: var(--brand-black);
       min-height: 40px;
       color: var(--white);
       &:focus {
@@ -414,6 +425,7 @@ button {
       }
     }
     select option {
+      background: var(--white);
       color: var(--black);
     }
     textarea {

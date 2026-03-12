@@ -75,6 +75,7 @@
 }
 
 .filtres-missions .filtre-select option {
+  background: var(--white);
   color: var(--black);
 }
 
@@ -234,6 +235,13 @@
   color: var(--white);
 }
 
+.content.reservations .table-reservations .link-retirer-panier {
+  color: var(--warning);
+}
+.content.reservations .table-reservations .link-retirer-panier:hover {
+  color: var(--error);
+}
+
 .content.reservations .msg-erreur {
   padding: 1rem 1.25rem;
   background: oklch(0.55 0.15 25 / 20%);
@@ -260,4 +268,188 @@
 .content.reservations .btn-principal:hover {
   background: var(--secondary);
   color: var(--primary);
+}
+
+/* ----- Récapitulatif de la commande — même ambiance ----- */
+.content.recap-commande {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.content.recap-commande h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.recap-commande .block-recap-client {
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--brand-black);
+  border: 2px solid var(--secondary);
+}
+
+.recap-commande .block-recap-client h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+.recap-commande .block-recap-client p {
+  margin: 0.35rem 0;
+  font-family: var(--text);
+  color: var(--white);
+}
+
+.recap-commande .table-recap {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  border: 2px solid var(--secondary);
+  font-family: var(--text);
+}
+
+.recap-commande .table-recap th,
+.recap-commande .table-recap td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--secondary-half);
+  color: var(--white);
+}
+
+.recap-commande .table-recap th {
+  background: var(--brand-black);
+  font-family: var(--title);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.recap-commande .table-recap tbody tr:hover td {
+  color: var(--primary);
+}
+
+.recap-commande .table-recap tbody tr:hover {
+  background: var(--secondary-half);
+}
+
+.recap-commande .table-recap tfoot {
+  font-weight: bold;
+  background: var(--brand-black);
+  border-top: 2px solid var(--secondary);
+}
+
+.recap-commande .table-recap tfoot td {
+  color: var(--white);
+}
+
+.recap-commande .aide-paiement {
+  margin: 1rem 0;
+  font-family: var(--text);
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.recap-commande .block-carte {
+  margin: 1.5rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--brand-black);
+  border: 2px solid var(--secondary);
+}
+
+.recap-commande .block-carte h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+
+.recap-commande .champs-carte {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.recap-commande .champs-carte label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--text);
+  color: var(--white);
+  font-weight: 500;
+}
+
+.recap-commande .champs-carte input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--secondary);
+  background: var(--brand-black);
+  color: var(--white);
+  font-family: var(--text);
+  font-size: 1rem;
+}
+
+.recap-commande .champs-carte input::placeholder {
+  color: var(--grey);
+}
+
+.recap-commande .champs-carte input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.recap-commande .champs-carte label:first-of-type {
+  grid-column: 1 / -1;
+}
+
+.recap-commande .form-paiement {
+  margin: 1.5rem 0;
+}
+
+.recap-commande .btn-payer {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--secondary);
+  font-family: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.recap-commande .btn-payer:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.recap-commande .btn-retour {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  color: var(--secondary);
+  font-family: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.recap-commande .btn-retour:hover {
+  color: var(--white);
+}
+
+.recap-commande .msg-empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--secondary);
+  font-family: var(--text);
+}
+
+.recap-commande .msg-empty a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.recap-commande .msg-empty a:hover {
+  color: var(--white);
 }

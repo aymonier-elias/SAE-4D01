@@ -105,6 +105,15 @@ class Reservation extends Database {
 
 
     /**
+     * Retire une ligne du panier (reserver = 0) pour le client connecté.
+     */
+    public function retirerDuPanier($id_client, $id_version, $date, $heure) {
+        $req = 'DELETE FROM acheter WHERE id_client = ? AND id_version = ? AND date = ? AND heure = ? AND reserver = 0;';
+        $this->execReqPrep($req, array($id_client, (int) $id_version, $date, $heure));
+    }
+
+
+    /**
      * Ajoute une ligne au panier. Retourne false si le créneau est déjà pris.
      */
     public function ajouterAuPanier($id_client, $id_version, $date, $heure, $nb_participant) {
