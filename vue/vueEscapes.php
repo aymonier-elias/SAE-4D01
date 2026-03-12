@@ -102,7 +102,7 @@ foreach ($escapes as $e) {
                     <div class="info">
                         <h2><?= htmlspecialchars($nom) ?></h2>
                         <p class="ville"><?= htmlspecialchars($ville) ?></p>
-                        <div>
+                        <div class="text">
                             <p class="description"><?= htmlspecialchars($desc) ?></p>
                             <p class="infos">Participants max : <?= $nbMax ?> · Âge min : <?= $ageMin ?> ans · Difficulté :
                                 <?= htmlspecialchars(Escape::$LIBELLES_DIFFICULTE[$diff] ?? $diff) ?>

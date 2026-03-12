@@ -11,7 +11,7 @@ if (isset($_SESSION) && !empty($_SESSION)) {
     <div class="titre_page">
         <h2 data-i18n='page-contact.titre'>Nous contacter</h2>
     </div>
-    <form class="form" method="post" action="index.php?action=contact">
+    <form class="form glass" method="post" action="index.php?action=contact">
         <?php
         if (!empty($erreur)) {
             echo '<p class="msg-error">' . htmlspecialchars($erreur) . '</p>';

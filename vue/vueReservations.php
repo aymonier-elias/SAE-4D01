@@ -1,11 +1,13 @@
 <?php
-$cssLink = '<link href="style/escapes.css" rel="stylesheet">';
-if (!class_exists('Escape')) {
-    require_once __DIR__ . '/../modele/escape.class.php';
-}
 $reservations = $reservations ?? array();
 $favoris = $favoris ?? array();
 $contexte = $contexte ?? 'reservations';
+$cssLink = $contexte === 'gestion_commandes'
+    ? '<link href="style/gestion-commandes.css" rel="stylesheet">'
+    : '<link href="style/escapes.css" rel="stylesheet">';
+if (!class_exists('Escape')) {
+    require_once __DIR__ . '/../modele/escape.class.php';
+}
 $titres = array(
     'panier' => 'Mon panier',
     'favoris' => 'Mes favoris',
@@ -13,6 +15,7 @@ $titres = array(
     'reservations' => 'Mes réservations'
 );
 $titreSection = $titres[$contexte] ?? 'Réservations';
+$isGestionCommandes = ($contexte === 'gestion_commandes');
 $key = function ($row, $k) {
     if (isset($row[$k])) {
         return $row[$k];
@@ -20,8 +23,15 @@ $key = function ($row, $k) {
     return $row[strtolower($k)] ?? null;
 };
 ?>
-<section class="content reservations">
+<section class="content <?= $isGestionCommandes ? 'gestion-commandes' : 'reservations' ?>">
+    <?php if ($isGestionCommandes): ?>
+    <div class="titre_page">
+        <h2><?= htmlspecialchars($titreSection) ?></h2>
+        <span class="separator"></span>
+    </div>
+    <?php else: ?>
     <h2><?= htmlspecialchars($titreSection) ?></h2>
+    <?php endif; ?>
     <?php
     if ($contexte === 'favoris') {
         if (empty($favoris)) {
@@ -127,7 +137,7 @@ $key = function ($row, $k) {
                     $lien
                 );
             }
-            echo Tableau::head($entetes, 'table-reservations table-gestion-commandes');
+            echo Tableau::head($entetes, 'table-utilisateurs');
             echo Tableau::body($lignes);
             echo Tableau::foot();
         } else {
