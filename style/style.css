@@ -312,3 +312,70 @@ button {
   color: var(--grey);
   margin-top: 40px;
 }
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  gap: 35px;
+  padding: 130px 320px;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+  .form-input_wrap {
+    display: flex;
+    justify-content: space-betweena;
+    gap: 10px;
+  }
+  [class|="input"] {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    label {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    input,
+    textarea,
+    select {
+      border-style: none;
+      border-bottom: 1px solid var(--secondary);
+      background: none;
+      min-height: 40px;
+      color: var(--white);
+      &:focus {
+        outline-style: none;
+        border-bottom: 2px solid var(--primary);
+      }
+      &:-webkit-autofill {
+        background-color: var(--brand-black) !important;
+        -webkit-box-shadow: 0 0 0px 1000px var(--brand-black) inset;
+        -webkit-text-fill-color: var(--white); /* couleur du texte */
+      }
+    }
+    select option {
+      color: var(--black);
+    }
+    textarea {
+      border: 1px solid var(--secondary);
+      &:focus {
+        border: 2px solid var(--primary);
+      }
+    }
+  }
+  .cta {
+    align-self: center;
+  }
+  .input-mdp a {
+    font-style: italic;
+    align-self: flex-end;
+    color: var(--brand-grey);
+  }
+  .input-message textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+  }
+}
