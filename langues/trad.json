@@ -2,846 +2,978 @@
   "header": {
     "missions": {
       "fr": "Les missions",
-      "uk": "The missions"
+      "uk": "The missions",
+      "de": "Die Missionen"
     },
     "concept": {
       "fr": "Le concept",
-      "uk": "The concept"
+      "uk": "The concept",
+      "de": "Das Konzept"
     },
     "contact": {
       "fr": "Contact",
-      "uk": "Contact"
+      "uk": "Contact",
+      "de": "Kontakt"
     },
     "gestion-ut": {
       "fr": "Gestion Utilisateurs",
-      "uk": "User Management"
+      "uk": "User Management",
+      "de": "Benutzerverwaltung"
     },
     "gestion-com": {
       "fr": "Gestion Commandes",
-      "uk": "Order Management"
+      "uk": "Order Management",
+      "de": "Bestellverwaltung"
     },
     "gestion-esc": {
       "fr": "Gestion EscapeGame",
-      "uk": "EscapeGame management"
+      "uk": "EscapeGame management",
+      "de": "EscapeGame-Verwaltung"
     },
     "connecter": {
-        "fr": "Se connecter",
-        "uk": "Log In"
+      "fr": "Se connecter",
+      "uk": "Log In",
+      "de": "Anmelden"
     },
     "deco": {
-        "fr": "Déconnecter",
-        "uk": "Log In"
+      "fr": "Déconnecter",
+      "uk": "Log In",
+      "de": "Abmelden"
     }
   },
-
   "home": {
-
     "entete": {
-        "titre": {
-            "fr": "DÉVERROUILLEZ LES SECRETS DE NOS CITÉS",
-            "uk": "UNLOCK THE SECRETS OF OUR CITIES"
-        },
-        "description-home": {
-            "fr": "Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et redécouvrez le patrimoine à travers les rouages du temps.",
-            "uk": "Every alleyway hides a legend, every wall a secret. Immerse yourself in a unique infiltration experience and rediscover heritage through the workings of time."
-        },
-        "bouton-home": {
-            "fr": "RÉSERVER MA MISSION",
-            "uk": "BOOK MY MISSION"
-        }
+      "titre": {
+        "fr": "DÉVERROUILLEZ LES SECRETS DE NOS CITÉS",
+        "uk": "UNLOCK THE SECRETS OF OUR CITIES",
+        "de": "ENTSCHLÜSSELN SIE DIE GEHEIMNISSE UNSERER STÄDTE"
+      },
+      "description-home": {
+        "fr": "Chaque ruelle cache une légende, chaque mur un secret. Plongez au cœur d'une expérience d'infiltration inédite et redécouvrez le patrimoine à travers les rouages du temps.",
+        "uk": "Every alleyway hides a legend, every wall a secret. Immerse yourself in a unique infiltration experience and rediscover heritage through the workings of time.",
+        "de": "Jede Gasse birgt eine Legende, jede Mauer ein Geheimnis. Tauchen Sie ein in ein einzigartiges Infiltrationserlebnis und entdecken Sie das Erbe durch das Räderwerk der Zeit neu."
+      },
+      "bouton-home": {
+        "fr": "RÉSERVER MA MISSION",
+        "uk": "BOOK MY MISSION",
+        "de": "MISSION BUCHEN"
+      }
     },
-    
-    "infiltration":{
-        "titre": {
-            "fr": "VOS PROCHAINES INFILTRATIONS ",
-            "uk": "BOOK MY MISSION"
-        },
-        "btn": {
-            "fr": "VOIR TOUTES LES MISSIONS",
-            "uk": "SEE ALL MISSIONS"
-        }
+    "infiltration": {
+      "titre": {
+        "fr": "VOS PROCHAINES INFILTRATIONS ",
+        "uk": "BOOK MY MISSION",
+        "de": "IHRE NÄCHSTEN EINSÄTZE"
+      },
+      "btn": {
+        "fr": "VOIR TOUTES LES MISSIONS",
+        "uk": "SEE ALL MISSIONS",
+        "de": "ALLE MISSIONEN ANZEIGEN"
+      }
     },
-
-
-    "experience":{
-        "titre": {
-            "fr": "L'EXPÉRIENCE LOCK OUT",
-            "uk": "THE LOCK OUT EXPERIENCE"
-        },
-        "titre-cat-1": {
-            "fr": "CHOISISSEZ VOTRE TERRAIN D'OPÉRATION",
-            "uk": "CHOOSE YOUR AREA OF OPERATION"
-        },
-        "desc-cat-1": {
-            "fr": "Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une porte ouverte sur l'inconnu.",
-            "uk": "Explore our confidential files and select the plot that will awaken your senses. Whether you are drawn to the workings of a thousand-year-old clock or the secrets of an industrial mansion, each mission is a gateway to the unknown."
-        },
-        "titre-cat-2": {
-            "fr": "FRANCHISSEZ LE SEUIL DU RÉSEAU",
-            "uk": "STEP INTO THE NETWORK"
-        },
-        "desc-cat-2": {
-            "fr": "Réunissez vos alliés les plus fidèles au point de rendez-vous. Votre officier de liaison vous remettra votre équipement technique et les dernières instructions critiques. Une fois le chronomètre lancé, vous ne pourrez compter que sur votre ingéniosité pour rester discrets et accomplir votre mission au cœur de la cité.",
-            "uk": "Gather your most loyal allies at the meeting point. Your liaison officer will give you your technical equipment and the latest critical instructions. Once the timer starts, you will have to rely on your ingenuity to remain discreet and accomplish your mission in the heart of the city."
-        },
-        "titre-cat-3": {
-            "fr": "DÉVERROUILLEZ L'HISTOIRE",
-            "uk": "UNLOCK HISTORY"
-        },
-        "desc-cat-3": {
-            "fr": "Manipulez les mécanismes ancestraux, déchiffrez les messages codés et relancez le cours du temps. Le compte à rebours est lancé : accomplissez votre objectif et extrayez-vous de la zone avant que les ombres du passé ne vous rattrapent définitivement.",
-            "uk": "Manipulate ancient mechanisms, decipher coded messages and restart the course of time. The countdown has begun: accomplish your goal and escape the zone before the shadows of the past catch up with you for good."
-        },
-        "info": {
+    "experience": {
+      "titre": {
+        "fr": "L'EXPÉRIENCE LOCK OUT",
+        "uk": "THE LOCK OUT EXPERIENCE",
+        "de": "DAS LOCK OUT ERLEBNIS"
+      },
+      "titre-cat-1": {
+        "fr": "CHOISISSEZ VOTRE TERRAIN D'OPÉRATION",
+        "uk": "CHOOSE YOUR AREA OF OPERATION",
+        "de": "WÄHLEN SIE IHRE EINSATZZONE"
+      },
+      "desc-cat-1": {
+        "fr": "Explorez nos dossiers confidentiels et sélectionnez l'intrigue qui mettra vos sens en éveil. Que vous soyez attiré par les rouages d'une horloge millénaire ou les secrets d'un manoir industriel, chaque mission est une porte ouverte sur l'inconnu.",
+        "uk": "Explore our confidential files and select the plot that will awaken your senses. Whether you are drawn to the workings of a thousand-year-old clock or the secrets of an industrial mansion, each mission is a gateway to the unknown.",
+        "de": "Durchstöbern Sie unsere vertraulichen Akten und wählen Sie die Geschichte, die Ihre Sinne weckt. Ob Sie sich von einem jahrtausendealten Uhrwerk oder den Geheimnissen eines Industrieanwesens angezogen fühlen – jede Mission ist ein Tor ins Unbekannte."
+      },
+      "titre-cat-2": {
+        "fr": "FRANCHISSEZ LE SEUIL DU RÉSEAU",
+        "uk": "STEP INTO THE NETWORK",
+        "de": "BETRETEN SIE DAS NETZWERK"
+      },
+      "desc-cat-2": {
+        "fr": "Réunissez vos alliés les plus fidèles au point de rendez-vous. Votre officier de liaison vous remettra votre équipement technique et les dernières instructions critiques. Une fois le chronomètre lancé, vous ne pourrez compter que sur votre ingéniosité pour rester discrets et accomplir votre mission au cœur de la cité.",
+        "uk": "Gather your most loyal allies at the meeting point. Your liaison officer will give you your technical equipment and the latest critical instructions. Once the timer starts, you will have to rely on your ingenuity to remain discreet and accomplish your mission in the heart of the city.",
+        "de": "Versammeln Sie Ihre treuesten Verbündeten am Treffpunkt. Ihr Verbindungsoffizier übergibt Ihnen die technische Ausrüstung und die neuesten Anweisungen. Sobald die Zeit läuft, zählen nur noch Ihr Einfallsreichtum und Ihre Diskretion, um die Mission in der Stadt zu erfüllen."
+      },
+      "titre-cat-3": {
+        "fr": "DÉVERROUILLEZ L'HISTOIRE",
+        "uk": "UNLOCK HISTORY",
+        "de": "ENTSCHLÜSSELN SIE DIE GESCHICHTE"
+      },
+      "desc-cat-3": {
+        "fr": "Manipulez les mécanismes ancestraux, déchiffrez les messages codés et relancez le cours du temps. Le compte à rebours est lancé : accomplissez votre objectif et extrayez-vous de la zone avant que les ombres du passé ne vous rattrapent définitivement.",
+        "uk": "Manipulate ancient mechanisms, decipher coded messages and restart the course of time. The countdown has begun: accomplish your goal and escape the zone before the shadows of the past catch up with you for good.",
+        "de": "Bedienen Sie uralte Mechanismen, entschlüsseln Sie codierte Botschaften und setzen Sie den Lauf der Zeit wieder in Gang. Der Countdown läuft: Erreichen Sie Ihr Ziel und verlassen Sie die Zone, ehe die Schatten der Vergangenheit Sie einholen."
+      },
+      "info": {
         "fr": "Aucune connaissance historique préalable n'est requise. Seuls votre esprit d'analyse et votre cohésion d'équipe comptent",
-        "uk": "No prior historical knowledge is required. Only your analytical skills and team spirit matter."
-        }
+        "uk": "No prior historical knowledge is required. Only your analytical skills and team spirit matter.",
+        "de": "Keine Vorkenntnisse nötig. Nur Ihr Spürsinn und der Teamgeist zählen."
+      }
     },
-
-
-    "cadeau":{
-        "insitation": {
-            "fr": "PENSEZ À LA CARTE CADEAU LOCK OUT",
-            "uk": "CONSIDER THE LOCK OUT GIFT CARD"
-        },
-        "titre": {
-            "fr": "OFFREZ L'AVENTURE EN HÉRITAGE",
-            "uk": "GIVE THE GIFT OF ADVENTURE"
-        },
-        "description": {
-            "fr": "Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et vivre une immersion hors du temps.",
-            "uk": "Turn your loved ones into accomplices in legend. Give them the key to unlock the secrets of our cities and experience a timeless immersion."
-        },
-        "bouton": {
-            "fr": "OFFRIR UNE MISSION ",
-            "uk": "OFFER A MISSION "
-        }   
+    "cadeau": {
+      "insitation": {
+        "fr": "PENSEZ À LA CARTE CADEAU LOCK OUT",
+        "uk": "CONSIDER THE LOCK OUT GIFT CARD",
+        "de": "DENKEN SIE AN DIE LOCK OUT GESCHENKKARTE"
+      },
+      "titre": {
+        "fr": "OFFREZ L'AVENTURE EN HÉRITAGE",
+        "uk": "GIVE THE GIFT OF ADVENTURE",
+        "de": "SCHENKEN SIE ABENTEUER"
+      },
+      "description": {
+        "fr": "Transformez vos proches en complices de légende. Offrez-leur la clé pour déverrouiller les secrets de nos cités et vivre une immersion hors du temps.",
+        "uk": "Turn your loved ones into accomplices in legend. Give them the key to unlock the secrets of our cities and experience a timeless immersion.",
+        "de": "Machen Sie Ihre Liebsten zu Verbündeten der Legende. Schenken Sie ihnen den Schlüssel zu den Geheimnissen unserer Städte und einem zeitlosen Erlebnis."
+      },
+      "bouton": {
+        "fr": "OFFRIR UNE MISSION ",
+        "uk": "OFFER A MISSION ",
+        "de": "EINE MISSION SCHENKEN"
+      }
     }
   },
-
   "footer": {
-
     "coordonnees": {
-        "titre": {
-            "fr": "COORDONNÉES",
-            "uk": "CONTACT DETAILS"
-        },
-        "adresse": {
-            "fr": "55 rue de Pfastatt, 68200 MULHOUSE",
-            "uk": "55 Pfastatt Street, 68200 MULHOUSE"
-        }
+      "titre": {
+        "fr": "COORDONNÉES",
+        "uk": "CONTACT DETAILS",
+        "de": "KONTAKTDATEN"
+      },
+      "adresse": {
+        "fr": "55 rue de Pfastatt, 68200 MULHOUSE",
+        "uk": "55 Pfastatt Street, 68200 MULHOUSE",
+        "de": "55 Pfastattstraße, 68200 MÜLHAUSEN"
+      }
     },
-    
-    "protocoles":{
-        "titre": {
-            "fr": "PROTOCOLES",
-            "uk": "PROTOCOLS"
-        },
-        "missions": {
-            "fr": "Les Missions",
-            "uk": "The Missions"
-        },
-        "concept": {
-            "fr": "Le Concept",
-            "uk": "The Concept"
-        },
-        "faq": {
-            "fr": "FAQ",
-            "uk": "FAQ"
-        },
-        "contact": {
-            "fr": "Contact",
-            "uk": "Contact"
-        },
-        "entreprise": {
-            "fr": "Entreprise",
-            "uk": "Business"
-        }
+    "protocoles": {
+      "titre": {
+        "fr": "PROTOCOLES",
+        "uk": "PROTOCOLS",
+        "de": "PROTOKOLLE"
+      },
+      "missions": {
+        "fr": "Les Missions",
+        "uk": "The Missions",
+        "de": "Die Missionen"
+      },
+      "concept": {
+        "fr": "Le Concept",
+        "uk": "The Concept",
+        "de": "Das Konzept"
+      },
+      "faq": {
+        "fr": "FAQ",
+        "uk": "FAQ",
+        "de": "FAQ"
+      },
+      "contact": {
+        "fr": "Contact",
+        "uk": "Contact",
+        "de": "Kontakt"
+      },
+      "entreprise": {
+        "fr": "Entreprise",
+        "uk": "Business",
+        "de": "Unternehmen"
+      }
     },
-
-    "confidentialite":{
-        "titre": {
-            "fr": "CONFIDENTIALITÉ",
-            "uk": "CONFIDENTIALITY"
-        },
-        "mentions": {
-            "fr": "Mentions Légales",
-            "uk": "Legal Notice"
-        },
-        "cgv": {
-            "fr": "CGV",
-            "uk": "CGV"
-        },
-        "cookies": {
-            "fr": "Cookies",
-            "uk": "Cookies"
-        }
+    "confidentialite": {
+      "titre": {
+        "fr": "CONFIDENTIALITÉ",
+        "uk": "CONFIDENTIALITY",
+        "de": "VERTRAULICHKEIT"
+      },
+      "mentions": {
+        "fr": "Mentions Légales",
+        "uk": "Legal Notice",
+        "de": "Impressum"
+      },
+      "cgv": {
+        "fr": "CGV",
+        "uk": "CGV",
+        "de": "AGB"
+      },
+      "cookies": {
+        "fr": "Cookies",
+        "uk": "Cookies",
+        "de": "Cookies"
+      }
     },
-
-    "copyright":{
-        "fr" : "Propriété de l'Agence Lock Out. Transmission de données cryptée. © 2026",
-        "uk" : "Property of Lock Out Agency. Encrypted data transmission. © 2026"
+    "copyright": {
+      "fr": "Propriété de l'Agence Lock Out. Transmission de données cryptée. © 2026",
+      "uk": "Property of Lock Out Agency. Encrypted data transmission. © 2026",
+      "de": "Eigentum der Lock Out Agentur. Verschlüsselte Datenübertragung. © 2026"
     }
   },
-
-
   "page-mission": {
-
     "titre": {
-        "fr": "ARCHIVES DES MISSIONS",
-        "uk": "MISSION ARCHIVES"
+      "fr": "ARCHIVES DES MISSIONS",
+      "uk": "MISSION ARCHIVES",
+      "de": "MISSIONSARCHIV"
     },
     "description": {
-        "fr": "Sélectionnez votre zone d'intervention. Chaque cité cache un mécanisme unique, chaque porte une nouvelle énigme.",
-        "uk": "Select your area of operation. Each city hides a unique mechanism, each door a new puzzle."
+      "fr": "Sélectionnez votre zone d'intervention. Chaque cité cache un mécanisme unique, chaque porte une nouvelle énigme.",
+      "uk": "Select your area of operation. Each city hides a unique mechanism, each door a new puzzle.",
+      "de": "Wählen Sie Ihren Einsatzbereich. Jede Stadt birgt ein einzigartiges Räderwerk, jede Tür ein neues Rätsel."
     },
-    "filtre":{
-        "villes": {
-            "fr": "Villes",
-            "uk": "Cities"
-        },
-        "difficulte": {
-            "fr": "Difficulté",
-            "uk": "Difficulty"
-        },
-        "type": {
-            "fr": "type",
-            "uk": "type"
-        }
+    "filtre": {
+      "villes": {
+        "fr": "Villes",
+        "uk": "Cities",
+        "de": "Städte"
+      },
+      "difficulte": {
+        "fr": "Difficulté",
+        "uk": "Difficulty",
+        "de": "Schwierigkeit"
+      },
+      "type": {
+        "fr": "type",
+        "uk": "type",
+        "de": "Typ"
+      }
     },
     "edition": {
-        "fr": "EDITION SPECIAl",
-        "uk": "EDITION SPECIAl"
-    } 
+      "fr": "EDITION SPECIAl",
+      "uk": "EDITION SPECIAl",
+      "de": "SPEZIALAUSGABE"
+    }
   },
-
-
   "page-description": {
-
     "effectif": {
-        "fr": "EFFECTIFS",
-        "uk": "STAFF"
+      "fr": "EFFECTIFS",
+      "uk": "STAFF",
+      "de": "TEILNEHMER"
     },
     "duree": {
-        "fr": "DURÉE",
-        "uk": "DURATION"
+      "fr": "DURÉE",
+      "uk": "DURATION",
+      "de": "DAUER"
     },
     "difficulte": {
-        "fr": "DIFFICULTÉ",
-        "uk": "DIFFICULTY"
+      "fr": "DIFFICULTÉ",
+      "uk": "DIFFICULTY",
+      "de": "SCHWIERIGKEIT"
     },
     "lieu": {
-        "fr": "LIEU",
-        "uk": "PLACE"
+      "fr": "LIEU",
+      "uk": "PLACE",
+      "de": "ORT"
     },
     "brief": {
-        "fr": "BRIEFING DE LA MISSION",
-        "uk": "MISSION BRIEFING"
+      "fr": "BRIEFING DE LA MISSION",
+      "uk": "MISSION BRIEFING",
+      "de": "MISSIONSBRIEFING"
     },
     "btn-reserve": {
-        "fr": "RÉSERVER LA MISSION",
-        "uk": "BOOK THE MISSION"
+      "fr": "RÉSERVER LA MISSION",
+      "uk": "BOOK THE MISSION",
+      "de": "MISSION BUCHEN"
     },
     "objectif": {
-        "fr": "OBJECTIF DE LA MISSION",
-        "uk": "MISSION OBJECTIVE"
+      "fr": "OBJECTIF DE LA MISSION",
+      "uk": "MISSION OBJECTIVE",
+      "de": "MISSIONSZIEL"
     },
-
-    "pack":{
-        "choix-pack": {
-            "fr": "Agent, chaque mission nécessite un équipement adapté. Sélectionnez votre type de matériel pour recevoir vos outils de terrain !",
-            "uk": "Agent, each mission requires the right equipment. Select your equipment type to receive your field tools!"
-        },
-        "telegraphe": {
-            "fr": "PACK TÉLÉGRAPHE",
-            "uk": "TELEGRAPH PACK"
-        },
-        "desc-telegraphe":{
-            "fr": "Immersion Digitale : Votre smartphone est votre seul outil de décryptage.",
-            "uk": "Digital Immersion: Your smartphone is your only decryption tool."
-        },
-        "archive": {
-            "fr": "PACK ARCHIVE",
-            "uk": "ARCHIVE PACK"
-        },
-        "desc-archive": {
-            "fr": "Dossier Terrain : Recevez vos documents par courrier crypté (PDF) à imprimer.",
-            "uk": "Field File: Receive your documents by encrypted mail (PDF) for printing."
-        },
-        "officier": {
-            "fr": "PACK ARCHIVE",
-            "uk": "ARCHIVE PACK"
-        },
-        "desc-officier": {
-            "fr": "Équipement Royal : Sacoche d'enquêteur et objets physiques fournis sur place.",
-            "uk": "Royal Equipment: Investigator's satchel and physical items provided on site."
-        },
-        "indication-prix": {
-            "fr": "Tarif fixe par groupe : un seul pack à ajouter au prix total de votre réservation, quel que soit le nombre de joueurs.",
-            "uk": "Fixed price per group: only one package to add to the total price of your booking, regardless of the number of players."
-        }
+    "pack": {
+      "choix-pack": {
+        "fr": "Agent, chaque mission nécessite un équipement adapté. Sélectionnez votre type de matériel pour recevoir vos outils de terrain !",
+        "uk": "Agent, each mission requires the right equipment. Select your equipment type to receive your field tools!",
+        "de": "Agent, jede Mission erfordert die passende Ausrüstung. Wählen Sie Ihren Ausrüstungstyp für Ihre Feldausstattung!"
+      },
+      "telegraphe": {
+        "fr": "PACK TÉLÉGRAPHE",
+        "uk": "TELEGRAPH PACK",
+        "de": "TELEGRAFEN-PAKET"
+      },
+      "desc-telegraphe": {
+        "fr": "Immersion Digitale : Votre smartphone est votre seul outil de décryptage.",
+        "uk": "Digital Immersion: Your smartphone is your only decryption tool.",
+        "de": "Digitale Immersion: Ihr Smartphone ist Ihr einziges Entschlüsselungswerkzeug."
+      },
+      "archive": {
+        "fr": "PACK ARCHIVE",
+        "uk": "ARCHIVE PACK",
+        "de": "ARCHIV-PAKET"
+      },
+      "desc-archive": {
+        "fr": "Dossier Terrain : Recevez vos documents par courrier crypté (PDF) à imprimer.",
+        "uk": "Field File: Receive your documents by encrypted mail (PDF) for printing.",
+        "de": "Einsatzmappe: Dokumente per verschlüsselter E-Mail (PDF) zum Ausdrucken."
+      },
+      "officier": {
+        "fr": "PACK ARCHIVE",
+        "uk": "ARCHIVE PACK",
+        "de": "OFFIZIERS-PAKET"
+      },
+      "desc-officier": {
+        "fr": "Équipement Royal : Sacoche d'enquêteur et objets physiques fournis sur place.",
+        "uk": "Royal Equipment: Investigator's satchel and physical items provided on site.",
+        "de": "Königliche Ausstattung: Ermittlertasche und physische Objekte vor Ort."
+      },
+      "indication-prix": {
+        "fr": "Tarif fixe par groupe : un seul pack à ajouter au prix total de votre réservation, quel que soit le nombre de joueurs.",
+        "uk": "Fixed price per group: only one package to add to the total price of your booking, regardless of the number of players.",
+        "de": "Pauschalpreis pro Gruppe: nur ein Paket zum Gesamtpreis Ihrer Buchung, unabhängig von der Spielerzahl."
+      }
     },
-
-   "infos":{
-        "titre": {
-            "fr": "À Lire Impérativement",
-            "uk": "Essential Reading"
-        },
-        "titre-preparatif": {
-            "fr": "Préparatifs",
-            "uk": "Preparations"
-        },
-        "texte-preparatif":{
-            "fr": "Prévoyez des chaussures de marche. Nous vous confions le matériel d'enquêteur au départ.",
-            "uk": "Please bring walking shoes. We will provide you with the investigator's equipment at the start."
-        },
-        "titre-rdv": {
-            "fr": "Rendez-vous",
-            "uk": "Appointment"
-        },
-        "texte-rdv": {
-            "fr": "RDV 15 min avant l'heure dite à la DMC. Votre officier de liaison vous y attendra.",
-            "uk": "Please arrive 15 minutes before the scheduled time at the DMC. Your liaison officer will be waiting for you there."
-        },
-        "titre-acces": {
-            "fr": "Accessibilité",
-            "uk": "Accessibility"
-        },
-        "texte-acces": {
-            "fr": "Mission adaptée aux PMR et aux familles. Les enfants de moins de 10 ans doivent être accompagnés.",
-            "uk": "This mission is suitable for people with reduced mobility and families. Children under 10 years old must be accompanied."
-        }
-       
-    }, 
+    "infos": {
+      "titre": {
+        "fr": "À Lire Impérativement",
+        "uk": "Essential Reading",
+        "de": "Pflichtlektüre"
+      },
+      "titre-preparatif": {
+        "fr": "Préparatifs",
+        "uk": "Preparations",
+        "de": "Vorbereitung"
+      },
+      "texte-preparatif": {
+        "fr": "Prévoyez des chaussures de marche. Nous vous confions le matériel d'enquêteur au départ.",
+        "uk": "Please bring walking shoes. We will provide you with the investigator's equipment at the start.",
+        "de": "Bitte bringen Sie festes Schuhwerk mit. Die Ermittlerausrüstung erhalten Sie am Start."
+      },
+      "titre-rdv": {
+        "fr": "Rendez-vous",
+        "uk": "Appointment",
+        "de": "Treffpunkt"
+      },
+      "texte-rdv": {
+        "fr": "RDV 15 min avant l'heure dite à la DMC. Votre officier de liaison vous y attendra.",
+        "uk": "Please arrive 15 minutes before the scheduled time at the DMC. Your liaison officer will be waiting for you there.",
+        "de": "Erscheinen Sie 15 Min. vor der vereinbarten Zeit am DMC. Ihr Verbindungsoffizier erwartet Sie dort."
+      },
+      "titre-acces": {
+        "fr": "Accessibilité",
+        "uk": "Accessibility",
+        "de": "Barrierefreiheit"
+      },
+      "texte-acces": {
+        "fr": "Mission adaptée aux PMR et aux familles. Les enfants de moins de 10 ans doivent être accompagnés.",
+        "uk": "This mission is suitable for people with reduced mobility and families. Children under 10 years old must be accompanied.",
+        "de": "Mission geeignet für Menschen mit eingeschränkter Mobilität und Familien. Kinder unter 10 Jahren müssen begleitet werden."
+      }
+    },
     "titre-avis": {
-        "fr": "RAPPORTS DE TERRAIN",
-        "uk": "FIELD REPORTS"
+      "fr": "RAPPORTS DE TERRAIN",
+      "uk": "FIELD REPORTS",
+      "de": "EINSATZBERICHTE"
     },
     "btn-ajouter-avis": {
-        "fr": "AJOUTER UN AVIS",
-        "uk": "ADD A REVIEW"
+      "fr": "AJOUTER UN AVIS",
+      "uk": "ADD A REVIEW",
+      "de": "BEWERTUNG HINZUFÜGEN"
     }
-    
   },
-
-  "page-avis":{
+  "page-avis": {
     "titre": {
-        "fr": "RÉDACTION DE L’AVIS",
-        "uk": "WRITING THE NOTICE"
+      "fr": "RÉDACTION DE L’AVIS",
+      "uk": "WRITING THE NOTICE",
+      "de": "BEWERTUNG VERFASSEN"
     },
     "description": {
-        "fr": "Agent, vos observations terrain sont essentielles !",
-        "uk": "Agent, your field observations are essential!"
+      "fr": "Agent, vos observations terrain sont essentielles !",
+      "uk": "Agent, your field observations are essential!",
+      "de": "Agent, Ihre Einsatzerkenntnisse sind entscheidend!"
     },
-    "form":{
-        "nom": {
-            "fr": "NOM DE CODE",
-            "uk": "CODE NAME"
-        },
-        "date": {
-            "fr": "DATE D'INTERVENTION",
-            "uk": "DATE OF INTERVENTION"
-        },
-        "analyse": {
-            "fr": "ANALYSE TECHNIQUE",
-            "uk": "TECHNICAL ANALYSIS"
-        },
-        "note": {
-            "fr": "VOTRE NOTE",
-            "uk": "YOUR RATING"
-        },
-        "bouton": {
-            "fr": "GÉNERER VOTRE AVIS",
-            "uk": "GENERATE YOUR REVIEW"
-        },
-        "message-succes": {
-            "fr": "TRANSMISSION RÉUSSIE",
-            "uk": "SUCCESSFUL TRANSMISSION"
-        }
+    "form": {
+      "nom": {
+        "fr": "NOM DE CODE",
+        "uk": "CODE NAME",
+        "de": "CODENAME"
+      },
+      "date": {
+        "fr": "DATE D'INTERVENTION",
+        "uk": "DATE OF INTERVENTION",
+        "de": "EINSATZDATUM"
+      },
+      "analyse": {
+        "fr": "ANALYSE TECHNIQUE",
+        "uk": "TECHNICAL ANALYSIS",
+        "de": "TECHNISCHE ANALYSE"
+      },
+      "note": {
+        "fr": "VOTRE NOTE",
+        "uk": "YOUR RATING",
+        "de": "IHRE BEWERTUNG"
+      },
+      "bouton": {
+        "fr": "GÉNERER VOTRE AVIS",
+        "uk": "GENERATE YOUR REVIEW",
+        "de": "BEWERTUNG ABSENDEN"
+      },
+      "message-succes": {
+        "fr": "TRANSMISSION RÉUSSIE",
+        "uk": "SUCCESSFUL TRANSMISSION",
+        "de": "ÜBERTRAGUNG ERFOLGREICH"
+      }
     }
-
   },
-
-  "popup":{
-    "titre":{
-        "fr": "RÉSERVER LA MISSION",
-        "uk": "BOOK THE MISSION"
+  "popup": {
+    "titre": {
+      "fr": "RÉSERVER LA MISSION",
+      "uk": "BOOK THE MISSION",
+      "de": "MISSION BUCHEN"
     },
-
-    "effectif":{
-        "titre":{
-            "fr": "Effectifs",
-            "uk": "Staff"
-        },
-        "nb-pers":{
-            "fr": "Combien d'agents seront mobilisés pour cette mission ?",
-            "uk": "How many agents will be mobilized for this mission?"
-        },
-        "cout":{
-            "fr": "Coût de l’opération estimé :",
-            "uk": "Coût de l’opération estimé :"
-        },
-        "soit": {
-            "fr": "Soit",
-            "uk": "Either"
-        },
-        "par-pers":{
-            "fr": "€ par agent",
-            "uk": "€ per agent"
-        },
-        "btn-choix-creneau":{
-            "fr": "CHOISIR LE CRÉNEAU ",
-            "uk": "CHOOSE THE TIME SLOT"
-        }
+    "effectif": {
+      "titre": {
+        "fr": "Effectifs",
+        "uk": "Staff",
+        "de": "Teilnehmer"
+      },
+      "nb-pers": {
+        "fr": "Combien d'agents seront mobilisés pour cette mission ?",
+        "uk": "How many agents will be mobilized for this mission?",
+        "de": "Wie viele Agenten werden für diese Mission eingesetzt?"
+      },
+      "cout": {
+        "fr": "Coût de l’opération estimé :",
+        "uk": "Coût de l’opération estimé :",
+        "de": "Coût de l’opération estimé :"
+      },
+      "soit": {
+        "fr": "Soit",
+        "uk": "Either",
+        "de": "Entweder"
+      },
+      "par-pers": {
+        "fr": "€ par agent",
+        "uk": "€ per agent",
+        "de": "€ pro Agent"
+      },
+      "btn-choix-creneau": {
+        "fr": "CHOISIR LE CRÉNEAU ",
+        "uk": "CHOOSE THE TIME SLOT",
+        "de": "ZEITSLOT WÄHLEN"
+      }
     },
-
-    "deploiement":{
-        "titre":{
-            "fr": "DEPLOIEMENT",
-            "uk": "DEPLOYMENT"
-        },
-        "texte":{
-            "fr": "Sélectionnez votre créneau de mission : la ponctualité est la clé du succès.",
-            "uk": "Select your mission time slot: punctuality is the key to success."
-        },
-        "heure":{
-            "fr": "HEURES DE DÉPLOIEMENT",
-            "uk": "DEPLOYMENT HOURS"
-        },
-        "info": {
-            "fr": "Note : Les éléments grisés sont indisponibles car déjà réservés par d'autres unités ou archivés.",
-            "uk": "Note: Items shown in grey are unavailable because they have already been reserved by other units or archived."
-        },
-        "btn-choix-pack":{
-            "fr": "CHOISIR LE PACK",
-            "uk": "CHOOSE THE PACK"
-        }
+    "deploiement": {
+      "titre": {
+        "fr": "DEPLOIEMENT",
+        "uk": "DEPLOYMENT",
+        "de": "EINSATZ"
+      },
+      "texte": {
+        "fr": "Sélectionnez votre créneau de mission : la ponctualité est la clé du succès.",
+        "uk": "Select your mission time slot: punctuality is the key to success.",
+        "de": "Wählen Sie Ihren Einsatzzeitraum: Pünktlichkeit ist der Schlüssel zum Erfolg."
+      },
+      "heure": {
+        "fr": "HEURES DE DÉPLOIEMENT",
+        "uk": "DEPLOYMENT HOURS",
+        "de": "EINSATZZEITEN"
+      },
+      "info": {
+        "fr": "Note : Les éléments grisés sont indisponibles car déjà réservés par d'autres unités ou archivés.",
+        "uk": "Note: Items shown in grey are unavailable because they have already been reserved by other units or archived.",
+        "de": "Hinweis: Grau dargestellte Slots sind bereits reserviert oder archiviert."
+      },
+      "btn-choix-pack": {
+        "fr": "CHOISIR LE PACK",
+        "uk": "CHOOSE THE PACK",
+        "de": "PAKET WÄHLEN"
+      }
     },
-
-    "pack":{
-        "titre":{
-            "fr": "PACK",
-            "uk": "PACK"
+    "pack": {
+      "titre": {
+        "fr": "PACK",
+        "uk": "PACK",
+        "de": "PAKET"
+      },
+      "texte": {
+        "fr": "Agent, sélectionnez votre pack. Le choix de votre équipement déterminera votre mode d'intervention sur le terrain.",
+        "uk": "Agent, select your pack. Your choice of equipment will determine your method of intervention in the field.",
+        "de": "Agent, wählen Sie Ihr Paket. Ihre Ausrüstung bestimmt Ihre Einsatzweise im Feld."
+      },
+      "telegraphe": {
+        "titre": {
+          "fr": "PACK TÉLÉGRAPHE",
+          "uk": "TELEGRAPH PACK",
+          "de": "TELEGRAFEN-PAKET"
         },
-        "texte":{
-            "fr": "Agent, sélectionnez votre pack. Le choix de votre équipement déterminera votre mode d'intervention sur le terrain.",
-            "uk": "Agent, select your pack. Your choice of equipment will determine your method of intervention in the field."
+        "pt1": {
+          "fr": "100% Smartphone",
+          "uk": "100% Smartphone",
+          "de": "100% Smartphone"
         },
-        "telegraphe":{
-            "titre":{
-                "fr":"PACK TÉLÉGRAPHE",
-                "uk": "TELEGRAPH PACK"
-            },
-            "pt1":{
-                "fr": "100% Smartphone",
-                "uk": "100% Smartphone"
-            },
-            "pt2":{
-                "fr": "Autonomie totale",
-                "uk": "Total autonomy"
-            },
-            "pt3":{
-                "fr": "Zéro encombrement, 100% mobile",
-                "uk": "Zero bulk, 100% mobile"
-            }       
+        "pt2": {
+          "fr": "Autonomie totale",
+          "uk": "Total autonomy",
+          "de": "Vollständige Autonomie"
         },
-        "archive":{
-            "titre":{
-                "fr":"PACK ARCHIVE",
-                "uk": "ARCHIVE PACK"
-            },
-            "pt1":{
-                "fr": "Dossier de mission PDF",
-                "uk": "Mission file (PDF)"
-            },
-            "pt2":{
-                "fr": "Documents à imprimer",
-                "uk": "Documents to print"
-            },
-            "pt3":{
-                "fr": "Expérience semi-physique",
-                "uk": "Semi-physical experiment"
-            }       
-        },
-        "officier":{
-            "titre":{
-                "fr":"PACK OFFICIER",
-                "uk": "OFFICER PACK"
-            },
-            "pt1":{
-                "fr": "Sacoche d'enquêteur physique",
-                "uk": "Physical investigator's briefcase"
-            },
-            "pt2":{
-                "fr": "Objets et indices réels",
-                "uk": "Real objects and clues"
-            },
-            "pt3":{
-                "fr": "Immersion maximale",
-                "uk": "Maximum immersion"
-            }       
-        },
-        "info":{
-            "fr": "Note : Le tarif du pack est fixe pour l'ensemble du groupe et s'ajoute au coût des agents.",
-            "uk": "Note: The package price is fixed for the entire group and is added to the cost of the agents."
-        },
-        "btn-ajouter":{
-            "fr":"AJOUTER AU PANIER",
-            "uk": "ADD TO CART"
-        },
-        "btn-finaliser":{
-            "fr":"FINALISER LA MISSION",
-            "uk": "FINISH THE MISSION "
+        "pt3": {
+          "fr": "Zéro encombrement, 100% mobile",
+          "uk": "Zero bulk, 100% mobile",
+          "de": "Kein Gepäck, 100% mobil"
         }
+      },
+      "archive": {
+        "titre": {
+          "fr": "PACK ARCHIVE",
+          "uk": "ARCHIVE PACK",
+          "de": "ARCHIV-PAKET"
+        },
+        "pt1": {
+          "fr": "Dossier de mission PDF",
+          "uk": "Mission file (PDF)",
+          "de": "Einsatzmappe als PDF"
+        },
+        "pt2": {
+          "fr": "Documents à imprimer",
+          "uk": "Documents to print",
+          "de": "Dokumente zum Ausdrucken"
+        },
+        "pt3": {
+          "fr": "Expérience semi-physique",
+          "uk": "Semi-physical experiment",
+          "de": "Semi-physisches Erlebnis"
+        }
+      },
+      "officier": {
+        "titre": {
+          "fr": "PACK OFFICIER",
+          "uk": "OFFICER PACK",
+          "de": "OFFIZIERS-PAKET"
+        },
+        "pt1": {
+          "fr": "Sacoche d'enquêteur physique",
+          "uk": "Physical investigator's briefcase",
+          "de": "Physische Ermittlertasche"
+        },
+        "pt2": {
+          "fr": "Objets et indices réels",
+          "uk": "Real objects and clues",
+          "de": "Echte Objekte und Indizien"
+        },
+        "pt3": {
+          "fr": "Immersion maximale",
+          "uk": "Maximum immersion",
+          "de": "Maximale Immersion"
+        }
+      },
+      "info": {
+        "fr": "Note : Le tarif du pack est fixe pour l'ensemble du groupe et s'ajoute au coût des agents.",
+        "uk": "Note: The package price is fixed for the entire group and is added to the cost of the agents.",
+        "de": "Hinweis: Der Paketpreis ist pauschal für die gesamte Gruppe und wird zu den Agentenkosten addiert."
+      },
+      "btn-ajouter": {
+        "fr": "AJOUTER AU PANIER",
+        "uk": "ADD TO CART",
+        "de": "IN DEN WARENKORB"
+      },
+      "btn-finaliser": {
+        "fr": "FINALISER LA MISSION",
+        "uk": "FINISH THE MISSION ",
+        "de": "MISSION ABSCHLIESSEN"
+      }
     }
-
   },
-
-
-  "panier":{
-        "num":{
-            "fr": "ORDRE DE MISSION N°",
-            "uk": "MISSION ORDER NO."
-        },
-        "texte":{
-            "fr": "Vérifiez vos paramètres de déploiement avant signature !",
-            "uk": "Check your deployment settings before signing!"
-        },
-        "effectif":{
-            "fr": "Effectif : ",
-            "uk": "Staff:"
-        },
-        "deploiement":{
-            "fr": "Déploiement le :  ",
-            "uk": "Deployment on:"
-        },
-        "equipement":{
-            "fr": "EQUIPEMENT : ",
-            "uk": "EQUIPMENT :"
-        },
-        "lieu":{
-            "fr": "LIEU :",
-            "uk": "PLACE :"
-        },
-        "bilan":{
-            "fr": "BILAN FINANCIER",
-            "uk": "FINANCIAL STATEMENT"
-        },
-        "mobilisation":{
-            "fr": "Mobilisation Agents ................. ",
-            "uk": "Mobilization Agents ................."
-        },
-        "logistique":{
-            "fr": "Logistique EQUIPEMENT ................ ",
-            "uk": "Logistics EQUIPMENT ................"
-        },
-        "total":{
-            "fr": "TOTAL À RÉGLER",
-            "uk": "TOTAL DUE"
-        },
-        "paiement":{
-            "fr": "Modes de paiement disponibles",
-            "uk": "Available payment methods"
-        },
-        "valider":{
-            "fr": "VALIDER & PAYER",
-            "uk": "VALIDATE and PAY"
-        }
+  "panier": {
+    "num": {
+      "fr": "ORDRE DE MISSION N°",
+      "uk": "MISSION ORDER NO.",
+      "de": "MISSIONSBEFEHL NR."
     },
-
-    "page-connexion": {
-        "titre":{
-            "fr": "ACCÈS AU RÉSEAU",
-            "uk": "NETWORK ACCESS"
-        },
-        "texte":{
-            "fr": "Veuillez présenter vos accréditations pour accéder au terminal de mission.",
-            "uk": "Please present your credentials to access the mission terminal."
-        },
-        "connexion":{
-            "connexion":{
-                "fr": "CONNEXION",
-                "uk": "LOG IN"
-            },
-            "identifiant":{
-                "fr": "Identifiant",
-                "uk": "Identifier"
-            },
-            "mdp":{
-                "fr": "Mot de passe",
-                "uk": "Password"
-            },
-            "btn-acceder": {
-                "fr": "ACCÉDER",
-                "uk": "ACCESS"
-            }
-        },
-        "inscription":{
-            "inscription":{
-                "fr": "INSCRIPTION",
-                "uk": "REGISTER"
-            },
-            "nom":{
-                "fr": "Nom de l’Agent",
-                "uk": "Agent's Name"
-            },
-            "prenom": {
-                "fr": "Prénom de l’Agent",
-                "uk": "Agent's First Name"
-            },
-            "mail": {
-                "fr": "Email",
-                "uk": "E-mail "
-            },
-            "nom-utilisateur": {
-                "fr": "Nom d’Utilisateur",
-                "uk": "User name"
-            },
-            "mdp": {
-                "fr": "Mot de Passe",
-                "uk": "Password"
-            },
-            "verif-mdp": {
-                "fr": "Vérifiez votre Mot de Passe",
-                "uk": "Check your password"
-            },
-            "btn-creer":{
-                "fr": "Créer mon compte",
-                "uk": "Create my account"
-            }   
-        }
+    "texte": {
+      "fr": "Vérifiez vos paramètres de déploiement avant signature !",
+      "uk": "Check your deployment settings before signing!",
+      "de": "Prüfen Sie Ihre Einsatzdaten vor der Bestätigung!"
     },
-
-
-    "page-compte":{
-        "titre":{
-            "fr": "TABLEAU DE BORD DE L’agent",
-            "uk": "Agent's Dashboard"
-        },
-        "texte":{
-            "fr": "Réglez vos paramètres de déploiement et revisitez vos exploits passés !",
-            "uk": "Adjust your deployment settings and revisit your past achievements!"
-        },
-        "profil":{
-            "fr": "PROFIL DE L'AGENT",
-            "uk": "AGENT PROFILE"
-        },
-        "nom":
-        {
-            "fr": "Nom de l’Agent",
-            "uk": "Agent's Name"
-        },
-        "prenom": {
-            "fr": "Prénom de l’Agent",
-            "uk": "Agent's First Name"
-        },
-        "mail": {
-            "fr": "Email",
-            "uk": "E-mail "
-        },
-        "nom-utilisateur": {
-            "fr": "Nom d’Utilisateur",
-            "uk": "User name"
-        },
-        "mdp": {
-            "fr": "Mot de Passe",
-            "uk": "Password"
-        },
-        "nouv-mdp": {
-            "fr": "Nouveau Mot de Passe",
-            "uk": "New Password"
-        },
-        "modif":{
-            "fr": "SCELLER LES MODIFICATIONS",
-            "uk": "SEAL THE CHANGES"
-        },
-        "archive":{
-            "fr": "ARCHIVES DES MISSIONS",
-            "uk": "MISSION ARCHIVES"
-        },
-        "info-modif": {
-            "fr": "Chaque modification est enregistrée dans les registres centraux de l’Agence Lock Out. Restez vigilant, Agent, les murs ont des oreilles... et des engrenages",
-            "uk": "Every change is recorded in the central records of the Lock Out Agency. Stay alert, Agent, the walls have ears... and gears."
-        }
+    "effectif": {
+      "fr": "Effectif : ",
+      "uk": "Staff:",
+      "de": "Teilnehmer:"
     },
-
-
-    "page-contact":{
-        "titre":{
-            "fr": "Nous contacter",
-            "uk": "Contact us"
-        },
-        "nom":{
-            "fr": "Nom",
-            "uk": "Name"
-        },
-        "prenom":{
-            "fr": "Prénom",
-            "uk": "First name"
-        },
-        "envoyer": {
-            "fr": "Envoyer",
-            "uk": "Send"
-        }
+    "deploiement": {
+      "fr": "Déploiement le :  ",
+      "uk": "Deployment on:",
+      "de": "Einsatz am:"
     },
-
-
-    "page-commande":{
-        "article":{
-            "fr": "Articles :",
-            "uk": "Items :"
-        },
-        "pas-article":{
-            "fr": "La commande ne contient pas d'article",
-            "uk": "The order does not contain any items"
-        }
+    "equipement": {
+      "fr": "EQUIPEMENT : ",
+      "uk": "EQUIPMENT :",
+      "de": "AUSRÜSTUNG:"
     },
-
-    "page-commandes":{
-        "afficher":{
-            "fr": "Afficher",
-            "uk": "Display"
-        },
-        "pas-commande":{
-            "fr": "Aucune commande n'est enregistrée dans la liste",
-            "uk": "No orders are recorded in the list."
-        }
+    "lieu": {
+      "fr": "LIEU :",
+      "uk": "PLACE :",
+      "de": "ORT:"
     },
-
-    "page-concept":{
-        "haut": {
-            "concept":{
-                "fr": "Le concept", 
-                "uk": "The concept"
-            },
-            "p1":{
-                "fr": "Découvrez notre univers d’escape games en extérieur. Chaque mission vous plonge dans une aventure unique au cœur de la ville.", 
-                "uk": "Discover our world of outdoor escape games. Each mission immerses you in a unique adventure in the heart of the city."
-            },
-            "p2":{
-                "fr": "Réservez en ligne, formez votre équipe et vivez l’expérience.", 
-                "uk": "Book online, assemble your team and experience it."
-            }
-        },
-        "milieu":{
-            "propos":{
-                "fr": "A propos", 
-                "uk": "About"
-            },
-            "quoi":{
-                "fr": "C'est quoi, un escape game ?", 
-                "uk": "What is an escape game?"
-            },
-            "p1":{
-                "fr": "Un escape game, ou jeu d’évasion grandeur nature, est une activité immersive et ludique où les participants doivent résoudre des énigmes et accomplir des missions dans un temps limité, généralement 60 minutes. Ce jeu se joue en équipe (généralement de 2 à 6 joueurs) et repose sur la coopération, la réflexion et l’esprit d’observation.", 
-                "uk": "An escape game, or real-life escape room, is an immersive and fun activity where participants must solve puzzles and complete missions within a limited time, usually 60 minutes. This game is played in teams (generally 2 to 6 players) and relies on cooperation, problem-solving, and observation skills."
-            },
-            "p2":{
-                "fr": "Notre particularité ? les escapes games en exterieur !", 
-                "uk": "Our unique feature? Outdoor escape games!"
-            },
-            "p3":{
-                "fr": "Les participants explorent un lieu réel (ville, parc, forêt) et suivent une intrigue avec des indices disséminés sur leur parcours.", 
-                "uk": "Participants explore a real location (city, park, forest) and follow a storyline with clues scattered along their route."
-            },
-            "p4":{
-                "fr": "Ils se déclinent en divers scénarios : aventure, enquête policière, science-fiction, horreur, et bien plus encore.", 
-                "uk": "They come in various scenarios: adventure, police investigation, science fiction, horror, and much more."
-            }
-        },
-        "bas":{
-            "qui":{
-                "fr": "Qui sommes nous ?", 
-                "uk": "Who are we ?"
-            },
-            "p1":{
-                "fr": "chez we-escape, vous pourrez redécouvrir le concept d’escape game.", 
-                "uk": "At we-escape, you can rediscover the concept of escape games."
-            },
-            "p2":{
-                "fr": "Que vous soyez innexperimenté ou un passionnés, vous ne serez pas au bout de vos surprises avec notre concept d’escape game en plein air.", 
-                "uk": "Whether you are inexperienced or a passionate enthusiast, you will be constantly surprised by our outdoor escape game concept."
-            },
-            "p3":{
-                "fr": "En effet, nous proposons des scénarios grandeur nature en ville, en foret ou même en montagne ! Votre équipe devra suivre des indices, résoudre des mystères et relever des défis pour progresser dans l’histoire. Chaque rue devient un élément du jeu, chaque détail peut être la clé qui vous rapproche de la victoire.", 
-                "uk": "Indeed, we offer life-sized scenarios in cities, forests, or even mountains! Your team will have to follow clues, solve mysteries, and overcome challenges to progress through the story. Every street becomes an element of the game; every detail could be the key that brings you closer to victory."
-            },
-            "p4":{
-                "fr": "Que vous soyez amateurs de défis intellectuels ou simplement en quête d’une activité ludique entre amis, notre escape game en extérieur vous plonge dans une aventure immersive où l’observation, la logique et l’esprit d’équipe seront vos meilleurs alliés.", 
-                "uk": "Whether you enjoy intellectual challenges or are simply looking for a fun activity with friends, our outdoor escape game immerses you in an adventure where observation, logic, and teamwork will be your best allies."
-            }
-        }
+    "bilan": {
+      "fr": "BILAN FINANCIER",
+      "uk": "FINANCIAL STATEMENT",
+      "de": "FINANZÜBERSICHT"
     },
-
-
-    "page-erreur": {
-        "fr": "Erreur :",
-        "uk": "Error :"
+    "mobilisation": {
+      "fr": "Mobilisation Agents ................. ",
+      "uk": "Mobilization Agents .................",
+      "de": "Mobilisierung Agenten ................."
     },
-
-    "page-escape":{
-        "retour":{
-            "fr": "← Retour aux missions",
-            "uk": "← Back to missions"
-        },
-        "introuvable":{
-            "fr": "Mission introuvable",
-            "uk": "Mission not found"
-        },
-        "sup-fav":{
-            "fr": "♥ Retirer des favoris",
-            "uk": "♥ Remove from favorites"
-        },
-        "add-fav": {
-            "fr": "♡ Ajouter aux favoris",
-            "uk": "♡ Add to favorites"
-        },
-        "reserv":{
-            "fr": "Réserver / Ajouter au panier",
-            "uk": "Reserve / Add to cart"
-        },
-        "choix":{
-            "fr": "Choisissez une version, un créneau et le nombre de joueurs.",
-            "uk": "Choose a version, a time slot and the number of players."
-        },
-        "heure":{
-            "fr": "Heure",
-            "uk": "Hour"
-        },
-        "nb-joueur":{
-            "fr": "Nombre de joueurs",
-            "uk": "Number of players"
-        },
-        "add-panier":{
-            "fr": "Ajouter au panier",
-            "uk": "Add to cart"
-        },
-        "connexion-reserver":{
-            "fr": "Connectez-vous pour réserver ou ajouter au panier.",
-            "uk": "Log in to book or add to cart."
-        }  
-    }, 
-
-
-    "page-escapes":{
-        "mission":{
-            "fr": "Les missions",
-            "uk": "The missions"
-        },
-        "carte":{
-            "fr": "Carte de l'Alsace",
-            "uk": "Map of Alsace"
-        },
-        "pas-mission":{
-            "fr": "Aucune mission disponible pour le moment.",
-            "uk": "No missions available at the moment."
-        },
-        "pas-enreg": {
-            "fr": "Aucune mission n'est enregistrée dans la liste",
-            "uk": "No missions are recorded in the list."
-        }
+    "logistique": {
+      "fr": "Logistique EQUIPEMENT ................ ",
+      "uk": "Logistics EQUIPMENT ................",
+      "de": "Logistik AUSRÜSTUNG ................"
     },
-
-
-    "page-ajout-escape":{}
+    "total": {
+      "fr": "TOTAL À RÉGLER",
+      "uk": "TOTAL DUE",
+      "de": "GESAMTBETRAG"
+    },
+    "paiement": {
+      "fr": "Modes de paiement disponibles",
+      "uk": "Available payment methods",
+      "de": "Verfügbare Zahlungsmethoden"
+    },
+    "valider": {
+      "fr": "VALIDER & PAYER",
+      "uk": "VALIDATE and PAY",
+      "de": "BESTÄTIGEN & BEZAHLEN"
+    }
+  },
+  "page-connexion": {
+    "titre": {
+      "fr": "ACCÈS AU RÉSEAU",
+      "uk": "NETWORK ACCESS",
+      "de": "NETWERKZUGANG"
+    },
+    "texte": {
+      "fr": "Veuillez présenter vos accréditations pour accéder au terminal de mission.",
+      "uk": "Please present your credentials to access the mission terminal.",
+      "de": "Bitte melden Sie sich an, um auf das Missionsterminal zuzugreifen."
+    },
+    "connexion": {
+      "connexion": {
+        "fr": "CONNEXION",
+        "uk": "LOG IN",
+        "de": "ANMELDEN"
+      },
+      "identifiant": {
+        "fr": "Identifiant",
+        "uk": "Identifier",
+        "de": "Kennung"
+      },
+      "mdp": {
+        "fr": "Mot de passe",
+        "uk": "Password",
+        "de": "Passwort"
+      },
+      "btn-acceder": {
+        "fr": "ACCÉDER",
+        "uk": "ACCESS",
+        "de": "ZUGANG"
+      }
+    },
+    "inscription": {
+      "inscription": {
+        "fr": "INSCRIPTION",
+        "uk": "REGISTER",
+        "de": "REGISTRIEREN"
+      },
+      "nom": {
+        "fr": "Nom de l’Agent",
+        "uk": "Agent's Name",
+        "de": "Name des Agenten"
+      },
+      "prenom": {
+        "fr": "Prénom de l’Agent",
+        "uk": "Agent's First Name",
+        "de": "Vorname des Agenten"
+      },
+      "mail": {
+        "fr": "Email",
+        "uk": "E-mail ",
+        "de": "E-Mail"
+      },
+      "nom-utilisateur": {
+        "fr": "Nom d’Utilisateur",
+        "uk": "User name",
+        "de": "Benutzername"
+      },
+      "mdp": {
+        "fr": "Mot de Passe",
+        "uk": "Password",
+        "de": "Passwort"
+      },
+      "verif-mdp": {
+        "fr": "Vérifiez votre Mot de Passe",
+        "uk": "Check your password",
+        "de": "Passwort bestätigen"
+      },
+      "btn-creer": {
+        "fr": "Créer mon compte",
+        "uk": "Create my account",
+        "de": "Konto erstellen"
+      }
+    }
+  },
+  "page-compte": {
+    "titre": {
+      "fr": "TABLEAU DE BORD DE L’agent",
+      "uk": "Agent's Dashboard",
+      "de": "Agenten-Dashboard"
+    },
+    "texte": {
+      "fr": "Réglez vos paramètres de déploiement et revisitez vos exploits passés !",
+      "uk": "Adjust your deployment settings and revisit your past achievements!",
+      "de": "Stellen Sie Ihre Einsatzdaten ein und sehen Sie vergangene Einsätze ein."
+    },
+    "profil": {
+      "fr": "PROFIL DE L'AGENT",
+      "uk": "AGENT PROFILE",
+      "de": "AGENTENPROFIL"
+    },
+    "nom": {
+      "fr": "Nom de l’Agent",
+      "uk": "Agent's Name",
+      "de": "Name des Agenten"
+    },
+    "prenom": {
+      "fr": "Prénom de l’Agent",
+      "uk": "Agent's First Name",
+      "de": "Vorname des Agenten"
+    },
+    "mail": {
+      "fr": "Email",
+      "uk": "E-mail ",
+      "de": "E-Mail"
+    },
+    "nom-utilisateur": {
+      "fr": "Nom d’Utilisateur",
+      "uk": "User name",
+      "de": "Benutzername"
+    },
+    "mdp": {
+      "fr": "Mot de Passe",
+      "uk": "Password",
+      "de": "Passwort"
+    },
+    "nouv-mdp": {
+      "fr": "Nouveau Mot de Passe",
+      "uk": "New Password",
+      "de": "Neues Passwort"
+    },
+    "modif": {
+      "fr": "SCELLER LES MODIFICATIONS",
+      "uk": "SEAL THE CHANGES",
+      "de": "ÄNDERUNGEN SPEICHERN"
+    },
+    "archive": {
+      "fr": "ARCHIVES DES MISSIONS",
+      "uk": "MISSION ARCHIVES",
+      "de": "MISSIONSARCHIV"
+    },
+    "info-modif": {
+      "fr": "Chaque modification est enregistrée dans les registres centraux de l’Agence Lock Out. Restez vigilant, Agent, les murs ont des oreilles... et des engrenages",
+      "uk": "Every change is recorded in the central records of the Lock Out Agency. Stay alert, Agent, the walls have ears... and gears.",
+      "de": "Jede Änderung wird in den zentralen Akten der Lock Out Agency erfasst."
+    }
+  },
+  "page-contact": {
+    "titre": {
+      "fr": "Nous contacter",
+      "uk": "Contact us",
+      "de": "Kontakt"
+    },
+    "nom": {
+      "fr": "Nom",
+      "uk": "Name",
+      "de": "Name"
+    },
+    "prenom": {
+      "fr": "Prénom",
+      "uk": "First name",
+      "de": "Vorname"
+    },
+    "envoyer": {
+      "fr": "Envoyer",
+      "uk": "Send",
+      "de": "Senden"
+    }
+  },
+  "page-commande": {
+    "article": {
+      "fr": "Articles :",
+      "uk": "Items :",
+      "de": "Artikel:"
+    },
+    "pas-article": {
+      "fr": "La commande ne contient pas d'article",
+      "uk": "The order does not contain any items",
+      "de": "Die Bestellung enthält keine Artikel"
+    }
+  },
+  "page-commandes": {
+    "afficher": {
+      "fr": "Afficher",
+      "uk": "Display",
+      "de": "Anzeige"
+    },
+    "pas-commande": {
+      "fr": "Aucune commande n'est enregistrée dans la liste",
+      "uk": "No orders are recorded in the list.",
+      "de": "Keine Bestellungen in der Liste."
+    }
+  },
+  "page-concept": {
+    "haut": {
+      "concept": {
+        "fr": "Le concept",
+        "uk": "The concept",
+        "de": "Das Konzept"
+      },
+      "p1": {
+        "fr": "Découvrez notre univers d’escape games en extérieur. Chaque mission vous plonge dans une aventure unique au cœur de la ville.",
+        "uk": "Discover our world of outdoor escape games. Each mission immerses you in a unique adventure in the heart of the city.",
+        "de": "Entdecken Sie unsere Outdoor-Escape-Games. Jede Mission taucht Sie in ein einzigartiges Abenteuer mitten in der Stadt ein."
+      },
+      "p2": {
+        "fr": "Réservez en ligne, formez votre équipe et vivez l’expérience.",
+        "uk": "Book online, assemble your team and experience it.",
+        "de": "Buchen Sie online, stellen Sie Ihr Team zusammen und erleben Sie es."
+      }
+    },
+    "milieu": {
+      "propos": {
+        "fr": "A propos",
+        "uk": "About",
+        "de": "Über uns"
+      },
+      "quoi": {
+        "fr": "C'est quoi, un escape game ?",
+        "uk": "What is an escape game?",
+        "de": "Was ist ein Escape Game?"
+      },
+      "p1": {
+        "fr": "Un escape game, ou jeu d’évasion grandeur nature, est une activité immersive et ludique où les participants doivent résoudre des énigmes et accomplir des missions dans un temps limité, généralement 60 minutes. Ce jeu se joue en équipe (généralement de 2 à 6 joueurs) et repose sur la coopération, la réflexion et l’esprit d’observation.",
+        "uk": "An escape game, or real-life escape room, is an immersive and fun activity where participants must solve puzzles and complete missions within a limited time, usually 60 minutes. This game is played in teams (generally 2 to 6 players) and relies on cooperation, problem-solving, and observation skills.",
+        "de": "Ein Escape Game ist ein lebensgroßes Rätselspiel, bei dem Teams in begrenzter Zeit Missionen lösen."
+      },
+      "p2": {
+        "fr": "Notre particularité ? les escapes games en exterieur !",
+        "uk": "Our unique feature? Outdoor escape games!",
+        "de": "Unser Markenzeichen? Escape Games unter freiem Himmel!"
+      },
+      "p3": {
+        "fr": "Les participants explorent un lieu réel (ville, parc, forêt) et suivent une intrigue avec des indices disséminés sur leur parcours.",
+        "uk": "Participants explore a real location (city, park, forest) and follow a storyline with clues scattered along their route.",
+        "de": "Die Teilnehmer erkunden echte Orte und folgen einer Geschichte mit versteckten Hinweisen."
+      },
+      "p4": {
+        "fr": "Ils se déclinent en divers scénarios : aventure, enquête policière, science-fiction, horreur, et bien plus encore.",
+        "uk": "They come in various scenarios: adventure, police investigation, science fiction, horror, and much more.",
+        "de": "Es gibt verschiedene Szenarien: Abenteuer, Krimi, Science-Fiction, Horror und mehr."
+      }
+    },
+    "bas": {
+      "qui": {
+        "fr": "Qui sommes nous ?",
+        "uk": "Who are we ?",
+        "de": "Wer sind wir?"
+      },
+      "p1": {
+        "fr": "chez we-escape, vous pourrez redécouvrir le concept d’escape game.",
+        "uk": "At we-escape, you can rediscover the concept of escape games.",
+        "de": "Bei we-escape entdecken Sie das Escape-Game-Konzept neu."
+      },
+      "p2": {
+        "fr": "Que vous soyez innexperimenté ou un passionnés, vous ne serez pas au bout de vos surprises avec notre concept d’escape game en plein air.",
+        "uk": "Whether you are inexperienced or a passionate enthusiast, you will be constantly surprised by our outdoor escape game concept.",
+        "de": "Ob Anfänger oder begeisterter Fan – unser Outdoor-Konzept überrascht Sie."
+      },
+      "p3": {
+        "fr": "En effet, nous proposons des scénarios grandeur nature en ville, en foret ou même en montagne ! Votre équipe devra suivre des indices, résoudre des mystères et relever des défis pour progresser dans l’histoire. Chaque rue devient un élément du jeu, chaque détail peut être la clé qui vous rapproche de la victoire.",
+        "uk": "Indeed, we offer life-sized scenarios in cities, forests, or even mountains! Your team will have to follow clues, solve mysteries, and overcome challenges to progress through the story. Every street becomes an element of the game; every detail could be the key that brings you closer to victory.",
+        "de": "Wir bieten Szenarien in Städten, Wäldern oder Bergen. Ihr Team folgt Hinweisen, löst Rätsel und meistert Herausforderungen."
+      },
+      "p4": {
+        "fr": "Que vous soyez amateurs de défis intellectuels ou simplement en quête d’une activité ludique entre amis, notre escape game en extérieur vous plonge dans une aventure immersive où l’observation, la logique et l’esprit d’équipe seront vos meilleurs alliés.",
+        "uk": "Whether you enjoy intellectual challenges or are simply looking for a fun activity with friends, our outdoor escape game immerses you in an adventure where observation, logic, and teamwork will be your best allies.",
+        "de": "Ob Sie Denksport lieben oder einfach einen Ausflug mit Freunden suchen – Beobachtung, Logik und Teamwork sind Ihre Verbündeten."
+      }
+    }
+  },
+  "page-erreur": {
+    "fr": "Erreur :",
+    "uk": "Error :",
+    "de": "Fehler:"
+  },
+  "page-escape": {
+    "retour": {
+      "fr": "← Retour aux missions",
+      "uk": "← Back to missions",
+      "de": "← Zurück zu den Missionen"
+    },
+    "introuvable": {
+      "fr": "Mission introuvable",
+      "uk": "Mission not found",
+      "de": "Mission nicht gefunden"
+    },
+    "sup-fav": {
+      "fr": "♥ Retirer des favoris",
+      "uk": "♥ Remove from favorites",
+      "de": "♥ Aus Favoriten entfernen"
+    },
+    "add-fav": {
+      "fr": "♡ Ajouter aux favoris",
+      "uk": "♡ Add to favorites",
+      "de": "♡ Zu Favoriten hinzufügen"
+    },
+    "reserv": {
+      "fr": "Réserver / Ajouter au panier",
+      "uk": "Reserve / Add to cart",
+      "de": "Reservieren / In den Warenkorb"
+    },
+    "choix": {
+      "fr": "Choisissez une version, un créneau et le nombre de joueurs.",
+      "uk": "Choose a version, a time slot and the number of players.",
+      "de": "Wählen Sie Version, Zeitfenster und Spieleranzahl."
+    },
+    "heure": {
+      "fr": "Heure",
+      "uk": "Hour",
+      "de": "Uhr"
+    },
+    "nb-joueur": {
+      "fr": "Nombre de joueurs",
+      "uk": "Number of players",
+      "de": "Anzahl Spieler"
+    },
+    "add-panier": {
+      "fr": "Ajouter au panier",
+      "uk": "Add to cart",
+      "de": "In den Warenkorb"
+    },
+    "connexion-reserver": {
+      "fr": "Connectez-vous pour réserver ou ajouter au panier.",
+      "uk": "Log in to book or add to cart.",
+      "de": "Melden Sie sich an, um zu buchen oder in den Warenkorb zu legen."
+    }
+  },
+  "page-escapes": {
+    "mission": {
+      "fr": "Les missions",
+      "uk": "The missions",
+      "de": "Die Missionen"
+    },
+    "carte": {
+      "fr": "Carte de l'Alsace",
+      "uk": "Map of Alsace",
+      "de": "Karte des Elsass"
+    },
+    "pas-mission": {
+      "fr": "Aucune mission disponible pour le moment.",
+      "uk": "No missions available at the moment.",
+      "de": "Derzeit keine Missionen verfügbar."
+    },
+    "pas-enreg": {
+      "fr": "Aucune mission n'est enregistrée dans la liste",
+      "uk": "No missions are recorded in the list.",
+      "de": "Keine Missionen in der Liste."
+    }
+  },
+  "page-ajout-escape": {}
 }

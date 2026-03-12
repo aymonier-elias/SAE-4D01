@@ -18,6 +18,7 @@
       <div class="menu_langue" aria-hidden="true">
         <img src="img/svg/fr.svg" alt="" data-lang="fr">
         <img src="img/svg/uk.svg" alt="" data-lang="uk">
+        <img src="img/svg/de.svg" alt="" data-lang="de">
       </div>
     </nav>
     <?php
