@@ -57,21 +57,6 @@ $fil_ariane = array(
                 <h3>Briefings de la mission</h3>
                 <p class="description"><?= nl2br(htmlspecialchars($escape['Description'] ?? '')) ?></p>
                 <div class="links">
-                    <?php if (isset($_SESSION['acces'])): ?>
-                        <?php if ($est_favori): ?>
-                            <a href="index.php?action=retirerFavori&id_escape=<?= $id_escape ?>&retour=<?= $retour_escape ?>"
-                                class="cta">
-                                <img src="img/svg/fav.svg" alt="">
-                                Retirer des favoris
-                            </a>
-                        <?php else: ?>
-                            <a href="index.php?action=ajouterFavori&id_escape=<?= $id_escape ?>&retour=<?= $retour_escape ?>"
-                                class="cta">
-                                <img src="img/svg/unfav.svg" alt="">
-                                Ajouter aux favoris
-                            </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
                     <a href="#bloc-panier" class="cta">Réserver</a>
                 </div>
             </div>
